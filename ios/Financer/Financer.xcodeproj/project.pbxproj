@@ -14,6 +14,8 @@
 		3F40FB28290D936500BA2F83 /* FinancerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F40FB27290D936500BA2F83 /* FinancerUITests.swift */; };
 		3F40FB2A290D936500BA2F83 /* FinancerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F40FB29290D936500BA2F83 /* FinancerUITestsLaunchTests.swift */; };
 		3F40FB6E290D942F00BA2F83 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F40FB6D290D942F00BA2F83 /* Home.swift */; };
+		3FDFEA67290E5A32005B778C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDFEA66290E5A32005B778C /* User.swift */; };
+		3FDFEA6C290E5BF8005B778C /* CreateUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDFEA6B290E5BF8005B778C /* CreateUser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		3F40FB27290D936500BA2F83 /* FinancerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancerUITests.swift; sourceTree = "<group>"; };
 		3F40FB29290D936500BA2F83 /* FinancerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		3F40FB6D290D942F00BA2F83 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		3FDFEA66290E5A32005B778C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3FDFEA6B290E5BF8005B778C /* CreateUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUser.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +99,8 @@
 			isa = PBXGroup;
 			children = (
 				3F40FB0C290D936400BA2F83 /* FinancerApp.swift */,
+				3FDFEA6A290E5BDD005B778C /* Views */,
+				3FDFEA65290E5A1F005B778C /* Models */,
 				3F40FB6D290D942F00BA2F83 /* Home.swift */,
 				3F40FB10290D936500BA2F83 /* Assets.xcassets */,
 				3F40FB12290D936500BA2F83 /* Preview Content */,
@@ -125,6 +131,22 @@
 				3F40FB29290D936500BA2F83 /* FinancerUITestsLaunchTests.swift */,
 			);
 			path = FinancerUITests;
+			sourceTree = "<group>";
+		};
+		3FDFEA65290E5A1F005B778C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3FDFEA66290E5A32005B778C /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3FDFEA6A290E5BDD005B778C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3FDFEA6B290E5BF8005B778C /* CreateUser.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +281,8 @@
 			files = (
 				3F40FB6E290D942F00BA2F83 /* Home.swift in Sources */,
 				3F40FB0D290D936400BA2F83 /* FinancerApp.swift in Sources */,
+				3FDFEA6C290E5BF8005B778C /* CreateUser.swift in Sources */,
+				3FDFEA67290E5A32005B778C /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,6 +444,7 @@
 				DEVELOPMENT_TEAM = Q87UDX5898;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -449,6 +474,7 @@
 				DEVELOPMENT_TEAM = Q87UDX5898;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

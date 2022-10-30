@@ -7,9 +7,31 @@
 
 import SwiftUI
 
-struct Home: View {
+/// Home View
+internal struct Home: View {
+
+    /// Initializer without User.
+    /// Used if the App User has not
+    /// creeated a User Account to that point.
+    internal init() {
+        user = nil
+    }
+
+    /// Initializer with User.
+    /// Mostly used.
+    internal init(user : User) {
+        self.user = user
+    }
+
+    private let user : User?
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            List {
+
+            }.navigationTitle("Welcome \(user?.name ?? "")")
+                .navigationBarTitleDisplayMode(.automatic)
+        }
     }
 }
 
