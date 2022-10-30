@@ -23,6 +23,7 @@ internal struct Home: View {
         self.user = user
     }
 
+    /// The User logged in.
     private let user : User?
 
     var body: some View {
