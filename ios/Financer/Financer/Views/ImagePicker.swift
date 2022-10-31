@@ -19,7 +19,7 @@ internal struct ImagePicker : UIViewControllerRepresentable {
     internal let conf : PHPickerConfiguration
 
     /// The picked Image
-    @Binding internal var pickedImage : UIImage
+    @Binding internal var pickedImage : UIImage?
 
     /// Whether this View is shown or not.
     @Binding internal var isPresented : Bool
@@ -31,7 +31,7 @@ internal struct ImagePicker : UIViewControllerRepresentable {
     }
 
     internal func updateUIViewController(_ uiViewController: PHPickerViewController, context: Context) {
-
+        // TODO: add Code
     }
 
     internal func makeCoordinator() -> ImagePickerCoordinator {
@@ -52,6 +52,12 @@ internal final class ImagePickerCoordinator : PHPickerViewControllerDelegate {
 
     internal func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         parent.isPresented = false
-        if let image = results[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+        guard let provider = results.first?.itemProvider else { return }
+        if provider.canLoadObject(ofClass: UIImage.self) {
+            provider.loadObject(ofClass: UIImage.self) {
+                image, _ in
+                self.parent.pickedImage = image as? UIImage
+            }
+        }
     }
 }

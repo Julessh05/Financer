@@ -21,8 +21,9 @@ internal struct CreateUser: View {
     @State private var date : Date = Date()
 
     /// Whether the Photo Library is shown or not.
-    @State private var isLibraryShown = false
+    @State private var isLibraryShown : Bool = false
 
+    /// The Image PIcked by the User
     @State private var pickedImage : UIImage?
 
     var body: some View {
@@ -56,7 +57,7 @@ internal struct CreateUser: View {
                 Spacer()
 
                 Button {
-
+                    // TODO: add Action Code
                 } label: {
                     HStack {
                         Image(systemName: "plus")
@@ -69,12 +70,12 @@ internal struct CreateUser: View {
                     .cornerRadius(20)
                 }
                 .sheet(isPresented: $isLibraryShown) {
-                    var conf : PHPickerConfiguration = PHPickerConfiguration(
-                        photoLibrary: .shared())
-                    conf.filter = .images
-                    conf.selectionLimit = 1
-                    conf.preferredAssetRepresentationMode = .automatic
-                    ImagePicker(conf: conf, pickedImage: $pickedImage, isPresented: $isLibraryShown)
+                    var conf : PHPickerConfiguration = PHPickerConfiguration(photoLibrary: .shared());
+                    ImagePicker(conf: conf, pickedImage: $pickedImage, isPresented: $isLibraryShown).onAppear {
+                        conf.filter = .images
+                        conf.preferredAssetRepresentationMode = .automatic
+                        conf.selectionLimit = 1
+                    }
                 }
             }.navigationTitle("Create User")
                 .navigationBarTitleDisplayMode(.automatic)
