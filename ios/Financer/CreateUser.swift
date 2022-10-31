@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 /// View to create a User
 internal struct CreateUser: View {
@@ -18,6 +19,11 @@ internal struct CreateUser: View {
 
     /// The Date of Birth of the User
     @State private var date : Date = Date()
+
+    /// Whether the Photo Library is shown or not.
+    @State private var isLibraryShown = false
+
+    @State private var pickedImage : UIImage?
 
     var body: some View {
         GeometryReader { metrics in
@@ -33,7 +39,7 @@ internal struct CreateUser: View {
                     .padding(.all, 25)
                     .clipShape(Circle())
                     .onTapGesture {
-                        // TODO: Add Action Code
+                        isLibraryShown.toggle()
                     }
 
                 HStack {
@@ -47,6 +53,29 @@ internal struct CreateUser: View {
                 DatePicker("Date of Birth", selection: $date,displayedComponents: [.date])
                     .datePickerStyle(.automatic)
 
+                Spacer()
+
+                Button {
+
+                } label: {
+                    HStack {
+                        Image(systemName: "plus")
+                        Text("Add User").font(.headline)
+                    }
+                    .frame(width: metrics.size.width / 1.2,
+                           height: metrics.size.height / 15)
+                    .foregroundColor(.white)
+                    .background(Color.blue)
+                    .cornerRadius(20)
+                }
+                .sheet(isPresented: $isLibraryShown) {
+                    var conf : PHPickerConfiguration = PHPickerConfiguration(
+                        photoLibrary: .shared())
+                    conf.filter = .images
+                    conf.selectionLimit = 1
+                    conf.preferredAssetRepresentationMode = .automatic
+                    ImagePicker(conf: conf, pickedImage: $pickedImage, isPresented: $isLibraryShown)
+                }
             }.navigationTitle("Create User")
                 .navigationBarTitleDisplayMode(.automatic)
                 .textFieldStyle(.roundedBorder)
