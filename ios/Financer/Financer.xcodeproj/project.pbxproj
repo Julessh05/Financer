@@ -14,6 +14,8 @@
 		3F40FB28290D936500BA2F83 /* FinancerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F40FB27290D936500BA2F83 /* FinancerUITests.swift */; };
 		3F40FB2A290D936500BA2F83 /* FinancerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F40FB29290D936500BA2F83 /* FinancerUITestsLaunchTests.swift */; };
 		3F40FB6E290D942F00BA2F83 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F40FB6D290D942F00BA2F83 /* Home.swift */; };
+		3F8AB0502916BC2B00FF907E /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8AB04F2916BC2B00FF907E /* Storage.swift */; };
+		3F8AB0532916BF5600FF907E /* EnviromentalExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8AB0522916BF5600FF907E /* EnviromentalExtensions.swift */; };
 		3FD48BCD290F9AED00DA118A /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD48BCC290F9AED00DA118A /* ImagePicker.swift */; };
 		3FDFEA67290E5A32005B778C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDFEA66290E5A32005B778C /* User.swift */; };
 		3FDFEA6C290E5BF8005B778C /* CreateUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDFEA6B290E5BF8005B778C /* CreateUser.swift */; };
@@ -47,6 +49,8 @@
 		3F40FB27290D936500BA2F83 /* FinancerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancerUITests.swift; sourceTree = "<group>"; };
 		3F40FB29290D936500BA2F83 /* FinancerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		3F40FB6D290D942F00BA2F83 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		3F8AB04F2916BC2B00FF907E /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		3F8AB0522916BF5600FF907E /* EnviromentalExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnviromentalExtensions.swift; sourceTree = "<group>"; };
 		3FD48BCC290F9AED00DA118A /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		3FDFEA66290E5A32005B778C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3FDFEA6B290E5BF8005B778C /* CreateUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUser.swift; sourceTree = SOURCE_ROOT; };
@@ -100,6 +104,8 @@
 		3F40FB0B290D936400BA2F83 /* Financer */ = {
 			isa = PBXGroup;
 			children = (
+				3F8AB0512916BF3B00FF907E /* Logic */,
+				3F8AB04E2916BC0C00FF907E /* Storage */,
 				3F40FB0C290D936400BA2F83 /* FinancerApp.swift */,
 				3FDFEA6A290E5BDD005B778C /* Views */,
 				3FDFEA65290E5A1F005B778C /* Models */,
@@ -133,6 +139,22 @@
 				3F40FB29290D936500BA2F83 /* FinancerUITestsLaunchTests.swift */,
 			);
 			path = FinancerUITests;
+			sourceTree = "<group>";
+		};
+		3F8AB04E2916BC0C00FF907E /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				3F8AB04F2916BC2B00FF907E /* Storage.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		3F8AB0512916BF3B00FF907E /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				3F8AB0522916BF5600FF907E /* EnviromentalExtensions.swift */,
+			);
+			path = Logic;
 			sourceTree = "<group>";
 		};
 		3FDFEA65290E5A1F005B778C /* Models */ = {
@@ -285,8 +307,10 @@
 				3F40FB6E290D942F00BA2F83 /* Home.swift in Sources */,
 				3F40FB0D290D936400BA2F83 /* FinancerApp.swift in Sources */,
 				3FD48BCD290F9AED00DA118A /* ImagePicker.swift in Sources */,
+				3F8AB0532916BF5600FF907E /* EnviromentalExtensions.swift in Sources */,
 				3FDFEA6C290E5BF8005B778C /* CreateUser.swift in Sources */,
 				3FDFEA67290E5A32005B778C /* User.swift in Sources */,
+				3F8AB0502916BC2B00FF907E /* Storage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct FinancerApp: App {
+    let user : User = User(name: "", lastname: "", date: Date())
     var body: some Scene {
         WindowGroup {
             Home()

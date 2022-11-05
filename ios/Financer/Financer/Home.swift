@@ -10,30 +10,24 @@ import SwiftUI
 /// Home View
 internal struct Home: View {
 
-    /// Initializer without User.
-    /// Used if the App User has not
-    /// creeated a User Account to that point.
-    internal init() {
-        user = nil
-    }
+    @Environment(\.currentUser) var user
 
-    /// Initializer with User.
-    /// Mostly used.
-    internal init(user : User) {
-        self.user = user
-    }
-
-    /// The User logged in.
-    private let user : User?
-
-    var body: some View {
+    internal var body: some View {
         NavigationView {
-            List {
+            ScrollView {
 
-            }.navigationTitle("Welcome \(user?.name ?? "")")
-                .navigationBarTitleDisplayMode(.automatic)
+            }
+            .navigationTitle("Welcome \(user.name)")
+            .navigationBarTitleDisplayMode(.automatic)
+            .toolbar(.automatic, for: .navigationBar)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    user.picture != nil ? Image(uiImage: user.picture!) : Image(systemName: "person.circle.fill")
+                }
+            }
         }
     }
+
 }
 
 struct Home_Previews: PreviewProvider {

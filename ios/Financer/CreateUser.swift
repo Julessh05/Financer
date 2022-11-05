@@ -32,6 +32,7 @@ internal struct CreateUser: View {
                 Image(systemName: "person.crop.circle.fill.badge.plus")
                     .resizable()
                     .renderingMode(.original)
+                    .scaledToFit()
                     .frame(
                         width: metrics.size.height / 8,
                         height: metrics.size.height / 9.5,
@@ -41,6 +42,14 @@ internal struct CreateUser: View {
                     .clipShape(Circle())
                     .onTapGesture {
                         isLibraryShown.toggle()
+                    }
+                    .sheet(isPresented: $isLibraryShown) {
+                        var conf : PHPickerConfiguration = PHPickerConfiguration(photoLibrary: .shared());
+                        ImagePicker(conf: conf, pickedImage: $pickedImage, isPresented: $isLibraryShown).onAppear {
+                            conf.filter = .images
+                            conf.preferredAssetRepresentationMode = .automatic
+                            conf.selectionLimit = 1
+                        }
                     }
 
                 HStack {
@@ -57,7 +66,7 @@ internal struct CreateUser: View {
                 Spacer()
 
                 Button {
-                    // TODO: add Action Code
+                    _ = environment(\.currentUser, User(name: name, lastname: lastname, date: date, picture: pickedImage))
                 } label: {
                     HStack {
                         Image(systemName: "plus")
@@ -69,14 +78,7 @@ internal struct CreateUser: View {
                     .background(Color.blue)
                     .cornerRadius(20)
                 }
-                .sheet(isPresented: $isLibraryShown) {
-                    var conf : PHPickerConfiguration = PHPickerConfiguration(photoLibrary: .shared());
-                    ImagePicker(conf: conf, pickedImage: $pickedImage, isPresented: $isLibraryShown).onAppear {
-                        conf.filter = .images
-                        conf.preferredAssetRepresentationMode = .automatic
-                        conf.selectionLimit = 1
-                    }
-                }
+
             }.navigationTitle("Create User")
                 .navigationBarTitleDisplayMode(.automatic)
                 .textFieldStyle(.roundedBorder)
