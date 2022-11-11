@@ -111,7 +111,6 @@
 				3F40FB0C290D936400BA2F83 /* FinancerApp.swift */,
 				3FDFEA6A290E5BDD005B778C /* Views */,
 				3FDFEA65290E5A1F005B778C /* Models */,
-				3F40FB6D290D942F00BA2F83 /* Home.swift */,
 				3F40FB10290D936500BA2F83 /* Assets.xcassets */,
 				3F40FB12290D936500BA2F83 /* Preview Content */,
 			);
@@ -170,6 +169,7 @@
 		3FDFEA6A290E5BDD005B778C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3F40FB6D290D942F00BA2F83 /* Home.swift */,
 				3FDFEA6B290E5BF8005B778C /* CreateUser.swift */,
 				3FD48BCC290F9AED00DA118A /* ImagePicker.swift */,
 				3FAA137E2917982C00D25AB1 /* UserDetails.swift */,
