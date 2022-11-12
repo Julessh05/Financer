@@ -66,6 +66,7 @@ internal struct CreateUser: View {
                 Spacer()
 
                 Button {
+                    // TODO: change
                     _ = environment(\.currentUser, User(name: name, lastname: lastname, date: date, picture: pickedImage))
                 } label: {
                     HStack {
@@ -87,8 +88,8 @@ internal struct CreateUser: View {
     }
 }
 
-struct CreateUser_Previews: PreviewProvider {
-    static var previews: some View {
-        CreateUser()
+    struct CreateUser_Previews: PreviewProvider {
+        static var previews: some View {
+            CreateUser()
+        }
     }
-}

@@ -38,6 +38,15 @@ internal struct User {
         picture = nil
     }
 
+    /// Whether this User is an anonymous User,
+    /// or an acutal one, which the User of the App
+    /// created.
+    internal var isAnonymous : Bool {
+        get {
+            return name.isEmpty && lastname.isEmpty
+        }
+    }
+
     /// The first Name of this User
     internal let name : String
 

@@ -13,13 +13,19 @@ internal struct Storage {
 
     /// Loads all the Data from
     /// the local Storage
-    internal func load() -> Void {
+    static internal func load() -> Void {
 
     }
 
     /// Stores all the Data to
     /// the local Storage
-    internal func store() -> Void {
+    static internal func store() -> Void {
+
+    }
+
+    /// Deletes all Data from
+    /// the local Storage
+    static internal func eraseAllData() -> Void {
 
     }
 }
