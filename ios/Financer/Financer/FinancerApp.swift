@@ -12,7 +12,6 @@ struct FinancerApp: App {
     var body: some Scene {
         WindowGroup {
             Home()
-                .environment(\.currentUser, User(name: "Test", lastname: "LOL", date: Date()))
         }
     }
 }

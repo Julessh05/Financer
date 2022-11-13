@@ -9,8 +9,10 @@ import SwiftUI
 
 /// View to display the User Data
 struct UserDetails: View {
-    @Environment(\.currentUser) private var user
+    /// The current User of this App
+    @Binding internal var user : User
 
+    /// Whether the Confirmation Dialog is presented or not
     @State private var dialogPresented : Bool = false
 
     var body: some View {
@@ -29,7 +31,7 @@ struct UserDetails: View {
                     }
                     .confirmationDialog("Are your sure?", isPresented: $dialogPresented, titleVisibility: .visible) {
                         Button("Yes", role: .destructive) {
-                            Storage.eraseAllData()
+                            SecureStorage.eraseAllData()
                         }
                     }
                     .foregroundColor(.red)
@@ -58,7 +60,7 @@ struct UserDetails: View {
                 Text("No User is logged in")
             }
             Spacer()
-            NavigationLink(destination: CreateUser()) {
+            NavigationLink(destination: CreateUser(user: $user)) {
                 HStack {
                     Image("person.crop.circle.fill.badge.plus")
                     Text("Add User")
@@ -69,7 +71,7 @@ struct UserDetails: View {
             List {
                 listTile(title: "Name", value: user.name)
                 listTile(title: "Lastname", value: user.lastname)
-                listTile(title: "Date of Birht", value: user.dateOfBirth.formatted(date: .abbreviated, time: .omitted))
+                listTile(title: "Date of Birth", value: user.dateOfBirth.formatted(date: .abbreviated, time: .omitted))
             }
         }
     }
@@ -77,16 +79,20 @@ struct UserDetails: View {
     /// Returns a List Tile, that can be used
     /// to display Information about the User
     @ViewBuilder
-    private func listTile(title : String, value : String) -> HStack<TupleView<(Text, Text)>> {
-        HStack {
+    private func listTile(title : String, value : String) -> HStack<TupleView<(Text, Spacer, Text)>> {
+        HStack(alignment: .center) {
             Text(title)
+            Spacer()
             Text(value)
         }
     }
 }
 
 struct UserDetails_Previews: PreviewProvider {
+    /// The User used in this Preview
+    @State static private var localPreviewUser : User = User()
+
     static var previews: some View {
-        UserDetails()
+        UserDetails(user: $localPreviewUser)
     }
 }

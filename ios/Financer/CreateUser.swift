@@ -26,6 +26,11 @@ internal struct CreateUser: View {
     /// The Image PIcked by the User
     @State private var pickedImage : UIImage?
 
+    /// The Action to dismiss this View
+    @Environment(\.dismiss) private var dismiss : DismissAction
+
+    @Binding internal var user : User
+
     var body: some View {
         GeometryReader { metrics in
             VStack {
@@ -51,7 +56,6 @@ internal struct CreateUser: View {
                             conf.selectionLimit = 1
                         }
                     }
-
                 HStack {
                     TextField("Name", text: $name)
                         .textContentType(.givenName)
@@ -66,8 +70,8 @@ internal struct CreateUser: View {
                 Spacer()
 
                 Button {
-                    // TODO: change
-                    _ = environment(\.currentUser, User(name: name, lastname: lastname, date: date, picture: pickedImage))
+                    user = User(name: name, lastname: lastname, date: date, picture: pickedImage)
+                    dismiss()
                 } label: {
                     HStack {
                         Image(systemName: "plus")
@@ -80,16 +84,18 @@ internal struct CreateUser: View {
                     .cornerRadius(20)
                 }
 
-            }.navigationTitle("Create User")
-                .navigationBarTitleDisplayMode(.automatic)
-                .textFieldStyle(.roundedBorder)
-                .padding(.horizontal, 10)
-        }
+            }.padding(.horizontal, 10)
+        }.navigationTitle("Create User")
+            .navigationBarTitleDisplayMode(.automatic)
+            .textFieldStyle(.roundedBorder)
     }
 }
 
-    struct CreateUser_Previews: PreviewProvider {
-        static var previews: some View {
-            CreateUser()
-        }
+struct CreateUser_Previews: PreviewProvider {
+    /// The Uset used in this Preview
+    @State static private var user : User = User()
+
+    static var previews: some View {
+        CreateUser(user: $user)
     }
+}

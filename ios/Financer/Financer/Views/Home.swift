@@ -11,13 +11,12 @@ import SwiftUI
 /// This is the View shown when the User opens
 /// the App.
 internal struct Home: View {
-    /// The current User stored in the Environment
-    @Environment(\.currentUser) private var user
+    /// The current User used in this App
+    @State private var user : User = User()
 
     internal var body: some View {
         NavigationView {
             ScrollView {
-
             }
             .navigationTitle("Welcome")
             .navigationBarTitleDisplayMode(.automatic)
@@ -25,7 +24,7 @@ internal struct Home: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink(
-                        destination: UserDetails(), label: profileIcon
+                        destination: UserDetails(user: $user), label: profileIcon
                     )
 
                 }

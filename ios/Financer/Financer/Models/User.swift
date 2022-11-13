@@ -13,6 +13,18 @@ import UIKit
 /// in this App.
 internal struct User {
 
+    /// The first Name of this User
+    internal let name : String
+
+    /// The last Name of this User
+    internal let lastname : String
+
+    /// Their Date of Birth
+    internal let dateOfBirth : Date
+
+    /// The "Profile Picture" of this User.
+    internal let picture : UIImage?
+
     /// Initializer with all Values
     internal init(name : String, lastname : String, date : Date, picture : UIImage?) {
         self.name = name
@@ -38,6 +50,29 @@ internal struct User {
         picture = nil
     }
 
+    /// Initializer when Loading this User
+    /// from the Storage
+    internal init(dictionary : [String : Any]) {
+        for data in dictionary {
+            switch data.key{
+                case User.dictionaryKeys[0]:
+                        name = data.value as! String
+                    break;
+                case User.dictionaryKeys[1]:
+                    lastname = data.value as! String
+                    break;
+                case User.dictionaryKeys[2]:
+                    dateOfBirth = data.value as! Date
+                    break;
+                case User.dictionaryKeys[3]:
+                    picture = data.value as? UIImage
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
     /// Whether this User is an anonymous User,
     /// or an acutal one, which the User of the App
     /// created.
@@ -47,15 +82,21 @@ internal struct User {
         }
     }
 
-    /// The first Name of this User
-    internal let name : String
+    /// Returns this User as a Dictionary with al values.
+    internal func toDictionary() -> [String : Any] {
+        return [
+            User.dictionaryKeys[0] : name,
+            User.dictionaryKeys[1] : lastname,
+            User.dictionaryKeys[2] : dateOfBirth,
+            User.dictionaryKeys[3] : picture,
+        ]
+    }
 
-    /// The last Name of this User
-    internal let lastname : String
-
-    /// Their Date of Birth
-    internal let dateOfBirth : Date
-
-    /// The "Profile Picture" of this User.
-    internal let picture : UIImage?
+    /// The Keys when converting the User
+    /// into a Dictionary
+    static internal var dictionaryKeys : [String] {
+        get {
+            return ["name", "lastname", "date", "picture"]
+        }
+    }
 }
