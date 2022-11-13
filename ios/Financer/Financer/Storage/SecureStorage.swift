@@ -9,7 +9,7 @@
 import Foundation
 import Security
 
-/// Struct to store, load and
+/// Struct securly to store, load and
 /// interact with the Storage
 internal struct SecureStorage {
     

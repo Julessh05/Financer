@@ -53,7 +53,7 @@ struct UserDetails: View {
     /// if one exists.
     @ViewBuilder
     private func buildBody() -> some View {
-        if user.isAnonymous {
+        if user.isAnonymous() {
             Spacer()
             HStack {
                 Image(systemName: "person.fill.xmark")

@@ -11,7 +11,7 @@ import UIKit
 /// The Struct that represents a
 /// single User and all their Information
 /// in this App.
-internal struct User {
+internal struct User : Codable {
 
     /// The first Name of this User
     internal let name : String
@@ -53,33 +53,39 @@ internal struct User {
     /// Initializer when Loading this User
     /// from the Storage
     internal init(dictionary : [String : Any]) {
+        var localName : String = ""
+        var localLastname : String = ""
+        var localDate : Date = Date()
+        var localImage : UIImage?
         for data in dictionary {
-            switch data.key{
+            switch data.key {
                 case User.dictionaryKeys[0]:
-                        name = data.value as! String
+                    localName = data.value as! String
                     break;
                 case User.dictionaryKeys[1]:
-                    lastname = data.value as! String
+                    localLastname = data.value as! String
                     break;
                 case User.dictionaryKeys[2]:
-                    dateOfBirth = data.value as! Date
+                    localDate = data.value as! Date
                     break;
                 case User.dictionaryKeys[3]:
-                    picture = data.value as? UIImage
+                    localImage = data.value as? UIImage
                     break;
                 default:
                     break;
             }
         }
+        name = localName
+        lastname = localLastname
+        dateOfBirth = localDate
+        picture = localImage
     }
 
     /// Whether this User is an anonymous User,
     /// or an acutal one, which the User of the App
     /// created.
-    internal var isAnonymous : Bool {
-        get {
-            return name.isEmpty && lastname.isEmpty
-        }
+    internal lazy var isAnonymous = {
+        name.isEmpty && lastname.isEmpty
     }
 
     /// Returns this User as a Dictionary with al values.
