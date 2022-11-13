@@ -10,20 +10,14 @@ import Foundation
 import Security
 
 /// Struct securly to store, load and
-/// interact with the Storage
+/// interact with the Storage using native Keychain
 internal struct SecureStorage {
-    
-    /// Loads all the Data from
-    /// the local Storage
-    static internal func load() -> LoadResult {
-        return LoadResult(user: loadUser())
-    }
 
-    static private func loadUser() -> User {
-        var userData : [String : Any] = [ : ]
-
+    /// Loads the UserData from the Keychain
+    static internal func loadUser() -> [String : String] {
+        var userData : [String : String] = [ : ]
         for key in User.dictionaryKeys {
-            let result : CFTypeRef?
+            let result : AnyObject
             let query : [CFString : Any] = [
                 kSecClass : kSecClassKey,
                 kSecAttrLabel : key,
@@ -31,40 +25,41 @@ internal struct SecureStorage {
             ]
             let status = SecItemCopyMatching(query as CFDictionary, &result)
             guard status == errSecSuccess else {
-                return User();
+                return [:]
             }
             userData[key] = result
         }
-        
-    }
-    
-    /// Stores all the Data to
-    /// the local Storage
-    static internal func store(user : User) -> Void {
-        storeUser(user: user)
+        return userData
     }
 
-    static private func storeUser(user : User) -> Void {
+    /// Stores the User to the Keychain
+    static internal func storeUser(user : User) -> Void {
         for data in user.toDictionary() {
-            let query : [CFString : Any] = [
-                kSecClass : kSecClassKey,
+            let query : [CFString : String] = [
+                kSecClass : kSecClassKey as String,
                 kSecAttrLabel : data.key,
                 kSecValueData : data.value,
             ]
-
             let status = SecItemAdd(query as CFDictionary, nil)
-
             guard status == errSecSuccess else {
-                return;
+                return
             }
         }
     }
     
     /// Deletes all Data from
     /// the local Storage
-    static internal func eraseAllData() -> Void {
-        
-        // Close app
-        exit(0)
+    static internal func deleteData() -> Void {
+        for data in User.dictionaryKeys {
+            let query : [CFString : String] = [
+                kSecClass : kSecClassKey as String,
+                kSecAttrLabel : data,
+            ]
+            let status = SecItemDelete(query as CFDictionary)
+            guard status == errSecSuccess else {
+                return
+            }
+        }
+
     }
 }

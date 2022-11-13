@@ -11,7 +11,7 @@ import UIKit
 /// The Struct that represents a
 /// single User and all their Information
 /// in this App.
-internal struct User : Codable {
+internal struct User {
 
     /// The first Name of this User
     internal let name : String
@@ -25,6 +25,35 @@ internal struct User : Codable {
     /// The "Profile Picture" of this User.
     internal let picture : UIImage?
 
+    /// Initializer without any Values.
+    /// Can be used to create an anonymous user.
+    internal init() {
+        let userData : [String : String] = SecureStorage.loadUser()
+        var localName : String = ""
+        var localLastname : String = ""
+        var localDate : String = ""
+        for data in userData {
+            switch data.key {
+                case User.dictionaryKeys[0]:
+                    localName = data.value
+                    break;
+                case User.dictionaryKeys[1]:
+                    localLastname = data.value
+                    break;
+                case User.dictionaryKeys[2]:
+                    localDate = data.value
+                    break;
+                default:
+                    break;
+            }
+        }
+        name = localName
+        lastname = localLastname
+        dateOfBirth = ISO8601DateFormatter().date(from: localDate) ?? Date()
+        picture = Storage.loadUserImage()
+    }
+
+
     /// Initializer with all Values
     internal init(name : String, lastname : String, date : Date, picture : UIImage?) {
         self.name = name
@@ -33,68 +62,21 @@ internal struct User : Codable {
         self.picture = picture
     }
 
-    /// Initializer for User without a Picture
-    internal init(name : String, lastname : String, date : Date) {
-        self.name = name
-        self.lastname = lastname
-        self.dateOfBirth = date
-        picture = nil
-    }
-
-    /// Initializer without any Values.
-    /// Can be used to create an anonymous user.
-    internal init() {
-        name = ""
-        lastname = ""
-        dateOfBirth = Date()
-        picture = nil
-    }
-
-    /// Initializer when Loading this User
-    /// from the Storage
-    internal init(dictionary : [String : Any]) {
-        var localName : String = ""
-        var localLastname : String = ""
-        var localDate : Date = Date()
-        var localImage : UIImage?
-        for data in dictionary {
-            switch data.key {
-                case User.dictionaryKeys[0]:
-                    localName = data.value as! String
-                    break;
-                case User.dictionaryKeys[1]:
-                    localLastname = data.value as! String
-                    break;
-                case User.dictionaryKeys[2]:
-                    localDate = data.value as! Date
-                    break;
-                case User.dictionaryKeys[3]:
-                    localImage = data.value as? UIImage
-                    break;
-                default:
-                    break;
-            }
-        }
-        name = localName
-        lastname = localLastname
-        dateOfBirth = localDate
-        picture = localImage
-    }
-
     /// Whether this User is an anonymous User,
     /// or an acutal one, which the User of the App
     /// created.
-    internal lazy var isAnonymous = {
-        name.isEmpty && lastname.isEmpty
+    internal var isAnonymous : Bool {
+        get {
+            name.isEmpty && lastname.isEmpty
+        }
     }
 
     /// Returns this User as a Dictionary with al values.
-    internal func toDictionary() -> [String : Any] {
+    internal func toDictionary() -> [String : String] {
         return [
             User.dictionaryKeys[0] : name,
             User.dictionaryKeys[1] : lastname,
-            User.dictionaryKeys[2] : dateOfBirth,
-            User.dictionaryKeys[3] : picture,
+            User.dictionaryKeys[2] : dateOfBirth.ISO8601Format(.iso8601),
         ]
     }
 
@@ -102,7 +84,7 @@ internal struct User : Codable {
     /// into a Dictionary
     static internal var dictionaryKeys : [String] {
         get {
-            return ["name", "lastname", "date", "picture"]
+            return ["name", "lastname", "date"]
         }
     }
 }

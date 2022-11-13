@@ -72,6 +72,7 @@ internal struct CreateUser: View {
                 Button {
                     user = User(name: name, lastname: lastname, date: date, picture: pickedImage)
                     Storage.storeImage(pickedImage)
+                    SecureStorage.storeUser(user: user)
                     dismiss()
                 } label: {
                     HStack {
