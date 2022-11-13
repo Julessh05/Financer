@@ -26,12 +26,18 @@ internal struct CreateUser: View {
     /// The Image PIcked by the User
     @State private var pickedImage : UIImage?
 
+    /// The Action to dismiss this View
+    @Environment(\.dismiss) private var dismiss : DismissAction
+
+    @Binding internal var user : User
+
     var body: some View {
         GeometryReader { metrics in
             VStack {
                 Image(systemName: "person.crop.circle.fill.badge.plus")
                     .resizable()
                     .renderingMode(.original)
+                    .scaledToFit()
                     .frame(
                         width: metrics.size.height / 8,
                         height: metrics.size.height / 9.5,
@@ -42,7 +48,14 @@ internal struct CreateUser: View {
                     .onTapGesture {
                         isLibraryShown.toggle()
                     }
-
+                    .sheet(isPresented: $isLibraryShown) {
+                        var conf : PHPickerConfiguration = PHPickerConfiguration(photoLibrary: .shared());
+                        ImagePicker(conf: conf, pickedImage: $pickedImage, isPresented: $isLibraryShown).onAppear {
+                            conf.filter = .images
+                            conf.preferredAssetRepresentationMode = .automatic
+                            conf.selectionLimit = 1
+                        }
+                    }
                 HStack {
                     TextField("Name", text: $name)
                         .textContentType(.givenName)
@@ -57,7 +70,10 @@ internal struct CreateUser: View {
                 Spacer()
 
                 Button {
-                    // TODO: add Action Code
+                    user = User(name: name, lastname: lastname, date: date, picture: pickedImage)
+                    Storage.storeImage(pickedImage)
+                    SecureStorage.storeUser(user: user)
+                    dismiss()
                 } label: {
                     HStack {
                         Image(systemName: "plus")
@@ -69,24 +85,19 @@ internal struct CreateUser: View {
                     .background(Color.blue)
                     .cornerRadius(20)
                 }
-                .sheet(isPresented: $isLibraryShown) {
-                    var conf : PHPickerConfiguration = PHPickerConfiguration(photoLibrary: .shared());
-                    ImagePicker(conf: conf, pickedImage: $pickedImage, isPresented: $isLibraryShown).onAppear {
-                        conf.filter = .images
-                        conf.preferredAssetRepresentationMode = .automatic
-                        conf.selectionLimit = 1
-                    }
-                }
-            }.navigationTitle("Create User")
-                .navigationBarTitleDisplayMode(.automatic)
-                .textFieldStyle(.roundedBorder)
-                .padding(.horizontal, 10)
-        }
+
+            }.padding(.horizontal, 10)
+        }.navigationTitle("Create User")
+            .navigationBarTitleDisplayMode(.automatic)
+            .textFieldStyle(.roundedBorder)
     }
 }
 
 struct CreateUser_Previews: PreviewProvider {
+    /// The Uset used in this Preview
+    @State static private var user : User = User()
+
     static var previews: some View {
-        CreateUser()
+        CreateUser(user: $user)
     }
 }
