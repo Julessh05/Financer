@@ -17,7 +17,7 @@ internal struct SecureStorage {
     static internal func loadUser() -> [String : String] {
         var userData : [String : String] = [ : ]
         for key in User.dictionaryKeys {
-            let result : AnyObject
+            var result : AnyObject?
             let query : [CFString : Any] = [
                 kSecClass : kSecClassKey,
                 kSecAttrLabel : key,
@@ -27,7 +27,7 @@ internal struct SecureStorage {
             guard status == errSecSuccess else {
                 return [:]
             }
-            userData[key] = result
+            userData[key] = result as? String
         }
         return userData
     }
