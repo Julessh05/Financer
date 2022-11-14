@@ -47,6 +47,11 @@ internal struct Storage {
         }
     }
 
+    /// Deletes all Data stored by this App.
+    /// It deletes the unencrypted Files like the User Image, all
+    /// Files with Information as well as everything in the UserDefaults,
+    /// all encrypted Files and all encrypted Data stored
+    /// in the Keychain
     static internal func eraseAllData() -> Void {
         SecureStorage.deleteData()
         deleteImage()

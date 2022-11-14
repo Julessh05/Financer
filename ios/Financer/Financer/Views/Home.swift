@@ -45,6 +45,7 @@ internal struct Home: View {
                 .background(.clear)
                 .foregroundColor(.primary)
                 .buttonStyle(.plain)
+                .clipShape(Circle())
         }
     }
 }
