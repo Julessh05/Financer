@@ -49,7 +49,7 @@ internal struct CreateUser: View {
                         isLibraryShown.toggle()
                     }
                     .sheet(isPresented: $isLibraryShown) {
-                        var conf : PHPickerConfiguration = PHPickerConfiguration(photoLibrary: .shared());
+                        var conf : PHPickerConfiguration = PHPickerConfiguration(photoLibrary: .shared())
                         ImagePicker(conf: conf, pickedImage: $pickedImage, isPresented: $isLibraryShown).onAppear {
                             conf.filter = .images
                             conf.preferredAssetRepresentationMode = .automatic
