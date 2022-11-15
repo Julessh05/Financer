@@ -16,7 +16,16 @@ internal struct Home: View {
 
     internal var body: some View {
         NavigationView {
-            ScrollView {
+            VStack {
+                List {
+
+                }
+                NavigationLink(destination: AddFinance()) {
+                    HStack {
+                        Image(systemName: "plus")
+                        Text("Add Finance")
+                    }
+                }
             }
             .navigationTitle("Welcome")
             .navigationBarTitleDisplayMode(.automatic)
