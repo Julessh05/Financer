@@ -10,41 +10,33 @@ import Foundation
 /// A single Company in this App.
 internal final class Company : LegalPerson {
 
-    /// The Relation between this
-    /// Company and the User
-    internal enum Relation {
-        /// The User is an Employee of this Company
-        case employee
-
-        /// The User is an external working Person
-        /// that is arranged in this Company
-        case externalWorker
-
-        /// A Customer of this Company
-        case customer
-
-        /// A single Supplier of this Company.
-        case supplier
-
-        /// The CEO of this Company
-        case ceo
-
-        /// The User is a Share Holder of this Company.
-        /// The Incomes and Expenses are dividents.
-        case shareholder
-    }
-
     /// The URL of the Homepage of this Company
-    internal let homepage : URL
+    internal let homepage : URL?
 
-    /// The Relation between this App's User
-    /// and the Company
-    internal let relation : Relation
+    /// The Phone Number of this Company
+    internal let phone : String
 
     /// Initializer with all Values
-    internal init(name : String, homepage: URL, relation: Relation) {
+    internal init(
+        name : String,
+        relation : CompanyRelation,
+        homepage: URL?,
+        phone : String
+    ) {
         self.homepage = homepage
-        self.relation = relation
-        super.init(name: name)
+        self.phone = phone
+        super.init(name: name, relation : relation)
+    }
+
+    /// Initializer with all Values
+    /// exept of the optional Phone Number
+    internal init(
+        name : String,
+        relation : CompanyRelation,
+        homepage: URL?
+    ) {
+        self.homepage = homepage
+        self.phone = ""
+        super.init(name: name, relation : relation)
     }
 }

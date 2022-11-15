@@ -9,6 +9,5 @@ import Foundation
 
 /// The Protocol that represents a single
 /// Income of this User.
-internal final class Income : Finance {
-    
+internal final class Income : Finance {    
 }

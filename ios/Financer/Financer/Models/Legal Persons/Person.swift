@@ -10,6 +10,11 @@ import Foundation
 /// A single Person this User
 /// has financial Internactions with.
 internal final class Person : LegalPerson {
+
+    
+    init(name: String, relation: PersonRelation) {
+        super.init(name: name, relation: relation)
+    }
 }
 
 
