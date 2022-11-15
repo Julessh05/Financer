@@ -61,14 +61,14 @@ internal struct CreateLegalPerson: View {
         .navigationTitle("Add Finance")
         .navigationBarTitleDisplayMode(.automatic)
     }
-    
+
     @ViewBuilder
     private func specificArea() -> some View {
 
     }
 }
 
-struct AddFinance_Previews: PreviewProvider {
+struct CreateLegalPerson_Previews: PreviewProvider {
     static var previews: some View {
         CreateLegalPerson()
     }
