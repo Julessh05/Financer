@@ -36,15 +36,15 @@ internal struct User {
             switch data.key {
                 case User.dictionaryKeys[0]:
                     localName = data.value
-                    break;
+                    break
                 case User.dictionaryKeys[1]:
                     localLastname = data.value
-                    break;
+                    break
                 case User.dictionaryKeys[2]:
                     localDate = data.value
-                    break;
+                    break
                 default:
-                    break;
+                    break
             }
         }
         name = localName
