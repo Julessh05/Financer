@@ -11,15 +11,23 @@ import SwiftUI
 struct LegalPersonChooser: View {
     var body: some View {
         HStack {
+            Spacer()
             VStack {
-                Image(sys)
+                Image(systemName: "person")
+                Text("Person")
+                
             }
+            Spacer()
             VStack {
-
+                Image(systemName: "globe")
+                Text("Company")
             }
+            Spacer()
             VStack {
-
+                Image(systemName: "person.fill")
+                Text("")
             }
+            Spacer()
         }
     }
 }
