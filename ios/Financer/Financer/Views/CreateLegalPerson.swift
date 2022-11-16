@@ -14,6 +14,9 @@ internal struct CreateLegalPerson: View {
     internal enum LegalPersonType : String, CaseIterable, Identifiable {
         var id : Self { self }
 
+        /// no Value given
+        case none
+
         /// This Legal Person is
         /// a Company
         case company
@@ -26,14 +29,8 @@ internal struct CreateLegalPerson: View {
         case person
     }
 
-    init(legalPersonType : LegalPersonType) {
-        _legalPersonType = State(
-            initialValue: legalPersonType
-        )
-    }
-
     /// The Type of this Legal Person that is beeing added.
-    @State private var legalPersonType : LegalPersonType
+    @State private var legalPersonType : LegalPersonType = .none
 
     /// The Name of the Legal Person
     @State private var name : String = ""
@@ -80,17 +77,26 @@ internal struct CreateLegalPerson: View {
             }
             Button {
                 // TODO: add Action Code
-            } label: {
-                HStack {
-                    Image(systemName: "plus")
-                    Text("Add \(legalPersonType.rawValue.capitalized)")
-                }
-            }
+            } label: { btnLabel() }
         }
         .textFieldStyle(.plain)
         .pickerStyle(.automatic)
         .navigationTitle("Add Finance")
         .navigationBarTitleDisplayMode(.automatic)
+    }
+
+    /// Builds and returns the Label of the
+    /// Button
+    @ViewBuilder
+    private func btnLabel() -> some View {
+        if legalPersonType != .none {
+            HStack {
+                Image(systemName: "plus")
+                Text("Add \(legalPersonType.rawValue.capitalized)")
+            }
+        } else {
+            Text("Not enough Values")
+        }
     }
 
     /// Builds and renders the Area with the
@@ -126,9 +132,13 @@ internal struct CreateLegalPerson: View {
                                     Text(relation.rawValue.capitalized)
                                 }
                             }
+                        default:
+                            EmptyView()
                     }
                     phoneNumberField()
                 }
+            default:
+                EmptyView()
         }
     }
 
@@ -154,6 +164,6 @@ internal struct CreateLegalPerson: View {
 
 struct CreateLegalPerson_Previews: PreviewProvider {
     static var previews: some View {
-        CreateLegalPerson(legalPersonType: .person)
+        CreateLegalPerson()
     }
 }
