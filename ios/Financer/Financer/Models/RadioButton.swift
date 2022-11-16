@@ -8,24 +8,19 @@
 import Foundation
 import SwiftUI
 
-/// A single Radio Button Representation
-internal struct RadioButton : Identifiable {
-    var id: UUID
+/// An Object to represent a single Radio Buttons Data
+internal struct RadioButtonData : Identifiable {
+    internal var id: UUID
 
     /// The Name of this Button
-    let name : String
+    internal let name : String
 
     /// the Image of this Button
-    let image : Image
-
-    /// Whether this Item
-    /// is selected or not
-    var selected : Bool
+    internal let image : Image
 
     init(name: String, image: Image) {
         id = UUID()
         self.name = name
         self.image = image
-        selected = false
     }
 }

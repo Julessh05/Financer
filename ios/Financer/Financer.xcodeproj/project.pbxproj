@@ -20,7 +20,8 @@
 		3F7608C22924BA89006CCE79 /* Union.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7608C12924BA89006CCE79 /* Union.swift */; };
 		3F7608C42924BCC0006CCE79 /* LegalPersonChooser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7608C32924BCC0006CCE79 /* LegalPersonChooser.swift */; };
 		3F7608C72924BEBC006CCE79 /* RadioButtonGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7608C62924BEBC006CCE79 /* RadioButtonGroup.swift */; };
-		3F7608C92924C0E2006CCE79 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7608C82924C0E2006CCE79 /* RadioButton.swift */; };
+		3F7608C92924C0E2006CCE79 /* RadioButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7608C82924C0E2006CCE79 /* RadioButtons.swift */; };
+		3F7608CB29254239006CCE79 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7608CA29254239006CCE79 /* RadioButton.swift */; };
 		3F8AB0502916BC2B00FF907E /* SecureStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8AB04F2916BC2B00FF907E /* SecureStorage.swift */; };
 		3FA1721F291FFE7900D5868F /* LoadResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA1721E291FFE7900D5868F /* LoadResult.swift */; };
 		3FA172212920DBC800D5868F /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA172202920DBC800D5868F /* Storage.swift */; };
@@ -70,7 +71,8 @@
 		3F7608C12924BA89006CCE79 /* Union.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Union.swift; sourceTree = "<group>"; };
 		3F7608C32924BCC0006CCE79 /* LegalPersonChooser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalPersonChooser.swift; sourceTree = "<group>"; };
 		3F7608C62924BEBC006CCE79 /* RadioButtonGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonGroup.swift; sourceTree = "<group>"; };
-		3F7608C82924C0E2006CCE79 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
+		3F7608C82924C0E2006CCE79 /* RadioButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtons.swift; sourceTree = "<group>"; };
+		3F7608CA29254239006CCE79 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
 		3F8AB04F2916BC2B00FF907E /* SecureStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureStorage.swift; sourceTree = "<group>"; };
 		3FA1721E291FFE7900D5868F /* LoadResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadResult.swift; sourceTree = "<group>"; };
 		3FA172202920DBC800D5868F /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 		3F7608C52924BEA8006CCE79 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				3F7608C82924C0E2006CCE79 /* RadioButtons.swift */,
 				3F7608C62924BEBC006CCE79 /* RadioButtonGroup.swift */,
 			);
 			path = Components;
@@ -232,7 +235,7 @@
 				3FD1F6DF2922507200A098A3 /* Finances */,
 				3FA1721E291FFE7900D5868F /* LoadResult.swift */,
 				3FDFEA66290E5A32005B778C /* User.swift */,
-				3F7608C82924C0E2006CCE79 /* RadioButton.swift */,
+				3F7608CA29254239006CCE79 /* RadioButton.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -392,12 +395,13 @@
 				3FA1721F291FFE7900D5868F /* LoadResult.swift in Sources */,
 				3FD1F6E12922507D00A098A3 /* Income.swift in Sources */,
 				3F40FB0D290D936400BA2F83 /* FinancerApp.swift in Sources */,
-				3F7608C92924C0E2006CCE79 /* RadioButton.swift in Sources */,
+				3F7608C92924C0E2006CCE79 /* RadioButtons.swift in Sources */,
 				3F20C1A32923CD4B0018F21B /* CreateLegalPerson.swift in Sources */,
 				3FD1F6EA292252E800A098A3 /* LegalPerson.swift in Sources */,
 				3FD48BCD290F9AED00DA118A /* ImagePicker.swift in Sources */,
 				3F20C1A52923CE3A0018F21B /* Organization.swift in Sources */,
 				3F20C1A7292405BF0018F21B /* AddFinance.swift in Sources */,
+				3F7608CB29254239006CCE79 /* RadioButton.swift in Sources */,
 				3FA172212920DBC800D5868F /* Storage.swift in Sources */,
 				3FDFEA6C290E5BF8005B778C /* CreateUser.swift in Sources */,
 				3FDFEA67290E5A32005B778C /* User.swift in Sources */,

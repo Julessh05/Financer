@@ -14,43 +14,48 @@ internal struct RadioButtonGroup: View {
     internal let axis : Axis
 
     /// The Items of this View
-    internal let items : [RadioButton]
+    internal let items : [RadioButtonData]
 
     var body: some View {
         if axis == .horizontal {
             HStack {
-                forEach()
+                list()
             }
         } else {
             VStack {
-                forEach()
+                list()
             }
         }
     }
 
     @ViewBuilder
-    private func forEach() -> some View {
+    private func list() -> some View {
+        Spacer()
         ForEach(items) { item in
-            item.image
-            Text(item.name)
-            circleBtn(item: item)
-        }
-    }
-
-    @ViewBuilder
-    private func circleBtn(item : Binding<RadioButton>) -> some View {
-        Button {
-
-        } label: {
-            item.wrappedValue.selected ?
-            Image(systemName: "circle.fill") :
-            Image(systemName: "circle")
+            if axis == .horizontal {
+                RadioButtonHorizontal(
+                    name: item.name,
+                    image: item.image
+                )
+            } else {
+                RadioButtonVertical(
+                    name: item.name,
+                    image: item.image
+                )
+            }
+            Spacer()
         }
     }
 }
 
 struct RadioButtonGroup_Previews: PreviewProvider {
     static var previews: some View {
-        RadioButtonGroup(axis: .vertical, items: [RadioButton(name: "Person", image: Image(systemName: "person"))])
+        RadioButtonGroup(
+            axis: .horizontal,
+            items: [
+                RadioButtonData(name: "Person", image: Image(systemName: "person")),
+                RadioButtonData(name: "Company", image: Image(systemName: "globe"))
+            ]
+        )
     }
 }

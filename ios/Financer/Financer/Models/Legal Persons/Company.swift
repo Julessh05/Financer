@@ -25,6 +25,5 @@ internal final class Company : Union {
             notes: notes,
             homepage: homepage
         )
-
     }
 }
