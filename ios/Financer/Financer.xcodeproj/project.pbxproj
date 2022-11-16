@@ -17,6 +17,7 @@
 		3F40FB28290D936500BA2F83 /* FinancerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F40FB27290D936500BA2F83 /* FinancerUITests.swift */; };
 		3F40FB2A290D936500BA2F83 /* FinancerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F40FB29290D936500BA2F83 /* FinancerUITestsLaunchTests.swift */; };
 		3F40FB6E290D942F00BA2F83 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F40FB6D290D942F00BA2F83 /* Home.swift */; };
+		3F7608C22924BA89006CCE79 /* Union.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7608C12924BA89006CCE79 /* Union.swift */; };
 		3F8AB0502916BC2B00FF907E /* SecureStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8AB04F2916BC2B00FF907E /* SecureStorage.swift */; };
 		3FA1721F291FFE7900D5868F /* LoadResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA1721E291FFE7900D5868F /* LoadResult.swift */; };
 		3FA172212920DBC800D5868F /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA172202920DBC800D5868F /* Storage.swift */; };
@@ -63,6 +64,7 @@
 		3F40FB27290D936500BA2F83 /* FinancerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancerUITests.swift; sourceTree = "<group>"; };
 		3F40FB29290D936500BA2F83 /* FinancerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		3F40FB6D290D942F00BA2F83 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		3F7608C12924BA89006CCE79 /* Union.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Union.swift; sourceTree = "<group>"; };
 		3F8AB04F2916BC2B00FF907E /* SecureStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureStorage.swift; sourceTree = "<group>"; };
 		3FA1721E291FFE7900D5868F /* LoadResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadResult.swift; sourceTree = "<group>"; };
 		3FA172202920DBC800D5868F /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
@@ -162,6 +164,15 @@
 			path = FinancerUITests;
 			sourceTree = "<group>";
 		};
+		3F7608C02924BA39006CCE79 /* Abstracts */ = {
+			isa = PBXGroup;
+			children = (
+				3FD1F6E9292252E800A098A3 /* LegalPerson.swift */,
+				3F7608C12924BA89006CCE79 /* Union.swift */,
+			);
+			path = Abstracts;
+			sourceTree = "<group>";
+		};
 		3F8AB04E2916BC0C00FF907E /* Storage */ = {
 			isa = PBXGroup;
 			children = (
@@ -191,9 +202,9 @@
 		3FD1F6E4292250F400A098A3 /* Legal Persons */ = {
 			isa = PBXGroup;
 			children = (
+				3F7608C02924BA39006CCE79 /* Abstracts */,
 				3FD1F6E52922510D00A098A3 /* Company.swift */,
 				3FD1F6E72922529500A098A3 /* Person.swift */,
-				3FD1F6E9292252E800A098A3 /* LegalPerson.swift */,
 				3F20C1A42923CE3A0018F21B /* Organization.swift */,
 			);
 			path = "Legal Persons";
@@ -357,6 +368,7 @@
 				3F40FB6E290D942F00BA2F83 /* Home.swift in Sources */,
 				3FAA137F2917982C00D25AB1 /* UserDetails.swift in Sources */,
 				3FD1F6DE2922502B00A098A3 /* Finance.swift in Sources */,
+				3F7608C22924BA89006CCE79 /* Union.swift in Sources */,
 				3FD1F6E82922529500A098A3 /* Person.swift in Sources */,
 				3FA1721F291FFE7900D5868F /* LoadResult.swift in Sources */,
 				3FD1F6E12922507D00A098A3 /* Income.swift in Sources */,

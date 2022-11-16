@@ -11,9 +11,18 @@ import Foundation
 /// has financial Internactions with.
 internal final class Person : LegalPerson {
 
-    
-    init(name: String, relation: PersonRelation) {
-        super.init(name: name, relation: relation)
+    init(
+        name: String,
+        relation: PersonRelation,
+        phone : String,
+        notes : String
+    ) {
+        super.init(
+            name: name,
+            relation: relation,
+            phone: phone,
+            notes: notes
+        )
     }
 }
 
