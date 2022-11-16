@@ -11,11 +11,8 @@ import SwiftUI
 /// View to create a new Legal Person
 internal struct CreateLegalPerson: View {
     /// The Type of this Legal Person
-    private enum LegalPersonType : String, CaseIterable, Identifiable {
+    internal enum LegalPersonType : String, CaseIterable, Identifiable {
         var id : Self { self }
-
-        /// No Value given
-        case none
 
         /// This Legal Person is
         /// a Company
@@ -29,8 +26,14 @@ internal struct CreateLegalPerson: View {
         case person
     }
 
+    init(legalPersonType : LegalPersonType) {
+        _legalPersonType = State(
+            initialValue: legalPersonType
+        )
+    }
+
     /// The Type of this Legal Person that is beeing added.
-    @State private var legalPersonType : LegalPersonType = .none
+    @State private var legalPersonType : LegalPersonType
 
     /// The Name of the Legal Person
     @State private var name : String = ""
@@ -80,7 +83,7 @@ internal struct CreateLegalPerson: View {
             } label: {
                 HStack {
                     Image(systemName: "plus")
-                    Text("Add Legal Person")
+                    Text("Add \(legalPersonType.rawValue.capitalized)")
                 }
             }
         }
@@ -108,7 +111,6 @@ internal struct CreateLegalPerson: View {
                                 }
                             }
                             homepageField()
-                            phoneNumberField()
                         case .organization:
                             Picker(pickerName, selection: $organizationRelation) {
                                 ForEach(LegalPerson.OrganizationRelation.allCases) {
@@ -116,6 +118,7 @@ internal struct CreateLegalPerson: View {
                                     Text(relation.rawValue.capitalized)
                                 }
                             }
+                            homepageField()
                         case .person:
                             Picker(pickerName, selection: $personRelation) {
                                 ForEach(LegalPerson.PersonRelation.allCases) {
@@ -123,12 +126,9 @@ internal struct CreateLegalPerson: View {
                                     Text(relation.rawValue.capitalized)
                                 }
                             }
-                        default:
-                            EmptyView()
                     }
+                    phoneNumberField()
                 }
-            default:
-                EmptyView()
         }
     }
 
@@ -154,6 +154,6 @@ internal struct CreateLegalPerson: View {
 
 struct CreateLegalPerson_Previews: PreviewProvider {
     static var previews: some View {
-        CreateLegalPerson()
+        CreateLegalPerson(legalPersonType: .person)
     }
 }
