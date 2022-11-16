@@ -11,10 +11,10 @@ import SwiftUI
 /// View to create a new Legal Person
 internal struct CreateLegalPerson: View {
     /// The Type of this Legal Person
-    private enum LegalPersonType : String, CaseIterable, Identifiable {
+    internal enum LegalPersonType : String, CaseIterable, Identifiable {
         var id : Self { self }
 
-        /// No Value given
+        /// no Value given
         case none
 
         /// This Legal Person is
@@ -77,17 +77,26 @@ internal struct CreateLegalPerson: View {
             }
             Button {
                 // TODO: add Action Code
-            } label: {
-                HStack {
-                    Image(systemName: "plus")
-                    Text("Add Legal Person")
-                }
-            }
+            } label: { btnLabel() }
         }
         .textFieldStyle(.plain)
         .pickerStyle(.automatic)
         .navigationTitle("Add Finance")
         .navigationBarTitleDisplayMode(.automatic)
+    }
+
+    /// Builds and returns the Label of the
+    /// Button
+    @ViewBuilder
+    private func btnLabel() -> some View {
+        if legalPersonType != .none {
+            HStack {
+                Image(systemName: "plus")
+                Text("Add \(legalPersonType.rawValue.capitalized)")
+            }
+        } else {
+            Text("Not enough Values")
+        }
     }
 
     /// Builds and renders the Area with the
@@ -108,7 +117,6 @@ internal struct CreateLegalPerson: View {
                                 }
                             }
                             homepageField()
-                            phoneNumberField()
                         case .organization:
                             Picker(pickerName, selection: $organizationRelation) {
                                 ForEach(LegalPerson.OrganizationRelation.allCases) {
@@ -116,6 +124,7 @@ internal struct CreateLegalPerson: View {
                                     Text(relation.rawValue.capitalized)
                                 }
                             }
+                            homepageField()
                         case .person:
                             Picker(pickerName, selection: $personRelation) {
                                 ForEach(LegalPerson.PersonRelation.allCases) {
@@ -126,6 +135,7 @@ internal struct CreateLegalPerson: View {
                         default:
                             EmptyView()
                     }
+                    phoneNumberField()
                 }
             default:
                 EmptyView()

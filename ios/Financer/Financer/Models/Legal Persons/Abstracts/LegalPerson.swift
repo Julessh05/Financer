@@ -76,9 +76,22 @@ internal class LegalPerson {
     /// the User of this App
     internal let relation : any Relation
 
+    /// The Phone Number of this Legal Person
+    internal let phone : String
+
+    /// The Notes to this Object
+    internal let notes : String
+
     /// Initializer with all Values
-    internal init(name : String, relation : any Relation) {
+    internal init(
+        name : String,
+        relation : any Relation,
+        phone : String,
+        notes : String
+    ) {
         self.name = name
         self.relation = relation
+        self.phone = phone
+        self.notes = notes
     }
 }
