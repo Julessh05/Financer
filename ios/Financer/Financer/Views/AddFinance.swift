@@ -11,7 +11,13 @@ import SwiftUI
 /// to this App
 internal struct AddFinance: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Menu("Type") {
+                
+            }
+        }
+        .navigationTitle("Add Finance")
+        .navigationBarTitleDisplayMode(.automatic)
     }
 }
 

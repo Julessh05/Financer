@@ -95,7 +95,7 @@ internal struct CreateLegalPerson: View {
                 Text("Add \(legalPersonType.rawValue.capitalized)")
             }
         } else {
-            Text("Not enough Values")
+            Text("Not enough Data")
         }
     }
 
