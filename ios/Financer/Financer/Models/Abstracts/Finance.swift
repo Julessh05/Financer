@@ -16,11 +16,15 @@ internal class Finance {
     /// used in those classes
     internal typealias Money = Double
 
-    internal init(amount : Money) {
-        self.amount = amount
-    }
-
     /// The Amount of Money
     /// this Finance is linked to.
     internal let amount : Money
+
+    /// The Legal Person this Finance is connected to
+    internal let legalPerson : LegalPerson
+
+    internal init(amount : Money, legalPerson : LegalPerson) {
+        self.amount = amount
+        self.legalPerson = legalPerson
+    }
 }
