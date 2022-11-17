@@ -10,27 +10,9 @@ import SwiftUI
 
 /// View to create a new Legal Person
 internal struct CreateLegalPerson: View {
-    /// The Type of this Legal Person
-    internal enum LegalPersonType : String, CaseIterable, Identifiable {
-        var id : Self { self }
-
-        /// no Value given
-        case none
-
-        /// This Legal Person is
-        /// a Company
-        case company
-
-        /// This Legal Person is
-        /// an Organization
-        case organization
-
-        /// This Legal Person is a person
-        case person
-    }
 
     /// The Type of this Legal Person that is beeing added.
-    @State private var legalPersonType : LegalPersonType = .none
+    @State private var legalPersonType : LegalPerson.LegalPersonType = .none
 
     /// The Name of the Legal Person
     @State private var name : String = ""
@@ -67,7 +49,7 @@ internal struct CreateLegalPerson: View {
                 }
                 Section("Type") {
                     Picker("Type", selection: $legalPersonType) {
-                        ForEach(LegalPersonType.allCases) {
+                        ForEach(LegalPerson.LegalPersonType.allCases) {
                             type in
                             Text(type.rawValue.capitalized)
                         }

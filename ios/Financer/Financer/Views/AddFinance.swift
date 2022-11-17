@@ -20,6 +20,10 @@ internal struct AddFinance: View {
 
     @State private var financeType : FinanceType = .income
 
+    @State private var amount : String = ""
+
+    @State private var legalPerson : LegalPerson.LegalPersonType = .none
+
     var body: some View {
         VStack {
             Picker("Type", selection: $financeType) {
@@ -29,16 +33,39 @@ internal struct AddFinance: View {
                 }
             }
             .pickerStyle(.segmented)
-            buildBody()
+            TextField("Amount", text: $amount)
+                .keyboardType(.decimalPad)
+                .textFieldStyle(.roundedBorder)
+            Spacer()
+                .frame(height: 50)
+            Text("Legal Person")
+                .font(.title2)
+            Picker("Legal Person", selection: $legalPerson) {
+                ForEach(LegalPerson.LegalPersonType.allCases) { item in
+                    Text(item.rawValue.capitalized)
+                }
+            }
+            .pickerStyle(.segmented)
+            buildLegalPersonPicker()
+            Spacer()
         }
         .padding(.horizontal, 15)
         .navigationTitle("Add Finance")
         .navigationBarTitleDisplayMode(.automatic)
     }
 
+    /// Builds the Input Section
+    /// depending on the legal Person Type
     @ViewBuilder
-    private func buildBody() -> some View {
-        Spacer()
+    private func buildLegalPersonPicker() -> some View {
+        switch legalPerson {
+            case .person, .company, .organization:
+                ForEach() {
+                    
+                }
+            default:
+                EmptyView()
+        }
     }
 }
 

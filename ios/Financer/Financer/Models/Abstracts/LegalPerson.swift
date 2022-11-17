@@ -15,6 +15,26 @@ internal protocol Relation : CaseIterable, Identifiable {}
 /// The class all Legal Persons extend from
 internal class LegalPerson {
 
+
+    /// The Type of this Legal Person
+    internal enum LegalPersonType : String, CaseIterable, Identifiable {
+        var id : Self { self }
+
+        /// no Value given
+        case none
+
+        /// This Legal Person is
+        /// a Company
+        case company
+
+        /// This Legal Person is
+        /// an Organization
+        case organization
+
+        /// This Legal Person is a person
+        case person
+    }
+
     /// The Relation if this Legal Person
     /// is a Company
     internal enum CompanyRelation : String, Relation {
