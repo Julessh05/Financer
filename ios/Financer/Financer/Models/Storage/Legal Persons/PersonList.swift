@@ -1,5 +1,5 @@
 //
-//  LegalPersonsList.swift
+//  PersonList.swift
 //  Financer
 //
 //  Created by Julian Schumacher on 18.11.22.
@@ -7,6 +7,4 @@
 
 import Foundation
 
-internal struct LegalPersonsList {
-    
-}
+internal final class PersonList : ModelsList<Person> {}

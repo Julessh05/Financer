@@ -11,13 +11,6 @@ import SwiftUI
 /// to this App
 internal struct AddFinance: View {
 
-    private enum FinanceType : String, Identifiable, CaseIterable {
-        var id : Self { self }
-
-        case income
-        case expense
-    }
-
     @State private var financeType : FinanceType = .income
 
     @State private var amount : String = ""
