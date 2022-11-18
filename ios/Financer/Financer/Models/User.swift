@@ -53,6 +53,8 @@ internal struct User {
         picture = Storage.loadUserImage()
     }
 
+    /// The current User of ths App.
+    static internal var currentUser : User = User()
 
     /// Initializer with all Values
     internal init(name : String, lastname : String, date : Date, picture : UIImage?) {

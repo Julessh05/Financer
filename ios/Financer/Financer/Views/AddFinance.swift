@@ -60,9 +60,7 @@ internal struct AddFinance: View {
     private func buildLegalPersonPicker() -> some View {
         switch legalPerson {
             case .person, .company, .organization:
-                ForEach() {
-                    
-                }
+                EmptyView()
             default:
                 EmptyView()
         }
