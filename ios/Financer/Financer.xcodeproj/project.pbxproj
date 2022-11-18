@@ -24,6 +24,7 @@
 		3F87B6C42928305700E49F0B /* PersonList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87B6C32928305700E49F0B /* PersonList.swift */; };
 		3F87B6C62928306000E49F0B /* OrganizationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87B6C52928306000E49F0B /* OrganizationList.swift */; };
 		3F87B6C82928306600E49F0B /* CompanyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87B6C72928306600E49F0B /* CompanyList.swift */; };
+		3F87B6CB2928388800E49F0B /* ModelsListProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87B6CA2928388800E49F0B /* ModelsListProtocol.swift */; };
 		3F8AB0502916BC2B00FF907E /* SecureStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8AB04F2916BC2B00FF907E /* SecureStorage.swift */; };
 		3FA172212920DBC800D5868F /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA172202920DBC800D5868F /* Storage.swift */; };
 		3FAA137F2917982C00D25AB1 /* UserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA137E2917982C00D25AB1 /* UserDetails.swift */; };
@@ -76,6 +77,7 @@
 		3F87B6C32928305700E49F0B /* PersonList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonList.swift; sourceTree = "<group>"; };
 		3F87B6C52928306000E49F0B /* OrganizationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationList.swift; sourceTree = "<group>"; };
 		3F87B6C72928306600E49F0B /* CompanyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyList.swift; sourceTree = "<group>"; };
+		3F87B6CA2928388800E49F0B /* ModelsListProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsListProtocol.swift; sourceTree = "<group>"; };
 		3F8AB04F2916BC2B00FF907E /* SecureStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureStorage.swift; sourceTree = "<group>"; };
 		3FA172202920DBC800D5868F /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		3FAA137E2917982C00D25AB1 /* UserDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetails.swift; sourceTree = "<group>"; };
@@ -212,6 +214,14 @@
 			path = "Legal Persons";
 			sourceTree = "<group>";
 		};
+		3F87B6C92928387E00E49F0B /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				3F87B6CA2928388800E49F0B /* ModelsListProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		3F8AB04E2916BC0C00FF907E /* Storage */ = {
 			isa = PBXGroup;
 			children = (
@@ -243,6 +253,7 @@
 		3FDFEA65290E5A1F005B778C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3F87B6C92928387E00E49F0B /* Protocols */,
 				3F87B6B3292800E100E49F0B /* Storage */,
 				3F7608C02924BA39006CCE79 /* Abstracts */,
 				3FD1F6E4292250F400A098A3 /* Legal Persons */,
@@ -418,6 +429,7 @@
 				3FDFEA6C290E5BF8005B778C /* CreateUser.swift in Sources */,
 				3FDFEA67290E5A32005B778C /* User.swift in Sources */,
 				3FD1F6E62922510D00A098A3 /* Company.swift in Sources */,
+				3F87B6CB2928388800E49F0B /* ModelsListProtocol.swift in Sources */,
 				3F8AB0502916BC2B00FF907E /* SecureStorage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

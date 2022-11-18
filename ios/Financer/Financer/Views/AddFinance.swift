@@ -11,7 +11,7 @@ import SwiftUI
 /// to this App
 internal struct AddFinance: View {
 
-    @State private var financeType : FinanceType = .income
+    @State private var financeType : Finance.FinanceType = .income
 
     @State private var amount : String = ""
 
@@ -20,7 +20,7 @@ internal struct AddFinance: View {
     var body: some View {
         VStack {
             Picker("Type", selection: $financeType) {
-                ForEach(FinanceType.allCases) {
+                ForEach(Finance.FinanceType.allCases) {
                     c in
                     Text(c.rawValue.capitalized)
                 }
