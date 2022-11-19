@@ -27,8 +27,8 @@ internal protocol ModelsListProtocol {
     func deleteItem(item : ModelsListType) -> Void
     
     /// returns the List for the specified Legal Person Type
-    static func list(for legalPersonType : LegalPerson.LegalPersonType) -> Void
+    static func list(for legalPersonType : LegalPerson.LegalPersonType) -> Any
     
     /// returns the List for the specified Finance Type
-    static func list(for financeType : Finance.FinanceType) -> Void
+    static func list(for financeType : Finance.FinanceType) -> Any
 }

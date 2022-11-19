@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// The List Model that contains all the Expanses.
 internal final class ExpanseList : ModelsList<Expense>, Instancable {
-    static var instance: ExpanseList
+    static internal private(set) var instance: ExpanseList = ExpanseList()
 }

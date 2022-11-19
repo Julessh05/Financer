@@ -24,7 +24,7 @@ internal class ModelsList<T> : ModelsListProtocol where T : Equatable {
         }
     }
 
-    internal static func list(for legalPersonType : LegalPerson.LegalPersonType) -> Void {
+    internal static func list(for legalPersonType : LegalPerson.LegalPersonType) -> Any {
         assert(legalPersonType != .none, "The Type passed to this Function cannot be .none")
         switch legalPersonType {
             case .person:
@@ -38,7 +38,8 @@ internal class ModelsList<T> : ModelsListProtocol where T : Equatable {
         }
     }
 
-    internal static func list(for financeType : Finance.FinanceType) -> Void {
-
+    internal static func list(for financeType : Finance.FinanceType) -> Any {
+        // TODO: change
+        return self
     }
 }

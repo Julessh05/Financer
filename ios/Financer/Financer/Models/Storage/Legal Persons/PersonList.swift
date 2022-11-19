@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// The Model that contanins a List of all Persons
 internal final class PersonList : ModelsList<Person>, Instancable {
-    static var instance: PersonList
+    static internal private(set) var instance: PersonList = PersonList()
 }

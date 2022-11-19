@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// The List Model that contains all the Companies
 internal final class CompanyList : ModelsList<Company>, Instancable {
-    static var instance: CompanyList
+    static internal private(set) var instance: CompanyList = CompanyList()
 }

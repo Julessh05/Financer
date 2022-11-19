@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// The List Model that contains all the stored incomes.
 internal final class IncomeList : ModelsList<Income>, Instancable {
-    static var instance: IncomeList
+    static internal private(set) var instance: IncomeList = IncomeList()
 }
