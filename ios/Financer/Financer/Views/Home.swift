@@ -15,16 +15,13 @@ internal struct Home: View {
     @State private var user : User = User.currentUser
 
     internal var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 List {
 
                 }
                 NavigationLink(destination: AddFinance()) {
-                    HStack {
-                        Image(systemName: "plus")
-                        Text("Add Finance")
-                    }
+                    Label("Add Finance", systemImage: "plus")
                 }
             }
             .navigationTitle("Welcome")
@@ -40,7 +37,6 @@ internal struct Home: View {
             }
 
         }
-
     }
 
     /// Returns the Icon for the profile iin this

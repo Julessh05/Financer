@@ -21,14 +21,14 @@ internal protocol ModelsListProtocol {
     
     /// Adds the specified Item to the List of
     /// all Items
-    func addItem(item : ModelsListType) -> Void
+    func add(item : ModelsListType) -> Void
+
+    /// Adds all the specied items to the list
+    func add(items: [ModelsListType]) -> Void
     
     /// Removes and Deletes the specified Item in this List
-    func deleteItem(item : ModelsListType) -> Void
-    
-    /// returns the List for the specified Legal Person Type
-    static func list(for legalPersonType : LegalPerson.LegalPersonType) -> Any
-    
-    /// returns the List for the specified Finance Type
-    static func list(for financeType : Finance.FinanceType) -> Any
+    func delete(item : ModelsListType) -> Void
+
+    /// Deletes all the specified Items from the List
+    func delete(items: [ModelsListType]) -> Void
 }

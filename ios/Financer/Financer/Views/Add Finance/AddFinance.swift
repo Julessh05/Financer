@@ -19,7 +19,7 @@ internal struct AddFinance: View {
 
     /// The Type of legal Person this
     /// Finance is connected to
-    @State private var legalPerson : LegalPerson.LegalPersonType = .none
+    @State private var legalPerson : LegalPerson?
 
     var body: some View {
         Form {
@@ -39,6 +39,13 @@ internal struct AddFinance: View {
                 Text("The Amount of Money transfered with this Finance")
             }
             Section {
+                NavigationLink(destination: LegalPersonPicker()) {
+                    DetailLabel(title: "Legal Person", data: legalPerson?.name ?? "None")
+                }
+            } header: {
+                Text("Relation")
+            } footer: {
+                Text("The Relation of this Finance")
             }
         }
         .navigationTitle("Add Finance")

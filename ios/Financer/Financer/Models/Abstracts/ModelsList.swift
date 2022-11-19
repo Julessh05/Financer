@@ -14,32 +14,67 @@ internal class ModelsList<T> : ModelsListProtocol where T : Equatable {
 
     internal var items: [T] = []
 
-    internal func addItem(item: T) -> Void {
+    internal func add(item: T) -> Void {
         items.append(item)
     }
 
-    internal func deleteItem(item: T) -> Void {
+    internal func add(items localItems: [T]) {
+        items.append(contentsOf: localItems)
+    }
+
+    internal func delete(item: T) -> Void {
         if let index = items.firstIndex(of: item) {
             items.remove(at: index)
         }
     }
 
-    internal static func list(for legalPersonType : LegalPerson.LegalPersonType) -> Any {
+    internal func delete(items localItems: [T]) -> Void {
+        for item in localItems {
+            if let index = items.firstIndex(of: item) {
+                items.remove(at: index)
+            }
+        }
+    }
+
+    /// Returns the List for the specified Type T
+    internal static func list<T>() -> ModelsList<T> {
         assert(legalPersonType != .none, "The Type passed to this Function cannot be .none")
-        switch legalPersonType {
-            case .person:
-                return PersonList()
-            case .organization:
-                return OrganizationList()
-            case .company:
-                return CompanyList()
+        switch T.self {
+            case is Person.Type:
+                return PersonList() as ModelsList<T>
             default:
                 return ModelsList()
         }
     }
 
-    internal static func list(for financeType : Finance.FinanceType) -> Any {
-        // TODO: change
-        return self
+    internal static func listType(for legalPersonType : LegalPerson.LegalPersonType) -> AnyClass {
+        assert(legalPersonType != .none, "The Type passed to this Function cannot be .none")
+        switch legalPersonType {
+            case .person:
+                return Person.self
+            case .organization:
+                return Organization.self
+            case .company:
+                return Company.self
+            default:
+                return ModelsList.self
+
+        }
+    }
+
+    internal static func list<T>() -> ModelsList<T> {
+        switch T {
+            default:
+                return ModelsList()
+        }
+    }
+
+    internal static func listType(for financeType : Finance.FinanceType) -> AnyClass {
+        switch financeType {
+            case .income:
+                return Income.self
+            case .expense:
+                return Expense.self
+        }
     }
 }

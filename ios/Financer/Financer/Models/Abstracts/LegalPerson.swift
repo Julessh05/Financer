@@ -13,7 +13,7 @@ import Foundation
 internal protocol Relation : CaseIterable, Identifiable, Equatable {}
 
 /// The class all Legal Persons extend from
-internal class LegalPerson : Equatable {
+internal class LegalPerson : Equatable, Identifiable {
     /// The Type of this Legal Person
     internal enum LegalPersonType : String, CaseIterable, Identifiable {
         var id : Self { self }
