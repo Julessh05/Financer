@@ -7,4 +7,6 @@
 
 import Foundation
 
-internal final class CompanyList : ModelsList<Company> {}
+internal final class CompanyList : ModelsList<Company>, Instancable {
+    static var instance: CompanyList
+}

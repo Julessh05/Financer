@@ -25,6 +25,7 @@
 		3F87B6C62928306000E49F0B /* OrganizationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87B6C52928306000E49F0B /* OrganizationList.swift */; };
 		3F87B6C82928306600E49F0B /* CompanyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87B6C72928306600E49F0B /* CompanyList.swift */; };
 		3F87B6CB2928388800E49F0B /* ModelsListProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87B6CA2928388800E49F0B /* ModelsListProtocol.swift */; };
+		3F87B6CE2928473800E49F0B /* Instancable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87B6CD2928473800E49F0B /* Instancable.swift */; };
 		3F8AB0502916BC2B00FF907E /* SecureStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8AB04F2916BC2B00FF907E /* SecureStorage.swift */; };
 		3FA172212920DBC800D5868F /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA172202920DBC800D5868F /* Storage.swift */; };
 		3FAA137F2917982C00D25AB1 /* UserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA137E2917982C00D25AB1 /* UserDetails.swift */; };
@@ -78,6 +79,7 @@
 		3F87B6C52928306000E49F0B /* OrganizationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationList.swift; sourceTree = "<group>"; };
 		3F87B6C72928306600E49F0B /* CompanyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyList.swift; sourceTree = "<group>"; };
 		3F87B6CA2928388800E49F0B /* ModelsListProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsListProtocol.swift; sourceTree = "<group>"; };
+		3F87B6CD2928473800E49F0B /* Instancable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instancable.swift; sourceTree = "<group>"; };
 		3F8AB04F2916BC2B00FF907E /* SecureStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureStorage.swift; sourceTree = "<group>"; };
 		3FA172202920DBC800D5868F /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		3FAA137E2917982C00D25AB1 /* UserDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetails.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				3F87B6CA2928388800E49F0B /* ModelsListProtocol.swift */,
+				3F87B6CD2928473800E49F0B /* Instancable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 				3FA172212920DBC800D5868F /* Storage.swift in Sources */,
 				3FDFEA6C290E5BF8005B778C /* CreateUser.swift in Sources */,
 				3FDFEA67290E5A32005B778C /* User.swift in Sources */,
+				3F87B6CE2928473800E49F0B /* Instancable.swift in Sources */,
 				3FD1F6E62922510D00A098A3 /* Company.swift in Sources */,
 				3F87B6CB2928388800E49F0B /* ModelsListProtocol.swift in Sources */,
 				3F8AB0502916BC2B00FF907E /* SecureStorage.swift in Sources */,

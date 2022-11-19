@@ -7,4 +7,6 @@
 
 import Foundation
 
-internal final class ExpanseList : ModelsList<Expense> {}
+internal final class ExpanseList : ModelsList<Expense>, Instancable {
+    static var instance: ExpanseList
+}

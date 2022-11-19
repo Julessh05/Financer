@@ -7,4 +7,6 @@
 
 import Foundation
 
-internal final class OrganizationList : ModelsList<Organization> {}
+internal final class OrganizationList : ModelsList<Organization>, Instancable {
+    static var instance: OrganizationList
+}
