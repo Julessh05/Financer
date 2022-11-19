@@ -10,12 +10,10 @@ import Foundation
 /// The Protocol all the
 /// different Types of Relations have
 /// to correspond to
-internal protocol Relation : CaseIterable, Identifiable {}
+internal protocol Relation : CaseIterable, Identifiable, Equatable {}
 
 /// The class all Legal Persons extend from
-internal class LegalPerson {
-
-
+internal class LegalPerson : Equatable {
     /// The Type of this Legal Person
     internal enum LegalPersonType : String, CaseIterable, Identifiable {
         var id : Self { self }
@@ -112,5 +110,11 @@ internal class LegalPerson {
         self.relation = relation
         self.phone = phone
         self.notes = notes
+    }
+
+    // Override to conform to Equatable
+    static func == (lhs: LegalPerson, rhs: LegalPerson) -> Bool {
+        return lhs.name == rhs.name && lhs.notes == rhs.notes && lhs.phone == rhs.phone
+        // TODO: check this: && lhs.relation == rhs.relation
     }
 }

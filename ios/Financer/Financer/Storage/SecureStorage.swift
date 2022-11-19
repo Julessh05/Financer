@@ -25,7 +25,7 @@ internal struct SecureStorage {
             ]
             let status = SecItemCopyMatching(query as CFDictionary, &result)
             guard status == errSecSuccess else {
-                return [:]
+                return [ : ]
             }
             userData[key] = result as? String
         }

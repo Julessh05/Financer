@@ -12,7 +12,7 @@ import SwiftUI
 /// the App.
 internal struct Home: View {
     /// The current User used in this App
-    @State private var user : User = User()
+    @State private var user : User = User.currentUser
 
     internal var body: some View {
         NavigationView {

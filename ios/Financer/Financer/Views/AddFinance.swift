@@ -11,14 +11,7 @@ import SwiftUI
 /// to this App
 internal struct AddFinance: View {
 
-    private enum FinanceType : String, Identifiable, CaseIterable {
-        var id : Self { self }
-
-        case income
-        case expense
-    }
-
-    @State private var financeType : FinanceType = .income
+    @State private var financeType : Finance.FinanceType = .income
 
     @State private var amount : String = ""
 
@@ -27,7 +20,7 @@ internal struct AddFinance: View {
     var body: some View {
         VStack {
             Picker("Type", selection: $financeType) {
-                ForEach(FinanceType.allCases) {
+                ForEach(Finance.FinanceType.allCases) {
                     c in
                     Text(c.rawValue.capitalized)
                 }
@@ -60,9 +53,7 @@ internal struct AddFinance: View {
     private func buildLegalPersonPicker() -> some View {
         switch legalPerson {
             case .person, .company, .organization:
-                ForEach() {
-                    
-                }
+                EmptyView()
             default:
                 EmptyView()
         }
