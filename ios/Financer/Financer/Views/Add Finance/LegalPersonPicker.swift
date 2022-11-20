@@ -27,8 +27,9 @@ internal struct LegalPersonPicker: View {
             }
             .pickerStyle(.segmented)
             .padding(.horizontal, 15)
-            ForEach(Converter.list(for: lPT).items, id: \.id) {
+            ForEach(Converter.list(for: lPT).items) {
                 item in
+                Text(String())
             }
         }
         .navigationTitle("Legal Person Picker")
