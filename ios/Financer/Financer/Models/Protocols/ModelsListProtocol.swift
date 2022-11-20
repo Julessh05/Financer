@@ -14,7 +14,7 @@ internal protocol ModelsListProtocol {
     
     /// The associated Type inside this Model
     /// to create abstract Functions
-    associatedtype ModelsListType
+    associatedtype ModelsListType : Equatable, Identifiable
     
     /// The List of the actual items
     var items : [ModelsListType] { get }

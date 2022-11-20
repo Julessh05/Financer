@@ -10,7 +10,7 @@ import Foundation
 /// The class all
 /// Finance Objects have to confirm
 /// to.
-internal class Finance : Equatable {
+internal class Finance : Equatable, Identifiable {
 
     /// Enum to define the Type of the Finance
     internal enum FinanceType : String, Identifiable, CaseIterable {

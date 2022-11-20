@@ -9,5 +9,5 @@ import Foundation
 
 /// The List Model that contains all the Expenses.
 internal final class ExpenseList : ModelsList<Expense>, Instancable {
-    static internal private(set) var instance: ExpanseList = ExpanseList()
+    static internal private(set) var instance: ExpenseList = ExpenseList()
 }

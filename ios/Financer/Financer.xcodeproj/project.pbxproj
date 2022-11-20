@@ -10,6 +10,8 @@
 		3F20C1A32923CD4B0018F21B /* CreateLegalPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F20C1A22923CD4B0018F21B /* CreateLegalPerson.swift */; };
 		3F20C1A52923CE3A0018F21B /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F20C1A42923CE3A0018F21B /* Organization.swift */; };
 		3F20C1A7292405BF0018F21B /* AddFinance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F20C1A6292405BF0018F21B /* AddFinance.swift */; };
+		3F3811C1292A3997003932B7 /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3811C0292A3997003932B7 /* Converter.swift */; };
+		3F3811C3292A3ABD003932B7 /* Displayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3811C2292A3ABD003932B7 /* Displayable.swift */; };
 		3F40FB0D290D936400BA2F83 /* FinancerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F40FB0C290D936400BA2F83 /* FinancerApp.swift */; };
 		3F40FB11290D936500BA2F83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F40FB10290D936500BA2F83 /* Assets.xcassets */; };
 		3F40FB14290D936500BA2F83 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F40FB13290D936500BA2F83 /* Preview Assets.xcassets */; };
@@ -63,6 +65,8 @@
 		3F20C1A22923CD4B0018F21B /* CreateLegalPerson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLegalPerson.swift; sourceTree = "<group>"; };
 		3F20C1A42923CE3A0018F21B /* Organization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
 		3F20C1A6292405BF0018F21B /* AddFinance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFinance.swift; sourceTree = "<group>"; };
+		3F3811C0292A3997003932B7 /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
+		3F3811C2292A3ABD003932B7 /* Displayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Displayable.swift; sourceTree = "<group>"; };
 		3F40FB09290D936400BA2F83 /* Financer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Financer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F40FB0C290D936400BA2F83 /* FinancerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancerApp.swift; sourceTree = "<group>"; };
 		3F40FB10290D936500BA2F83 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -147,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				3F40FB0C290D936400BA2F83 /* FinancerApp.swift */,
+				3F87B6D929292E2E00E49F0B /* Logic */,
 				3F87B6D62928E27F00E49F0B /* Components */,
 				3F8AB04E2916BC0C00FF907E /* Storage */,
 				3FDFEA6A290E5BDD005B778C /* Views */,
@@ -226,6 +231,7 @@
 			children = (
 				3F87B6CA2928388800E49F0B /* ModelsListProtocol.swift */,
 				3F87B6CD2928473800E49F0B /* Instancable.swift */,
+				3F3811C2292A3ABD003932B7 /* Displayable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -255,6 +261,14 @@
 				3F87B6D72928E2AE00E49F0B /* DetailLabel.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		3F87B6D929292E2E00E49F0B /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				3F3811C0292A3997003932B7 /* Converter.swift */,
+			);
+			path = Logic;
 			sourceTree = "<group>";
 		};
 		3F8AB04E2916BC0C00FF907E /* Storage */ = {
@@ -288,12 +302,12 @@
 		3FDFEA65290E5A1F005B778C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3FDFEA66290E5A32005B778C /* User.swift */,
 				3F87B6C92928387E00E49F0B /* Protocols */,
 				3F87B6B3292800E100E49F0B /* Storage */,
 				3F7608C02924BA39006CCE79 /* Abstracts */,
 				3FD1F6E4292250F400A098A3 /* Legal Persons */,
 				3FD1F6DF2922507200A098A3 /* Finances */,
-				3FDFEA66290E5A32005B778C /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -467,6 +481,8 @@
 				3FD1F6E62922510D00A098A3 /* Company.swift in Sources */,
 				3F87B6CB2928388800E49F0B /* ModelsListProtocol.swift in Sources */,
 				3F8AB0502916BC2B00FF907E /* SecureStorage.swift in Sources */,
+				3F3811C3292A3ABD003932B7 /* Displayable.swift in Sources */,
+				3F3811C1292A3997003932B7 /* Converter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

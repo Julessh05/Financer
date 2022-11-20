@@ -15,7 +15,8 @@ internal struct LegalPersonPicker: View {
     /// the Picker currently shows
     @State private var lPT : LegalPerson.LegalPersonType = .none
 
-    @State private var list : ModelsList = PersonList()
+    /// The current List that is used
+    @State private var list : any ModelsListProtocol = PersonList()
 
     var body: some View {
         VStack {
@@ -26,18 +27,25 @@ internal struct LegalPersonPicker: View {
             }
             .pickerStyle(.segmented)
             .padding(.horizontal, 15)
-
-            List(list.items) {
-                legalPerson in
-                Text(legalPerson.name)
+            ForEach(Converter.list(for: lPT).items, id: \.id) {
+                item in
             }
         }
         .navigationTitle("Legal Person Picker")
         .navigationBarTitleDisplayMode(.automatic)
     }
 
-    private func currentList() {
-        return ModelsList.list<ModelsList.listType(for: lPT)>()
+    private func currentList() -> Void {
+        switch lPT {
+            case .organization:
+                list = OrganizationList()
+                break
+            case .company:
+                list = CompanyList()
+                break
+            default:
+                break
+        }
     }
 }
 

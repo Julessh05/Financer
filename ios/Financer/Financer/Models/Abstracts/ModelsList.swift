@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import SwiftUI
 
 /// Model for all the Lists that are used to store properties.
-internal class ModelsList<T> : ModelsListProtocol where T : Equatable {
+internal class ModelsList<T> : ModelsListProtocol where T : Equatable, T : Identifiable {
 
     internal typealias ModelsListType = T
 
@@ -33,48 +34,6 @@ internal class ModelsList<T> : ModelsListProtocol where T : Equatable {
             if let index = items.firstIndex(of: item) {
                 items.remove(at: index)
             }
-        }
-    }
-
-    /// Returns the List for the specified Type T
-    internal static func list<T>() -> ModelsList<T> {
-        assert(legalPersonType != .none, "The Type passed to this Function cannot be .none")
-        switch T.self {
-            case is Person.Type:
-                return PersonList() as ModelsList<T>
-            default:
-                return ModelsList()
-        }
-    }
-
-    internal static func listType(for legalPersonType : LegalPerson.LegalPersonType) -> AnyClass {
-        assert(legalPersonType != .none, "The Type passed to this Function cannot be .none")
-        switch legalPersonType {
-            case .person:
-                return Person.self
-            case .organization:
-                return Organization.self
-            case .company:
-                return Company.self
-            default:
-                return ModelsList.self
-
-        }
-    }
-
-    internal static func list<T>() -> ModelsList<T> {
-        switch T {
-            default:
-                return ModelsList()
-        }
-    }
-
-    internal static func listType(for financeType : Finance.FinanceType) -> AnyClass {
-        switch financeType {
-            case .income:
-                return Income.self
-            case .expense:
-                return Expense.self
         }
     }
 }
