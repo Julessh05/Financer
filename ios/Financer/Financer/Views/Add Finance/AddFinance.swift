@@ -32,7 +32,7 @@ internal struct AddFinance: View {
                 }
                 TextField("Amount", text: $amount)
                     .keyboardType(.decimalPad)
-                    .textFieldStyle(.roundedBorder)
+                    .textFieldStyle(.plain)
             } header: {
                 Text("Type")
             } footer: {

@@ -24,13 +24,32 @@ internal struct LegalPersonPicker: View {
             }
             .pickerStyle(.segmented)
             .padding(.horizontal, 15)
+
+            list()
+            
+            Spacer()
+        }
+        .navigationTitle("Picker")
+        .navigationBarTitleDisplayMode(.automatic)
+    }
+
+    /// Creates, chooses, renders and returns
+    /// the List that is currently shown on the
+    /// Picker Screen.
+    @ViewBuilder
+    private func list() -> some View {
+        if lPT == .none {
+            Spacer()
+            Text("Choose a Type")
+        } else if !Converter.list(for: lPT).isEmpty {
             ForEach(Converter.list(for: lPT)) {
                 item in
                 Text(item.name)
             }
+        } else {
+            Spacer()
+            Label("No Items found", systemImage: "questionmark.folder")
         }
-        .navigationTitle("Legal Person Picker")
-        .navigationBarTitleDisplayMode(.automatic)
     }
 }
 
