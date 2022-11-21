@@ -20,13 +20,7 @@
 		3F40FB2A290D936500BA2F83 /* FinancerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F40FB29290D936500BA2F83 /* FinancerUITestsLaunchTests.swift */; };
 		3F40FB6E290D942F00BA2F83 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F40FB6D290D942F00BA2F83 /* Home.swift */; };
 		3F7608C22924BA89006CCE79 /* Union.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7608C12924BA89006CCE79 /* Union.swift */; };
-		3F87B6B9292801C000E49F0B /* ModelsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87B6B8292801C000E49F0B /* ModelsList.swift */; };
-		3F87B6BE2928303800E49F0B /* IncomeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87B6BD2928303800E49F0B /* IncomeList.swift */; };
-		3F87B6C02928303D00E49F0B /* ExpenseList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87B6BF2928303D00E49F0B /* ExpenseList.swift */; };
-		3F87B6C42928305700E49F0B /* PersonList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87B6C32928305700E49F0B /* PersonList.swift */; };
-		3F87B6C62928306000E49F0B /* OrganizationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87B6C52928306000E49F0B /* OrganizationList.swift */; };
-		3F87B6C82928306600E49F0B /* CompanyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87B6C72928306600E49F0B /* CompanyList.swift */; };
-		3F87B6CB2928388800E49F0B /* ModelsListProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87B6CA2928388800E49F0B /* ModelsListProtocol.swift */; };
+		3F87B6CB2928388800E49F0B /* ModelsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87B6CA2928388800E49F0B /* ModelsList.swift */; };
 		3F87B6CE2928473800E49F0B /* Instancable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87B6CD2928473800E49F0B /* Instancable.swift */; };
 		3F87B6D22928C9A000E49F0B /* LegalPersonPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87B6D12928C9A000E49F0B /* LegalPersonPicker.swift */; };
 		3F87B6D82928E2AE00E49F0B /* DetailLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87B6D72928E2AE00E49F0B /* DetailLabel.swift */; };
@@ -42,6 +36,8 @@
 		3FD48BCD290F9AED00DA118A /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD48BCC290F9AED00DA118A /* ImagePicker.swift */; };
 		3FDFEA67290E5A32005B778C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDFEA66290E5A32005B778C /* User.swift */; };
 		3FDFEA6C290E5BF8005B778C /* CreateUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDFEA6B290E5BF8005B778C /* CreateUser.swift */; };
+		3FEC2094292BDCA40007DB83 /* LegalPersonList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEC2093292BDCA40007DB83 /* LegalPersonList.swift */; };
+		3FEC2096292BDCAC0007DB83 /* FinanceList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEC2095292BDCAC0007DB83 /* FinanceList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,13 +74,7 @@
 		3F40FB29290D936500BA2F83 /* FinancerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		3F40FB6D290D942F00BA2F83 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		3F7608C12924BA89006CCE79 /* Union.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Union.swift; sourceTree = "<group>"; };
-		3F87B6B8292801C000E49F0B /* ModelsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsList.swift; sourceTree = "<group>"; };
-		3F87B6BD2928303800E49F0B /* IncomeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeList.swift; sourceTree = "<group>"; };
-		3F87B6BF2928303D00E49F0B /* ExpenseList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseList.swift; sourceTree = "<group>"; };
-		3F87B6C32928305700E49F0B /* PersonList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonList.swift; sourceTree = "<group>"; };
-		3F87B6C52928306000E49F0B /* OrganizationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationList.swift; sourceTree = "<group>"; };
-		3F87B6C72928306600E49F0B /* CompanyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyList.swift; sourceTree = "<group>"; };
-		3F87B6CA2928388800E49F0B /* ModelsListProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsListProtocol.swift; sourceTree = "<group>"; };
+		3F87B6CA2928388800E49F0B /* ModelsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsList.swift; sourceTree = "<group>"; };
 		3F87B6CD2928473800E49F0B /* Instancable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instancable.swift; sourceTree = "<group>"; };
 		3F87B6D12928C9A000E49F0B /* LegalPersonPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalPersonPicker.swift; sourceTree = "<group>"; };
 		3F87B6D72928E2AE00E49F0B /* DetailLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLabel.swift; sourceTree = "<group>"; };
@@ -100,6 +90,8 @@
 		3FD48BCC290F9AED00DA118A /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		3FDFEA66290E5A32005B778C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3FDFEA6B290E5BF8005B778C /* CreateUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreateUser.swift; path = Financer/Views/User/CreateUser.swift; sourceTree = SOURCE_ROOT; };
+		3FEC2093292BDCA40007DB83 /* LegalPersonList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalPersonList.swift; sourceTree = "<group>"; };
+		3FEC2095292BDCAC0007DB83 /* FinanceList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,7 +185,6 @@
 				3FD1F6E9292252E800A098A3 /* LegalPerson.swift */,
 				3F7608C12924BA89006CCE79 /* Union.swift */,
 				3FD1F6DD2922502B00A098A3 /* Finance.swift */,
-				3F87B6B8292801C000E49F0B /* ModelsList.swift */,
 			);
 			path = Abstracts;
 			sourceTree = "<group>";
@@ -201,35 +192,16 @@
 		3F87B6B3292800E100E49F0B /* Storage */ = {
 			isa = PBXGroup;
 			children = (
-				3F87B6C22928304600E49F0B /* Legal Persons */,
-				3F87B6C12928304000E49F0B /* Finances */,
+				3FEC2093292BDCA40007DB83 /* LegalPersonList.swift */,
+				3FEC2095292BDCAC0007DB83 /* FinanceList.swift */,
 			);
 			path = Storage;
-			sourceTree = "<group>";
-		};
-		3F87B6C12928304000E49F0B /* Finances */ = {
-			isa = PBXGroup;
-			children = (
-				3F87B6BD2928303800E49F0B /* IncomeList.swift */,
-				3F87B6BF2928303D00E49F0B /* ExpenseList.swift */,
-			);
-			path = Finances;
-			sourceTree = "<group>";
-		};
-		3F87B6C22928304600E49F0B /* Legal Persons */ = {
-			isa = PBXGroup;
-			children = (
-				3F87B6C32928305700E49F0B /* PersonList.swift */,
-				3F87B6C52928306000E49F0B /* OrganizationList.swift */,
-				3F87B6C72928306600E49F0B /* CompanyList.swift */,
-			);
-			path = "Legal Persons";
 			sourceTree = "<group>";
 		};
 		3F87B6C92928387E00E49F0B /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				3F87B6CA2928388800E49F0B /* ModelsListProtocol.swift */,
+				3F87B6CA2928388800E49F0B /* ModelsList.swift */,
 				3F87B6CD2928473800E49F0B /* Instancable.swift */,
 				3F3811C2292A3ABD003932B7 /* Displayable.swift */,
 			);
@@ -453,6 +425,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FEC2094292BDCA40007DB83 /* LegalPersonList.swift in Sources */,
 				3FD1F6E32922508E00A098A3 /* Expense.swift in Sources */,
 				3F40FB6E290D942F00BA2F83 /* Home.swift in Sources */,
 				3FAA137F2917982C00D25AB1 /* UserDetails.swift in Sources */,
@@ -460,26 +433,21 @@
 				3FD1F6DE2922502B00A098A3 /* Finance.swift in Sources */,
 				3F7608C22924BA89006CCE79 /* Union.swift in Sources */,
 				3FD1F6E82922529500A098A3 /* Person.swift in Sources */,
-				3F87B6C42928305700E49F0B /* PersonList.swift in Sources */,
-				3F87B6C82928306600E49F0B /* CompanyList.swift in Sources */,
 				3FD1F6E12922507D00A098A3 /* Income.swift in Sources */,
+				3FEC2096292BDCAC0007DB83 /* FinanceList.swift in Sources */,
 				3F40FB0D290D936400BA2F83 /* FinancerApp.swift in Sources */,
 				3F20C1A32923CD4B0018F21B /* CreateLegalPerson.swift in Sources */,
 				3FD1F6EA292252E800A098A3 /* LegalPerson.swift in Sources */,
 				3FD48BCD290F9AED00DA118A /* ImagePicker.swift in Sources */,
 				3F20C1A52923CE3A0018F21B /* Organization.swift in Sources */,
 				3F20C1A7292405BF0018F21B /* AddFinance.swift in Sources */,
-				3F87B6C62928306000E49F0B /* OrganizationList.swift in Sources */,
-				3F87B6C02928303D00E49F0B /* ExpenseList.swift in Sources */,
 				3F87B6D22928C9A000E49F0B /* LegalPersonPicker.swift in Sources */,
-				3F87B6B9292801C000E49F0B /* ModelsList.swift in Sources */,
-				3F87B6BE2928303800E49F0B /* IncomeList.swift in Sources */,
 				3FA172212920DBC800D5868F /* Storage.swift in Sources */,
 				3FDFEA6C290E5BF8005B778C /* CreateUser.swift in Sources */,
 				3FDFEA67290E5A32005B778C /* User.swift in Sources */,
 				3F87B6CE2928473800E49F0B /* Instancable.swift in Sources */,
 				3FD1F6E62922510D00A098A3 /* Company.swift in Sources */,
-				3F87B6CB2928388800E49F0B /* ModelsListProtocol.swift in Sources */,
+				3F87B6CB2928388800E49F0B /* ModelsList.swift in Sources */,
 				3F8AB0502916BC2B00FF907E /* SecureStorage.swift in Sources */,
 				3F3811C3292A3ABD003932B7 /* Displayable.swift in Sources */,
 				3F3811C1292A3997003932B7 /* Converter.swift in Sources */,

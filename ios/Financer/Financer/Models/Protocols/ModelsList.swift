@@ -1,8 +1,9 @@
 //
-//  ModelsListProtocol.swift
+//  ModelsList.swift
 //  Financer
 //
-//  Created by Julian Schumacher on 18.11.22.
+//  Created by Julian Schumacher as ModelsListProtocol on 18.11.22.
+//  Renamed by Julian Schumacher to ModelsList on 21.11.22.
 //
 
 import Foundation
@@ -10,25 +11,25 @@ import Foundation
 /// Protocol used to implement
 /// the Model that all Lists of Models must
 /// conform to.
-internal protocol ModelsListProtocol {
+internal protocol ModelsList : Instancable {
     
     /// The associated Type inside this Model
     /// to create abstract Functions
-    associatedtype ModelsListType : Equatable, Identifiable
+    associatedtype ModelsListType
     
     /// The List of the actual items
     var items : [ModelsListType] { get }
     
     /// Adds the specified Item to the List of
     /// all Items
-    func add(item : ModelsListType) -> Void
+    mutating func add(item : ModelsListType) -> Void
 
     /// Adds all the specied items to the list
-    func add(items: [ModelsListType]) -> Void
+    mutating func add(items localItems: [ModelsListType]) -> Void
     
     /// Removes and Deletes the specified Item in this List
-    func delete(item : ModelsListType) -> Void
+    mutating func delete(item : ModelsListType) -> Void
 
     /// Deletes all the specified Items from the List
-    func delete(items: [ModelsListType]) -> Void
+    mutating func delete(items localItems: [ModelsListType]) -> Void
 }
