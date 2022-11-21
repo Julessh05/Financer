@@ -15,8 +15,6 @@ internal struct LegalPersonPicker: View {
     /// the Picker currently shows
     @State private var lPT : LegalPerson.LegalPersonType = .none
 
-    @State private var list : ModelsList = PersonList()
-
     var body: some View {
         VStack {
             Picker("Type", selection: $lPT) {
@@ -27,17 +25,31 @@ internal struct LegalPersonPicker: View {
             .pickerStyle(.segmented)
             .padding(.horizontal, 15)
 
-            List(list.items) {
-                legalPerson in
-                Text(legalPerson.name)
-            }
+            list()
+            
+            Spacer()
         }
-        .navigationTitle("Legal Person Picker")
+        .navigationTitle("Picker")
         .navigationBarTitleDisplayMode(.automatic)
     }
 
-    private func currentList() {
-        return ModelsList.list<ModelsList.listType(for: lPT)>()
+    /// Creates, chooses, renders and returns
+    /// the List that is currently shown on the
+    /// Picker Screen.
+    @ViewBuilder
+    private func list() -> some View {
+        if lPT == .none {
+            Spacer()
+            Text("Choose a Type")
+        } else if !Converter.list(for: lPT).isEmpty {
+            ForEach(Converter.list(for: lPT)) {
+                item in
+                Text(item.name)
+            }
+        } else {
+            Spacer()
+            Label("No Items found", systemImage: "questionmark.folder")
+        }
     }
 }
 
