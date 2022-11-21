@@ -14,9 +14,9 @@ internal final class Company : Union {
     internal init(
         name : String,
         relation : CompanyRelation,
-        homepage: URL?,
         phone : String,
-        notes : String
+        notes : String,
+        homepage: URL?
     ) {
         super.init(
             name: name,

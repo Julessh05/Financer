@@ -66,13 +66,63 @@ internal struct CreateLegalPerson: View {
                 specificArea()
             }
             Button {
-                // TODO: add Action Code
+                addLegalPerson()
             } label: { btnLabel() }
         }
         .textFieldStyle(.plain)
         .pickerStyle(.automatic)
         .navigationTitle("Add Finance")
         .navigationBarTitleDisplayMode(.automatic)
+    }
+
+    /// Adds the Legal Person to
+    /// the Legal Person List
+    private func addLegalPerson() -> Void {
+        // Prevents this Function to execute
+        // the Statement listed in the default case
+        guard legalPersonType != .none else {
+            return
+        }
+        let person : LegalPerson
+        switch legalPersonType {
+            case .company:
+                person = Company(
+                    name: name,
+                    relation: relation as! LegalPerson.CompanyRelation,
+                    phone: phone,
+                    notes: notes,
+                    homepage: URL(string: homepage)
+                )
+                break
+            case .person:
+                person = Person(
+                    name: name,
+                    relation: relation as! LegalPerson.PersonRelation,
+                    phone: phone,
+                    notes: notes
+                )
+                break
+            case .organization:
+                person = Organization(
+                    name: name,
+                    relation: relation as! LegalPerson.OrganizationRelation,
+                    phone: phone,
+                    notes: notes,
+                    homepage: URL(string: homepage))
+                break
+            default:
+                // Statement is just inserted
+                // to satisfy compiler.
+                // This case cannot happen.
+                person = Person(
+                    name: "Should not happen",
+                    relation: .family,
+                    phone: "0123456789",
+                    notes: "If you see this Person, something went wrong. Please contact the Administrator."
+                )
+                break
+        }
+        LegalPersonList.instance.add(item: person)
     }
 
     /// Builds and returns the Label of the
