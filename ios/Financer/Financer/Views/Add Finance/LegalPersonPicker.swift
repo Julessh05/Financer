@@ -26,8 +26,10 @@ internal struct LegalPersonPicker: View {
             .padding(.horizontal, 15)
 
             list()
-            
             Spacer()
+            NavigationLink(destination: CreateLegalPerson()) {
+                Label("Add Legal Person", systemImage: "person.fill.badge.plus")
+            }
         }
         .navigationTitle("Picker")
         .navigationBarTitleDisplayMode(.automatic)
@@ -48,7 +50,7 @@ internal struct LegalPersonPicker: View {
             }
         } else {
             Spacer()
-            Label("No Items found", systemImage: "questionmark.folder")
+            Label("No \(lPT.rawValue.capitalized) found", systemImage: "questionmark.folder")
         }
     }
 }

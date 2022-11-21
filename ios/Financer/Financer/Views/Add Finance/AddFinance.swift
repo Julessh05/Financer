@@ -21,35 +21,69 @@ internal struct AddFinance: View {
     /// Finance is connected to
     @State private var legalPerson : LegalPerson?
 
+    /// Whether the "Add Finance" Button is Active or not
+    @State private var btnActive : Bool = false
+
     var body: some View {
-        Form {
-            Section {
-                Picker("Type", selection: $financeType) {
-                    ForEach(Finance.FinanceType.allCases) {
-                        c in
-                        Text(c.rawValue.capitalized)
+        VStack {
+            Form {
+                Section {
+                    Picker("Type", selection: $financeType) {
+                        ForEach(Finance.FinanceType.allCases) {
+                            c in
+                            Text(c.rawValue.capitalized)
+                        }
                     }
+                    TextField("Amount", text: $amount)
+                        .keyboardType(.decimalPad)
+                        .textFieldStyle(.plain)
+                        .onSubmit {
+                            checkBtn()
+                        }
+                } header: {
+                    Text("Type")
+                } footer: {
+                    Text("The Amount of Money transfered with this Finance")
                 }
-                TextField("Amount", text: $amount)
-                    .keyboardType(.decimalPad)
-                    .textFieldStyle(.plain)
-            } header: {
-                Text("Type")
-            } footer: {
-                Text("The Amount of Money transfered with this Finance")
-            }
-            Section {
-                NavigationLink(destination: LegalPersonPicker()) {
-                    DetailLabel(title: "Legal Person", data: legalPerson?.name ?? "None")
+                Section {
+                    NavigationLink(destination: LegalPersonPicker()) {
+                        DetailLabel(title: "Legal Person", data: legalPerson?.name ?? "None")
+                    }
+                } header: {
+                    Text("Relation")
+                } footer: {
+                    Text("The Relation of this Finance")
                 }
-            } header: {
-                Text("Relation")
-            } footer: {
-                Text("The Relation of this Finance")
             }
-        }
+            Button {
+                btnActive ? addFinance() : nil
+            } label: {
+                Label("Add Finance", systemImage: "plus")
+            }
+        }.onAppear(perform: checkBtn)
         .navigationTitle("Add Finance")
         .navigationBarTitleDisplayMode(.automatic)
+    }
+
+    /// Adds the Finance to the
+    /// FinanceList
+    private func addFinance() -> Void {
+        let finance : Finance
+        if financeType == .income {
+            finance = Income(amount: Double(amount)!,
+                             legalPerson: legalPerson!)
+        } else {
+            finance = Expense(amount: Double(amount)!,
+                              legalPerson: legalPerson!)
+        }
+        FinanceList.instance.add(item: finance)
+    }
+
+    /// Checks if the Button should be active
+    /// To enable the Button, all required Values
+    /// must be entered
+    private func checkBtn() -> Void {
+        btnActive = !amount.isEmpty && legalPerson != nil
     }
 }
 

@@ -41,19 +41,27 @@ internal struct CreateLegalPerson: View {
     var body: some View {
         VStack {
             List {
-                Section("General") {
+                Section {
                     TextField("Name", text: $name)
                         .textContentType(.name)
                     TextField("Notes", text: $notes, axis: .vertical)
                         .lineLimit(5)
+                } header: {
+                    Text("General")
+                } footer: {
+                    Text("Values that all Legal Person have")
                 }
-                Section("Type") {
+                Section {
                     Picker("Type", selection: $legalPersonType) {
                         ForEach(LegalPerson.LegalPersonType.allCases) {
                             type in
                             Text(type.rawValue.capitalized)
                         }
                     }
+                } header: {
+                    Text("Type")
+                } footer: {
+                    Text("The Type this Legal Person is of")
                 }
                 specificArea()
             }
@@ -88,7 +96,7 @@ internal struct CreateLegalPerson: View {
     private func specificArea() -> some View {
         switch legalPersonType {
             case .company, .organization, .person:
-                Section("Specific") {
+                Section {
                     let pickerName : String = "Relation"
                     switch legalPersonType {
                         case .company:
@@ -118,6 +126,10 @@ internal struct CreateLegalPerson: View {
                             EmptyView()
                     }
                     phoneNumberField()
+                } header: {
+                    Text("Specific")
+                } footer: {
+                    Text("Specific Data depending on the Type of this Legal Person")
                 }
             default:
                 EmptyView()
