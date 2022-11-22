@@ -10,7 +10,7 @@ import Foundation
 /// The List that holds all the Legal Persons
 internal struct LegalPersonList : ModelsList {
 
-    static var instance: LegalPersonList = LegalPersonList()
+    static var instance : LegalPersonList = LegalPersonList()
 
     typealias ModelsListType = LegalPerson
 

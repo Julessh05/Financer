@@ -9,6 +9,7 @@ import SwiftUI
 
 /// View to display the User Data
 struct UserDetails: View {
+    
     /// The current User of this App
     @Binding internal var user : User
 

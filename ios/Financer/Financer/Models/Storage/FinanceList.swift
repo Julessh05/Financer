@@ -10,7 +10,7 @@ import Foundation
 /// The Models that holds all the Finances
 internal struct FinanceList : ModelsList {
 
-    static var instance: FinanceList = FinanceList()
+    static var instance : FinanceList = FinanceList()
 
     typealias ModelsListType = Finance
 
