@@ -12,7 +12,6 @@
 		3F20C1A7292405BF0018F21B /* AddFinance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F20C1A6292405BF0018F21B /* AddFinance.swift */; };
 		3F3811C1292A3997003932B7 /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3811C0292A3997003932B7 /* Converter.swift */; };
 		3F3811C3292A3ABD003932B7 /* Displayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3811C2292A3ABD003932B7 /* Displayable.swift */; };
-		3F3F7266292E926B0043D5FB /* EditUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3F7265292E926B0043D5FB /* EditUser.swift */; };
 		3F40FB0D290D936400BA2F83 /* FinancerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F40FB0C290D936400BA2F83 /* FinancerApp.swift */; };
 		3F40FB11290D936500BA2F83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F40FB10290D936500BA2F83 /* Assets.xcassets */; };
 		3F40FB14290D936500BA2F83 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F40FB13290D936500BA2F83 /* Preview Assets.xcassets */; };
@@ -64,7 +63,6 @@
 		3F20C1A6292405BF0018F21B /* AddFinance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFinance.swift; sourceTree = "<group>"; };
 		3F3811C0292A3997003932B7 /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
 		3F3811C2292A3ABD003932B7 /* Displayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Displayable.swift; sourceTree = "<group>"; };
-		3F3F7265292E926B0043D5FB /* EditUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUser.swift; sourceTree = "<group>"; };
 		3F40FB09290D936400BA2F83 /* Financer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Financer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F40FB0C290D936400BA2F83 /* FinancerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancerApp.swift; sourceTree = "<group>"; };
 		3F40FB10290D936500BA2F83 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -225,7 +223,6 @@
 			children = (
 				3FDFEA6B290E5BF8005B778C /* CreateUser.swift */,
 				3FAA137E2917982C00D25AB1 /* UserDetails.swift */,
-				3F3F7265292E926B0043D5FB /* EditUser.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -432,7 +429,6 @@
 				3FD1F6E32922508E00A098A3 /* Expense.swift in Sources */,
 				3F40FB6E290D942F00BA2F83 /* Home.swift in Sources */,
 				3FAA137F2917982C00D25AB1 /* UserDetails.swift in Sources */,
-				3F3F7266292E926B0043D5FB /* EditUser.swift in Sources */,
 				3F87B6D82928E2AE00E49F0B /* DetailLabel.swift in Sources */,
 				3FD1F6DE2922502B00A098A3 /* Finance.swift in Sources */,
 				3F7608C22924BA89006CCE79 /* Union.swift in Sources */,
