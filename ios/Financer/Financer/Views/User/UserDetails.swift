@@ -54,7 +54,7 @@ struct UserDetails: View {
     /// if one exists.
     @ViewBuilder
     private func buildBody() -> some View {
-        if user.isAnonymous {
+        if !user.isAnonymous {
             Spacer()
             HStack {
                 Image(systemName: "person.fill.xmark")
@@ -62,17 +62,18 @@ struct UserDetails: View {
             }
             Spacer()
             NavigationLink(destination: CreateUser(user: $user)) {
-                HStack {
-                    Image("person.crop.circle.fill.badge.plus")
-                    Text("Add User")
-                }.font(.headline)
-                    .foregroundColor(.blue)
+                Label("Add User", systemImage: "person.crop.circle.fill.badge.plus")
+                    .font(.headline)
             }
         } else {
             List {
                 listTile(title: "Name", value: user.name)
                 listTile(title: "Lastname", value: user.lastname)
                 listTile(title: "Date of Birth", value: user.dateOfBirth.formatted(date: .abbreviated, time: .omitted))
+            }
+            NavigationLink(destination: EditUser(user: $user)) {
+                Label("Edit User", systemImage: "pencil")
+                    .font(.headline)
             }
         }
     }

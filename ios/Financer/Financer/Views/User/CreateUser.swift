@@ -34,28 +34,30 @@ internal struct CreateUser: View {
     var body: some View {
         GeometryReader { metrics in
             VStack {
-                Image(systemName: "person.crop.circle.fill.badge.plus")
-                    .resizable()
-                    .renderingMode(.original)
-                    .scaledToFit()
-                    .frame(
-                        width: metrics.size.height / 8,
-                        height: metrics.size.height / 9.5,
-                        alignment: .center
-                    )
-                    .padding(.all, 25)
-                    .clipShape(Circle())
-                    .onTapGesture {
-                        isLibraryShown.toggle()
+                (pickedImage != nil ?
+                 Image(uiImage: pickedImage!) :
+                    Image(systemName: "person.crop.circle.fill.badge.plus"))
+                .resizable()
+                .renderingMode(.original)
+                .scaledToFill()
+                .frame(
+                    width: metrics.size.height / 8,
+                    height: metrics.size.height / 9.5,
+                    alignment: .center
+                )
+                .padding(.all, 25)
+                .clipShape(Circle())
+                .onTapGesture {
+                    isLibraryShown.toggle()
+                }
+                .sheet(isPresented: $isLibraryShown) {
+                    var conf : PHPickerConfiguration = PHPickerConfiguration(photoLibrary: .shared())
+                    ImagePicker(conf: conf, pickedImage: $pickedImage, isPresented: $isLibraryShown).onAppear {
+                        conf.filter = .images
+                        conf.preferredAssetRepresentationMode = .automatic
+                        conf.selectionLimit = 1
                     }
-                    .sheet(isPresented: $isLibraryShown) {
-                        var conf : PHPickerConfiguration = PHPickerConfiguration(photoLibrary: .shared())
-                        ImagePicker(conf: conf, pickedImage: $pickedImage, isPresented: $isLibraryShown).onAppear {
-                            conf.filter = .images
-                            conf.preferredAssetRepresentationMode = .automatic
-                            conf.selectionLimit = 1
-                        }
-                    }
+                }
                 HStack {
                     TextField("Name", text: $name)
                         .textContentType(.givenName)
