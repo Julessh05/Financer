@@ -67,7 +67,11 @@ internal struct CreateLegalPerson: View {
             }
             Button {
                 addLegalPerson()
-            } label: { btnLabel() }
+            } label: {
+                legalPersonType != .none ?
+                Label("Add \(legalPersonType.rawValue.capitalized)", systemImage: "plus") :
+                Label("Not enough Data", systemImage: "xmark")
+            }
         }
         .textFieldStyle(.plain)
         .pickerStyle(.automatic)
@@ -123,20 +127,6 @@ internal struct CreateLegalPerson: View {
                 break
         }
         LegalPersonList.instance.add(item: person)
-    }
-
-    /// Builds and returns the Label of the
-    /// Button
-    @ViewBuilder
-    private func btnLabel() -> some View {
-        if legalPersonType != .none {
-            HStack {
-                Image(systemName: "plus")
-                Text("Add \(legalPersonType.rawValue.capitalized)")
-            }
-        } else {
-            Text("Not enough Data")
-        }
     }
 
     /// Builds and renders the Area with the
