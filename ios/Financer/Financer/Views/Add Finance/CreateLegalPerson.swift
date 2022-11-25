@@ -49,7 +49,7 @@ internal struct CreateLegalPerson: View {
                 } header: {
                     Text("General")
                 } footer: {
-                    Text("Values that all Legal Person have")
+                    Text("Data that all Legal Person have")
                 }
                 Section {
                     Picker("Type", selection: $legalPersonType) {
