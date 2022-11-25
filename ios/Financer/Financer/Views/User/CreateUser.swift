@@ -32,12 +32,15 @@ internal struct CreateUser: View {
     /// The User beeing created
     @Binding internal var user : User
 
-    internal init(user: Binding<User>) {
+    private let edit : Bool
+
+    internal init(user: Binding<User>, edit : Bool) {
         self._user = user
         _name = State(initialValue: user.wrappedValue.name)
         _lastname = State(initialValue: user.wrappedValue.lastname)
         _date = State(initialValue: user.wrappedValue.dateOfBirth)
         _pickedImage = State(initialValue: user.wrappedValue.picture)
+        self.edit = edit
     }
 
     var body: some View {
@@ -79,7 +82,7 @@ internal struct CreateUser: View {
                     } header: {
                         Text("Name")
                     } footer: {
-                        Text("Edit your complete Name")
+                        Text("\(labelText()) your complete Name")
                     }
 
                     Section {
@@ -88,7 +91,7 @@ internal struct CreateUser: View {
                     } header: {
                         Text("Date")
                     } footer: {
-                        Text("Edit your Date of birth")
+                        Text("\(labelText()) your Date of birth")
                     }
                 }
                 .textInputAutocapitalization(.words)
@@ -115,9 +118,15 @@ internal struct CreateUser: View {
                 }
 
             }
-        }.navigationTitle("Edit User")
+        }.navigationTitle("\(edit ? "Edit" : "Create") User")
             .navigationBarTitleDisplayMode(.automatic)
             .textFieldStyle(.plain)
+    }
+
+    /// Returns the Text for a label depending on
+    /// whether this Screen is in edit mode or not.
+    private func labelText() -> String {
+        return edit ? "Edit" : "Enter"
     }
 }
 
@@ -126,6 +135,6 @@ struct CreateUser_Previews: PreviewProvider {
     @State static private var user : User = User()
 
     static var previews: some View {
-        CreateUser(user: $user)
+        CreateUser(user: $user, edit: false)
     }
 }

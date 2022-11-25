@@ -61,7 +61,7 @@ struct UserDetails: View {
                 Text("No User is logged in")
             }
             Spacer()
-            NavigationLink(destination: CreateUser(user: $user)) {
+            NavigationLink(destination: CreateUser(user: $user, edit: false)) {
                 Label("Add User", systemImage: "person.crop.circle.fill.badge.plus")
                     .font(.headline)
             }
@@ -69,6 +69,8 @@ struct UserDetails: View {
             List {
                 if user.picture != nil {
                     Image(uiImage: user.picture!)
+                        .resizable()
+                        .scaledToFill()
                 } else {
                     EmptyView()
                 }
@@ -76,7 +78,7 @@ struct UserDetails: View {
                 listTile(title: "Lastname", value: user.lastname)
                 listTile(title: "Date of Birth", value: user.dateOfBirth.formatted(date: .abbreviated, time: .omitted))
             }
-            NavigationLink(destination: CreateUser(user: $user)) {
+            NavigationLink(destination: CreateUser(user: $user, edit: true)) {
                 Label("Edit User", systemImage: "pencil")
                     .font(.headline)
             }
