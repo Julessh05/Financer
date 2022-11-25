@@ -64,6 +64,15 @@ internal struct User {
         self.picture = picture
     }
 
+    /// Initializer with all Values exept of the Image
+    /// This should only be used in internal tests and previews
+    internal init(name : String, lastname : String, date : Date) {
+        self.name = name
+        self.lastname = lastname
+        self.dateOfBirth = date
+        self.picture = nil
+    }
+
     /// Whether this User is an anonymous User,
     /// or an acutal one, which the User of the App
     /// created.

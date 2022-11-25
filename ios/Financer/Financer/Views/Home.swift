@@ -45,6 +45,8 @@ internal struct Home: View {
         if user.picture != nil {
             Image(uiImage: user.picture!)
                 .backgroundStyle(.clear)
+                .frame(width: 25, height: 25)
+                .clipShape(Circle())
         } else {
             Image(systemName: "person.circle.fill")
                 .background(.clear)

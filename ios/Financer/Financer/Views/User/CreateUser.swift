@@ -29,45 +29,72 @@ internal struct CreateUser: View {
     /// The Action to dismiss this View
     @Environment(\.dismiss) private var dismiss : DismissAction
 
+    /// The User beeing created
     @Binding internal var user : User
+
+    private let edit : Bool
+
+    internal init(user: Binding<User>, edit : Bool) {
+        self._user = user
+        _name = State(initialValue: user.wrappedValue.name)
+        _lastname = State(initialValue: user.wrappedValue.lastname)
+        _date = State(initialValue: user.wrappedValue.dateOfBirth)
+        _pickedImage = State(initialValue: user.wrappedValue.picture)
+        self.edit = edit
+    }
 
     var body: some View {
         GeometryReader { metrics in
             VStack {
-                Image(systemName: "person.crop.circle.fill.badge.plus")
-                    .resizable()
-                    .renderingMode(.original)
-                    .scaledToFit()
-                    .frame(
-                        width: metrics.size.height / 8,
-                        height: metrics.size.height / 9.5,
-                        alignment: .center
-                    )
-                    .padding(.all, 25)
-                    .clipShape(Circle())
-                    .onTapGesture {
-                        isLibraryShown.toggle()
-                    }
-                    .sheet(isPresented: $isLibraryShown) {
-                        var conf : PHPickerConfiguration = PHPickerConfiguration(photoLibrary: .shared())
-                        ImagePicker(conf: conf, pickedImage: $pickedImage, isPresented: $isLibraryShown).onAppear {
-                            conf.filter = .images
-                            conf.preferredAssetRepresentationMode = .automatic
-                            conf.selectionLimit = 1
+                List {
+                    HStack {
+                        Spacer()
+                        (pickedImage != nil ?
+                         Image(uiImage: pickedImage!) :
+                            Image(systemName: "person.crop.circle.fill.badge.plus"))
+                        .resizable()
+                        .renderingMode(.original)
+                        .scaledToFill()
+                        .frame(
+                            width: metrics.size.height / 8,
+                            height: metrics.size.height / 9.5,
+                            alignment: .center
+                        )
+                        .padding(.all, 25)
+                        .clipShape(Circle())
+                        .onTapGesture {
+                            isLibraryShown.toggle()
                         }
+                        .sheet(isPresented: $isLibraryShown) {
+                            var conf : PHPickerConfiguration = PHPickerConfiguration(photoLibrary: .shared())
+                            ImagePicker(conf: conf, pickedImage: $pickedImage, isPresented: $isLibraryShown).onAppear {
+                                conf.filter = .images
+                                conf.preferredAssetRepresentationMode = .automatic
+                                conf.selectionLimit = 1
+                            }
+                        }
+                        Spacer()
                     }
-                HStack {
-                    TextField("Name", text: $name)
-                        .textContentType(.givenName)
-                    TextField("Last Name", text: $lastname)
-                        .textContentType(.familyName)
+
+                    Section {
+                        TextField("First Name", text: $name)
+                        TextField("Last Name", text: $lastname)
+                    } header: {
+                        Text("Name")
+                    } footer: {
+                        Text("\(labelText()) your complete Name")
+                    }
+
+                    Section {
+                        DatePicker("Date of Birth", selection: $date, displayedComponents: [.date])
+                            .datePickerStyle(.graphical)
+                    } header: {
+                        Text("Date")
+                    } footer: {
+                        Text("\(labelText()) your Date of birth")
+                    }
                 }
                 .textInputAutocapitalization(.words)
-
-                DatePicker("Date of Birth", selection: $date,displayedComponents: [.date])
-                    .datePickerStyle(.automatic)
-
-                Spacer()
 
                 Button {
                     user = User(name: name, lastname: lastname, date: date, picture: pickedImage)
@@ -75,21 +102,31 @@ internal struct CreateUser: View {
                     SecureStorage.storeUser(user: user)
                     dismiss()
                 } label: {
-                    HStack {
-                        Image(systemName: "plus")
-                        Text("Add User").font(.headline)
-                    }
+                    Spacer()
+                    Label("Save", systemImage: "square.and.arrow.down")
                     .frame(width: metrics.size.width / 1.2,
                            height: metrics.size.height / 15)
                     .foregroundColor(.white)
                     .background(Color.blue)
                     .cornerRadius(20)
+                    Spacer()
+                }
+                Button {
+
+                } label: {
+
                 }
 
-            }.padding(.horizontal, 10)
-        }.navigationTitle("Create User")
+            }
+        }.navigationTitle("\(edit ? "Edit" : "Create") User")
             .navigationBarTitleDisplayMode(.automatic)
-            .textFieldStyle(.roundedBorder)
+            .textFieldStyle(.plain)
+    }
+
+    /// Returns the Text for a label depending on
+    /// whether this Screen is in edit mode or not.
+    private func labelText() -> String {
+        return edit ? "Edit" : "Enter"
     }
 }
 
@@ -98,6 +135,6 @@ struct CreateUser_Previews: PreviewProvider {
     @State static private var user : User = User()
 
     static var previews: some View {
-        CreateUser(user: $user)
+        CreateUser(user: $user, edit: false)
     }
 }
