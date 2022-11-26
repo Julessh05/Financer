@@ -64,7 +64,6 @@ internal struct CreateLegalPerson: View {
                     Text("The Type this Legal Person represents")
                 }
                 specificArea()
-                companyPicker()
             }
             Button {
                 addLegalPerson()
@@ -141,7 +140,7 @@ internal struct CreateLegalPerson: View {
                     let pickerName : String = "Relation"
                     switch legalPersonType {
                         case .company:
-                            Picker("LOL", selection: $companyRelation) {
+                            Picker(pickerName, selection: $companyRelation) {
                                 ForEach(LegalPerson.CompanyRelation.allCases) {
                                     relation in
                                     Text(relation.rawValue.capitalized)
