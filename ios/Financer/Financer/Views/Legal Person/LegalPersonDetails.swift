@@ -15,9 +15,11 @@ internal struct LegalPersonDetails: View {
     internal let person : LegalPerson
 
     var body: some View {
-        List {
-
-        }.navigationTitle(person.name)
+        NavigationStack {
+            List {
+                
+            }.navigationTitle(person.name)
+        }
     }
 }
 

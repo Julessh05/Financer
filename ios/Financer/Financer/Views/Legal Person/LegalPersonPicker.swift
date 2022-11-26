@@ -55,11 +55,10 @@ internal struct LegalPersonPicker: View {
         } else if !Converter.list(for: lPT).isEmpty {
             List(Converter.list(for: lPT)) {
                 item in
-                LegalPersonListTile(person: item)
-                    .onTapGesture {
-                        legalPerson = item
-                        dismiss()
-                    }
+                LegalPersonListTile(person: item, {
+                    legalPerson = item
+                    dismiss()
+                })
             }
         } else {
             Spacer()
