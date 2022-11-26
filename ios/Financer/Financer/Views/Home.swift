@@ -44,6 +44,8 @@ internal struct Home: View {
     private func profileIcon() -> some View {
         if user.picture != nil {
             Image(uiImage: user.picture!)
+                .resizable()
+                .scaledToFill()
                 .backgroundStyle(.clear)
                 .frame(width: 25, height: 25)
                 .clipShape(Circle())
