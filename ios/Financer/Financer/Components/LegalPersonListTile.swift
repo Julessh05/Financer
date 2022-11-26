@@ -31,6 +31,7 @@ internal struct LegalPersonListTile: View {
                 Text(person.name)
                 Spacer()
             }.onTapGesture { callback() }
+            
             Button {
                 viewActive.toggle()
             } label: {

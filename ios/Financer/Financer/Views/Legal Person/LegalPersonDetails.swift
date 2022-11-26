@@ -17,8 +17,19 @@ internal struct LegalPersonDetails: View {
     var body: some View {
         NavigationStack {
             List {
-                
-            }.navigationTitle(person.name)
+                ListTile(title: "Name", data: person.name)
+                ListTile(title: "Notes", data: person.notes)
+                ListTile(title: "Relation", data: person.relation.rawValue)
+            }
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    NavigationLink(destination: CreateLegalPerson()) {
+                        Image(systemName: "pencil")
+                    }
+                }
+            }
+            .toolbar(.visible, for: .navigationBar)
+            .navigationTitle(person.name)
         }
     }
 }

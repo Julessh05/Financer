@@ -14,6 +14,8 @@
 		3F3811C3292A3ABD003932B7 /* Displayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3811C2292A3ABD003932B7 /* Displayable.swift */; };
 		3F3DA38E293226E200CF66B3 /* LegalPersonListTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3DA38D293226E200CF66B3 /* LegalPersonListTile.swift */; };
 		3F3DA3912932289700CF66B3 /* LegalPersonDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3DA3902932289700CF66B3 /* LegalPersonDetails.swift */; };
+		3F3DA39329326B3400CF66B3 /* ListTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3DA39229326B3400CF66B3 /* ListTile.swift */; };
+		3F3DA39529329E1C00CF66B3 /* Relation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3DA39429329E1C00CF66B3 /* Relation.swift */; };
 		3F40FB0D290D936400BA2F83 /* FinancerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F40FB0C290D936400BA2F83 /* FinancerApp.swift */; };
 		3F40FB11290D936500BA2F83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F40FB10290D936500BA2F83 /* Assets.xcassets */; };
 		3F40FB14290D936500BA2F83 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F40FB13290D936500BA2F83 /* Preview Assets.xcassets */; };
@@ -67,6 +69,8 @@
 		3F3811C2292A3ABD003932B7 /* Displayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Displayable.swift; sourceTree = "<group>"; };
 		3F3DA38D293226E200CF66B3 /* LegalPersonListTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalPersonListTile.swift; sourceTree = "<group>"; };
 		3F3DA3902932289700CF66B3 /* LegalPersonDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalPersonDetails.swift; sourceTree = "<group>"; };
+		3F3DA39229326B3400CF66B3 /* ListTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTile.swift; sourceTree = "<group>"; };
+		3F3DA39429329E1C00CF66B3 /* Relation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Relation.swift; sourceTree = "<group>"; };
 		3F40FB09290D936400BA2F83 /* Financer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Financer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F40FB0C290D936400BA2F83 /* FinancerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancerApp.swift; sourceTree = "<group>"; };
 		3F40FB10290D936500BA2F83 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -218,6 +222,7 @@
 				3F87B6CA2928388800E49F0B /* ModelsList.swift */,
 				3F87B6CD2928473800E49F0B /* Instancable.swift */,
 				3F3811C2292A3ABD003932B7 /* Displayable.swift */,
+				3F3DA39429329E1C00CF66B3 /* Relation.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -245,6 +250,7 @@
 				3FD48BCC290F9AED00DA118A /* ImagePicker.swift */,
 				3F87B6D72928E2AE00E49F0B /* DetailLabel.swift */,
 				3F3DA38D293226E200CF66B3 /* LegalPersonListTile.swift */,
+				3F3DA39229326B3400CF66B3 /* ListTile.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -440,6 +446,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FEC2094292BDCA40007DB83 /* LegalPersonList.swift in Sources */,
+				3F3DA39529329E1C00CF66B3 /* Relation.swift in Sources */,
 				3FD1F6E32922508E00A098A3 /* Expense.swift in Sources */,
 				3F40FB6E290D942F00BA2F83 /* Home.swift in Sources */,
 				3FAA137F2917982C00D25AB1 /* UserDetails.swift in Sources */,
@@ -460,6 +467,7 @@
 				3FDFEA6C290E5BF8005B778C /* CreateUser.swift in Sources */,
 				3FDFEA67290E5A32005B778C /* User.swift in Sources */,
 				3F87B6CE2928473800E49F0B /* Instancable.swift in Sources */,
+				3F3DA39329326B3400CF66B3 /* ListTile.swift in Sources */,
 				3FD1F6E62922510D00A098A3 /* Company.swift in Sources */,
 				3F87B6CB2928388800E49F0B /* ModelsList.swift in Sources */,
 				3F8AB0502916BC2B00FF907E /* SecureStorage.swift in Sources */,

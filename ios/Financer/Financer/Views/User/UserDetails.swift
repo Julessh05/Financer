@@ -74,25 +74,14 @@ struct UserDetails: View {
                 } else {
                     EmptyView()
                 }
-                listTile(title: "Name", value: user.name)
-                listTile(title: "Lastname", value: user.lastname)
-                listTile(title: "Date of Birth", value: user.dateOfBirth.formatted(date: .abbreviated, time: .omitted))
+                ListTile(title: "Name", data: user.name)
+                ListTile(title: "Lastname", data: user.lastname)
+                ListTile(title: "Date of Birth", data: user.dateOfBirth.formatted(date: .abbreviated, time: .omitted))
             }
             NavigationLink(destination: CreateUser(user: $user, edit: true)) {
                 Label("Edit User", systemImage: "pencil")
                     .font(.headline)
             }
-        }
-    }
-
-    /// Returns a List Tile, that can be used
-    /// to display Information about the User
-    @ViewBuilder
-    private func listTile(title : String, value : String) -> HStack<TupleView<(Text, Spacer, Text)>> {
-        HStack(alignment: .center) {
-            Text(title)
-            Spacer()
-            Text(value)
         }
     }
 }
