@@ -20,9 +20,6 @@ internal struct CreateLegalPerson: View {
     /// The Notes to this Object
     @State private var notes : String = ""
 
-    /// The Relation of this Legal Person to the User
-    @State private var relation : (any Relation)?
-
     /// The Relation if this Legal Person is a Company
     @State private var companyRelation : LegalPerson.CompanyRelation = .customer
 
@@ -37,6 +34,9 @@ internal struct CreateLegalPerson: View {
 
     /// The Phone Number of this Legal Person
     @State private var phone : String = ""
+
+    /// Action to dismiss this View programmatically
+    @Environment(\.dismiss) private var dismiss : DismissAction
 
     var body: some View {
         VStack {
@@ -77,56 +77,6 @@ internal struct CreateLegalPerson: View {
         .pickerStyle(.automatic)
         .navigationTitle("Add Finance")
         .navigationBarTitleDisplayMode(.automatic)
-    }
-
-    /// Adds the Legal Person to
-    /// the Legal Person List
-    private func addLegalPerson() -> Void {
-        // Prevents this Function to execute
-        // the Statement listed in the default case
-        guard legalPersonType != .none else {
-            return
-        }
-        let person : LegalPerson
-        switch legalPersonType {
-            case .company:
-                person = Company(
-                    name: name,
-                    relation: relation as! LegalPerson.CompanyRelation,
-                    phone: phone,
-                    notes: notes,
-                    homepage: URL(string: homepage)
-                )
-                break
-            case .person:
-                person = Person(
-                    name: name,
-                    relation: relation as! LegalPerson.PersonRelation,
-                    phone: phone,
-                    notes: notes
-                )
-                break
-            case .organization:
-                person = Organization(
-                    name: name,
-                    relation: relation as! LegalPerson.OrganizationRelation,
-                    phone: phone,
-                    notes: notes,
-                    homepage: URL(string: homepage))
-                break
-            default:
-                // Statement is just inserted
-                // to satisfy compiler.
-                // This case cannot happen.
-                person = Person(
-                    name: "Should not happen",
-                    relation: .family,
-                    phone: "0123456789",
-                    notes: "If you see this Person, something went wrong. Please contact the Administrator."
-                )
-                break
-        }
-        LegalPersonList.instance.add(item: person)
     }
 
     /// Builds and renders the Area with the
@@ -183,6 +133,7 @@ internal struct CreateLegalPerson: View {
         TextField("Phone Number", text: $phone)
             .keyboardType(.phonePad)
             .textContentType(.telephoneNumber)
+            .textInputAutocapitalization(.never)
     }
 
     /// Returns a Text Field to
@@ -193,6 +144,58 @@ internal struct CreateLegalPerson: View {
         TextField("Homepage", text: $homepage)
             .textContentType(.URL)
             .keyboardType(.URL)
+            .textInputAutocapitalization(.never)
+    }
+
+    /// Adds the Legal Person to
+    /// the Legal Person List
+    private func addLegalPerson() -> Void {
+        // Prevents this Function to execute
+        // the Statement listed in the default case
+        guard legalPersonType != .none else {
+            return
+        }
+        let person : LegalPerson
+        switch legalPersonType {
+            case .company:
+                person = Company(
+                    name: name,
+                    relation: companyRelation,
+                    phone: phone,
+                    notes: notes,
+                    homepage: URL(string: homepage)
+                )
+                break
+            case .person:
+                person = Person(
+                    name: name,
+                    relation: personRelation,
+                    phone: phone,
+                    notes: notes
+                )
+                break
+            case .organization:
+                person = Organization(
+                    name: name,
+                    relation: organizationRelation,
+                    phone: phone,
+                    notes: notes,
+                    homepage: URL(string: homepage))
+                break
+            default:
+                // Statement is just inserted
+                // to satisfy compiler.
+                // This case cannot happen.
+                person = Person(
+                    name: "Should not happen",
+                    relation: .family,
+                    phone: "0123456789",
+                    notes: "If you see this Person, something went wrong. Please contact the Administrator."
+                )
+                break
+        }
+        LegalPersonList.instance.add(item: person)
+        dismiss()
     }
 }
 

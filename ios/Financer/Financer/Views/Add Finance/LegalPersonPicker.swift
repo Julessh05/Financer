@@ -31,6 +31,8 @@ internal struct LegalPersonPicker: View {
                 Label("Add Legal Person", systemImage: "person.fill.badge.plus")
             }
         }
+        // Done to refresh the View
+        .onAppear(perform: {lPT = .none})
         .navigationTitle("Picker")
         .navigationBarTitleDisplayMode(.automatic)
     }
