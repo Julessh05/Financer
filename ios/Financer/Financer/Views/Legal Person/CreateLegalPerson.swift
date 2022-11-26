@@ -75,7 +75,7 @@ internal struct CreateLegalPerson: View {
         }
         .textFieldStyle(.plain)
         .pickerStyle(.automatic)
-        .navigationTitle("Add Finance")
+        .navigationTitle("Create Legal Person")
         .navigationBarTitleDisplayMode(.automatic)
     }
 

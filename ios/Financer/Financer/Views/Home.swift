@@ -35,7 +35,6 @@ internal struct Home: View {
 
                 }
             }
-
         }
     }
 

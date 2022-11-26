@@ -15,6 +15,12 @@ internal struct LegalPersonPicker: View {
     /// the Picker currently shows
     @State private var lPT : LegalPerson.LegalPersonType = .none
 
+    /// The Legal Person beeing picked
+    @Binding internal var legalPerson : LegalPerson?
+
+    /// The Action to dismiss this View programmatically
+    @Environment(\.dismiss) private var dismiss : DismissAction
+
     var body: some View {
         VStack {
             Picker("Type", selection: $lPT) {
@@ -32,6 +38,7 @@ internal struct LegalPersonPicker: View {
             }
         }
         // Done to refresh the View
+        // when returning from creating a new Legal Person
         .onAppear(perform: {lPT = .none})
         .navigationTitle("Picker")
         .navigationBarTitleDisplayMode(.automatic)
@@ -46,9 +53,13 @@ internal struct LegalPersonPicker: View {
             Spacer()
             Text("Choose a Type")
         } else if !Converter.list(for: lPT).isEmpty {
-            ForEach(Converter.list(for: lPT)) {
+            List(Converter.list(for: lPT)) {
                 item in
-                Text(item.name)
+                LegalPersonListTile(person: item)
+                    .onTapGesture {
+                        legalPerson = item
+                        dismiss()
+                    }
             }
         } else {
             Spacer()
@@ -58,7 +69,9 @@ internal struct LegalPersonPicker: View {
 }
 
 struct LegalPersonPicker_Previews: PreviewProvider {
+    @State static private var lp : LegalPerson?
+
     static var previews: some View {
-        LegalPersonPicker()
+        LegalPersonPicker(legalPerson: $lp)
     }
 }
