@@ -27,11 +27,8 @@ internal struct LegalPersonListTile: View {
 
     var body: some View {
         HStack {
-            Group {
-                Text(person.name)
-                Spacer()
-            }.onTapGesture { callback() }
-            
+            Text(person.name)
+            Spacer()
             Button {
                 viewActive.toggle()
             } label: {
@@ -40,6 +37,7 @@ internal struct LegalPersonListTile: View {
                 LegalPersonDetails(person: person)
             }
         }
+        .onTapGesture { callback() }
     }
 }
 
