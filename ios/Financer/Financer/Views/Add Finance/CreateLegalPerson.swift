@@ -24,13 +24,13 @@ internal struct CreateLegalPerson: View {
     @State private var relation : (any Relation)?
 
     /// The Relation if this Legal Person is a Company
-    @State private var companyRelation : LegalPerson.CompanyRelation?
+    @State private var companyRelation : LegalPerson.CompanyRelation = .customer
 
     /// The Relation if this Legal Person is a Person
-    @State private var personRelation : LegalPerson.PersonRelation?
+    @State private var personRelation : LegalPerson.PersonRelation = .friend
 
     /// The Relation if this Legal Person is an Organization
-    @State private var organizationRelation : LegalPerson.OrganizationRelation?
+    @State private var organizationRelation : LegalPerson.OrganizationRelation = .member
 
     /// The Homepage of this Legal Person
     @State private var homepage : String = ""
@@ -61,9 +61,10 @@ internal struct CreateLegalPerson: View {
                 } header: {
                     Text("Type")
                 } footer: {
-                    Text("The Type this Legal Person is of")
+                    Text("The Type this Legal Person represents")
                 }
                 specificArea()
+                companyPicker()
             }
             Button {
                 addLegalPerson()
@@ -140,7 +141,7 @@ internal struct CreateLegalPerson: View {
                     let pickerName : String = "Relation"
                     switch legalPersonType {
                         case .company:
-                            Picker(pickerName, selection: $companyRelation) {
+                            Picker("LOL", selection: $companyRelation) {
                                 ForEach(LegalPerson.CompanyRelation.allCases) {
                                     relation in
                                     Text(relation.rawValue.capitalized)
