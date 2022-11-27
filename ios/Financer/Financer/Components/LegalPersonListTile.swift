@@ -27,8 +27,13 @@ internal struct LegalPersonListTile: View {
 
     var body: some View {
         HStack {
-            Text(person.name)
-            Spacer()
+            HStack {
+                Text(person.name)
+                Spacer()
+            }
+            // Solution from: https://stackoverflow.com/questions/57191013/swiftui-cant-tap-in-spacer-of-hstack
+            .contentShape(Rectangle())
+            .onTapGesture { callback() }
             Button {
                 viewActive.toggle()
             } label: {
@@ -37,7 +42,6 @@ internal struct LegalPersonListTile: View {
                 LegalPersonDetails(person: person)
             }
         }
-        .onTapGesture { callback() }
     }
 }
 
@@ -50,7 +54,7 @@ struct LegalPersonListTile_Previews: PreviewProvider {
                 phone: "",
                 notes: "This is just a Test Person"
             ),
-            {print("Callback activated")}
+            { print("Callback activated") }
         )
     }
 }
