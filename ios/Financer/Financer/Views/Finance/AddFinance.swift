@@ -46,7 +46,7 @@ internal struct AddFinance: View {
                     Text("The Amount of Money transfered with this Finance")
                 }
                 Section {
-                    NavigationLink(destination: LegalPersonPicker()) {
+                    NavigationLink(destination: LegalPersonPicker(legalPerson: $legalPerson)) {
                         DetailLabel(title: "Legal Person", data: legalPerson?.name ?? "None")
                     }
                 } header: {

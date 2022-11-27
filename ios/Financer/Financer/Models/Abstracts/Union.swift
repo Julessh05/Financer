@@ -14,12 +14,12 @@ internal class Union : LegalPerson {
     /// The Homepage to this Union
     internal let homepage : URL?
 
-    init(
+    internal init(
         name : String,
         relation : any Relation,
         phone : String,
         notes : String,
-        homepage : URL?
+        homepage: URL?
     ) {
         self.homepage = homepage
         super.init(

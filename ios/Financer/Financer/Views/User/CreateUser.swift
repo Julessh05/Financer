@@ -30,8 +30,9 @@ internal struct CreateUser: View {
     @Environment(\.dismiss) private var dismiss : DismissAction
 
     /// The User beeing created
-    @Binding internal var user : User
+    @Binding private var user : User
 
+    /// Whether this Screen is in edit Mode or not.
     private let edit : Bool
 
     internal init(user: Binding<User>, edit : Bool) {
@@ -82,7 +83,7 @@ internal struct CreateUser: View {
                     } header: {
                         Text("Name")
                     } footer: {
-                        Text("\(labelText()) your complete Name")
+                        Text("\(labelText) your complete Name")
                     }
 
                     Section {
@@ -91,7 +92,7 @@ internal struct CreateUser: View {
                     } header: {
                         Text("Date")
                     } footer: {
-                        Text("\(labelText()) your Date of birth")
+                        Text("\(labelText) your Date of birth")
                     }
                 }
                 .textInputAutocapitalization(.words)
@@ -104,11 +105,11 @@ internal struct CreateUser: View {
                 } label: {
                     Spacer()
                     Label("Save", systemImage: "square.and.arrow.down")
-                    .frame(width: metrics.size.width / 1.2,
-                           height: metrics.size.height / 15)
-                    .foregroundColor(.white)
-                    .background(Color.blue)
-                    .cornerRadius(20)
+                        .frame(width: metrics.size.width / 1.2,
+                               height: metrics.size.height / 15)
+                        .foregroundColor(.white)
+                        .background(Color.blue)
+                        .cornerRadius(20)
                     Spacer()
                 }
                 Button {
@@ -123,10 +124,12 @@ internal struct CreateUser: View {
             .textFieldStyle(.plain)
     }
 
-    /// Returns the Text for a label depending on
+    /// Represents the Text for a label depending on
     /// whether this Screen is in edit mode or not.
-    private func labelText() -> String {
-        return edit ? "Edit" : "Enter"
+    private var labelText : String {
+        get {
+            return edit ? "Edit" : "Enter"
+        }
     }
 }
 

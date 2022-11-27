@@ -7,11 +7,6 @@
 
 import Foundation
 
-/// The Protocol all the
-/// different Types of Relations have
-/// to correspond to
-internal protocol Relation : CaseIterable, Identifiable, Equatable {}
-
 /// The class all Legal Persons extend from
 internal class LegalPerson : Equatable, Identifiable {
     /// The Type of this Legal Person
