@@ -12,7 +12,7 @@ internal struct LegalPersonDetails: View {
 
     /// The Legal Person beeing represented
     /// in this View
-    internal let person : LegalPerson
+    @State internal var person : LegalPerson
 
     var body: some View {
         NavigationStack {
@@ -23,7 +23,7 @@ internal struct LegalPersonDetails: View {
             }
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
-                    NavigationLink(destination: CreateLegalPerson()) {
+                    NavigationLink(destination: CreateLegalPerson(legalPerson: $person)) {
                         Image(systemName: "pencil")
                     }
                 }

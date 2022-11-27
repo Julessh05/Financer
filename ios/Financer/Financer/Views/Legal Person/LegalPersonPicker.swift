@@ -33,7 +33,7 @@ internal struct LegalPersonPicker: View {
 
             list()
             Spacer()
-            NavigationLink(destination: CreateLegalPerson()) {
+            NavigationLink(destination: CreateLegalPerson(type: lPT)) {
                 Label("Add Legal Person", systemImage: "person.fill.badge.plus")
             }
         }

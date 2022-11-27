@@ -38,6 +38,32 @@ internal struct CreateLegalPerson: View {
     /// Action to dismiss this View programmatically
     @Environment(\.dismiss) private var dismiss : DismissAction
 
+    /// The Person beeing edited, if this Screen is in edit Mode
+    private var legalPerson : Binding<LegalPerson>?
+
+    /// Whether this Screen is in edit Mode or not.
+    private let edit : Bool
+
+    /// Initializer used to create a new Legal Person
+    internal init(type: LegalPerson.LegalPersonType = .none) {
+        edit = false
+        legalPerson = nil
+        _legalPersonType = State(initialValue: type)
+    }
+
+    /// Initializer used to edit a specified Legal Person
+    internal init(legalPerson : Binding<LegalPerson>) {
+        edit = true
+        self.legalPerson = legalPerson
+        _name = State(initialValue: legalPerson.wrappedValue.name)
+        _notes = State(initialValue: legalPerson.wrappedValue.notes)
+        _phone = State(initialValue: legalPerson.wrappedValue.phone)
+        if legalPerson.wrappedValue is Union {
+            let lp : Union = legalPerson.wrappedValue as! Union
+            _homepage = State(initialValue: lp.homepage?.absoluteString ?? "")
+        }
+    }
+
     var body: some View {
         VStack {
             List {
@@ -49,7 +75,7 @@ internal struct CreateLegalPerson: View {
                 } header: {
                     Text("General")
                 } footer: {
-                    Text("Data that all Legal Person have")
+                    Text("\(labelText) the general Value every Legal Person has")
                 }
                 Section {
                     Picker("Type", selection: $legalPersonType) {
@@ -70,12 +96,12 @@ internal struct CreateLegalPerson: View {
             } label: {
                 legalPersonType != .none ?
                 Label("Add \(legalPersonType.rawValue.capitalized)", systemImage: "plus") :
-                Label("Not enough Data", systemImage: "xmark")
+                Label("Fill out all Fields first", systemImage: "questionmark")
             }
         }
         .textFieldStyle(.plain)
         .pickerStyle(.automatic)
-        .navigationTitle("Create Legal Person")
+        .navigationTitle("\(labelText) Legal Person")
         .navigationBarTitleDisplayMode(.automatic)
     }
 
@@ -119,10 +145,18 @@ internal struct CreateLegalPerson: View {
                 } header: {
                     Text("Specific")
                 } footer: {
-                    Text("Specific Data depending on the Type of this Legal Person")
+                    Text("\(labelText) the specific Information about this Legal Person")
                 }
             default:
                 EmptyView()
+        }
+    }
+
+    /// Represents the Text for a label depending on
+    /// whether this Screen is in edit mode or not.
+    private var labelText : String {
+        get {
+            return edit ? "Edit" : "Enter"
         }
     }
 
@@ -201,6 +235,6 @@ internal struct CreateLegalPerson: View {
 
 struct CreateLegalPerson_Previews: PreviewProvider {
     static var previews: some View {
-        CreateLegalPerson()
+        CreateLegalPerson(type: .person)
     }
 }
