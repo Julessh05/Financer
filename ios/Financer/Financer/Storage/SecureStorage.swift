@@ -14,7 +14,7 @@ import Security
 internal struct SecureStorage {
 
     /// Loads the UserData from the Keychain
-    static internal func loadUser() -> [String : String] {
+    internal static func loadUser() -> [String : String] {
         var userData : [String : String] = [ : ]
         for key in User.dictionaryKeys {
             var result : AnyObject?
@@ -33,7 +33,7 @@ internal struct SecureStorage {
     }
 
     /// Stores the User to the Keychain
-    static internal func storeUser(user : User) -> Void {
+    internal static func storeUser(user : User) -> Void {
         for data in user.toDictionary() {
             let query : [CFString : String] = [
                 kSecClass : kSecClassKey as String,
@@ -49,7 +49,7 @@ internal struct SecureStorage {
     
     /// Deletes all Data from
     /// the local Storage
-    static internal func deleteData() -> Void {
+    internal static func deleteData() -> Void {
         for data in User.dictionaryKeys {
             let query : [CFString : String] = [
                 kSecClass : kSecClassKey as String,
