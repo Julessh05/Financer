@@ -30,6 +30,12 @@ internal struct LegalPersonList : ModelsList {
         }
     }
 
+    mutating func replace(toReplace: LegalPerson, replace: LegalPerson) {
+        if let index = items.firstIndex(of: toReplace) {
+            items[index] = replace
+        }
+    }
+
     mutating func delete(items localItems: [LegalPerson]) {
         for item in localItems {
             if let index = items.firstIndex(of: item) {

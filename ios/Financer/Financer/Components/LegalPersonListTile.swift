@@ -12,13 +12,13 @@ import SwiftUI
 internal struct LegalPersonListTile: View {
 
     /// The Legal Person for this View
-    private let person : LegalPerson
+    @State private var person : LegalPerson
 
     /// The callback to execute
     private let callback : () -> ()
 
     internal init(person: LegalPerson, _ callback : @escaping () -> ()) {
-        self.person = person
+        self._person = State(initialValue: person)
         self.callback = callback
     }
 
@@ -39,7 +39,7 @@ internal struct LegalPersonListTile: View {
             } label: {
                 Image(systemName: "info.circle")
             }.sheet(isPresented: $viewActive) {
-                LegalPersonDetails(person: person)
+                LegalPersonDetails(person: $person)
             }
         }
     }

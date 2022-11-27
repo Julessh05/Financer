@@ -26,6 +26,10 @@ internal protocol ModelsList : Instancable {
 
     /// Adds all the specied items to the list
     mutating func add(items localItems: [ModelsListType]) -> Void
+
+    /// Replaces the specified Item in this List.
+    /// This is used to edit Items
+    mutating func replace(toReplace : ModelsListType, replace : ModelsListType) -> Void
     
     /// Removes and Deletes the specified Item in this List
     mutating func delete(item : ModelsListType) -> Void
