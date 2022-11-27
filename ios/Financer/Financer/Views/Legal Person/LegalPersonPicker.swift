@@ -34,7 +34,7 @@ internal struct LegalPersonPicker: View {
             list()
             Spacer()
             NavigationLink(destination: CreateLegalPerson(type: lPT)) {
-                Label("Add Legal Person", systemImage: "person.fill.badge.plus")
+                Label("Add \(lPT != .none ? lPT.rawValue.capitalized : "Legal Person")", systemImage: "person.fill.badge.plus")
             }
         }
         // Done to refresh the View

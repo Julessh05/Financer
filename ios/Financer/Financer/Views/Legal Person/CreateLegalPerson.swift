@@ -55,6 +55,7 @@ internal struct CreateLegalPerson: View {
     internal init(legalPerson : Binding<LegalPerson>) {
         edit = true
         self.legalPerson = legalPerson
+        _legalPersonType = State(initialValue: Converter.legalPersonType(for: legalPerson.wrappedValue))
         _name = State(initialValue: legalPerson.wrappedValue.name)
         _notes = State(initialValue: legalPerson.wrappedValue.notes)
         _phone = State(initialValue: legalPerson.wrappedValue.phone)
@@ -72,11 +73,13 @@ internal struct CreateLegalPerson: View {
                         .textContentType(.name)
                     TextField("Notes", text: $notes, axis: .vertical)
                         .lineLimit(5)
+                        .textContentType(.familyName)
                 } header: {
                     Text("General")
                 } footer: {
                     Text("\(labelText) the general Value every Legal Person has")
                 }
+                .keyboardType(.alphabet)
                 Section {
                     Picker("Type", selection: $legalPersonType) {
                         ForEach(LegalPerson.LegalPersonType.allCases) {

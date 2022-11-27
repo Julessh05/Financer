@@ -39,4 +39,16 @@ internal struct Converter {
                 return FinanceList.instance.items.filter({ $0 is Expense })
         }
     }
+
+    /// Returns the Enum case of LegalPersonType depending on the Legal Person beeing passed in.
+    internal static func legalPersonType(for legalPerson : LegalPerson) -> LegalPerson.LegalPersonType {
+        switch legalPerson.self {
+            case is Union:
+                return legalPerson.self is Company ? .company : .organization
+            case is Person:
+                return .person
+            default:
+                return .none
+        }
+    }
 }
