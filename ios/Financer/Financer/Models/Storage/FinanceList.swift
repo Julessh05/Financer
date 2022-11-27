@@ -30,6 +30,12 @@ internal struct FinanceList : ModelsList {
         }
     }
 
+    mutating func replace(toReplace: Finance, replace: Finance) {
+        if let index = items.firstIndex(of: toReplace) {
+            items[index] = replace
+        }
+    }
+
     mutating func delete(items localItems: [Finance]) {
         for item in localItems {
             if let index = items.firstIndex(of: item) {

@@ -112,16 +112,10 @@ internal struct CreateUser: View {
                         .cornerRadius(20)
                     Spacer()
                 }
-                Button {
-
-                } label: {
-
-                }
-
-            }
-        }.navigationTitle("\(edit ? "Edit" : "Create") User")
-            .navigationBarTitleDisplayMode(.automatic)
-            .textFieldStyle(.plain)
+            }.navigationTitle("\(edit ? "Edit" : "Create") User")
+                .navigationBarTitleDisplayMode(.automatic)
+                .textFieldStyle(.plain)
+        }
     }
 
     /// Represents the Text for a label depending on

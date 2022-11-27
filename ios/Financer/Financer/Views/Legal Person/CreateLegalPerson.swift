@@ -66,45 +66,52 @@ internal struct CreateLegalPerson: View {
     }
 
     var body: some View {
-        VStack {
-            List {
-                Section {
-                    TextField("Name", text: $name)
-                        .textContentType(.name)
-                    TextField("Notes", text: $notes, axis: .vertical)
-                        .lineLimit(5)
-                        .textContentType(.familyName)
-                } header: {
-                    Text("General")
-                } footer: {
-                    Text("\(labelText) the general Value every Legal Person has")
-                }
-                .keyboardType(.alphabet)
-                Section {
-                    Picker("Type", selection: $legalPersonType) {
-                        ForEach(LegalPerson.LegalPersonType.allCases) {
-                            type in
-                            Text(type.rawValue.capitalized)
-                        }
+        GeometryReader { metrics in
+            VStack {
+                List {
+                    Section {
+                        TextField("Name", text: $name)
+                            .textContentType(.name)
+                        TextField("Notes", text: $notes, axis: .vertical)
+                            .lineLimit(5)
+                            .textContentType(.familyName)
+                    } header: {
+                        Text("General")
+                    } footer: {
+                        Text("\(labelText) the general Value every Legal Person has")
                     }
-                } header: {
-                    Text("Type")
-                } footer: {
-                    Text("The Type this Legal Person represents")
+                    .keyboardType(.alphabet)
+                    Section {
+                        Picker("Type", selection: $legalPersonType) {
+                            ForEach(LegalPerson.LegalPersonType.allCases) {
+                                type in
+                                Text(type.rawValue.capitalized)
+                            }
+                        }
+                    } header: {
+                        Text("Type")
+                    } footer: {
+                        Text("The Type this Legal Person represents")
+                    }
+                    specificArea()
                 }
-                specificArea()
-            }
-            Button {
-                addLegalPerson()
-            } label: {
-                legalPersonType != .none ?
-                Label("Add \(legalPersonType.rawValue.capitalized)", systemImage: "plus") :
-                Label("Fill out all Fields first", systemImage: "questionmark")
+                Button {
+                    addLegalPerson()
+                } label: {
+                    Spacer()
+                    Label("Save", systemImage: "square.and.arrow.down")
+                        .frame(width: metrics.size.width / 1.2,
+                               height: metrics.size.height / 15)
+                        .foregroundColor(.white)
+                        .background(Color.blue)
+                        .cornerRadius(20)
+                    Spacer()
+                }
             }
         }
         .textFieldStyle(.plain)
         .pickerStyle(.automatic)
-        .navigationTitle("\(labelText) Legal Person")
+        .navigationTitle("\(edit ? "Edit" : "Create") Legal Person")
         .navigationBarTitleDisplayMode(.automatic)
     }
 
@@ -231,7 +238,15 @@ internal struct CreateLegalPerson: View {
                 )
                 break
         }
-        LegalPersonList.instance.add(item: person)
+        if edit {
+            LegalPersonList.instance.replace(
+                toReplace: legalPerson!.wrappedValue,
+                replace: person
+            )
+            legalPerson!.wrappedValue = person
+        } else {
+            LegalPersonList.instance.add(item: person)
+        }
         dismiss()
     }
 }

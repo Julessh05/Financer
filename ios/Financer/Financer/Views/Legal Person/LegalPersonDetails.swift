@@ -12,7 +12,7 @@ internal struct LegalPersonDetails: View {
 
     /// The Legal Person beeing represented
     /// in this View
-    @State internal var person : LegalPerson
+    @Binding internal var person : LegalPerson
 
     var body: some View {
         NavigationStack {
@@ -35,14 +35,14 @@ internal struct LegalPersonDetails: View {
 }
 
 struct LegalPersonDetails_Previews: PreviewProvider {
+    @State private static var person : LegalPerson = Person(
+        name: "Test",
+        relation: .family,
+        phone: "",
+        notes: "This is just a Test Person"
+    )
+
     static var previews: some View {
-        LegalPersonDetails(
-            person: Person(
-                name: "Test",
-                relation: .family,
-                phone: "",
-                notes: "This is just a Test Person"
-            )
-        )
+        LegalPersonDetails(person: $person)
     }
 }
