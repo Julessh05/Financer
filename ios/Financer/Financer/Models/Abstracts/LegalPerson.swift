@@ -8,7 +8,7 @@
 import Foundation
 
 /// The class all Legal Persons extend from
-internal class LegalPerson : Equatable, Identifiable {
+internal class LegalPerson : Equatable, Identifiable, Codable {
     /// The Type of this Legal Person
     internal enum LegalPersonType : String, CaseIterable, Identifiable {
         var id : Self { self }
@@ -105,6 +105,28 @@ internal class LegalPerson : Equatable, Identifiable {
         self.relation = relation
         self.phone = phone
         self.notes = notes
+    }
+
+    required init(from decoder: Decoder) throws {
+        let values : KeyedDecodingContainer = try decoder.container(keyedBy: Keys.self)
+        self.name = try values.decode(String.self, forKey: .name)
+        self.relation = try values.decode((any Relation).self, forKey: .relation)
+        self.phone = try values.decode(String.self, forKey: .phone)
+
+    }
+
+    private enum Keys : CodingKey {
+        case name
+
+        case relation
+
+        case phone
+
+        case notes
+    }
+
+    // Method to conform to Encodable
+    func encode(to encoder: Encoder) throws {
     }
 
     // Override to conform to Equatable

@@ -29,4 +29,8 @@ internal class Union : LegalPerson {
             notes: notes
         )
     }
+
+    required init(from decoder: Decoder) throws {
+        
+    }
 }

@@ -13,4 +13,15 @@ import Foundation
 internal protocol Relation : CaseIterable,
                              Identifiable,
                              Equatable,
+                             Codable,
                              RawRepresentable where RawValue == String {}
+
+extension Relation {
+    init(from decoder: Decoder) throws {
+        let values : KeyedDecodingContainer = try decoder.container(keyedBy: )
+    }
+
+    func encode(to encoder: Encoder) throws {
+
+    }
+}

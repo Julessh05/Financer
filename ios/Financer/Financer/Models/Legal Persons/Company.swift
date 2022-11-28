@@ -26,4 +26,8 @@ internal final class Company : Union {
             homepage: homepage
         )
     }
+
+    required init(from decoder: Decoder) throws {
+        super.init(from: decoder)
+    }
 }
