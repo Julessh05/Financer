@@ -10,7 +10,7 @@ import Foundation
 /// The class all
 /// Finance Objects have to confirm
 /// to.
-internal class Finance : Equatable, Codable {
+internal class Finance : Equatable, Codable, Identifiable {
 
     /// Enum to define the Type of the Finance
     internal enum FinanceType : String, Identifiable, CaseIterable {
@@ -23,6 +23,8 @@ internal class Finance : Equatable, Codable {
     /// used in those classes
     internal typealias Money = Double
 
+    internal var id: UUID = UUID()
+
     /// The Amount of Money
     /// this Finance is linked to.
     internal let amount : Money
@@ -30,16 +32,23 @@ internal class Finance : Equatable, Codable {
     /// The Legal Person this Finance is connected to
     internal let legalPerson : LegalPerson
 
+    /// The Keys to encode and decode Finances
     private enum Keys : CodingKey {
+        /// The Amount Attribute
         case amount
 
+        /// The Legal Person Attribute
         case legalPerson
+
+        /// The ID of this Object
+        case id
     }
 
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: Keys.self)
         amount = try container.decode(Money.self, forKey: .amount)
         legalPerson = try container.decode(LegalPerson.self, forKey: .legalPerson)
+        id = try container.decode(UUID.self, forKey: .id)
     }
 
     func encode(to encoder: Encoder) throws {

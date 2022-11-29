@@ -28,6 +28,6 @@ internal final class Company : Union {
     }
 
     required init(from decoder: Decoder) throws {
-        super.init(from: decoder)
+        try super.init(from: decoder)
     }
 }

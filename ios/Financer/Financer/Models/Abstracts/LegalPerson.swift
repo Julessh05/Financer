@@ -81,6 +81,8 @@ internal class LegalPerson : Equatable, Identifiable, Codable {
         case member
     }
 
+    internal var id : UUID = UUID()
+
     /// The Name of this Legal Person
     internal let name : String
 
@@ -113,16 +115,25 @@ internal class LegalPerson : Equatable, Identifiable, Codable {
         relation = try values.decode((any Relation).self, forKey: .relation)
         phone = try values.decode(String.self, forKey: .phone)
         notes = try values.decode(String.self, forKey: .notes)
+        id = try values.decode(UUID.self, forKey: .id)
     }
 
+    /// Keys to encode and decode Legal Persons
     private enum Keys : CodingKey {
+        /// The Name Attribute
         case name
 
+        /// The Relation Attribute
         case relation
 
+        /// The Phone Attribute
         case phone
 
+        /// The Notes Attribute
         case notes
+
+        /// The ID of this Object
+        case id
     }
 
     // Method to conform to Encodable
@@ -132,6 +143,7 @@ internal class LegalPerson : Equatable, Identifiable, Codable {
         try container.encode(relation, forKey: .relation)
         try container.encode(phone, forKey: .phone)
         try container.encode(notes, forKey: .notes)
+        try container.encode(id, forKey: .id)
     }
 
     // Override to conform to Equatable
