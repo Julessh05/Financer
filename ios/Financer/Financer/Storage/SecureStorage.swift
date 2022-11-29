@@ -46,7 +46,46 @@ internal struct SecureStorage {
             }
         }
     }
-    
+
+    /// Loads all the Finances from the Keychain
+    /// and matches the Finances to the Finances List
+    internal static func loadFinances() -> Void {
+
+    }
+
+    /// Saves all the Finances to the Keychain
+    internal static func storeFinances() -> Void {
+        var list : [Data] = []
+        for finance in FinanceList.instance.items {
+            if let encoded : Data = try? JSONEncoder().encode(finance) {
+                list.append(encoded)
+            }
+        }
+
+        for finance in list {
+            let query : [CFString : Any] = [
+                kSecClass : kSecClassKey,
+                kSecAttr
+            ]
+        }
+    }
+
+    /// Loads all the Legal Persons from the Keychain
+    /// and matches the Persons to the Persons List
+    internal static func loadLegalPersons() -> Void {
+
+    }
+
+    /// Saves all the Legal Persons to the Keychain
+    internal static func storeLegalPersons() -> Void {
+        var list : [Data] = []
+        for legalPerson in LegalPersonList.instance.items {
+            if let encoded : Data = try? JSONEncoder().encode(legalPerson) {
+                list.append(encoded)
+            }
+        }
+    }
+
     /// Deletes all Data from
     /// the local Storage
     internal static func deleteData() -> Void {

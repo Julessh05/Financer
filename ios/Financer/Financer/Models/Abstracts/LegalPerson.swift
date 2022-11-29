@@ -109,10 +109,10 @@ internal class LegalPerson : Equatable, Identifiable, Codable {
 
     required init(from decoder: Decoder) throws {
         let values : KeyedDecodingContainer = try decoder.container(keyedBy: Keys.self)
-        self.name = try values.decode(String.self, forKey: .name)
-        self.relation = try values.decode((any Relation).self, forKey: .relation)
-        self.phone = try values.decode(String.self, forKey: .phone)
-
+        name = try values.decode(String.self, forKey: .name)
+        relation = try values.decode((any Relation).self, forKey: .relation)
+        phone = try values.decode(String.self, forKey: .phone)
+        notes = try values.decode(String.self, forKey: .notes)
     }
 
     private enum Keys : CodingKey {
@@ -127,6 +127,11 @@ internal class LegalPerson : Equatable, Identifiable, Codable {
 
     // Method to conform to Encodable
     func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: Keys.self)
+        try container.encode(name, forKey: .name)
+        try container.encode(relation, forKey: .relation)
+        try container.encode(phone, forKey: .phone)
+        try container.encode(notes, forKey: .notes)
     }
 
     // Override to conform to Equatable
