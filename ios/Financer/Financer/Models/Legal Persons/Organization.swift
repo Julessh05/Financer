@@ -26,4 +26,8 @@ internal final class Organization : Union {
             homepage: homepage
         )
     }
+
+    required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
+    }
 }

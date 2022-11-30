@@ -29,4 +29,10 @@ internal class Union : LegalPerson {
             notes: notes
         )
     }
+
+    required init(from decoder: Decoder) throws {
+        let container : KeyedDecodingContainer = try decoder.container(keyedBy: LegalPerson.Keys.self)
+        homepage = try container.decode(URL.self, forKey: .homepage)
+        try super.init(from: decoder)
+    }
 }

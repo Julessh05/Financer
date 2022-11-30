@@ -24,6 +24,10 @@ internal final class Person : LegalPerson {
             notes: notes
         )
     }
+
+    required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
+    }
 }
 
 
