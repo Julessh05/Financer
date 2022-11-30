@@ -119,7 +119,7 @@ internal class LegalPerson : Equatable, Identifiable, Codable {
     }
 
     /// Keys to encode and decode Legal Persons
-    private enum Keys : CodingKey {
+    internal enum Keys : CodingKey {
         /// The Name Attribute
         case name
 
@@ -134,6 +134,10 @@ internal class LegalPerson : Equatable, Identifiable, Codable {
 
         /// The ID of this Object
         case id
+
+        /// The Homepage for the Legal Person
+        /// (only affective with Unions)
+        case homepage
     }
 
     // Method to conform to Encodable

@@ -174,7 +174,8 @@ internal struct SecureStorage {
         guard status == errSecSuccess else {
             return []
         }
-        return result as! [UUID]
+        let data : Data = result as! Data
+        return NSKeyedUnarchiver.unarchivedArrayOfObjects(ofClass: [UUID].self, from: data) as! [UUID]
     }
 
     /// Stores all the Keys for the Finances to the Keychain
