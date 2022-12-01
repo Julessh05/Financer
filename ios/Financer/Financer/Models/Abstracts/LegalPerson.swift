@@ -7,8 +7,6 @@
 
 import Foundation
 
-
-
 /// The class all Legal Persons extend from
 internal class LegalPerson : Equatable, Identifiable, Codable {
     /// The Type of this Legal Person
