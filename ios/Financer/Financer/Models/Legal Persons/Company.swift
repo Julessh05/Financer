@@ -11,7 +11,7 @@ import Foundation
 internal final class Company : Union {
 
     /// Initializer with all Values
-    internal init(
+    internal override init(
         name : String,
         relation : CompanyRelation,
         phone : String,

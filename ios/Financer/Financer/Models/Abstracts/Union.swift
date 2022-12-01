@@ -15,11 +15,27 @@ internal class Union : LegalPerson {
     internal let homepage : URL?
 
     internal init(
-        name : String,
-        relation : any Relation,
-        phone : String,
-        notes : String,
-        homepage: URL?
+        name: String,
+        relation: LegalPerson.CompanyRelation,
+        phone: String,
+        notes: String,
+        homepage : URL?
+    ) {
+        self.homepage = homepage
+        super.init(
+            name: name,
+            relation: relation,
+            phone: phone,
+            notes: notes
+        )
+    }
+
+    internal init(
+        name: String,
+        relation: LegalPerson.OrganizationRelation,
+        phone: String,
+        notes: String,
+        homepage : URL?
     ) {
         self.homepage = homepage
         super.init(

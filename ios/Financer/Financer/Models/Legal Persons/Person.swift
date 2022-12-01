@@ -11,11 +11,11 @@ import Foundation
 /// has financial Internactions with.
 internal final class Person : LegalPerson {
 
-    init(
+    internal override init(
         name: String,
-        relation: PersonRelation,
-        phone : String,
-        notes : String
+        relation: LegalPerson.PersonRelation,
+        phone: String,
+        notes: String
     ) {
         super.init(
             name: name,
