@@ -76,4 +76,7 @@ internal class Finance : Equatable, Codable, Identifiable {
     static func == (lhs: Finance, rhs: Finance) -> Bool {
         return lhs.amount == rhs.amount && lhs.legalPerson == rhs.legalPerson
     }
+
+    /// This Finance is only used internal and is never shown to the User
+    internal static let anonymousFinance : Finance = Finance(amount: 0.0, legalPerson: LegalPerson.anonymousPerson, type: .expense)
 }

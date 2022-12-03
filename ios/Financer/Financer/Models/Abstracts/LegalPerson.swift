@@ -249,4 +249,7 @@ internal class LegalPerson : Equatable, Identifiable, Codable {
         return lhs.name == rhs.name && lhs.notes == rhs.notes && lhs.phone == rhs.phone
         // TODO: check this: && lhs.relation == rhs.relation
     }
+
+    /// This Person is only used internal and is never shown to the User
+    internal static let anonymousPerson : Person = Person(name: "Julian Schumacher", relation: .family, phone: "", notes: "Developer")
 }

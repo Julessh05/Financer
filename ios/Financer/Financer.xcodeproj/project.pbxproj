@@ -13,9 +13,9 @@
 		3F365FCB293904150012F4F4 /* Relation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F365FCA293904150012F4F4 /* Relation.swift */; };
 		3F3811C1292A3997003932B7 /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3811C0292A3997003932B7 /* Converter.swift */; };
 		3F3811C3292A3ABD003932B7 /* Displayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3811C2292A3ABD003932B7 /* Displayable.swift */; };
-		3F3DA38E293226E200CF66B3 /* LegalPersonListTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3DA38D293226E200CF66B3 /* LegalPersonListTile.swift */; };
+		3F3DA38E293226E200CF66B3 /* ListTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3DA38D293226E200CF66B3 /* ListTile.swift */; };
 		3F3DA3912932289700CF66B3 /* LegalPersonDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3DA3902932289700CF66B3 /* LegalPersonDetails.swift */; };
-		3F3DA39329326B3400CF66B3 /* ListTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3DA39229326B3400CF66B3 /* ListTile.swift */; };
+		3F3DA39329326B3400CF66B3 /* StandardListTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3DA39229326B3400CF66B3 /* StandardListTile.swift */; };
 		3F40FB0D290D936400BA2F83 /* FinancerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F40FB0C290D936400BA2F83 /* FinancerApp.swift */; };
 		3F40FB11290D936500BA2F83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F40FB10290D936500BA2F83 /* Assets.xcassets */; };
 		3F40FB14290D936500BA2F83 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F40FB13290D936500BA2F83 /* Preview Assets.xcassets */; };
@@ -40,6 +40,7 @@
 		3FD48BCD290F9AED00DA118A /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD48BCC290F9AED00DA118A /* ImagePicker.swift */; };
 		3FDFEA67290E5A32005B778C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDFEA66290E5A32005B778C /* User.swift */; };
 		3FDFEA6C290E5BF8005B778C /* CreateUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDFEA6B290E5BF8005B778C /* CreateUser.swift */; };
+		3FE407C8293B57E7001370F0 /* FinanceDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE407C7293B57E7001370F0 /* FinanceDetails.swift */; };
 		3FEC2094292BDCA40007DB83 /* LegalPersonList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEC2093292BDCA40007DB83 /* LegalPersonList.swift */; };
 		3FEC2096292BDCAC0007DB83 /* FinanceList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEC2095292BDCAC0007DB83 /* FinanceList.swift */; };
 /* End PBXBuildFile section */
@@ -68,9 +69,9 @@
 		3F365FCA293904150012F4F4 /* Relation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Relation.swift; sourceTree = "<group>"; };
 		3F3811C0292A3997003932B7 /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
 		3F3811C2292A3ABD003932B7 /* Displayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Displayable.swift; sourceTree = "<group>"; };
-		3F3DA38D293226E200CF66B3 /* LegalPersonListTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalPersonListTile.swift; sourceTree = "<group>"; };
+		3F3DA38D293226E200CF66B3 /* ListTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTile.swift; sourceTree = "<group>"; };
 		3F3DA3902932289700CF66B3 /* LegalPersonDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalPersonDetails.swift; sourceTree = "<group>"; };
-		3F3DA39229326B3400CF66B3 /* ListTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTile.swift; sourceTree = "<group>"; };
+		3F3DA39229326B3400CF66B3 /* StandardListTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardListTile.swift; sourceTree = "<group>"; };
 		3F40FB09290D936400BA2F83 /* Financer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Financer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F40FB0C290D936400BA2F83 /* FinancerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancerApp.swift; sourceTree = "<group>"; };
 		3F40FB10290D936500BA2F83 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -98,6 +99,7 @@
 		3FD48BCC290F9AED00DA118A /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		3FDFEA66290E5A32005B778C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3FDFEA6B290E5BF8005B778C /* CreateUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreateUser.swift; path = Financer/Views/User/CreateUser.swift; sourceTree = SOURCE_ROOT; };
+		3FE407C7293B57E7001370F0 /* FinanceDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceDetails.swift; sourceTree = "<group>"; };
 		3FEC2093292BDCA40007DB83 /* LegalPersonList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalPersonList.swift; sourceTree = "<group>"; };
 		3FEC2095292BDCAC0007DB83 /* FinanceList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -231,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				3F20C1A6292405BF0018F21B /* AddFinance.swift */,
+				3FE407C7293B57E7001370F0 /* FinanceDetails.swift */,
 			);
 			path = Finance;
 			sourceTree = "<group>";
@@ -249,8 +252,8 @@
 			children = (
 				3FD48BCC290F9AED00DA118A /* ImagePicker.swift */,
 				3F87B6D72928E2AE00E49F0B /* DetailLabel.swift */,
-				3F3DA38D293226E200CF66B3 /* LegalPersonListTile.swift */,
-				3F3DA39229326B3400CF66B3 /* ListTile.swift */,
+				3F3DA38D293226E200CF66B3 /* ListTile.swift */,
+				3F3DA39229326B3400CF66B3 /* StandardListTile.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -461,17 +464,18 @@
 				3FD1F6EA292252E800A098A3 /* LegalPerson.swift in Sources */,
 				3FD48BCD290F9AED00DA118A /* ImagePicker.swift in Sources */,
 				3F20C1A52923CE3A0018F21B /* Organization.swift in Sources */,
+				3FE407C8293B57E7001370F0 /* FinanceDetails.swift in Sources */,
 				3F20C1A7292405BF0018F21B /* AddFinance.swift in Sources */,
 				3F87B6D22928C9A000E49F0B /* LegalPersonPicker.swift in Sources */,
 				3FA172212920DBC800D5868F /* Storage.swift in Sources */,
 				3FDFEA6C290E5BF8005B778C /* CreateUser.swift in Sources */,
 				3FDFEA67290E5A32005B778C /* User.swift in Sources */,
 				3F87B6CE2928473800E49F0B /* Instancable.swift in Sources */,
-				3F3DA39329326B3400CF66B3 /* ListTile.swift in Sources */,
+				3F3DA39329326B3400CF66B3 /* StandardListTile.swift in Sources */,
 				3FD1F6E62922510D00A098A3 /* Company.swift in Sources */,
 				3F87B6CB2928388800E49F0B /* ModelsList.swift in Sources */,
 				3F8AB0502916BC2B00FF907E /* SecureStorage.swift in Sources */,
-				3F3DA38E293226E200CF66B3 /* LegalPersonListTile.swift in Sources */,
+				3F3DA38E293226E200CF66B3 /* ListTile.swift in Sources */,
 				3F3DA3912932289700CF66B3 /* LegalPersonDetails.swift in Sources */,
 				3F3811C3292A3ABD003932B7 /* Displayable.swift in Sources */,
 				3F3811C1292A3997003932B7 /* Converter.swift in Sources */,

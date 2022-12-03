@@ -81,7 +81,6 @@ internal struct AddFinance: View {
         }
         FinanceList.instance.add(item: finance)
         dismiss()
-        print(FinanceList.instance.items.count)
     }
 
     /// Checks if the Button should be active

@@ -21,7 +21,7 @@ internal struct Home: View {
             VStack {
                 List(list) {
                     finance in
-                    Text(finance.type.rawValue)
+                    ListTile(finance: finance, {})
                 }.onAppear(perform: { list = FinanceList.instance.items })
                 NavigationLink(destination: AddFinance()) {
                     Label("Add Finance", systemImage: "plus")
