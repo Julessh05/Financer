@@ -32,6 +32,9 @@ internal class Finance : Equatable, Codable, Identifiable {
     /// The Legal Person this Finance is connected to
     internal let legalPerson : LegalPerson
 
+    /// The Type of this Finance
+    internal let type : FinanceType
+
     /// The Keys to encode and decode Finances
     private enum Keys : CodingKey {
         /// The Amount Attribute
@@ -42,6 +45,9 @@ internal class Finance : Equatable, Codable, Identifiable {
 
         /// The ID of this Object
         case id
+
+        /// The Type of this Finance
+        case type
     }
 
     required init(from decoder: Decoder) throws {
@@ -49,17 +55,21 @@ internal class Finance : Equatable, Codable, Identifiable {
         amount = try container.decode(Money.self, forKey: .amount)
         legalPerson = try container.decode(LegalPerson.self, forKey: .legalPerson)
         id = try container.decode(UUID.self, forKey: .id)
+        let typeString : String = try container.decode(String.self, forKey: .type)
+        type = FinanceType(rawValue: typeString)!
     }
 
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: Keys.self)
         try container.encode(amount, forKey: .amount)
         try container.encode(legalPerson, forKey: .legalPerson)
+        try container.encode(type.rawValue, forKey: .type)
     }
 
-    internal init(amount : Money, legalPerson : LegalPerson) {
+    internal init(amount : Money, legalPerson : LegalPerson, type : FinanceType) {
         self.amount = amount
         self.legalPerson = legalPerson
+        self.type = type
     }
 
     // Override to conform to Equatable

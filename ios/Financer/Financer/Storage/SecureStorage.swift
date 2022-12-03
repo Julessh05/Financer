@@ -69,7 +69,14 @@ internal struct SecureStorage {
             guard status == errSecSuccess else {
                 return
             }
-            FinanceList.instance.add(item: result as! Finance)
+            let finance : Finance = result as! Finance
+            let financeToAdd : Finance
+            if finance.type == .expense {
+                financeToAdd = finance as! Expense
+            } else {
+                financeToAdd = finance as! Income
+            }
+            FinanceList.instance.add(item: financeToAdd)
         }
     }
 
@@ -121,7 +128,16 @@ internal struct SecureStorage {
             guard status == errSecSuccess else {
                 return
             }
-            LegalPersonList.instance.add(item: result as! LegalPerson)
+            let person : LegalPerson = result as! LegalPerson
+            let personToAdd : LegalPerson
+            if person.type == .person {
+                personToAdd = person as! Person
+            } else if person.type == .company {
+                personToAdd = person as! Company
+            } else {
+                personToAdd = person as! Organization
+            }
+            LegalPersonList.instance.add(item: personToAdd)
         }
     }
 
