@@ -69,7 +69,14 @@ internal struct SecureStorage {
             guard status == errSecSuccess else {
                 return
             }
-            FinanceList.instance.add(item: result as! Finance)
+            let finance : Finance = result as! Finance
+            let financeToAdd : Finance
+            if finance.type == .expense {
+                financeToAdd = finance as! Expense
+            } else {
+                financeToAdd = finance as! Income
+            }
+            FinanceList.instance.add(item: financeToAdd)
         }
     }
 
@@ -121,7 +128,16 @@ internal struct SecureStorage {
             guard status == errSecSuccess else {
                 return
             }
-            LegalPersonList.instance.add(item: result as! LegalPerson)
+            let person : LegalPerson = result as! LegalPerson
+            let personToAdd : LegalPerson
+            if person.type == .person {
+                personToAdd = person as! Person
+            } else if person.type == .company {
+                personToAdd = person as! Company
+            } else {
+                personToAdd = person as! Organization
+            }
+            LegalPersonList.instance.add(item: personToAdd)
         }
     }
 
@@ -175,14 +191,21 @@ internal struct SecureStorage {
             return []
         }
         let data : Data = result as! Data
-        return NSKeyedUnarchiver.unarchivedArrayOfObjects(ofClass: [UUID].self, from: data) as! [UUID]
+        guard let nsUUIDs : [NSUUID] = try? NSKeyedUnarchiver.unarchivedArrayOfObjects(ofClass: NSUUID.self, from: data) ?? [] else {
+            return []
+        }
+        var list : [UUID] = []
+        for key in nsUUIDs {
+            list.append(UUID(uuidString: key.uuidString)!)
+        }
+        return list
     }
 
     /// Stores all the Keys for the Finances to the Keychain
     private static func storeKeys(for type : Finance.Type) -> Void {
-        var list : [UUID] = []
+        var list : [NSUUID] = []
         for finance in FinanceList.instance.items {
-            list.append(finance.id)
+            list.append(NSUUID(uuidString: finance.id.uuidString)!)
         }
 
         if let data : Data = try? NSKeyedArchiver.archivedData(withRootObject: list, requiringSecureCoding: true) {
@@ -209,35 +232,43 @@ internal struct SecureStorage {
     }
 
     /// The Key for the Legal Person ID's stored in the Keychain
-    private static let legalPersonIDKeys : String = "Legal Person ID's"
+    private static let legalPersonIDsKEY : String = "Legal Person ID's"
 
     /// Loads all the Keys for the Legal Persons from the Keychain
     private static func loadKeys(for type : LegalPerson.Type) -> [UUID] {
         var result : AnyObject?
         let query : [CFString : Any] = [
             kSecClass : kSecClassKey,
-            kSecAttrLabel : legalPersonIDKeys,
+            kSecAttrLabel : legalPersonIDsKEY,
             kSecReturnData : true
         ]
         let status = SecItemCopyMatching(query as CFDictionary, &result)
         guard status == errSecSuccess else {
             return []
         }
-        return result as! [UUID]
+        let data : Data = result as! Data
+        guard let nsUUIDs : [NSUUID] = try? NSKeyedUnarchiver.unarchivedArrayOfObjects(ofClass: NSUUID.self, from: data) ?? [] else {
+            return []
+        }
+        var list : [UUID] = []
+        for key in nsUUIDs {
+            list.append(UUID(uuidString: key.uuidString)!)
+        }
+        return list
     }
 
     /// Stores all the Keys for the Legal Persons to the Keychain
     private static func storeKeys(for type : LegalPerson.Type) -> Void {
-        var list : [UUID] = []
+        var list : [NSUUID] = []
         for legalPerson in FinanceList.instance.items {
-            list.append(legalPerson.id)
+            list.append(NSUUID(uuidString: legalPerson.id.uuidString)!)
         }
 
         if let data : Data = try? NSKeyedArchiver.archivedData(withRootObject: list, requiringSecureCoding: true) {
             let query : [CFString : Any] = [
                 kSecClass : kSecClassKey,
                 kSecValueData : data,
-                kSecAttrLabel : legalPersonIDKeys
+                kSecAttrLabel : legalPersonIDsKEY
             ]
 
             let status = SecItemAdd(query as CFDictionary, nil)

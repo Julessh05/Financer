@@ -11,7 +11,7 @@ import Foundation
 /// this App
 internal final class Organization : Union {
     
-    init(
+    internal override init(
         name: String,
         relation: OrganizationRelation,
         phone : String,

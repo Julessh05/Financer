@@ -28,53 +28,59 @@ internal class LegalPerson : Equatable, Identifiable, Codable {
         case person
     }
 
-    internal enum Relation : String {
-        /// The Relation if this Legal Person
-        /// is a Company
-        internal enum Company {
-            /// The User is an Employee of this Company
-            case employee
+    /// The Relation if this Legal Person is
+    /// a Person
+    internal enum PersonRelation : String, Relation {
 
-            /// The User is an external working Person
-            /// that is arranged in this Company
-            case externalWorker
+        var id : Self { self }
 
-            /// A Customer of this Company
-            case customer
+        /// The Legal Person that can accept Finances is
+        /// a Person of the Users Family
+        case family
 
-            /// A single Supplier of this Company.
-            case supplier
+        /// The Legal Person is a friend of
+        /// the User
+        case friend
 
-            /// The CEO of this Company
-            case ceo
+        /// The Person is a public figure
+        /// as a  Youtuber, Streamer or Influencer
+        case publicFigure
+    }
 
-            /// The User is a Share Holder of this Company.
-            /// The Incomes and Expenses are dividents.
-            case shareholder
-        }
+    /// The Relation if this Legal Person
+    /// is a Company
+    internal enum CompanyRelation : String, Relation {
 
-        /// The Relation if this Legal Person is an Organization
-        internal enum Organization {
-            /// The User is a member
-            /// of this Organization
-            case member
-        }
+        var id : Self { self }
 
-        /// The Relation if this Legal Person is
-        /// a Person
-        internal enum Person {
-            /// The Legal Person that can accept Finances is
-            /// a Person of the Users Family
-            case family
+        /// The User is an Employee of this Company
+        case employee
 
-            /// The Legal Person is a friend of
-            /// the User
-            case friend
+        /// The User is an external working Person
+        /// that is arranged in this Company
+        case externalWorker
 
-            /// The Person is a public figure
-            /// as a  Youtuber, Streamer or Influencer
-            case publicFigure
-        }
+        /// A Customer of this Company
+        case customer
+
+        /// A single Supplier of this Company.
+        case supplier
+
+        /// The CEO of this Company
+        case ceo
+
+        /// The User is a Share Holder of this Company.
+        /// The Incomes and Expenses are dividents.
+        case shareholder
+    }
+
+    /// The Relation if this Legal Person is an Organization
+    internal enum OrganizationRelation : String, Relation {
+
+        var id : Self { self }
+        /// The User is a member
+        /// of this Organization
+        case member
     }
 
     internal var id : UUID = UUID()
@@ -82,9 +88,29 @@ internal class LegalPerson : Equatable, Identifiable, Codable {
     /// The Name of this Legal Person
     internal let name : String
 
-    /// The Relation of this Legal Person and
+    /// The Relation of this Person and
     /// the User of this App
-    internal let relation : Relation
+    private let personRelation : PersonRelation?
+
+    /// The Relation of this Company and
+    /// the User of this App
+    private let companyRelation : CompanyRelation?
+
+    /// The Relation of this Organization and
+    /// the User of this App
+    private let organizationRelation : OrganizationRelation?
+
+    internal var relation: any Relation {
+        get {
+            if personRelation != nil {
+                return personRelation!
+            } else if companyRelation != nil {
+                return companyRelation!
+            } else {
+                return organizationRelation!
+            }
+        }
+    }
 
     /// The Phone Number of this Legal Person
     internal let phone : String
@@ -92,16 +118,53 @@ internal class LegalPerson : Equatable, Identifiable, Codable {
     /// The Notes to this Object
     internal let notes : String
 
-    /// Initializer with all Values
+    /// The Type of this Legal Person
+    internal let type : LegalPersonType
+
+    /// Initializer for a Person
     internal init(
         name : String,
-        relation : any Relation,
+        relation : PersonRelation,
         phone : String,
         notes : String
     ) {
-        self.relation = .Person.family
+        self.type = .person
         self.name = name
-        self.relation = relation
+        self.personRelation = relation
+        self.organizationRelation = nil
+        self.companyRelation = nil
+        self.phone = phone
+        self.notes = notes
+    }
+
+    /// Initializer for a Company
+    internal init(
+        name : String,
+        relation : CompanyRelation,
+        phone : String,
+        notes : String
+    ) {
+        self.type = .company
+        self.companyRelation = relation
+        self.personRelation = nil
+        self.organizationRelation = nil
+        self.name = name
+        self.phone = phone
+        self.notes = notes
+    }
+
+    /// Initializer for a Organization
+    internal init(
+        name : String,
+        relation : OrganizationRelation,
+        phone : String,
+        notes : String
+    ) {
+        self.type = .organization
+        self.name = name
+        self.organizationRelation = relation
+        self.personRelation = nil
+        self.companyRelation = nil
         self.phone = phone
         self.notes = notes
     }
@@ -109,7 +172,25 @@ internal class LegalPerson : Equatable, Identifiable, Codable {
     required init(from decoder: Decoder) throws {
         let values : KeyedDecodingContainer = try decoder.container(keyedBy: Keys.self)
         name = try values.decode(String.self, forKey: .name)
-        relation = try values.decode((any Relation).self, forKey: .relation)
+        let type : String = try values.decode(String.self, forKey: .type)
+        self.type = LegalPersonType(rawValue: type)!
+        let relation : String
+        if self.type == .person {
+            relation = try values.decode(String.self, forKey: .personRelation)
+            personRelation = PersonRelation(rawValue: relation)!
+            companyRelation = nil
+            organizationRelation = nil
+        } else if self.type == .company {
+            relation = try values.decode(String.self, forKey: .companyRelation)
+            companyRelation = CompanyRelation(rawValue: relation)!
+            personRelation = nil
+            organizationRelation = nil
+        } else {
+            relation = try values.decode(String.self, forKey: .organizationRelation)
+            organizationRelation = OrganizationRelation(rawValue: relation)!
+            companyRelation = nil
+            personRelation = nil
+        }
         phone = try values.decode(String.self, forKey: .phone)
         notes = try values.decode(String.self, forKey: .notes)
         id = try values.decode(UUID.self, forKey: .id)
@@ -120,8 +201,14 @@ internal class LegalPerson : Equatable, Identifiable, Codable {
         /// The Name Attribute
         case name
 
-        /// The Relation Attribute
-        case relation
+        /// The Relation Attribute for a Person
+        case personRelation
+
+        /// The Relation Attribute for am Organization
+        case organizationRelation
+
+        /// The Relation Attribute for a Company
+        case companyRelation
 
         /// The Phone Attribute
         case phone
@@ -135,13 +222,23 @@ internal class LegalPerson : Equatable, Identifiable, Codable {
         /// The Homepage for the Legal Person
         /// (only affective with Unions)
         case homepage
+
+        /// The Type of this Legal Person
+        case type
     }
 
     // Method to conform to Encodable
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: Keys.self)
         try container.encode(name, forKey: .name)
-        try container.encode(relation, forKey: .relation)
+        try container.encode(type.rawValue, forKey: .type)
+        if relation is PersonRelation {
+            try container.encode(personRelation!.rawValue, forKey: .personRelation)
+        } else if relation is CompanyRelation {
+            try container.encode(companyRelation!.rawValue, forKey: .companyRelation)
+        } else {
+            try container.encode(organizationRelation!.rawValue, forKey: .organizationRelation)
+        }
         try container.encode(phone, forKey: .phone)
         try container.encode(notes, forKey: .notes)
         try container.encode(id, forKey: .id)
