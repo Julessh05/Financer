@@ -14,7 +14,24 @@ internal struct FinanceDetails: View {
     @Binding internal var finance : Finance
 
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            StandardListTile(
+                title: "Amount",
+                data: String(finance.amount)
+            )
+            StandardListTile(
+                title: "To:",
+                data: finance.legalPerson.name
+            )
+        }
+        .toolbar {
+            ToolbarItem(placement: .primaryAction) {
+                NavigationLink(destination: AddFinance()) {
+                    Image(systemName: "pencil")
+                }
+            }
+        }
+        .toolbar(.visible, for: .navigationBar)
     }
 }
 
@@ -22,12 +39,7 @@ internal struct FinanceDetails_Previews: PreviewProvider {
 
     @State private static var finance : Finance = Expense(
         amount: 100,
-        legalPerson: Person(
-            name: "",
-            relation: .family,
-            phone: "",
-            notes: ""
-        )
+        legalPerson: LegalPerson.anonymousPerson
     )
     static var previews: some View {
         FinanceDetails(finance: $finance)
