@@ -24,6 +24,9 @@ internal struct AddFinance: View {
     /// Whether the "Add Finance" Button is Active or not
     @State private var btnActive : Bool = false
 
+    /// Action to dismiss this View
+    @Environment(\.dismiss) private var dismiss : DismissAction
+
     var body: some View {
         VStack {
             Form {
@@ -77,6 +80,8 @@ internal struct AddFinance: View {
                               legalPerson: legalPerson!)
         }
         FinanceList.instance.add(item: finance)
+        dismiss()
+        print(FinanceList.instance.items.count)
     }
 
     /// Checks if the Button should be active

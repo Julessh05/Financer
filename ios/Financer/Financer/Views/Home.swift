@@ -14,12 +14,15 @@ internal struct Home: View {
     /// The current User used in this App
     @State private var user : User = User.currentUser
 
+    @State private var list : [Finance] = FinanceList.instance.items
+
     internal var body: some View {
         NavigationStack {
             VStack {
-                List {
-
-                }
+                List(list) {
+                    finance in
+                    Text(finance.type.rawValue)
+                }.onAppear(perform: { list = FinanceList.instance.items })
                 NavigationLink(destination: AddFinance()) {
                     Label("Add Finance", systemImage: "plus")
                 }
