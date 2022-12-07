@@ -35,6 +35,9 @@ internal struct CreateLegalPerson: View {
     /// The Phone Number of this Legal Person
     @State private var phone : String = ""
 
+    /// Whether the Button is active or not
+    @State private var btnActive : Bool = false
+
     /// Action to dismiss this View programmatically
     @Environment(\.dismiss) private var dismiss : DismissAction
 
@@ -72,6 +75,9 @@ internal struct CreateLegalPerson: View {
                     Section {
                         TextField("Name", text: $name)
                             .textContentType(.name)
+                            .onSubmit {
+                                checkBtn()
+                            }
                         TextField("Notes", text: $notes, axis: .vertical)
                             .lineLimit(5)
                             .textContentType(.familyName)
@@ -86,6 +92,8 @@ internal struct CreateLegalPerson: View {
                             ForEach(LegalPerson.LegalPersonType.allCases) {
                                 type in
                                 Text(type.rawValue.capitalized)
+                            }.onSubmit {
+                                checkBtn()
                             }
                         }
                     } header: {
@@ -96,7 +104,7 @@ internal struct CreateLegalPerson: View {
                     specificArea()
                 }
                 Button {
-                    addLegalPerson()
+                    btnActive ? addLegalPerson() : nil
                 } label: {
                     Spacer()
                     Label("Save", systemImage: "square.and.arrow.down")
@@ -248,6 +256,13 @@ internal struct CreateLegalPerson: View {
             LegalPersonList.instance.add(item: person)
         }
         dismiss()
+    }
+
+    /// Checks if the Button should be active
+    /// To enable the Button, all required Values
+    /// must be entered
+    private func checkBtn() -> Void {
+        btnActive = !name.isEmpty && legalPersonType != .none
     }
 }
 
