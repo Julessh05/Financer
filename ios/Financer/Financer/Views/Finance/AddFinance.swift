@@ -95,7 +95,7 @@ internal struct AddFinance: View {
                 }
             }
         }.onAppear(perform: checkBtn)
-            .navigationTitle("Add Finance")
+            .navigationTitle("\(edit ? "Edit" : "Add") Finance")
             .navigationBarTitleDisplayMode(.automatic)
     }
 

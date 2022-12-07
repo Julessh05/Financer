@@ -26,7 +26,7 @@ internal struct FinanceDetails: View {
         }
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
-                NavigationLink(destination: AddFinance()) {
+                NavigationLink(destination: AddFinance(finance: $finance)) {
                     Image(systemName: "pencil")
                 }
             }
