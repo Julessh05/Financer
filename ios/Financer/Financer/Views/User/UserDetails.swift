@@ -74,9 +74,9 @@ struct UserDetails: View {
                 } else {
                     EmptyView()
                 }
-                ListTile(title: "Name", data: user.name)
-                ListTile(title: "Lastname", data: user.lastname)
-                ListTile(title: "Date of Birth", data: user.dateOfBirth.formatted(date: .abbreviated, time: .omitted))
+                StandardListTile(title: "Name", data: user.name)
+                StandardListTile(title: "Lastname", data: user.lastname)
+                StandardListTile(title: "Date of Birth", data: user.dateOfBirth.formatted(date: .abbreviated, time: .omitted))
             }
             NavigationLink(destination: CreateUser(user: $user, edit: true)) {
                 Label("Edit User", systemImage: "pencil")

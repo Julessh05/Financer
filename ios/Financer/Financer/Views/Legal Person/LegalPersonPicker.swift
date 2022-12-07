@@ -55,7 +55,7 @@ internal struct LegalPersonPicker: View {
         } else if !Converter.list(for: lPT).isEmpty {
             List(Converter.list(for: lPT)) {
                 item in
-                LegalPersonListTile(person: item, {
+                ListTile(person: item, {
                     legalPerson = item
                     dismiss()
                 })

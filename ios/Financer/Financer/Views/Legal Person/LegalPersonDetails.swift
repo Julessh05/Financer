@@ -17,9 +17,9 @@ internal struct LegalPersonDetails: View {
     var body: some View {
         NavigationStack {
             List {
-                ListTile(title: "Name", data: person.name)
-                ListTile(title: "Notes", data: person.notes)
-                ListTile(title: "Relation", data: person.relation.rawValue)
+                StandardListTile(title: "Name", data: person.name)
+                StandardListTile(title: "Notes", data: person.notes)
+                StandardListTile(title: "Relation", data: person.relation.rawValue)
             }
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
