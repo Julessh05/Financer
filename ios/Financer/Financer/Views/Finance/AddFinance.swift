@@ -115,6 +115,7 @@ internal struct AddFinance: View {
         } else {
             FinanceList.instance.add(item: finance)
         }
+        SecureStorage.storeFinances()
         dismiss()
     }
 

@@ -12,6 +12,10 @@ struct FinancerApp: App {
     var body: some Scene {
         WindowGroup {
             Home()
+                .onAppear(perform: {
+                    Storage.loadAllData()
+                    User.currentUser = User()
+                })
         }
     }
 }

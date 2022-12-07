@@ -57,4 +57,9 @@ internal struct Storage {
         deleteImage()
         exit(0)
     }
+
+    static internal func loadAllData() -> Void {
+        SecureStorage.loadLegalPersons()
+        SecureStorage.loadFinances()
+    }
 }

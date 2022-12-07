@@ -255,6 +255,7 @@ internal struct CreateLegalPerson: View {
         } else {
             LegalPersonList.instance.add(item: person)
         }
+        SecureStorage.storeLegalPersons()
         dismiss()
     }
 
