@@ -17,7 +17,7 @@ internal struct Storage {
 
     /// Stores an Image to the local Storage
     static internal func storeImage(_ image : UIImage?) -> Void {
-        if let localImage = image, let data : Data = localImage.jpegData(compressionQuality: 0.5), let path = imagePath() {
+        if let data : Data = image?.jpegData(compressionQuality: 0.5), let path = imagePath() {
             try? data.write(to: path)
         }
     }
