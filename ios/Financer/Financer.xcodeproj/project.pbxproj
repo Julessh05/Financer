@@ -24,6 +24,7 @@
 		3F40FB2A290D936500BA2F83 /* FinancerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F40FB29290D936500BA2F83 /* FinancerUITestsLaunchTests.swift */; };
 		3F40FB6E290D942F00BA2F83 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F40FB6D290D942F00BA2F83 /* Home.swift */; };
 		3F7608C22924BA89006CCE79 /* Union.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7608C12924BA89006CCE79 /* Union.swift */; };
+		3F817D7C294DB84B009CC8CD /* Finance.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3F817D7A294DB84B009CC8CD /* Finance.xcdatamodeld */; };
 		3F87B6CB2928388800E49F0B /* ModelsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87B6CA2928388800E49F0B /* ModelsList.swift */; };
 		3F87B6CE2928473800E49F0B /* Instancable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87B6CD2928473800E49F0B /* Instancable.swift */; };
 		3F87B6D22928C9A000E49F0B /* LegalPersonPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87B6D12928C9A000E49F0B /* LegalPersonPicker.swift */; };
@@ -83,6 +84,7 @@
 		3F40FB29290D936500BA2F83 /* FinancerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		3F40FB6D290D942F00BA2F83 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		3F7608C12924BA89006CCE79 /* Union.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Union.swift; sourceTree = "<group>"; };
+		3F817D7B294DB84B009CC8CD /* Finance.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Finance.xcdatamodel; sourceTree = "<group>"; };
 		3F87B6CA2928388800E49F0B /* ModelsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsList.swift; sourceTree = "<group>"; };
 		3F87B6CD2928473800E49F0B /* Instancable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instancable.swift; sourceTree = "<group>"; };
 		3F87B6D12928C9A000E49F0B /* LegalPersonPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalPersonPicker.swift; sourceTree = "<group>"; };
@@ -209,6 +211,14 @@
 			path = Abstracts;
 			sourceTree = "<group>";
 		};
+		3F817D79294DB839009CC8CD /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				3F817D7A294DB84B009CC8CD /* Finance.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		3F87B6B3292800E100E49F0B /* Storage */ = {
 			isa = PBXGroup;
 			children = (
@@ -297,6 +307,7 @@
 		3FDFEA65290E5A1F005B778C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3F817D79294DB839009CC8CD /* CoreData */,
 				3FDFEA66290E5A32005B778C /* User.swift */,
 				3F87B6C92928387E00E49F0B /* Protocols */,
 				3F87B6B3292800E100E49F0B /* Storage */,
@@ -448,6 +459,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F817D7C294DB84B009CC8CD /* Finance.xcdatamodeld in Sources */,
 				3FEC2094292BDCA40007DB83 /* LegalPersonList.swift in Sources */,
 				3F365FCB293904150012F4F4 /* Relation.swift in Sources */,
 				3FD1F6E32922508E00A098A3 /* Expense.swift in Sources */,
@@ -565,7 +577,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -619,7 +631,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -807,6 +819,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3F817D7A294DB84B009CC8CD /* Finance.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3F817D7B294DB84B009CC8CD /* Finance.xcdatamodel */,
+			);
+			currentVersion = 3F817D7B294DB84B009CC8CD /* Finance.xcdatamodel */;
+			path = Finance.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3F40FB01290D936400BA2F83 /* Project object */;
 }
