@@ -1,0 +1,96 @@
+//
+//  UserDetails.swift
+//  Financer
+//
+//  Created by Julian Schumacher on 06.11.22.
+//
+
+import SwiftUI
+
+/// View to display the User Data
+struct UserDetails: View {
+    
+    /// The current User of this App
+    @Binding internal var user : User
+
+    /// Whether the Confirmation Dialog is presented or not
+    @State private var dialogPresented : Bool = false
+
+    var body: some View {
+        GeometryReader { metrics in
+            VStack {
+                buildBody()
+
+                Button(role: .destructive) {
+                    dialogPresented.toggle()
+                } label: {
+                    HStack {
+                        Image(systemName: "trash.fill")
+                            .renderingMode(.original)
+                        Text("Delete Data")
+                            .font(.headline)
+                    }
+                    .confirmationDialog("Are your sure?", isPresented: $dialogPresented, titleVisibility: .visible) {
+                        Button("Yes", role: .destructive) {
+                            Storage.eraseAllData()
+                        }
+                    }
+                    .foregroundColor(.red)
+                    .frame(width: metrics.size.width / 1.2, height: metrics.size.height / 15, alignment: .center)
+                    .background(Color.blue)
+                    .cornerRadius(20)
+                }
+                // TODO: why is it like it is?
+                .padding(.horizontal, metrics.size.width / 12)
+            }
+        }
+        .navigationTitle("User Details")
+    }
+
+    /// Builds the Body depending on
+    /// the State of the User.
+    /// Returns a Button to create a new User, if none exists,
+    /// and displays Data of the User,
+    /// if one exists.
+    @ViewBuilder
+    private func buildBody() -> some View {
+        if user.isAnonymous {
+            Spacer()
+            HStack {
+                Image(systemName: "person.fill.xmark")
+                Text("No User is logged in")
+            }
+            Spacer()
+            NavigationLink(destination: CreateUser(user: $user, edit: false)) {
+                Label("Add User", systemImage: "person.crop.circle.fill.badge.plus")
+                    .font(.headline)
+            }
+        } else {
+            List {
+                if user.picture != nil {
+                    Image(uiImage: user.picture!)
+                        .resizable()
+                        .scaledToFill()
+                } else {
+                    EmptyView()
+                }
+                StandardListTile(title: "Name", data: user.name)
+                StandardListTile(title: "Lastname", data: user.lastname)
+                StandardListTile(title: "Date of Birth", data: user.dateOfBirth.formatted(date: .abbreviated, time: .omitted))
+            }
+            NavigationLink(destination: CreateUser(user: $user, edit: true)) {
+                Label("Edit User", systemImage: "pencil")
+                    .font(.headline)
+            }
+        }
+    }
+}
+
+struct UserDetails_Previews: PreviewProvider {
+    /// The User used in this Preview
+    @State static private var localPreviewUser : User = User()
+
+    static var previews: some View {
+        UserDetails(user: $localPreviewUser)
+    }
+}
