@@ -2,20 +2,19 @@
 //  FinancerApp.swift
 //  Financer
 //
-//  Created by Julian Schumacher on 29.10.22.
+//  Created by Julian Schumacher on 17.12.22.
 //
 
 import SwiftUI
 
 @main
 struct FinancerApp: App {
+    let persistenceController = PersistenceController.shared
+
     var body: some Scene {
         WindowGroup {
-            Home()
-                .onAppear(perform: {
-                    Storage.loadAllData()
-                    User.currentUser = User()
-                })
+            ContentView()
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }

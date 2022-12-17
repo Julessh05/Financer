@@ -2,7 +2,7 @@
 //  FinancerUITestsLaunchTests.swift
 //  FinancerUITests
 //
-//  Created by Julian Schumacher on 29.10.22.
+//  Created by Julian Schumacher on 17.12.22.
 //
 
 import XCTest
