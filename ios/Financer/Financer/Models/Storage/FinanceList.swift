@@ -24,23 +24,22 @@ internal struct FinanceList : ModelsList {
         items.append(contentsOf: localItems)
     }
 
-    mutating func delete(item: Finance) {
-        if let index = items.firstIndex(of: item) {
-            items.remove(at: index)
-        }
-    }
-
     mutating func replace(toReplace: Finance, replace: Finance) {
         if let index = items.firstIndex(of: toReplace) {
             items[index] = replace
         }
     }
 
+    mutating func delete(item: Finance) {
+        if let index = items.firstIndex(of: item) {
+            items.remove(at: index)
+        }
+    }
+
+
     mutating func delete(items localItems: [Finance]) {
         for item in localItems {
-            if let index = items.firstIndex(of: item) {
-                items.remove(at: index)
-            }
+            delete(item: item)
         }
     }
 }

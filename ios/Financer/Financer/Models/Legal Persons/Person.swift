@@ -13,7 +13,7 @@ internal final class Person : LegalPerson {
 
     internal override init(
         name: String,
-        relation: LegalPerson.PersonRelation,
+        relation: PersonRelation,
         phone: String,
         notes: String
     ) {

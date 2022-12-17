@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F0BBA7C294E0CF500C8AEDC /* LegalPersonModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3F0BBA7A294E0CF500C8AEDC /* LegalPersonModel.xcdatamodeld */; };
 		3F20C1A32923CD4B0018F21B /* CreateLegalPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F20C1A22923CD4B0018F21B /* CreateLegalPerson.swift */; };
 		3F20C1A52923CE3A0018F21B /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F20C1A42923CE3A0018F21B /* Organization.swift */; };
 		3F20C1A7292405BF0018F21B /* AddFinance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F20C1A6292405BF0018F21B /* AddFinance.swift */; };
@@ -63,6 +64,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F0BBA7B294E0CF500C8AEDC /* LegalPersonModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LegalPersonModel.xcdatamodel; sourceTree = "<group>"; };
 		3F20C1A22923CD4B0018F21B /* CreateLegalPerson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLegalPerson.swift; sourceTree = "<group>"; };
 		3F20C1A42923CE3A0018F21B /* Organization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
 		3F20C1A6292405BF0018F21B /* AddFinance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFinance.swift; sourceTree = "<group>"; };
@@ -290,6 +292,7 @@
 				3FD1F6E52922510D00A098A3 /* Company.swift */,
 				3FD1F6E72922529500A098A3 /* Person.swift */,
 				3F20C1A42923CE3A0018F21B /* Organization.swift */,
+				3F0BBA7A294E0CF500C8AEDC /* LegalPersonModel.xcdatamodeld */,
 			);
 			path = "Legal Persons";
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 			files = (
 				3FEC2094292BDCA40007DB83 /* LegalPersonList.swift in Sources */,
 				3F365FCB293904150012F4F4 /* Relation.swift in Sources */,
+				3F0BBA7C294E0CF500C8AEDC /* LegalPersonModel.xcdatamodeld in Sources */,
 				3FD1F6E32922508E00A098A3 /* Expense.swift in Sources */,
 				3F40FB6E290D942F00BA2F83 /* Home.swift in Sources */,
 				3FAA137F2917982C00D25AB1 /* UserDetails.swift in Sources */,
@@ -807,6 +811,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3F0BBA7A294E0CF500C8AEDC /* LegalPersonModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3F0BBA7B294E0CF500C8AEDC /* LegalPersonModel.xcdatamodel */,
+			);
+			currentVersion = 3F0BBA7B294E0CF500C8AEDC /* LegalPersonModel.xcdatamodel */;
+			path = LegalPersonModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3F40FB01290D936400BA2F83 /* Project object */;
 }

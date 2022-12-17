@@ -24,23 +24,21 @@ internal struct LegalPersonList : ModelsList {
         items.append(contentsOf: localItems)
     }
 
-    mutating func delete(item: LegalPerson) {
-        if let index = items.firstIndex(of: item) {
-            items.remove(at: index)
-        }
-    }
-
     mutating func replace(toReplace: LegalPerson, replace: LegalPerson) {
         if let index = items.firstIndex(of: toReplace) {
             items[index] = replace
         }
     }
 
+    mutating func delete(item: LegalPerson) {
+        if let index = items.firstIndex(of: item) {
+            items.remove(at: index)
+        }
+    }
+
     mutating func delete(items localItems: [LegalPerson]) {
         for item in localItems {
-            if let index = items.firstIndex(of: item) {
-                items.remove(at: index)
-            }
+            delete(item: item)
         }
     }
 }
