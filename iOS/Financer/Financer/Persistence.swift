@@ -28,6 +28,8 @@ struct PersistenceController {
         return result
     }()
 
+    /// The Container that holds all the Information
+    /// and represents the Storage itself.
     let container: NSPersistentCloudKitContainer
 
     init(inMemory: Bool = false) {
