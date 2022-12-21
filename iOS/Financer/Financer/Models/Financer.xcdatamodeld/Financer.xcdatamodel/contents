@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21513" systemVersion="22C65" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="Company" representedClassName="Company" parentEntity="Union" syncable="YES" codeGenerationType="class"/>
+    <entity name="Expense" representedClassName="Expense" parentEntity="Finance" syncable="YES" codeGenerationType="class"/>
+    <entity name="Finance" representedClassName="Finance" isAbstract="YES" syncable="YES" codeGenerationType="class">
+        <attribute name="amount" attributeType="Double" minValueString="0" defaultValueString="0.0" allowsCloudEncryption="YES" usesScalarValueType="YES"/>
+        <relationship name="legalPerson" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LegalPerson" inverseName="finance" inverseEntity="LegalPerson"/>
+    </entity>
+    <entity name="Income" representedClassName="Income" parentEntity="Finance" syncable="YES" codeGenerationType="class"/>
+    <entity name="LegalPerson" representedClassName="LegalPerson" isAbstract="YES" syncable="YES" codeGenerationType="class">
+        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="finance" optional="YES" toMany="YES" minCount="1" deletionRule="Cascade" destinationEntity="Finance" inverseName="legalPerson" inverseEntity="Finance"/>
+    </entity>
+    <entity name="Organization" representedClassName="Organization" parentEntity="Union" syncable="YES" codeGenerationType="class"/>
+    <entity name="Person" representedClassName="Person" parentEntity="LegalPerson" syncable="YES" codeGenerationType="class"/>
+    <entity name="Union" representedClassName="Union" isAbstract="YES" parentEntity="LegalPerson" syncable="YES" codeGenerationType="class"/>
+</model>

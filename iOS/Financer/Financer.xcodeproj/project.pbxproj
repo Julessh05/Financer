@@ -7,66 +7,66 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3FCD26A32952E23D00ECD3C2 /* FinancerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCD26A22952E23D00ECD3C2 /* FinancerApp.swift */; };
-		3FCD26A52952E23D00ECD3C2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCD26A42952E23D00ECD3C2 /* ContentView.swift */; };
-		3FCD26A72952E23D00ECD3C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FCD26A62952E23D00ECD3C2 /* Assets.xcassets */; };
-		3FCD26AA2952E23D00ECD3C2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FCD26A92952E23D00ECD3C2 /* Preview Assets.xcassets */; };
-		3FCD26AC2952E23D00ECD3C2 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCD26AB2952E23D00ECD3C2 /* Persistence.swift */; };
-		3FCD26AF2952E23D00ECD3C2 /* Financer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3FCD26AD2952E23D00ECD3C2 /* Financer.xcdatamodeld */; };
-		3FCD26BA2952E23E00ECD3C2 /* FinancerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCD26B92952E23E00ECD3C2 /* FinancerTests.swift */; };
-		3FCD26C42952E23E00ECD3C2 /* FinancerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCD26C32952E23E00ECD3C2 /* FinancerUITests.swift */; };
-		3FCD26C62952E23E00ECD3C2 /* FinancerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCD26C52952E23E00ECD3C2 /* FinancerUITestsLaunchTests.swift */; };
+		3FCD271B2952E3CA00ECD3C2 /* FinancerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCD271A2952E3CA00ECD3C2 /* FinancerApp.swift */; };
+		3FCD271D2952E3CA00ECD3C2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCD271C2952E3CA00ECD3C2 /* ContentView.swift */; };
+		3FCD271F2952E3CB00ECD3C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FCD271E2952E3CB00ECD3C2 /* Assets.xcassets */; };
+		3FCD27222952E3CB00ECD3C2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FCD27212952E3CB00ECD3C2 /* Preview Assets.xcassets */; };
+		3FCD27242952E3CB00ECD3C2 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCD27232952E3CB00ECD3C2 /* Persistence.swift */; };
+		3FCD27272952E3CB00ECD3C2 /* Financer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3FCD27252952E3CB00ECD3C2 /* Financer.xcdatamodeld */; };
+		3FCD27322952E3CB00ECD3C2 /* FinancerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCD27312952E3CB00ECD3C2 /* FinancerTests.swift */; };
+		3FCD273C2952E3CB00ECD3C2 /* FinancerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCD273B2952E3CB00ECD3C2 /* FinancerUITests.swift */; };
+		3FCD273E2952E3CB00ECD3C2 /* FinancerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCD273D2952E3CB00ECD3C2 /* FinancerUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		3FCD26B62952E23E00ECD3C2 /* PBXContainerItemProxy */ = {
+		3FCD272E2952E3CB00ECD3C2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 3FCD26972952E23D00ECD3C2 /* Project object */;
+			containerPortal = 3FCD270F2952E3CA00ECD3C2 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 3FCD269E2952E23D00ECD3C2;
+			remoteGlobalIDString = 3FCD27162952E3CA00ECD3C2;
 			remoteInfo = Financer;
 		};
-		3FCD26C02952E23E00ECD3C2 /* PBXContainerItemProxy */ = {
+		3FCD27382952E3CB00ECD3C2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 3FCD26972952E23D00ECD3C2 /* Project object */;
+			containerPortal = 3FCD270F2952E3CA00ECD3C2 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 3FCD269E2952E23D00ECD3C2;
+			remoteGlobalIDString = 3FCD27162952E3CA00ECD3C2;
 			remoteInfo = Financer;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3FCD269F2952E23D00ECD3C2 /* Financer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Financer.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		3FCD26A22952E23D00ECD3C2 /* FinancerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancerApp.swift; sourceTree = "<group>"; };
-		3FCD26A42952E23D00ECD3C2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		3FCD26A62952E23D00ECD3C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3FCD26A92952E23D00ECD3C2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		3FCD26AB2952E23D00ECD3C2 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		3FCD26AE2952E23D00ECD3C2 /* Financer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Financer.xcdatamodel; sourceTree = "<group>"; };
-		3FCD26B02952E23D00ECD3C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3FCD26B52952E23E00ECD3C2 /* FinancerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinancerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3FCD26B92952E23E00ECD3C2 /* FinancerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancerTests.swift; sourceTree = "<group>"; };
-		3FCD26BF2952E23E00ECD3C2 /* FinancerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinancerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3FCD26C32952E23E00ECD3C2 /* FinancerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancerUITests.swift; sourceTree = "<group>"; };
-		3FCD26C52952E23E00ECD3C2 /* FinancerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3FCD27172952E3CA00ECD3C2 /* Financer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Financer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FCD271A2952E3CA00ECD3C2 /* FinancerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancerApp.swift; sourceTree = "<group>"; };
+		3FCD271C2952E3CA00ECD3C2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3FCD271E2952E3CB00ECD3C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3FCD27212952E3CB00ECD3C2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3FCD27232952E3CB00ECD3C2 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		3FCD27262952E3CB00ECD3C2 /* Financer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Financer.xcdatamodel; sourceTree = "<group>"; };
+		3FCD27282952E3CB00ECD3C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3FCD272D2952E3CB00ECD3C2 /* FinancerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinancerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FCD27312952E3CB00ECD3C2 /* FinancerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancerTests.swift; sourceTree = "<group>"; };
+		3FCD27372952E3CB00ECD3C2 /* FinancerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinancerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FCD273B2952E3CB00ECD3C2 /* FinancerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancerUITests.swift; sourceTree = "<group>"; };
+		3FCD273D2952E3CB00ECD3C2 /* FinancerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		3FCD269C2952E23D00ECD3C2 /* Frameworks */ = {
+		3FCD27142952E3CA00ECD3C2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3FCD26B22952E23E00ECD3C2 /* Frameworks */ = {
+		3FCD272A2952E3CB00ECD3C2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3FCD26BC2952E23E00ECD3C2 /* Frameworks */ = {
+		3FCD27342952E3CB00ECD3C2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -76,75 +76,91 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3FCD26962952E23D00ECD3C2 = {
+		3FCD270E2952E3CA00ECD3C2 = {
 			isa = PBXGroup;
 			children = (
-				3FCD26A12952E23D00ECD3C2 /* Financer */,
-				3FCD26B82952E23E00ECD3C2 /* FinancerTests */,
-				3FCD26C22952E23E00ECD3C2 /* FinancerUITests */,
-				3FCD26A02952E23D00ECD3C2 /* Products */,
+				3FCD27192952E3CA00ECD3C2 /* Financer */,
+				3FCD27302952E3CB00ECD3C2 /* FinancerTests */,
+				3FCD273A2952E3CB00ECD3C2 /* FinancerUITests */,
+				3FCD27182952E3CA00ECD3C2 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		3FCD26A02952E23D00ECD3C2 /* Products */ = {
+		3FCD27182952E3CA00ECD3C2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3FCD269F2952E23D00ECD3C2 /* Financer.app */,
-				3FCD26B52952E23E00ECD3C2 /* FinancerTests.xctest */,
-				3FCD26BF2952E23E00ECD3C2 /* FinancerUITests.xctest */,
+				3FCD27172952E3CA00ECD3C2 /* Financer.app */,
+				3FCD272D2952E3CB00ECD3C2 /* FinancerTests.xctest */,
+				3FCD27372952E3CB00ECD3C2 /* FinancerUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3FCD26A12952E23D00ECD3C2 /* Financer */ = {
+		3FCD27192952E3CA00ECD3C2 /* Financer */ = {
 			isa = PBXGroup;
 			children = (
-				3FCD26A22952E23D00ECD3C2 /* FinancerApp.swift */,
-				3FCD26A42952E23D00ECD3C2 /* ContentView.swift */,
-				3FCD26A62952E23D00ECD3C2 /* Assets.xcassets */,
-				3FCD26AB2952E23D00ECD3C2 /* Persistence.swift */,
-				3FCD26B02952E23D00ECD3C2 /* Info.plist */,
-				3FCD26AD2952E23D00ECD3C2 /* Financer.xcdatamodeld */,
-				3FCD26A82952E23D00ECD3C2 /* Preview Content */,
+				3FCD271A2952E3CA00ECD3C2 /* FinancerApp.swift */,
+				3FCD274B2952EC4A00ECD3C2 /* Models */,
+				3FCD274A2952EC4200ECD3C2 /* Views */,
+				3FCD271E2952E3CB00ECD3C2 /* Assets.xcassets */,
+				3FCD27232952E3CB00ECD3C2 /* Persistence.swift */,
+				3FCD27282952E3CB00ECD3C2 /* Info.plist */,
+				3FCD27202952E3CB00ECD3C2 /* Preview Content */,
 			);
 			path = Financer;
 			sourceTree = "<group>";
 		};
-		3FCD26A82952E23D00ECD3C2 /* Preview Content */ = {
+		3FCD27202952E3CB00ECD3C2 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				3FCD26A92952E23D00ECD3C2 /* Preview Assets.xcassets */,
+				3FCD27212952E3CB00ECD3C2 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		3FCD26B82952E23E00ECD3C2 /* FinancerTests */ = {
+		3FCD27302952E3CB00ECD3C2 /* FinancerTests */ = {
 			isa = PBXGroup;
 			children = (
-				3FCD26B92952E23E00ECD3C2 /* FinancerTests.swift */,
+				3FCD27312952E3CB00ECD3C2 /* FinancerTests.swift */,
 			);
 			path = FinancerTests;
 			sourceTree = "<group>";
 		};
-		3FCD26C22952E23E00ECD3C2 /* FinancerUITests */ = {
+		3FCD273A2952E3CB00ECD3C2 /* FinancerUITests */ = {
 			isa = PBXGroup;
 			children = (
-				3FCD26C32952E23E00ECD3C2 /* FinancerUITests.swift */,
-				3FCD26C52952E23E00ECD3C2 /* FinancerUITestsLaunchTests.swift */,
+				3FCD273B2952E3CB00ECD3C2 /* FinancerUITests.swift */,
+				3FCD273D2952E3CB00ECD3C2 /* FinancerUITestsLaunchTests.swift */,
 			);
 			path = FinancerUITests;
+			sourceTree = "<group>";
+		};
+		3FCD274A2952EC4200ECD3C2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3FCD271C2952E3CA00ECD3C2 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3FCD274B2952EC4A00ECD3C2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3FCD27252952E3CB00ECD3C2 /* Financer.xcdatamodeld */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3FCD269E2952E23D00ECD3C2 /* Financer */ = {
+		3FCD27162952E3CA00ECD3C2 /* Financer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3FCD26C92952E23E00ECD3C2 /* Build configuration list for PBXNativeTarget "Financer" */;
+			buildConfigurationList = 3FCD27412952E3CB00ECD3C2 /* Build configuration list for PBXNativeTarget "Financer" */;
 			buildPhases = (
-				3FCD269B2952E23D00ECD3C2 /* Sources */,
-				3FCD269C2952E23D00ECD3C2 /* Frameworks */,
-				3FCD269D2952E23D00ECD3C2 /* Resources */,
+				3FCD27132952E3CA00ECD3C2 /* Sources */,
+				3FCD27142952E3CA00ECD3C2 /* Frameworks */,
+				3FCD27152952E3CA00ECD3C2 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -152,69 +168,69 @@
 			);
 			name = Financer;
 			productName = Financer;
-			productReference = 3FCD269F2952E23D00ECD3C2 /* Financer.app */;
+			productReference = 3FCD27172952E3CA00ECD3C2 /* Financer.app */;
 			productType = "com.apple.product-type.application";
 		};
-		3FCD26B42952E23E00ECD3C2 /* FinancerTests */ = {
+		3FCD272C2952E3CB00ECD3C2 /* FinancerTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3FCD26CC2952E23E00ECD3C2 /* Build configuration list for PBXNativeTarget "FinancerTests" */;
+			buildConfigurationList = 3FCD27442952E3CB00ECD3C2 /* Build configuration list for PBXNativeTarget "FinancerTests" */;
 			buildPhases = (
-				3FCD26B12952E23E00ECD3C2 /* Sources */,
-				3FCD26B22952E23E00ECD3C2 /* Frameworks */,
-				3FCD26B32952E23E00ECD3C2 /* Resources */,
+				3FCD27292952E3CB00ECD3C2 /* Sources */,
+				3FCD272A2952E3CB00ECD3C2 /* Frameworks */,
+				3FCD272B2952E3CB00ECD3C2 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				3FCD26B72952E23E00ECD3C2 /* PBXTargetDependency */,
+				3FCD272F2952E3CB00ECD3C2 /* PBXTargetDependency */,
 			);
 			name = FinancerTests;
 			productName = FinancerTests;
-			productReference = 3FCD26B52952E23E00ECD3C2 /* FinancerTests.xctest */;
+			productReference = 3FCD272D2952E3CB00ECD3C2 /* FinancerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		3FCD26BE2952E23E00ECD3C2 /* FinancerUITests */ = {
+		3FCD27362952E3CB00ECD3C2 /* FinancerUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3FCD26CF2952E23E00ECD3C2 /* Build configuration list for PBXNativeTarget "FinancerUITests" */;
+			buildConfigurationList = 3FCD27472952E3CB00ECD3C2 /* Build configuration list for PBXNativeTarget "FinancerUITests" */;
 			buildPhases = (
-				3FCD26BB2952E23E00ECD3C2 /* Sources */,
-				3FCD26BC2952E23E00ECD3C2 /* Frameworks */,
-				3FCD26BD2952E23E00ECD3C2 /* Resources */,
+				3FCD27332952E3CB00ECD3C2 /* Sources */,
+				3FCD27342952E3CB00ECD3C2 /* Frameworks */,
+				3FCD27352952E3CB00ECD3C2 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				3FCD26C12952E23E00ECD3C2 /* PBXTargetDependency */,
+				3FCD27392952E3CB00ECD3C2 /* PBXTargetDependency */,
 			);
 			name = FinancerUITests;
 			productName = FinancerUITests;
-			productReference = 3FCD26BF2952E23E00ECD3C2 /* FinancerUITests.xctest */;
+			productReference = 3FCD27372952E3CB00ECD3C2 /* FinancerUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		3FCD26972952E23D00ECD3C2 /* Project object */ = {
+		3FCD270F2952E3CA00ECD3C2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
-					3FCD269E2952E23D00ECD3C2 = {
+					3FCD27162952E3CA00ECD3C2 = {
 						CreatedOnToolsVersion = 14.2;
 					};
-					3FCD26B42952E23E00ECD3C2 = {
+					3FCD272C2952E3CB00ECD3C2 = {
 						CreatedOnToolsVersion = 14.2;
-						TestTargetID = 3FCD269E2952E23D00ECD3C2;
+						TestTargetID = 3FCD27162952E3CA00ECD3C2;
 					};
-					3FCD26BE2952E23E00ECD3C2 = {
+					3FCD27362952E3CB00ECD3C2 = {
 						CreatedOnToolsVersion = 14.2;
-						TestTargetID = 3FCD269E2952E23D00ECD3C2;
+						TestTargetID = 3FCD27162952E3CA00ECD3C2;
 					};
 				};
 			};
-			buildConfigurationList = 3FCD269A2952E23D00ECD3C2 /* Build configuration list for PBXProject "Financer" */;
+			buildConfigurationList = 3FCD27122952E3CA00ECD3C2 /* Build configuration list for PBXProject "Financer" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -222,36 +238,36 @@
 				en,
 				Base,
 			);
-			mainGroup = 3FCD26962952E23D00ECD3C2;
-			productRefGroup = 3FCD26A02952E23D00ECD3C2 /* Products */;
+			mainGroup = 3FCD270E2952E3CA00ECD3C2;
+			productRefGroup = 3FCD27182952E3CA00ECD3C2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3FCD269E2952E23D00ECD3C2 /* Financer */,
-				3FCD26B42952E23E00ECD3C2 /* FinancerTests */,
-				3FCD26BE2952E23E00ECD3C2 /* FinancerUITests */,
+				3FCD27162952E3CA00ECD3C2 /* Financer */,
+				3FCD272C2952E3CB00ECD3C2 /* FinancerTests */,
+				3FCD27362952E3CB00ECD3C2 /* FinancerUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		3FCD269D2952E23D00ECD3C2 /* Resources */ = {
+		3FCD27152952E3CA00ECD3C2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FCD26AA2952E23D00ECD3C2 /* Preview Assets.xcassets in Resources */,
-				3FCD26A72952E23D00ECD3C2 /* Assets.xcassets in Resources */,
+				3FCD27222952E3CB00ECD3C2 /* Preview Assets.xcassets in Resources */,
+				3FCD271F2952E3CB00ECD3C2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3FCD26B32952E23E00ECD3C2 /* Resources */ = {
+		3FCD272B2952E3CB00ECD3C2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3FCD26BD2952E23E00ECD3C2 /* Resources */ = {
+		3FCD27352952E3CB00ECD3C2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -261,51 +277,51 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		3FCD269B2952E23D00ECD3C2 /* Sources */ = {
+		3FCD27132952E3CA00ECD3C2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FCD26AC2952E23D00ECD3C2 /* Persistence.swift in Sources */,
-				3FCD26A52952E23D00ECD3C2 /* ContentView.swift in Sources */,
-				3FCD26A32952E23D00ECD3C2 /* FinancerApp.swift in Sources */,
-				3FCD26AF2952E23D00ECD3C2 /* Financer.xcdatamodeld in Sources */,
+				3FCD27242952E3CB00ECD3C2 /* Persistence.swift in Sources */,
+				3FCD271D2952E3CA00ECD3C2 /* ContentView.swift in Sources */,
+				3FCD271B2952E3CA00ECD3C2 /* FinancerApp.swift in Sources */,
+				3FCD27272952E3CB00ECD3C2 /* Financer.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3FCD26B12952E23E00ECD3C2 /* Sources */ = {
+		3FCD27292952E3CB00ECD3C2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FCD26BA2952E23E00ECD3C2 /* FinancerTests.swift in Sources */,
+				3FCD27322952E3CB00ECD3C2 /* FinancerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3FCD26BB2952E23E00ECD3C2 /* Sources */ = {
+		3FCD27332952E3CB00ECD3C2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FCD26C62952E23E00ECD3C2 /* FinancerUITestsLaunchTests.swift in Sources */,
-				3FCD26C42952E23E00ECD3C2 /* FinancerUITests.swift in Sources */,
+				3FCD273E2952E3CB00ECD3C2 /* FinancerUITestsLaunchTests.swift in Sources */,
+				3FCD273C2952E3CB00ECD3C2 /* FinancerUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		3FCD26B72952E23E00ECD3C2 /* PBXTargetDependency */ = {
+		3FCD272F2952E3CB00ECD3C2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3FCD269E2952E23D00ECD3C2 /* Financer */;
-			targetProxy = 3FCD26B62952E23E00ECD3C2 /* PBXContainerItemProxy */;
+			target = 3FCD27162952E3CA00ECD3C2 /* Financer */;
+			targetProxy = 3FCD272E2952E3CB00ECD3C2 /* PBXContainerItemProxy */;
 		};
-		3FCD26C12952E23E00ECD3C2 /* PBXTargetDependency */ = {
+		3FCD27392952E3CB00ECD3C2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3FCD269E2952E23D00ECD3C2 /* Financer */;
-			targetProxy = 3FCD26C02952E23E00ECD3C2 /* PBXContainerItemProxy */;
+			target = 3FCD27162952E3CA00ECD3C2 /* Financer */;
+			targetProxy = 3FCD27382952E3CB00ECD3C2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		3FCD26C72952E23E00ECD3C2 /* Debug */ = {
+		3FCD273F2952E3CB00ECD3C2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -365,7 +381,7 @@
 			};
 			name = Debug;
 		};
-		3FCD26C82952E23E00ECD3C2 /* Release */ = {
+		3FCD27402952E3CB00ECD3C2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -419,7 +435,7 @@
 			};
 			name = Release;
 		};
-		3FCD26CA2952E23E00ECD3C2 /* Debug */ = {
+		3FCD27422952E3CB00ECD3C2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -448,7 +464,7 @@
 			};
 			name = Debug;
 		};
-		3FCD26CB2952E23E00ECD3C2 /* Release */ = {
+		3FCD27432952E3CB00ECD3C2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -477,7 +493,7 @@
 			};
 			name = Release;
 		};
-		3FCD26CD2952E23E00ECD3C2 /* Debug */ = {
+		3FCD27452952E3CB00ECD3C2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -497,7 +513,7 @@
 			};
 			name = Debug;
 		};
-		3FCD26CE2952E23E00ECD3C2 /* Release */ = {
+		3FCD27462952E3CB00ECD3C2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -517,7 +533,7 @@
 			};
 			name = Release;
 		};
-		3FCD26D02952E23E00ECD3C2 /* Debug */ = {
+		3FCD27482952E3CB00ECD3C2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -535,7 +551,7 @@
 			};
 			name = Debug;
 		};
-		3FCD26D12952E23E00ECD3C2 /* Release */ = {
+		3FCD27492952E3CB00ECD3C2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -556,38 +572,38 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3FCD269A2952E23D00ECD3C2 /* Build configuration list for PBXProject "Financer" */ = {
+		3FCD27122952E3CA00ECD3C2 /* Build configuration list for PBXProject "Financer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3FCD26C72952E23E00ECD3C2 /* Debug */,
-				3FCD26C82952E23E00ECD3C2 /* Release */,
+				3FCD273F2952E3CB00ECD3C2 /* Debug */,
+				3FCD27402952E3CB00ECD3C2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3FCD26C92952E23E00ECD3C2 /* Build configuration list for PBXNativeTarget "Financer" */ = {
+		3FCD27412952E3CB00ECD3C2 /* Build configuration list for PBXNativeTarget "Financer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3FCD26CA2952E23E00ECD3C2 /* Debug */,
-				3FCD26CB2952E23E00ECD3C2 /* Release */,
+				3FCD27422952E3CB00ECD3C2 /* Debug */,
+				3FCD27432952E3CB00ECD3C2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3FCD26CC2952E23E00ECD3C2 /* Build configuration list for PBXNativeTarget "FinancerTests" */ = {
+		3FCD27442952E3CB00ECD3C2 /* Build configuration list for PBXNativeTarget "FinancerTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3FCD26CD2952E23E00ECD3C2 /* Debug */,
-				3FCD26CE2952E23E00ECD3C2 /* Release */,
+				3FCD27452952E3CB00ECD3C2 /* Debug */,
+				3FCD27462952E3CB00ECD3C2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3FCD26CF2952E23E00ECD3C2 /* Build configuration list for PBXNativeTarget "FinancerUITests" */ = {
+		3FCD27472952E3CB00ECD3C2 /* Build configuration list for PBXNativeTarget "FinancerUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3FCD26D02952E23E00ECD3C2 /* Debug */,
-				3FCD26D12952E23E00ECD3C2 /* Release */,
+				3FCD27482952E3CB00ECD3C2 /* Debug */,
+				3FCD27492952E3CB00ECD3C2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -595,17 +611,17 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		3FCD26AD2952E23D00ECD3C2 /* Financer.xcdatamodeld */ = {
+		3FCD27252952E3CB00ECD3C2 /* Financer.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				3FCD26AE2952E23D00ECD3C2 /* Financer.xcdatamodel */,
+				3FCD27262952E3CB00ECD3C2 /* Financer.xcdatamodel */,
 			);
-			currentVersion = 3FCD26AE2952E23D00ECD3C2 /* Financer.xcdatamodel */;
+			currentVersion = 3FCD27262952E3CB00ECD3C2 /* Financer.xcdatamodel */;
 			path = Financer.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
 /* End XCVersionGroup section */
 	};
-	rootObject = 3FCD26972952E23D00ECD3C2 /* Project object */;
+	rootObject = 3FCD270F2952E3CA00ECD3C2 /* Project object */;
 }
