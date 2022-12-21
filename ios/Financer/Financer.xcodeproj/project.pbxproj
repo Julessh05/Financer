@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3F0BBA7C294E0CF500C8AEDC /* LegalPersonModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3F0BBA7A294E0CF500C8AEDC /* LegalPersonModel.xcdatamodeld */; };
 		3F20C1A32923CD4B0018F21B /* CreateLegalPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F20C1A22923CD4B0018F21B /* CreateLegalPerson.swift */; };
-		3F20C1A52923CE3A0018F21B /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F20C1A42923CE3A0018F21B /* Organization.swift */; };
 		3F20C1A7292405BF0018F21B /* AddFinance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F20C1A6292405BF0018F21B /* AddFinance.swift */; };
 		3F365FCB293904150012F4F4 /* Relation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F365FCA293904150012F4F4 /* Relation.swift */; };
 		3F3811C1292A3997003932B7 /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3811C0292A3997003932B7 /* Converter.swift */; };
@@ -24,7 +22,6 @@
 		3F40FB28290D936500BA2F83 /* FinancerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F40FB27290D936500BA2F83 /* FinancerUITests.swift */; };
 		3F40FB2A290D936500BA2F83 /* FinancerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F40FB29290D936500BA2F83 /* FinancerUITestsLaunchTests.swift */; };
 		3F40FB6E290D942F00BA2F83 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F40FB6D290D942F00BA2F83 /* Home.swift */; };
-		3F7608C22924BA89006CCE79 /* Union.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7608C12924BA89006CCE79 /* Union.swift */; };
 		3F87B6CB2928388800E49F0B /* ModelsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87B6CA2928388800E49F0B /* ModelsList.swift */; };
 		3F87B6CE2928473800E49F0B /* Instancable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87B6CD2928473800E49F0B /* Instancable.swift */; };
 		3F87B6D22928C9A000E49F0B /* LegalPersonPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87B6D12928C9A000E49F0B /* LegalPersonPicker.swift */; };
@@ -32,12 +29,7 @@
 		3F8AB0502916BC2B00FF907E /* SecureStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8AB04F2916BC2B00FF907E /* SecureStorage.swift */; };
 		3FA172212920DBC800D5868F /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA172202920DBC800D5868F /* Storage.swift */; };
 		3FAA137F2917982C00D25AB1 /* UserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA137E2917982C00D25AB1 /* UserDetails.swift */; };
-		3FD1F6DE2922502B00A098A3 /* Finance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1F6DD2922502B00A098A3 /* Finance.swift */; };
-		3FD1F6E12922507D00A098A3 /* Income.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1F6E02922507D00A098A3 /* Income.swift */; };
-		3FD1F6E32922508E00A098A3 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1F6E22922508E00A098A3 /* Expense.swift */; };
-		3FD1F6E62922510D00A098A3 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1F6E52922510D00A098A3 /* Company.swift */; };
-		3FD1F6E82922529500A098A3 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1F6E72922529500A098A3 /* Person.swift */; };
-		3FD1F6EA292252E800A098A3 /* LegalPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1F6E9292252E800A098A3 /* LegalPerson.swift */; };
+		3FCD26942951FC1300ECD3C2 /* Financer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3FCD26922951FC1300ECD3C2 /* Financer.xcdatamodeld */; };
 		3FD48BCD290F9AED00DA118A /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD48BCC290F9AED00DA118A /* ImagePicker.swift */; };
 		3FDFEA67290E5A32005B778C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDFEA66290E5A32005B778C /* User.swift */; };
 		3FDFEA6C290E5BF8005B778C /* CreateUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDFEA6B290E5BF8005B778C /* CreateUser.swift */; };
@@ -64,9 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3F0BBA7B294E0CF500C8AEDC /* LegalPersonModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LegalPersonModel.xcdatamodel; sourceTree = "<group>"; };
 		3F20C1A22923CD4B0018F21B /* CreateLegalPerson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLegalPerson.swift; sourceTree = "<group>"; };
-		3F20C1A42923CE3A0018F21B /* Organization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
 		3F20C1A6292405BF0018F21B /* AddFinance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFinance.swift; sourceTree = "<group>"; };
 		3F365FCA293904150012F4F4 /* Relation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Relation.swift; sourceTree = "<group>"; };
 		3F3811C0292A3997003932B7 /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
@@ -84,7 +74,6 @@
 		3F40FB27290D936500BA2F83 /* FinancerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancerUITests.swift; sourceTree = "<group>"; };
 		3F40FB29290D936500BA2F83 /* FinancerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		3F40FB6D290D942F00BA2F83 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
-		3F7608C12924BA89006CCE79 /* Union.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Union.swift; sourceTree = "<group>"; };
 		3F87B6CA2928388800E49F0B /* ModelsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsList.swift; sourceTree = "<group>"; };
 		3F87B6CD2928473800E49F0B /* Instancable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instancable.swift; sourceTree = "<group>"; };
 		3F87B6D12928C9A000E49F0B /* LegalPersonPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalPersonPicker.swift; sourceTree = "<group>"; };
@@ -92,12 +81,8 @@
 		3F8AB04F2916BC2B00FF907E /* SecureStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureStorage.swift; sourceTree = "<group>"; };
 		3FA172202920DBC800D5868F /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		3FAA137E2917982C00D25AB1 /* UserDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetails.swift; sourceTree = "<group>"; };
-		3FD1F6DD2922502B00A098A3 /* Finance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Finance.swift; sourceTree = "<group>"; };
-		3FD1F6E02922507D00A098A3 /* Income.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Income.swift; sourceTree = "<group>"; };
-		3FD1F6E22922508E00A098A3 /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
-		3FD1F6E52922510D00A098A3 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
-		3FD1F6E72922529500A098A3 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
-		3FD1F6E9292252E800A098A3 /* LegalPerson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalPerson.swift; sourceTree = "<group>"; };
+		3FCD26932951FC1300ECD3C2 /* Financer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Financer.xcdatamodel; sourceTree = "<group>"; };
+		3FCD26952951FE6700ECD3C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		3FD48BCC290F9AED00DA118A /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		3FDFEA66290E5A32005B778C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3FDFEA6B290E5BF8005B778C /* CreateUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreateUser.swift; path = Financer/Views/User/CreateUser.swift; sourceTree = SOURCE_ROOT; };
@@ -164,6 +149,7 @@
 		3F40FB0B290D936400BA2F83 /* Financer */ = {
 			isa = PBXGroup;
 			children = (
+				3FCD26952951FE6700ECD3C2 /* Info.plist */,
 				3F40FB0C290D936400BA2F83 /* FinancerApp.swift */,
 				3F87B6D929292E2E00E49F0B /* Logic */,
 				3F87B6D62928E27F00E49F0B /* Components */,
@@ -201,14 +187,12 @@
 			path = FinancerUITests;
 			sourceTree = "<group>";
 		};
-		3F7608C02924BA39006CCE79 /* Abstracts */ = {
+		3F805AFC294E50B900E56F5C /* User */ = {
 			isa = PBXGroup;
 			children = (
-				3FD1F6E9292252E800A098A3 /* LegalPerson.swift */,
-				3F7608C12924BA89006CCE79 /* Union.swift */,
-				3FD1F6DD2922502B00A098A3 /* Finance.swift */,
+				3FDFEA66290E5A32005B778C /* User.swift */,
 			);
-			path = Abstracts;
+			path = User;
 			sourceTree = "<group>";
 		};
 		3F87B6B3292800E100E49F0B /* Storage */ = {
@@ -277,35 +261,13 @@
 			path = Storage;
 			sourceTree = "<group>";
 		};
-		3FD1F6DF2922507200A098A3 /* Finances */ = {
-			isa = PBXGroup;
-			children = (
-				3FD1F6E02922507D00A098A3 /* Income.swift */,
-				3FD1F6E22922508E00A098A3 /* Expense.swift */,
-			);
-			path = Finances;
-			sourceTree = "<group>";
-		};
-		3FD1F6E4292250F400A098A3 /* Legal Persons */ = {
-			isa = PBXGroup;
-			children = (
-				3FD1F6E52922510D00A098A3 /* Company.swift */,
-				3FD1F6E72922529500A098A3 /* Person.swift */,
-				3F20C1A42923CE3A0018F21B /* Organization.swift */,
-				3F0BBA7A294E0CF500C8AEDC /* LegalPersonModel.xcdatamodeld */,
-			);
-			path = "Legal Persons";
-			sourceTree = "<group>";
-		};
 		3FDFEA65290E5A1F005B778C /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3FDFEA66290E5A32005B778C /* User.swift */,
+				3F805AFC294E50B900E56F5C /* User */,
 				3F87B6C92928387E00E49F0B /* Protocols */,
 				3F87B6B3292800E100E49F0B /* Storage */,
-				3F7608C02924BA39006CCE79 /* Abstracts */,
-				3FD1F6E4292250F400A098A3 /* Legal Persons */,
-				3FD1F6DF2922507200A098A3 /* Finances */,
+				3FCD26922951FC1300ECD3C2 /* Financer.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -453,30 +415,22 @@
 			files = (
 				3FEC2094292BDCA40007DB83 /* LegalPersonList.swift in Sources */,
 				3F365FCB293904150012F4F4 /* Relation.swift in Sources */,
-				3F0BBA7C294E0CF500C8AEDC /* LegalPersonModel.xcdatamodeld in Sources */,
-				3FD1F6E32922508E00A098A3 /* Expense.swift in Sources */,
 				3F40FB6E290D942F00BA2F83 /* Home.swift in Sources */,
 				3FAA137F2917982C00D25AB1 /* UserDetails.swift in Sources */,
 				3F87B6D82928E2AE00E49F0B /* DetailLabel.swift in Sources */,
-				3FD1F6DE2922502B00A098A3 /* Finance.swift in Sources */,
-				3F7608C22924BA89006CCE79 /* Union.swift in Sources */,
-				3FD1F6E82922529500A098A3 /* Person.swift in Sources */,
-				3FD1F6E12922507D00A098A3 /* Income.swift in Sources */,
 				3FEC2096292BDCAC0007DB83 /* FinanceList.swift in Sources */,
 				3F40FB0D290D936400BA2F83 /* FinancerApp.swift in Sources */,
 				3F20C1A32923CD4B0018F21B /* CreateLegalPerson.swift in Sources */,
-				3FD1F6EA292252E800A098A3 /* LegalPerson.swift in Sources */,
 				3FD48BCD290F9AED00DA118A /* ImagePicker.swift in Sources */,
-				3F20C1A52923CE3A0018F21B /* Organization.swift in Sources */,
 				3FE407C8293B57E7001370F0 /* FinanceDetails.swift in Sources */,
 				3F20C1A7292405BF0018F21B /* AddFinance.swift in Sources */,
 				3F87B6D22928C9A000E49F0B /* LegalPersonPicker.swift in Sources */,
 				3FA172212920DBC800D5868F /* Storage.swift in Sources */,
 				3FDFEA6C290E5BF8005B778C /* CreateUser.swift in Sources */,
 				3FDFEA67290E5A32005B778C /* User.swift in Sources */,
+				3FCD26942951FC1300ECD3C2 /* Financer.xcdatamodeld in Sources */,
 				3F87B6CE2928473800E49F0B /* Instancable.swift in Sources */,
 				3F3DA39329326B3400CF66B3 /* StandardListTile.swift in Sources */,
-				3FD1F6E62922510D00A098A3 /* Company.swift in Sources */,
 				3F87B6CB2928388800E49F0B /* ModelsList.swift in Sources */,
 				3F8AB0502916BC2B00FF907E /* SecureStorage.swift in Sources */,
 				3F3DA38E293226E200CF66B3 /* ListTile.swift in Sources */,
@@ -569,7 +523,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -623,7 +577,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -644,13 +598,14 @@
 				DEVELOPMENT_TEAM = Q87UDX5898;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Financer/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Financer;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -675,13 +630,14 @@
 				DEVELOPMENT_TEAM = Q87UDX5898;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Financer/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Financer;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -813,13 +769,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		3F0BBA7A294E0CF500C8AEDC /* LegalPersonModel.xcdatamodeld */ = {
+		3FCD26922951FC1300ECD3C2 /* Financer.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				3F0BBA7B294E0CF500C8AEDC /* LegalPersonModel.xcdatamodel */,
+				3FCD26932951FC1300ECD3C2 /* Financer.xcdatamodel */,
 			);
-			currentVersion = 3F0BBA7B294E0CF500C8AEDC /* LegalPersonModel.xcdatamodel */;
-			path = LegalPersonModel.xcdatamodeld;
+			currentVersion = 3FCD26932951FC1300ECD3C2 /* Financer.xcdatamodel */;
+			path = Financer.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

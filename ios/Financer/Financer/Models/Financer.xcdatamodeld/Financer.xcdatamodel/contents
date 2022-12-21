@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21513" systemVersion="22C65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Company" representedClassName="Company" parentEntity="Union" syncable="YES" codeGenerationType="class"/>
+    <entity name="Expense" representedClassName="Expense" parentEntity="Finance" syncable="YES" codeGenerationType="class"/>
+    <entity name="Finance" representedClassName="Finance" isAbstract="YES" syncable="YES" codeGenerationType="class">
+        <attribute name="amount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="legalPerson" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LegalPerson"/>
+    </entity>
+    <entity name="Income" representedClassName="Income" parentEntity="Finance" syncable="YES" codeGenerationType="class"/>
+    <entity name="LegalPerson" representedClassName="LegalPerson" isAbstract="YES" syncable="YES" codeGenerationType="class">
+        <attribute name="name" attributeType="String"/>
+        <attribute name="notes" attributeType="String" defaultValueString=""/>
+        <attribute name="phone" attributeType="String" defaultValueString=""/>
+        <attribute name="relation" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="Organization" representedClassName="Organization" parentEntity="Union" syncable="YES" codeGenerationType="class"/>
+    <entity name="Person" representedClassName="Person" parentEntity="LegalPerson" syncable="YES" codeGenerationType="class"/>
+    <entity name="Union" representedClassName="Union" isAbstract="YES" parentEntity="LegalPerson" syncable="YES" codeGenerationType="class">
+        <attribute name="url" optional="YES" attributeType="URI"/>
+    </entity>
+</model>
