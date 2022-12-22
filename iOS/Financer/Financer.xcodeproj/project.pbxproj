@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3FC79A182954343000808FF2 /* FinanceDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC79A172954343000808FF2 /* FinanceDetails.swift */; };
 		3FCD271B2952E3CA00ECD3C2 /* FinancerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCD271A2952E3CA00ECD3C2 /* FinancerApp.swift */; };
 		3FCD271D2952E3CA00ECD3C2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCD271C2952E3CA00ECD3C2 /* ContentView.swift */; };
 		3FCD271F2952E3CB00ECD3C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FCD271E2952E3CB00ECD3C2 /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3FC79A172954343000808FF2 /* FinanceDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceDetails.swift; sourceTree = "<group>"; };
 		3FCD27172952E3CA00ECD3C2 /* Financer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Financer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FCD271A2952E3CA00ECD3C2 /* FinancerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancerApp.swift; sourceTree = "<group>"; };
 		3FCD271C2952E3CA00ECD3C2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -76,6 +78,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3FC79A39295434F100808FF2 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
 		3FCD270E2952E3CA00ECD3C2 = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				3FCD271C2952E3CA00ECD3C2 /* ContentView.swift */,
+				3FC79A172954343000808FF2 /* FinanceDetails.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -146,6 +156,7 @@
 		3FCD274B2952EC4A00ECD3C2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3FC79A39295434F100808FF2 /* Generated */,
 				3FCD27252952E3CB00ECD3C2 /* Financer.xcdatamodeld */,
 			);
 			path = Models;
@@ -282,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FCD27242952E3CB00ECD3C2 /* Persistence.swift in Sources */,
+				3FC79A182954343000808FF2 /* FinanceDetails.swift in Sources */,
 				3FCD271D2952E3CA00ECD3C2 /* ContentView.swift in Sources */,
 				3FCD271B2952E3CA00ECD3C2 /* FinancerApp.swift in Sources */,
 				3FCD27272952E3CB00ECD3C2 /* Financer.xcdatamodeld in Sources */,

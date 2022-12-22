@@ -9,6 +9,11 @@ import SwiftUI
 
 @main
 struct FinancerApp: App {
+    /// The Persistence Controller used in this App.
+    ///
+    /// The Context of this Controller is injeected into the
+    /// environment via the .environment modifier which is available on
+    /// the view struct.
     let persistenceController = PersistenceController.shared
 
     var body: some Scene {

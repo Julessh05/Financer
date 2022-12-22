@@ -4,14 +4,19 @@
     <entity name="Expense" representedClassName="Expense" parentEntity="Finance" syncable="YES" codeGenerationType="class"/>
     <entity name="Finance" representedClassName="Finance" isAbstract="YES" syncable="YES" codeGenerationType="class">
         <attribute name="amount" attributeType="Double" minValueString="0" defaultValueString="0.0" allowsCloudEncryption="YES" usesScalarValueType="YES"/>
+        <attribute name="date" attributeType="Date" defaultDateTimeInterval="693384780" allowsCloudEncryption="YES" usesScalarValueType="NO"/>
         <relationship name="legalPerson" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LegalPerson" inverseName="finance" inverseEntity="LegalPerson"/>
     </entity>
     <entity name="Income" representedClassName="Income" parentEntity="Finance" syncable="YES" codeGenerationType="class"/>
     <entity name="LegalPerson" representedClassName="LegalPerson" isAbstract="YES" syncable="YES" codeGenerationType="class">
-        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="name" attributeType="String" defaultValueString="" allowsCloudEncryption="YES"/>
+        <attribute name="notes" attributeType="String" defaultValueString="" allowsCloudEncryption="YES"/>
+        <attribute name="phone" attributeType="String" defaultValueString="" allowsCloudEncryption="YES"/>
         <relationship name="finance" optional="YES" toMany="YES" minCount="1" deletionRule="Cascade" destinationEntity="Finance" inverseName="legalPerson" inverseEntity="Finance"/>
     </entity>
     <entity name="Organization" representedClassName="Organization" parentEntity="Union" syncable="YES" codeGenerationType="class"/>
     <entity name="Person" representedClassName="Person" parentEntity="LegalPerson" syncable="YES" codeGenerationType="class"/>
-    <entity name="Union" representedClassName="Union" isAbstract="YES" parentEntity="LegalPerson" syncable="YES" codeGenerationType="class"/>
+    <entity name="Union" representedClassName="Union" isAbstract="YES" parentEntity="LegalPerson" syncable="YES" codeGenerationType="class">
+        <attribute name="url" optional="YES" attributeType="URI" allowsCloudEncryption="YES"/>
+    </entity>
 </model>
