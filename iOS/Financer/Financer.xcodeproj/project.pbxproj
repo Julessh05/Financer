@@ -37,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3FA8F3D12954690000210F31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		3FC79A172954343000808FF2 /* FinanceDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceDetails.swift; sourceTree = "<group>"; };
 		3FCD27172952E3CA00ECD3C2 /* Financer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Financer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FCD271A2952E3CA00ECD3C2 /* FinancerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancerApp.swift; sourceTree = "<group>"; };
@@ -45,7 +46,6 @@
 		3FCD27212952E3CB00ECD3C2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3FCD27232952E3CB00ECD3C2 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		3FCD27262952E3CB00ECD3C2 /* Financer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Financer.xcdatamodel; sourceTree = "<group>"; };
-		3FCD27282952E3CB00ECD3C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3FCD272D2952E3CB00ECD3C2 /* FinancerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinancerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FCD27312952E3CB00ECD3C2 /* FinancerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancerTests.swift; sourceTree = "<group>"; };
 		3FCD27372952E3CB00ECD3C2 /* FinancerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinancerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,6 +78,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3FA8F3D229546AD600210F31 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				3FCD27232952E3CB00ECD3C2 /* Persistence.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
 		3FC79A39295434F100808FF2 /* Generated */ = {
 			isa = PBXGroup;
 			children = (
@@ -111,9 +119,9 @@
 				3FCD271A2952E3CA00ECD3C2 /* FinancerApp.swift */,
 				3FCD274B2952EC4A00ECD3C2 /* Models */,
 				3FCD274A2952EC4200ECD3C2 /* Views */,
+				3FA8F3D229546AD600210F31 /* Storage */,
+				3FA8F3D12954690000210F31 /* Info.plist */,
 				3FCD271E2952E3CB00ECD3C2 /* Assets.xcassets */,
-				3FCD27232952E3CB00ECD3C2 /* Persistence.swift */,
-				3FCD27282952E3CB00ECD3C2 /* Info.plist */,
 				3FCD27202952E3CB00ECD3C2 /* Preview Content */,
 			);
 			path = Financer;
@@ -458,7 +466,7 @@
 				DEVELOPMENT_TEAM = Q87UDX5898;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = Financer/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -487,7 +495,7 @@
 				DEVELOPMENT_TEAM = Q87UDX5898;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = Financer/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

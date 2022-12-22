@@ -17,8 +17,7 @@ internal struct ContentView: View {
     /// the Core Database
     @FetchRequest(
         sortDescriptors: [
-            SortDescriptor(\.date, order: .reverse),
-            SortDescriptor(\.amount, order: .reverse)
+            SortDescriptor(\.date, order: .reverse)
         ],
         animation: .default
     )
@@ -29,6 +28,12 @@ internal struct ContentView: View {
             List(finances) {
                 finance in
                 NavigationLink(destination: { FinanceDetails() }, label: { label(finance) })
+            }
+            .navigationTitle("Welcome")
+            .toolbarRole(.navigationStack)
+            .toolbar(.automatic, for: .navigationBar)
+            .toolbar {
+
             }
         }
     }
@@ -46,13 +51,14 @@ internal struct ContentView: View {
 
     /// Returns the String used in the label of the specified Finance
     private func stringBuilder(finance : Finance) -> String {
-        let direction : String
-        if finance is Income {
-            direction = "from"
-        } else {
-            direction = "to"
-        }
-        return "\(finance.amount) \(direction) \(finance.legalPerson!.name) on \(finance.date?.description)"
+        let direction : String = "from"
+//        if finance is Income {
+//            direction = "from"
+//        } else {
+//            direction = "to"
+//        }
+//        return "\(finance.amount) \(direction) \(finance.legalPerson!.name!) on \(finance.date!.description)"
+        return direction
     }
 }
 
