@@ -27,7 +27,7 @@ internal struct ContentView: View {
         NavigationStack {
             List(finances) {
                 finance in
-                NavigationLink(destination: { FinanceDetails() }, label: { label(finance) })
+                NavigationLink(destination: { FinanceDetails() }, label: { Label("Test", systemImage: "arrow.up") })
             }
             .navigationTitle("Welcome")
             .toolbarRole(.navigationStack)
@@ -64,6 +64,7 @@ internal struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        ContentView()
+            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

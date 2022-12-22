@@ -81,7 +81,6 @@
 		3FA8F3D229546AD600210F31 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
-				3FCD27232952E3CB00ECD3C2 /* Persistence.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -116,6 +115,7 @@
 		3FCD27192952E3CA00ECD3C2 /* Financer */ = {
 			isa = PBXGroup;
 			children = (
+				3FCD27232952E3CB00ECD3C2 /* Persistence.swift */,
 				3FCD271A2952E3CA00ECD3C2 /* FinancerApp.swift */,
 				3FCD274B2952EC4A00ECD3C2 /* Models */,
 				3FCD274A2952EC4200ECD3C2 /* Views */,
