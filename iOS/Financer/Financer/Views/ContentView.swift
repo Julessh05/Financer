@@ -11,23 +11,29 @@ import CoreData
 /// The first View shown to the User when opening
 /// the App.
 internal struct ContentView: View {
+    /// The ViewContext 
     @Environment(\.managedObjectContext) private var viewContext
 
     /// The Finances fetched from
     /// the Core Database
-    @FetchRequest(
-        sortDescriptors: [
-            SortDescriptor(\.date, order: .reverse)
-        ],
-        animation: .default
-    )
+    @FetchRequest(fetchRequest: financeFetchRequest)
     private var finances : FetchedResults<Finance>
+    
+    /// This is the fetch Request to fetch all the Finances
+    /// from the Core Data Persistence Storage
+    static private var financeFetchRequest : NSFetchRequest<Finance> {
+        let request = Finance.fetchRequest()
+        request.sortDescriptors = []
+        return request
+    }
 
     var body: some View {
         NavigationStack {
             List(finances) {
                 finance in
-                NavigationLink(destination: { FinanceDetails() }, label: { Label("Test", systemImage: "arrow.up") })
+                NavigationLink(
+                    destination: { FinanceDetails() },
+                    label: { label(finance) })
             }
             .navigationTitle("Welcome")
             .toolbarRole(.navigationStack)
@@ -51,14 +57,16 @@ internal struct ContentView: View {
 
     /// Returns the String used in the label of the specified Finance
     private func stringBuilder(finance : Finance) -> String {
-        let direction : String = "from"
-//        if finance is Income {
-//            direction = "from"
-//        } else {
-//            direction = "to"
-//        }
-//        return "\(finance.amount) \(direction) \(finance.legalPerson!.name!) on \(finance.date!.description)"
-        return direction
+        var direction : String = ""
+        if finance is Income {
+            direction = "from"
+        } else {
+            direction = "to"
+        }
+        let dateFormatter : DateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .short
+        return "\(finance.amount) \(direction) \(finance.legalPerson?.name ?? "Unknown") on \(dateFormatter.string(from: finance.date!))"
     }
 }
 
