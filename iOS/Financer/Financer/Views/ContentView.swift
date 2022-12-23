@@ -1,26 +1,26 @@
-//
-//  ContentView.swift
-//  Financer
-//
-//  Created by Julian Schumacher on 21.12.22.
-//
+    //
+    //  ContentView.swift
+    //  Financer
+    //
+    //  Created by Julian Schumacher on 21.12.22.
+    //
 
 import SwiftUI
 import CoreData
 
-/// The first View shown to the User when opening
-/// the App.
+    /// The first View shown to the User when opening
+    /// the App.
 internal struct ContentView: View {
-    /// The ViewContext
+        /// The ViewContext
     @Environment(\.managedObjectContext) private var viewContext
-
-    /// The Finances fetched from
-    /// the Core Database
+    
+        /// The Finances fetched from
+        /// the Core Database
     @FetchRequest(fetchRequest: financeFetchRequest)
     private var finances : FetchedResults<Finance>
     
-    /// This is the fetch Request to fetch all the Finances
-    /// from the Core Data Persistence Storage
+        /// This is the fetch Request to fetch all the Finances
+        /// from the Core Data Persistence Storage
     static private var financeFetchRequest : NSFetchRequest<Finance> {
         let request = Finance.fetchRequest()
         request.sortDescriptors = [
@@ -33,13 +33,17 @@ internal struct ContentView: View {
     }
     
     @State private var addPresented : Bool = false
-
+    
     var body: some View {
         NavigationStack {
             List(finances) {
                 finance in
                 NavigationLink(
-                    destination: { FinanceDetails() },
+                    destination: {
+                        FinanceDetails(
+                            finance: finance
+                        )
+                    },
                     label: { label(finance) })
             }
             Button {
@@ -57,9 +61,9 @@ internal struct ContentView: View {
             .toolbar {}
         }
     }
-
-    /// Builds and returns the Label
-    /// of a specific Finance List Object
+    
+        /// Builds and returns the Label
+        /// of a specific Finance List Object
     @ViewBuilder
     private func label(_ finance : Finance) -> some View {
         HStack {
