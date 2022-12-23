@@ -29,9 +29,15 @@ internal struct PersistenceController {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
         // Add some finances
+        let legalPerson = Person(context: viewContext)
+        legalPerson.name = "Person"
         for _ in 0 ..< 5 {
-            let newItem = Finance(context: viewContext)
-            newItem.amount = 100
+            let i = Income(context: viewContext)
+            let e = Expense(context: viewContext)
+            i.amount = 100
+            i.legalPerson = legalPerson
+            e.amount = 10
+            e.legalPerson = legalPerson
         }
         // try to save the Data.
         do {
