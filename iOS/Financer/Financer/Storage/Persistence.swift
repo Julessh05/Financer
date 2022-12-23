@@ -30,10 +30,10 @@ internal struct PersistenceController {
         let viewContext = result.container.viewContext
         // Add some finances
         for _ in 0 ..< 5 {
-            let i = Income(context: viewContext)
-            let e = Expense(context: viewContext)
-            i.amount = 100
-            e.amount = 10
+//            let i = Income(context: viewContext)
+//            let e = Expense(context: viewContext)
+//            i.amount = 100
+//            e.amount = 10
         }
         // try to save the Data.
         do {
