@@ -56,14 +56,11 @@ internal struct ContentView: View {
     //    ) private var finances : FetchedResults<Finance>
     // Production Code End
     
+    /// Whether the Add View is presented or not.
     @State private var addPresented : Bool = false
     
+    /// All the finances being concluded in this Array
     @State private var financesArray : [Finance] = []
-    
-    internal init() {
-        // Get all Finances from the FetchedResults in an Array
-        financesArray = finances.filter { _ in true }
-    }
     
     var body: some View {
         NavigationStack {
@@ -90,6 +87,7 @@ internal struct ContentView: View {
             .navigationTitle("Welcome")
             .navigationBarTitleDisplayMode(.automatic)
         }
+        .onAppear { financesArray = finances.filter { _ in true } }
     }
     
     /// Builds and returns the Label

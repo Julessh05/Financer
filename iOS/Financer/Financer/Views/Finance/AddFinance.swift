@@ -163,7 +163,6 @@ internal struct AddFinance: View {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Done") {
                         addFinance()
-                        dismiss()
                     }
                 }
             }
@@ -200,6 +199,7 @@ internal struct AddFinance: View {
         } else {
             errMissingArgumentsPresented.toggle()
         }
+        dismiss()
     }
     
     /// Builds and returns the label
