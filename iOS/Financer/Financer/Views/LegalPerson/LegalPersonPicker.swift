@@ -16,7 +16,11 @@ internal struct LegalPersonPicker: View {
     
     var body: some View {
         VStack {
-            
+            NavigationLink {
+                AddLegalPerson()
+            } label: {
+                Label("Add Legal Person", systemImage: "plus")
+            }
         }
         .navigationTitle("Legal Person Picker")
     }

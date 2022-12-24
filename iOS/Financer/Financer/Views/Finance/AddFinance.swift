@@ -92,6 +92,7 @@ internal struct AddFinance: View {
                         Section {
                             TextField("Amount", text: $amount)
                                 .keyboardType(.decimalPad)
+                                .textInputAutocapitalization(.never)
                                 .onSubmit { checkBtn() }
                             NavigationLink {
                                 LegalPersonPicker(
@@ -115,6 +116,7 @@ internal struct AddFinance: View {
                             TextField("Notes", text: $notes, axis: .vertical)
                                 .lineLimit(5)
                                 .keyboardType(.asciiCapable)
+                                .textInputAutocapitalization(.sentences)
                         } header: {
                             Text("Optional Data")
                         } footer: {
