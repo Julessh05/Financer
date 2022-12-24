@@ -10,18 +10,6 @@ import SwiftUI
 /// The View to add a new Finance
 internal struct AddFinance: View {
     
-    /// The Type of this Finance
-    private enum FinanceType : String, CaseIterable, Identifiable {
-        // ID to conform to Identifiable
-        var id : Self { self }
-        
-        /// The Finance is an income.
-        case income
-        
-        /// The Finance is an expense.
-        case expense
-    }
-    
     /// The Context used to interact with the Core Data
     /// Manager
     @Environment(\.managedObjectContext) private var viewContext
@@ -54,7 +42,7 @@ internal struct AddFinance: View {
     @State private var errSavingPresented : Bool = false
     
     /// The Type of this Finance
-    @State private var financeType : FinanceType = .income
+    @State private var financeType : Finance.FinanceType = .income
     
     /// Whether this View is in edit mode or not.
     private let edit : Bool
@@ -81,7 +69,7 @@ internal struct AddFinance: View {
                 metrics in
                 VStack {
                     Picker("Type", selection: $financeType) {
-                        ForEach(FinanceType.allCases) {
+                        ForEach(Finance.FinanceType.allCases) {
                             fT in
                             Text(fT.rawValue.capitalized)
                         }
@@ -104,19 +92,19 @@ internal struct AddFinance: View {
                         } header: {
                             Text("Required Information")
                         } footer: {
-                            Text("It's required to enter these Information")
+                            Text("It's required to enter these Information.")
                         }
                         Section {
+                            TextField("Notes", text: $notes, axis: .vertical)
+                                .lineLimit(5...10)
+                                .keyboardType(.asciiCapable)
+                                .textInputAutocapitalization(.sentences)
                             DatePicker(
                                 "Date",
                                 selection: $date,
                                 displayedComponents: [.date, .hourAndMinute]
                             )
                             .datePickerStyle(.graphical)
-                            TextField("Notes", text: $notes, axis: .vertical)
-                                .lineLimit(5)
-                                .keyboardType(.asciiCapable)
-                                .textInputAutocapitalization(.sentences)
                         } header: {
                             Text("Optional Data")
                         } footer: {
@@ -195,12 +183,10 @@ internal struct AddFinance: View {
             switch financeType {
                 case .income:
                     finance = Income(context: viewContext)
+                    break
                 case .expense:
                     finance = Expense(context: viewContext)
-                default:
-                    // Default to Expense because that's
-                    // how it's done everywhere in this App.
-                    finance = Expense(context: viewContext)
+                    break
             }
             finance.amount = Double(validateAmount())!
             finance.legalPerson = legalPerson
