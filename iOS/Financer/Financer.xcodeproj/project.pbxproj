@@ -22,6 +22,7 @@
 		845F17012956FDA3009728F5 /* AddLegalPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845F17002956FDA3009728F5 /* AddLegalPerson.swift */; };
 		845F1706295731E5009728F5 /* Finance+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845F1702295731E5009728F5 /* Finance+CoreDataClass.swift */; };
 		845F1708295731E5009728F5 /* LegalPerson+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845F1704295731E5009728F5 /* LegalPerson+CoreDataClass.swift */; };
+		845F170D295737A6009728F5 /* LegalPersonListTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845F170C295737A6009728F5 /* LegalPersonListTile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		845F17002956FDA3009728F5 /* AddLegalPerson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLegalPerson.swift; sourceTree = "<group>"; };
 		845F1702295731E5009728F5 /* Finance+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Finance+CoreDataClass.swift"; path = "Financer/Models/Generated/Finance+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		845F1704295731E5009728F5 /* LegalPerson+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "LegalPerson+CoreDataClass.swift"; path = "Financer/Models/Generated/LegalPerson+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		845F170C295737A6009728F5 /* LegalPersonListTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalPersonListTile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 		3FCD274A2952EC4200ECD3C2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				845F170B2957379D009728F5 /* Components */,
 				845F16FD2956D1B6009728F5 /* LegalPerson */,
 				845F16FB2956D1A5009728F5 /* Finance */,
 				3FCD271C2952E3CA00ECD3C2 /* ContentView.swift */,
@@ -199,6 +202,14 @@
 				845F1704295731E5009728F5 /* LegalPerson+CoreDataClass.swift */,
 			);
 			path = Generated;
+			sourceTree = "<group>";
+		};
+		845F170B2957379D009728F5 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				845F170C295737A6009728F5 /* LegalPersonListTile.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -332,6 +343,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				845F16FA29562D64009728F5 /* AddFinance.swift in Sources */,
+				845F170D295737A6009728F5 /* LegalPersonListTile.swift in Sources */,
 				3FCD27242952E3CB00ECD3C2 /* Persistence.swift in Sources */,
 				3FC79A182954343000808FF2 /* FinanceDetails.swift in Sources */,
 				3FCD271D2952E3CA00ECD3C2 /* ContentView.swift in Sources */,

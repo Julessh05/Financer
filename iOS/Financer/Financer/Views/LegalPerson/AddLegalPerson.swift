@@ -133,7 +133,7 @@ internal struct AddLegalPerson: View {
             }
             .navigationTitle("\(edit ? "Edit" : "Add" ) Legal Person")
             .navigationBarTitleDisplayMode(.automatic)
-            .onAppear(perform: { checkBtn() })
+            .onAppear { checkBtn() }
             .textFieldStyle(.plain)
             .formStyle(.grouped)
             .toolbarRole(.navigationStack)

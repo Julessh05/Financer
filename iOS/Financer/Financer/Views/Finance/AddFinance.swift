@@ -147,7 +147,7 @@ internal struct AddFinance: View {
                     }
                 }
             }
-            .onAppear(perform: { checkBtn() })
+            .onAppear { checkBtn() }
             .textFieldStyle(.plain)
             .formStyle(.grouped)
             .navigationTitle("\(edit ? "Edit" : "Add") Finance")

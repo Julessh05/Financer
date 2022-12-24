@@ -63,8 +63,13 @@ internal struct LegalPersonPicker: View {
     var body: some View {
         VStack {
             Picker("Type", selection: $legalPersonType) {
-                ForEach(LegalPerson.LegalPersonType.allCases)
+                ForEach(LegalPerson.LegalPersonType.allCases) {
+                    person in
+                    Text(person.rawValue.capitalized)
+                }
             }
+            .pickerStyle(.segmented)
+            list()
             NavigationLink {
                 AddLegalPerson()
             } label: {
@@ -73,16 +78,72 @@ internal struct LegalPersonPicker: View {
         }
         .navigationTitle("Legal Person Picker")
     }
+    
+    /// Builds and returns the List of Legal Person
+    /// matching the current Selection of
+    /// the Legal Person Type Picker
+    @ViewBuilder
+    private func list() -> some View {
+        let persons : [LegalPerson] = personsForType(legalPersonType)
+        if !persons.isEmpty {
+            if legalPersonType == .none {
+                List {
+                    Section("Person") {
+                        ForEach(personsForType(.person)) {
+                            person in
+                            LegalPersonListTile(legalPerson: person)
+                        }
+                    }
+                    Section("Company") {
+                        ForEach(personsForType(.company)) {
+                            person in
+                            LegalPersonListTile(legalPerson: person)
+                        }
+                    }
+                    Section("Organization") {
+                        ForEach(personsForType(.organization)) {
+                            person in
+                            LegalPersonListTile(legalPerson: person)
+                        }
+                    }
+                }
+            } else {
+                List(persons) {
+                    person in
+                    LegalPersonListTile(legalPerson: person)
+                }
+            }
+        } else {
+            VStack {
+                Spacer()
+                Label("No Data found", systemImage: "xmark.circle")
+                NavigationLink("Add one", destination: { AddLegalPerson() })
+                Spacer()
+            }
+        }
+    }
+    
+    /// Returns all the Legal Persons for the specified Type
+    /// in an Array of Legal Persons
+    private func personsForType(
+        _ legalPersonType : LegalPerson.LegalPersonType
+    ) -> [LegalPerson] {
+        switch legalPersonType {
+            case .person:
+                return legalPersons.filter { $0 is Person }
+            case .company:
+                return legalPersons.filter { $0 is Company }
+            case .organization:
+                return legalPersons.filter { $0 is Organization }
+            case .none:
+                return Array(legalPersons)
+        }
+    }
 }
 
 internal struct LegalPersonPicker_Previews: PreviewProvider {
     /// The Preview Legal Person
-    @State static private var lP : LegalPerson? = {
-        let context = PersistenceController.preview.container.viewContext
-        let person = Person(context: context)
-        person.name = "Test Person"
-        return person
-    }()
+    @State private static var lP : LegalPerson? = LegalPerson.anonymous
     
     static var previews: some View {
         LegalPersonPicker(legalPerson: $lP)

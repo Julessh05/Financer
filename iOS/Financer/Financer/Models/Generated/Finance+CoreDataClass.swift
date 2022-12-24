@@ -23,5 +23,15 @@ public class Finance: NSManagedObject {
         /// The Finance is an expense.
         case expense
     }
-
+    
+    /// The Anonymous Finance to use in Tests and Previews
+    internal static let anonymous : Finance = {
+        let viewContext = PersistenceController.preview.container.viewContext
+        let i = Income(context: viewContext)
+        i.amount = 100
+        i.legalPerson = LegalPerson.anonymous
+        i.notes = "Test Notes"
+        i.date = Date()
+        return i
+    }()
 }

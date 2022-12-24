@@ -17,6 +17,9 @@ public class LegalPerson: NSManagedObject {
         // ID to conform to identifiable
         var id: Self { self }
         
+        /// No Value selected
+        case none
+        
         /// The Legal Person is an actual living Person
         case person
         
@@ -25,9 +28,15 @@ public class LegalPerson: NSManagedObject {
         
         /// The Legal Person is an Organization
         case organization
-        
-        /// No Value selected
-        case none
     }
     
+    /// The Anonymous Legal Person to use in Tests and Previews
+    internal static let anonymous : LegalPerson = {
+        let viewContext = PersistenceController.preview.container.viewContext
+        let p = Person(context: viewContext)
+        p.name = "Julian Schumacher"
+        p.phone = "+123456789"
+        p.notes = "Test Notes"
+        return p
+    }()
 }
