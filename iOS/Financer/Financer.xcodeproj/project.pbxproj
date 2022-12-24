@@ -18,6 +18,7 @@
 		3FCD273C2952E3CB00ECD3C2 /* FinancerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCD273B2952E3CB00ECD3C2 /* FinancerUITests.swift */; };
 		3FCD273E2952E3CB00ECD3C2 /* FinancerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCD273D2952E3CB00ECD3C2 /* FinancerUITestsLaunchTests.swift */; };
 		845F16FA29562D64009728F5 /* AddFinance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845F16F929562D64009728F5 /* AddFinance.swift */; };
+		845F16FF2956D1E2009728F5 /* LegalPersonPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845F16FE2956D1E2009728F5 /* LegalPersonPicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		3FCD273B2952E3CB00ECD3C2 /* FinancerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancerUITests.swift; sourceTree = "<group>"; };
 		3FCD273D2952E3CB00ECD3C2 /* FinancerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		845F16F929562D64009728F5 /* AddFinance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFinance.swift; sourceTree = "<group>"; };
+		845F16FE2956D1E2009728F5 /* LegalPersonPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalPersonPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,9 +159,9 @@
 		3FCD274A2952EC4200ECD3C2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				845F16FD2956D1B6009728F5 /* LegalPerson */,
+				845F16FB2956D1A5009728F5 /* Finance */,
 				3FCD271C2952E3CA00ECD3C2 /* ContentView.swift */,
-				3FC79A172954343000808FF2 /* FinanceDetails.swift */,
-				845F16F929562D64009728F5 /* AddFinance.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -171,6 +173,23 @@
 				3FCD27252952E3CB00ECD3C2 /* Financer.xcdatamodeld */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		845F16FB2956D1A5009728F5 /* Finance */ = {
+			isa = PBXGroup;
+			children = (
+				3FC79A172954343000808FF2 /* FinanceDetails.swift */,
+				845F16F929562D64009728F5 /* AddFinance.swift */,
+			);
+			path = Finance;
+			sourceTree = "<group>";
+		};
+		845F16FD2956D1B6009728F5 /* LegalPerson */ = {
+			isa = PBXGroup;
+			children = (
+				845F16FE2956D1E2009728F5 /* LegalPersonPicker.swift */,
+			);
+			path = LegalPerson;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,6 +328,7 @@
 				3FCD271D2952E3CA00ECD3C2 /* ContentView.swift in Sources */,
 				3FCD271B2952E3CA00ECD3C2 /* FinancerApp.swift in Sources */,
 				3FCD27272952E3CB00ECD3C2 /* Financer.xcdatamodeld in Sources */,
+				845F16FF2956D1E2009728F5 /* LegalPersonPicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
