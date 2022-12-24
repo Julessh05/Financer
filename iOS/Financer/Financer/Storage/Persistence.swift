@@ -28,16 +28,38 @@ internal struct PersistenceController {
         // Set location to /dev/null for preview.
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
-        // Add some finances
+        // Add some Data
         let legalPerson = Person(context: viewContext)
-        legalPerson.name = "Person"
+        legalPerson.name = "Test Person"
+        let phone : String = "+123456789"
+        let notes : String = "Test Notes"
+        let url : URL? = URL(string: "https://github.com/TheIntuitiveCompany/Financer")
         for _ in 0 ..< 5 {
+            // Add Finances
             let i = Income(context: viewContext)
             let e = Expense(context: viewContext)
             i.amount = 100
             i.legalPerson = legalPerson
             e.amount = 10
             e.legalPerson = legalPerson
+            i.notes = notes
+            e.notes = notes
+            
+            // Add Legal Persons
+            let p = Person(context: viewContext)
+            let c = Company(context: viewContext)
+            let o = Organization(context: viewContext)
+            p.name = "Person"
+            c.name = "Company"
+            o.name = "Organization"
+            p.phone = phone
+            c.phone = phone
+            o.phone = phone
+            p.notes = notes
+            c.notes = notes
+            o.notes = notes
+            c.url = url
+            o.url = url
         }
         // try to save the Data.
         do {
