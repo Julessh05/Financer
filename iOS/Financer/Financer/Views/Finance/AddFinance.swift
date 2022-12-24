@@ -92,6 +92,7 @@ internal struct AddFinance: View {
                         Section {
                             TextField("Amount", text: $amount)
                                 .keyboardType(.decimalPad)
+                                .onSubmit { checkBtn() }
                             NavigationLink {
                                 LegalPersonPicker(
                                     legalPerson: $legalPerson
@@ -100,7 +101,7 @@ internal struct AddFinance: View {
                                 legalPersonNavigationLabel()
                             }
                         } header: {
-                            Text("General Information")
+                            Text("Required Information")
                         } footer: {
                             Text("It's required to enter these Information")
                         }
@@ -142,7 +143,7 @@ internal struct AddFinance: View {
                         isPresented: $errMissingArgumentsPresented
                     ) {
                     } message: {
-                        Text("Please enter all Data before you continue")
+                        Text("Please enter all required Data before you continue")
                     }
                     .alert(
                         "Error",
@@ -156,6 +157,7 @@ internal struct AddFinance: View {
                     }
                 }
             }
+            .onAppear(perform: { checkBtn() })
             .textFieldStyle(.plain)
             .formStyle(.grouped)
             .navigationTitle("\(edit ? "Edit" : "Add") Finance")
@@ -170,11 +172,18 @@ internal struct AddFinance: View {
                 }
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Done") {
+                        addFinance()
                         dismiss()
                     }
                 }
             }
         }
+    }
+    
+    /// Checks if the required Values are entered, and if so
+    /// activates the Button.
+    private func checkBtn() -> Void {
+        btnActive = !amount.isEmpty && legalPerson != nil
     }
     
     /// Creates and adds the Finance to the Core Data.
@@ -191,7 +200,7 @@ internal struct AddFinance: View {
                     // how it's done everywhere in this App.
                     finance = Expense(context: viewContext)
             }
-            finance.amount = Double(amount)!
+            finance.amount = Double(validateAmount())!
             finance.legalPerson = legalPerson
             finance.notes = notes
             finance.date = date
@@ -216,6 +225,21 @@ internal struct AddFinance: View {
             Spacer()
             Text(legalPerson?.name ?? "None")
                 .foregroundColor(.gray)
+        }
+    }
+    
+    /// Validates the Amount and formats the amount to
+    /// provide more luxury and comfortability to the User.
+    /// This returns the formatted amount
+    private func validateAmount() -> String {
+        var result : String = amount
+        while result.components(separatedBy: ".")[0].count > 2 {
+            result.removeLast()
+        }
+        if amount.starts(with: ".") || amount.starts(with: ",") {
+            return "0\(amount)"
+        } else {
+            return amount
         }
     }
 }
