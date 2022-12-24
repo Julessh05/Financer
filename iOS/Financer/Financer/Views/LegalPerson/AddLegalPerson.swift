@@ -53,9 +53,15 @@ internal struct AddLegalPerson: View {
     
     /// The initializer to pass a legal Person to
     /// open the edit Mode and edit this legal Person.
-    // TODO: remove s
-    internal init(s : String) {
+    internal init(legalPerson : Binding<LegalPerson>) {
         edit = true
+        name = legalPerson.wrappedValue.name!
+        notes = legalPerson.wrappedValue.notes ?? ""
+        phone = legalPerson.wrappedValue.phone ?? ""
+        if legalPerson.wrappedValue is Union {
+            let person = legalPerson.wrappedValue as! Union
+            homepage = person.url?.absoluteString ?? ""
+        }
     }
     
     var body: some View {

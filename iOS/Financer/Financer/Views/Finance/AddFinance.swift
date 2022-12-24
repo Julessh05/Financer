@@ -55,12 +55,12 @@ internal struct AddFinance: View {
     
     /// The Initializer if this view is used to
     /// edit a finance
-    internal init(finance : Finance) {
+    internal init(finance : Binding<Finance>) {
         edit = true
-        amount = String(finance.amount)
-        legalPerson = finance.legalPerson
-        date = finance.date!
-        notes = finance.notes ?? ""
+        amount = String(finance.wrappedValue.amount)
+        legalPerson = finance.wrappedValue.legalPerson
+        date = finance.wrappedValue.date!
+        notes = finance.wrappedValue.notes ?? ""
     }
     
     var body: some View {
