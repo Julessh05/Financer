@@ -49,11 +49,11 @@ internal struct ContentView: View {
     
     /// The Finances fetched form the
     /// Code Database.
-//    @FetchRequest(
-//        sortDescriptors: [
-//            SortDescriptor(\Finance.date, order: .reverse)
-//        ]
-//    ) private var finances : FetchedResults<Finance>
+    //    @FetchRequest(
+    //        sortDescriptors: [
+    //            SortDescriptor(\Finance.date, order: .reverse)
+    //        ]
+    //    ) private var finances : FetchedResults<Finance>
     // Production Code End
     
     @State private var addPresented : Bool = false
@@ -80,9 +80,6 @@ internal struct ContentView: View {
             )
             .navigationTitle("Welcome")
             .navigationBarTitleDisplayMode(.automatic)
-            .toolbarRole(.navigationStack)
-            .toolbar(.automatic, for: .navigationBar)
-            .toolbar {}
         }
     }
     

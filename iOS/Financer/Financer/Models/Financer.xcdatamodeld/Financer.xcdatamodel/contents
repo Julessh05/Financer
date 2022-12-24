@@ -5,6 +5,7 @@
     <entity name="Finance" representedClassName="Finance" isAbstract="YES" syncable="YES" codeGenerationType="class">
         <attribute name="amount" attributeType="Double" minValueString="0" defaultValueString="0.0" allowsCloudEncryption="YES" usesScalarValueType="YES"/>
         <attribute name="date" attributeType="Date" defaultDateTimeInterval="693384780" allowsCloudEncryption="YES" usesScalarValueType="NO"/>
+        <attribute name="notes" attributeType="String" defaultValueString="" allowsCloudEncryption="YES"/>
         <relationship name="legalPerson" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LegalPerson" inverseName="finance" inverseEntity="LegalPerson"/>
     </entity>
     <entity name="Income" representedClassName="Income" parentEntity="Finance" syncable="YES" codeGenerationType="class"/>
