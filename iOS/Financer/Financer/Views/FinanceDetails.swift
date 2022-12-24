@@ -36,6 +36,9 @@ internal struct FinanceDetails: View {
 }
 
 struct FinanceDetails_Previews: PreviewProvider {
+    /// The Finance used for this preview.
+    /// This is a computed Variable, because
+    /// it interacts with the core data manger.
     static var finance : Finance {
         let context = PersistenceController.preview.container.viewContext
         let f : Finance = Income(context: context)
