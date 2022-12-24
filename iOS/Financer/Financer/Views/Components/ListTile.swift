@@ -14,10 +14,13 @@ internal struct ListTile: View {
     
     /// The Legal Person for this View
     @State private var person : LegalPerson
+    
     /// The Finance for this View
     @State private var finance : Finance
+    
     /// The Type passed to this View
     @State private var typePassed : TypePassed
+    
     /// Enum to define which type was passed to
     /// this View, so this View can represens and behave accordingly
     private enum TypePassed {
@@ -33,6 +36,7 @@ internal struct ListTile: View {
     /// The callback to execute for Finances
     private let callbackFinance : ((Finance) -> ())?
     
+    /// Initializer for a List Tile representing the specified Legal Person
     internal init(person: LegalPerson, _ callback : @escaping (LegalPerson) -> ()) {
         self._person = State(initialValue: person)
         self.callbackPerson = callback
@@ -41,6 +45,7 @@ internal struct ListTile: View {
         self.callbackFinance = nil
     }
     
+    /// Initializer for a List Tile representing the specified Finance
     internal init(finance : Finance, _ callback : @escaping (Finance) -> ()) {
         self._finance = State(initialValue: finance)
         self.callbackFinance = callback
