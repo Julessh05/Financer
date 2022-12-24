@@ -12,6 +12,9 @@ import CoreData
 /// for a single Finance
 internal struct LegalPersonPicker: View {
     
+    /// The Action to dismiss this View
+    @Environment(\.dismiss) private var dismiss : DismissAction
+    
     // Preview Code Start
     // (Comment to build)
     //
@@ -91,26 +94,38 @@ internal struct LegalPersonPicker: View {
                     Section("Person") {
                         ForEach(personsForType(.person)) {
                             person in
-                            LegalPersonListTile(legalPerson: person)
+                            ListTile(person: person) {
+                                p in
+                                legalPersonChosen(p)
+                            }
                         }
                     }
                     Section("Company") {
                         ForEach(personsForType(.company)) {
                             person in
-                            LegalPersonListTile(legalPerson: person)
+                            ListTile(person: person) {
+                                p in
+                                legalPersonChosen(p)
+                            }
                         }
                     }
                     Section("Organization") {
                         ForEach(personsForType(.organization)) {
                             person in
-                            LegalPersonListTile(legalPerson: person)
+                            ListTile(person: person) {
+                                p in
+                                legalPersonChosen(p)
+                            }
                         }
                     }
                 }
             } else {
                 List(persons) {
                     person in
-                    LegalPersonListTile(legalPerson: person)
+                    ListTile(person: person) {
+                        p in
+                        legalPersonChosen(p)
+                    }
                 }
             }
         } else {
@@ -138,6 +153,13 @@ internal struct LegalPersonPicker: View {
             case .none:
                 return Array(legalPersons)
         }
+    }
+    
+    /// Call this function when a legal Person is  chosen
+    /// by tappin on the List Tile
+    private func legalPersonChosen(_ person : LegalPerson) -> Void {
+        legalPerson = person
+        dismiss()
     }
 }
 

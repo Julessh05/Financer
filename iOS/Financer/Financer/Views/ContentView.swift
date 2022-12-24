@@ -58,14 +58,23 @@ internal struct ContentView: View {
     
     @State private var addPresented : Bool = false
     
+    @State private var financesArray : [Finance] = []
+    
+    internal init() {
+        // Get all Finances from the FetchedResults in an Array
+        financesArray = finances.filter { _ in true }
+    }
+    
     var body: some View {
         NavigationStack {
-            List(finances) {
-                finance in
+            // Discussion form: https://stackoverflow.com/questions/57340575/binding-and-foreach-in-swiftui
+            // Solution at: https://stackoverflow.com/a/67891839/16376071
+            List($financesArray) {
+                $finance in
                 NavigationLink(
                     destination: {
                         FinanceDetails(
-                            finance: finance
+                            finance: $finance
                         )
                     },
                     label: { label(finance) })

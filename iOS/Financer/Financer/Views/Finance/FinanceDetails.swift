@@ -11,7 +11,7 @@ import SwiftUI
 internal struct FinanceDetails: View {
 
     /// The Finance to show the details for.
-    let finance : Finance
+    @Binding internal var finance : Finance
     
     var body: some View {
         NavigationStack {
@@ -37,9 +37,9 @@ internal struct FinanceDetails: View {
 
 struct FinanceDetails_Previews: PreviewProvider {
     /// The Finance used for this preview.
-    static var finance : Finance = Finance.anonymous
+    @State static var finance : Finance = Finance.anonymous
     
     static var previews: some View {
-        FinanceDetails(finance: finance)
+        FinanceDetails(finance: $finance)
     }
 }

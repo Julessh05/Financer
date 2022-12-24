@@ -11,6 +11,7 @@ import SwiftUI
 
 /// The List TIle to represent Model  in a List
 internal struct ListTile: View {
+    
     /// The Legal Person for this View
     @State private var person : LegalPerson
     /// The Finance for this View
@@ -25,39 +26,55 @@ internal struct ListTile: View {
         /// A Finance is passed
         case finance
     }
-    /// The callback to execute
-    private let callback : () -> ()
-    internal init(person: LegalPerson, _ callback : @escaping () -> ()) {
+    
+    /// The callback to execute for Legal Persons
+    private let callbackPerson : ((LegalPerson) -> ())?
+    
+    /// The callback to execute for Finances
+    private let callbackFinance : ((Finance) -> ())?
+    
+    internal init(person: LegalPerson, _ callback : @escaping (LegalPerson) -> ()) {
         self._person = State(initialValue: person)
-        self.callback = callback
+        self.callbackPerson = callback
         self.finance = Finance.anonymous
         self.typePassed = .person
+        self.callbackFinance = nil
     }
-    internal init(finance : Finance, _ callback : @escaping () -> ()) {
+    
+    internal init(finance : Finance, _ callback : @escaping (Finance) -> ()) {
         self._finance = State(initialValue: finance)
-        self.callback = callback
+        self.callbackFinance = callback
         self.person = LegalPerson.anonymous
         self.typePassed = .finance
+        self.callbackPerson = nil
     }
+    
     /// Whether the Info View is active or not.
     @State private var viewActive : Bool = false
     var body: some View {
         HStack {
             HStack {
                 // TODO: change finance attribute
-                Text(typePassed == .person ? person.name : String(finance.amount))
+                Text(typePassed == .person ? person.name ?? "Unknown" : String(finance.amount))
                 Spacer()
             }
             // Solution from: https://stackoverflow.com/questions/57191013/swiftui-cant-tap-in-spacer-of-hstack
             .contentShape(Rectangle())
-            .onTapGesture { callback() }
+            .onTapGesture {
+                if typePassed == .person {
+                    callbackPerson!(person)
+                } else {
+                    callbackFinance!(finance)
+                }
+            }
             Button {
                 viewActive.toggle()
             } label: {
                 Image(systemName: "info.circle")
-            }.sheet(isPresented: $viewActive) {
+            }
+            .sheet(isPresented: $viewActive) {
                 if typePassed == .person {
-                    LegalPersonDetails(person: $person)
+                    LegalPersonDetails(legalPerson: $person)
                 } else {
                     FinanceDetails(finance : $finance)
                 }
@@ -65,11 +82,12 @@ internal struct ListTile: View {
         }
     }
 }
+
 internal struct LegalPersonListTile_Previews: PreviewProvider {
     static var previews: some View {
         ListTile(
             person: LegalPerson.anonymous,
-            { print("Callback activated") }
+            { _ in print("Callback activated") }
         )
     }
 }
