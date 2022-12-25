@@ -114,7 +114,6 @@ internal struct AddFinance: View {
                             }
                         }
                     }
-                    .animation(.easeIn, value: financeType)
                     Button(action: addFinance) {
                         Label(
                             "Save",

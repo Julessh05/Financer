@@ -78,7 +78,7 @@ internal struct PersistenceController {
     ///
     /// This is a Cloud Kit Container to mirror the changes
     /// to the User's iCloud.
-    let container: NSPersistentCloudKitContainer
+    internal let container: NSPersistentCloudKitContainer
 
     /// The Standard Init Method
     /// to create a new persistence Controller.
