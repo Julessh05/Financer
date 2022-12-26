@@ -8,18 +8,8 @@
 
 import SwiftUI
 
-
 /// The List TIle to represent Model  in a List
 internal struct ListTile: View {
-    
-    /// The Legal Person for this View
-    @State private var person : LegalPerson
-    
-    /// The Finance for this View
-    @State private var finance : Finance
-    
-    /// The Type passed to this View
-    @State private var typePassed : TypePassed
     
     /// Enum to define which type was passed to
     /// this View, so this View can represens and behave accordingly
@@ -30,6 +20,15 @@ internal struct ListTile: View {
         case finance
     }
     
+    /// The Legal Person for this View
+    @State private var person : LegalPerson
+    
+    /// The Finance for this View
+    @State private var finance : Finance
+    
+    /// The Type passed to this View
+    @State private var typePassed : TypePassed
+        
     /// The callback to execute for Legal Persons
     private let callbackPerson : ((LegalPerson) -> ())?
     
