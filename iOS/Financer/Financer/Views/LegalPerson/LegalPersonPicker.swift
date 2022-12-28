@@ -77,7 +77,7 @@ internal struct LegalPersonPicker: View {
             NavigationLink {
                 AddLegalPerson(legalPersonType)
             } label: {
-                Label("Add Legal Person", systemImage: "plus")
+                Label("Add \(legalPersonType == .none ? "Legal Person" : legalPersonType.rawValue.capitalized)", systemImage: "plus")
             }
         }
         .navigationTitle("Legal Person Picker")
