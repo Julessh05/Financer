@@ -10,11 +10,12 @@ import SwiftUI
 /// View to Create or edit a Legal Person.
 internal struct AddLegalPerson: View {
     
+    /// The context that manages the Core Data in this App
+    @Environment(\.managedObjectContext) private var viewContext
+    
     /// The Action to dismiss this View used, because this is presented in a
     /// sheet or popover
     @Environment(\.dismiss) private var dismiss : DismissAction
-    
-    @Environment(\.managedObjectContext) private var viewContext
     
     /// The Name of this Legal Person
     @State private var name : String = ""
@@ -148,7 +149,6 @@ internal struct AddLegalPerson: View {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Done") {
                         addLegalPerson()
-                        dismiss()
                     }
                 }
             }
@@ -200,6 +200,7 @@ internal struct AddLegalPerson: View {
             }
             do {
                 try viewContext.save()
+                dismiss()
             } catch _ {
                 errSavingPresented.toggle()
             }

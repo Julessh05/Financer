@@ -192,13 +192,13 @@ internal struct AddFinance: View {
             finance.date = date
             do {
                 try viewContext.save()
+                dismiss()
             } catch _ {
                 errSavingPresented.toggle()
             }
         } else {
             errMissingArgumentsPresented.toggle()
         }
-        dismiss()
     }
     
     /// Builds and returns the label

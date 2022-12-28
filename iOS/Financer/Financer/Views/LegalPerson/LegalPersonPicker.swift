@@ -23,8 +23,10 @@ internal struct LegalPersonPicker: View {
     
     /// The Finances fetched from
     /// the Core Database
-    @FetchRequest(fetchRequest: legalPersonFetchRequest)
-    private var legalPersons : FetchedResults<LegalPerson>
+//    @FetchRequest(fetchRequest: legalPersonFetchRequest)
+//    private var legalPersons : FetchedResults<LegalPerson>
+    internal var legalPersons : [LegalPerson] = [
+        LegalPerson.anonymous]
     
     /// This is the fetch Request to fetch all the Finances
     /// from the Core Data Persistence Storage
