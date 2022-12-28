@@ -11,46 +11,16 @@ import SwiftUI
 /// The List TIle to represent Model  in a List
 internal struct ListTile: View {
     
-    /// Enum to define which type was passed to
-    /// this View, so this View can represens and behave accordingly
-    private enum TypePassed {
-        /// A Legal Person is passed
-        case person
-        /// A Finance is passed
-        case finance
-    }
-    
     /// The Legal Person for this View
     @State private var person : LegalPerson
-    
-    /// The Finance for this View
-    @State private var finance : Finance
-    
-    /// The Type passed to this View
-    @State private var typePassed : TypePassed
         
     /// The callback to execute for Legal Persons
-    private let callbackPerson : ((LegalPerson) -> ())?
-    
-    /// The callback to execute for Finances
-    private let callbackFinance : ((Finance) -> ())?
+    private let callback : (LegalPerson) -> ()
     
     /// Initializer for a List Tile representing the specified Legal Person
     internal init(person: LegalPerson, _ callback : @escaping (LegalPerson) -> ()) {
         self._person = State(initialValue: person)
-        self.callbackPerson = callback
-        self.finance = Finance.anonymous
-        self.typePassed = .person
-        self.callbackFinance = nil
-    }
-    
-    /// Initializer for a List Tile representing the specified Finance
-    internal init(finance : Finance, _ callback : @escaping (Finance) -> ()) {
-        self._finance = State(initialValue: finance)
-        self.callbackFinance = callback
-        self.person = LegalPerson.anonymous
-        self.typePassed = .finance
-        self.callbackPerson = nil
+        self.callback = callback
     }
     
     /// Whether the Info View is active or not.
@@ -58,18 +28,13 @@ internal struct ListTile: View {
     var body: some View {
         HStack {
             HStack {
-                // TODO: change finance attribute
-                Text(typePassed == .person ? person.name ?? "Unknown" : String(finance.amount))
+                Text(person.name ?? "Unknown")
                 Spacer()
             }
             // Solution from: https://stackoverflow.com/questions/57191013/swiftui-cant-tap-in-spacer-of-hstack
             .contentShape(Rectangle())
             .onTapGesture {
-                if typePassed == .person {
-                    callbackPerson!(person)
-                } else {
-                    callbackFinance!(finance)
-                }
+                callback(person)
             }
             Button {
                 viewActive.toggle()
@@ -77,11 +42,7 @@ internal struct ListTile: View {
                 Image(systemName: "info.circle")
             }
             .sheet(isPresented: $viewActive) {
-                if typePassed == .person {
-                    LegalPersonDetails(legalPerson: $person)
-                } else {
-                    FinanceDetails(finance : $finance)
-                }
+                LegalPersonDetails(legalPerson: $person)
             }
         }
     }

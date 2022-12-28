@@ -59,22 +59,26 @@ internal struct ContentView: View {
     /// Whether the Add View is presented or not.
     @State private var addPresented : Bool = false
     
-    /// All the finances being concluded in this Array
-    @State private var financesArray : [Finance] = []
+    /// Whether the details View for a finance is presented or not.
+    @State private var detailsPresented : Bool = false
+    
+    /// The Finance for for which the details View should
+    /// be generated.
+    @State private var finance : Finance?
     
     var body: some View {
         NavigationStack {
-            // Discussion form: https://stackoverflow.com/questions/57340575/binding-and-foreach-in-swiftui
-            // Solution at: https://stackoverflow.com/a/67891839/16376071
-            List($financesArray) {
-                $finance in
-                NavigationLink(
-                    destination: {
-                        FinanceDetails(
-                            finance: $finance
-                        )
-                    },
-                    label: { label(finance) })
+            List(finances) {
+                finance in
+                Button {
+                    self.finance = finance
+                    if self.finance != nil {
+                        detailsPresented.toggle()
+                    }
+                } label: {
+                    label(finance)
+                }
+                .foregroundColor(.black)
             }
             Button {
                 addPresented.toggle()
@@ -86,8 +90,10 @@ internal struct ContentView: View {
             )
             .navigationTitle("Welcome")
             .navigationBarTitleDisplayMode(.automatic)
+            .sheet(item: $finance) {
+                FinanceDetails(finance: $0)
+            }
         }
-        .onAppear { financesArray = finances.filter { _ in true } }
     }
     
     /// Builds and returns the Label

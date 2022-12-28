@@ -115,5 +115,8 @@ internal struct PersistenceController {
         })
         // Automatically merge Changes.
         container.viewContext.automaticallyMergesChangesFromParent = true
+        
+        // Idea for this merge policy: https://www.reddit.com/r/iOSProgramming/comments/egki07/which_merge_policy_should_i_use_for_cloudkitcore/
+        container.viewContext.mergePolicy = NSMergePolicy.mergeByPropertyObjectTrump
     }
 }

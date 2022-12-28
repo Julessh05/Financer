@@ -8,7 +8,7 @@
 import SwiftUI
 
 /// The main Struct in this App.
-/// This has the @main Annotation, which indicates, that
+/// This has the @main Annotation, indicating, that
 /// this is the entrance point for this App.
 @main
 struct FinancerApp: App {
