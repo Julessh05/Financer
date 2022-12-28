@@ -1,15 +1,19 @@
-    //
-    //  FinanceDetails.swift
-    //  Financer
-    //
-    //  Created by Julian Schumacher on 22.12.22.
-    //
+//
+//  FinanceDetails.swift
+//  Financer
+//
+//  Created by Julian Schumacher on 22.12.22.
+//
 
 import SwiftUI
 
 /// The View to show details about a Finance
 internal struct FinanceDetails: View {
-
+    
+    /// The View Context communicating with the Core
+    /// Data Manager of this App.
+    @Environment(\.managedObjectContext) private var viewContext
+    
     /// The Finance to show the details for.
     internal var finance : Finance
     
@@ -17,14 +21,51 @@ internal struct FinanceDetails: View {
         NavigationStack {
             List {
                 Section {
-                    
+                    HStack {
+                        Text("Amount:")
+                        Spacer()
+                        Text(String(format: "%.2f$", finance.amount))
+                            .foregroundColor(.gray)
+                    }
+                    HStack {
+                        Text("On:")
+                        Spacer()
+                        Text(finance.date!, style: .date)
+                            .foregroundColor(.gray)
+                    }
+                    HStack {
+                        Text("At:")
+                        Spacer()
+                        Text(finance.date!, style: .time)
+                            .foregroundColor(.gray)
+                    }
                 } header: {
-                    
+                    Text("General Values")
                 } footer: {
-                    
+                    Text("These are the general Values for this \(typeLabel)")
+                }
+                Section {
+                    HStack {
+                        Text(finance is Income ? "From:" : "To:")
+                        Spacer()
+                        Text(finance.legalPerson!.name!)
+                            .foregroundColor(.gray)
+                    }
+                } header: {
+                    Text("Relations")
+                } footer: {
+                    Text("Represents all relations this Finance has.")
+                }
+                Section {
+                    Text(finance.notes!)
+                        .lineLimit(5...10)
+                } header: {
+                    Text("Optional Data")
+                } footer: {
+                    Text("These Data are optional and you may have not added them.")
                 }
             }
-            .navigationTitle("Finance Details")
+            .navigationTitle("\(typeLabel) Details")
             .navigationBarTitleDisplayMode(.automatic)
             .toolbarRole(.navigationStack)
             .toolbar(.automatic, for: .navigationBar)
@@ -33,9 +74,15 @@ internal struct FinanceDetails: View {
             }
         }
     }
+    
+    /// The Label depending on the Type
+    /// of Finance that was passed to this View
+    private var typeLabel : String {
+        return finance is Income ? "Income" : "Expense"
+    }
 }
 
-struct FinanceDetails_Previews: PreviewProvider {
+internal struct FinanceDetails_Previews: PreviewProvider {
     /// The Finance used for this preview.
     static var finance : Finance = Finance.anonymous
     

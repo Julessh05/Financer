@@ -110,7 +110,7 @@ internal struct ContentView: View {
                     .font(.headline)
                     .foregroundColor(finance is Income ? .green : .red)
                 // Legal Person isn't an optional Parameter, but still you have to use the ? because Swift Optional and Core Data Optional aren't the same thing
-                Text(finance.legalPerson?.name ?? "Unknown")
+                Text(finance.legalPerson!.name!)
                 // Same with the Date as above with the legal Person.
                 // Only with the difference that I'm enforcing the Date here.
                 Text(finance.date!, format: .dateTime.day().month().year())

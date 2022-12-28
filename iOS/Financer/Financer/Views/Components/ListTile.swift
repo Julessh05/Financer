@@ -28,7 +28,7 @@ internal struct ListTile: View {
     var body: some View {
         HStack {
             HStack {
-                Text(person.name ?? "Unknown")
+                Text(person.name!)
                 Spacer()
             }
             // Solution from: https://stackoverflow.com/questions/57191013/swiftui-cant-tap-in-spacer-of-hstack

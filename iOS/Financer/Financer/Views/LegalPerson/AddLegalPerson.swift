@@ -58,8 +58,8 @@ internal struct AddLegalPerson: View {
     internal init(legalPerson : Binding<LegalPerson>) {
         edit = true
         _name = State(initialValue: legalPerson.wrappedValue.name!)
-        _notes = State(initialValue: legalPerson.wrappedValue.notes ?? "")
-        _phone = State(initialValue: legalPerson.wrappedValue.phone ?? "")
+        _notes = State(initialValue: legalPerson.wrappedValue.notes!)
+        _phone = State(initialValue: legalPerson.wrappedValue.phone!)
         if legalPerson.wrappedValue is Union {
             let person = legalPerson.wrappedValue as! Union
             _homepage = State(initialValue: person.url?.absoluteString ?? "")

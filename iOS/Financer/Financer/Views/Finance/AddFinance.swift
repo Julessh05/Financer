@@ -60,7 +60,7 @@ internal struct AddFinance: View {
         _amount = State(initialValue: String(finance.wrappedValue.amount))
         _legalPerson = State(initialValue: finance.wrappedValue.legalPerson)
         _date = State(initialValue: finance.wrappedValue.date!)
-        _notes = State(initialValue: finance.wrappedValue.notes ?? "")
+        _notes = State(initialValue: finance.wrappedValue.notes!)
         _financeType = State(initialValue: finance.wrappedValue is Income ? .income : .expense)
     }
     
@@ -211,7 +211,7 @@ internal struct AddFinance: View {
         HStack {
             Text(financeType == .income ? "From" : "To")
             Spacer()
-            Text(legalPerson?.name ?? "None")
+            Text(legalPerson?.name! ?? "None")
                 .foregroundColor(.gray)
         }
     }
