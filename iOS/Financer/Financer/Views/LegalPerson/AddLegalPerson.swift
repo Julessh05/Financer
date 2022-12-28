@@ -118,7 +118,7 @@ internal struct AddLegalPerson: View {
                         height: metrics.size.height / 15
                     )
                     .foregroundColor(.white)
-                    .background(Color.blue)
+                    .background(btnActive ? Color.blue : Color.gray)
                     .cornerRadius(20)
                 }
                 .alert(

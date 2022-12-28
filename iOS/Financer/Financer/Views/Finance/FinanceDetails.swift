@@ -15,7 +15,7 @@ internal struct FinanceDetails: View {
     @Environment(\.managedObjectContext) private var viewContext
     
     /// The Finance to show the details for.
-    internal var finance : Finance
+    @State internal var finance : Finance
     
     var body: some View {
         NavigationStack {
@@ -57,8 +57,9 @@ internal struct FinanceDetails: View {
                     Text("Represents all relations this Finance has.")
                 }
                 Section {
-                    Text(finance.notes!)
+                    Text(notes)
                         .lineLimit(5...10)
+                        .foregroundColor(.gray)
                 } header: {
                     Text("Optional Data")
                 } footer: {
@@ -70,11 +71,28 @@ internal struct FinanceDetails: View {
             .toolbarRole(.navigationStack)
             .toolbar(.automatic, for: .navigationBar)
             .toolbar {
-                
+                ToolbarItem(placement: .primaryAction) {
+                    NavigationLink {
+                        AddFinance(finance: $finance)
+                    } label: {
+                        Image(systemName: "pencil")
+                    }
+                }
             }
         }
     }
     
+    /// The Notes shown in this View.
+    /// If the Notes to this Finance are empty,
+    /// this returns an information String
+    /// stating exactly that.
+    private var notes : String {
+        if finance.notes!.isEmpty {
+            return "No Notes"
+        } else {
+            return finance.notes!
+        }
+    }
     /// The Label depending on the Type
     /// of Finance that was passed to this View
     private var typeLabel : String {
