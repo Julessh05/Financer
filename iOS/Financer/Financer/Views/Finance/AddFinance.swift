@@ -57,10 +57,11 @@ internal struct AddFinance: View {
     /// edit a finance
     internal init(finance : Binding<Finance>) {
         edit = true
-        amount = String(finance.wrappedValue.amount)
-        legalPerson = finance.wrappedValue.legalPerson
-        date = finance.wrappedValue.date!
-        notes = finance.wrappedValue.notes ?? ""
+        _amount = State(initialValue: String(finance.wrappedValue.amount))
+        _legalPerson = State(initialValue: finance.wrappedValue.legalPerson)
+        _date = State(initialValue: finance.wrappedValue.date!)
+        _notes = State(initialValue: finance.wrappedValue.notes ?? "")
+        _financeType = State(initialValue: finance.wrappedValue is Income ? .income : .expense)
     }
     
     var body: some View {

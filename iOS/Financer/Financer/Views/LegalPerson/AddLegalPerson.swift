@@ -48,20 +48,21 @@ internal struct AddLegalPerson: View {
     /// The nomal initializer to
     /// open the add legal Person
     /// View
-    internal init() {
+    internal init(_ legalPersonType : LegalPerson.LegalPersonType = .none) {
         edit = false
+        self._legalPersonType = State(initialValue: legalPersonType)
     }
     
     /// The initializer to pass a legal Person to
     /// open the edit Mode and edit this legal Person.
     internal init(legalPerson : Binding<LegalPerson>) {
         edit = true
-        name = legalPerson.wrappedValue.name!
-        notes = legalPerson.wrappedValue.notes ?? ""
-        phone = legalPerson.wrappedValue.phone ?? ""
+        _name = State(initialValue: legalPerson.wrappedValue.name!)
+        _notes = State(initialValue: legalPerson.wrappedValue.notes ?? "")
+        _phone = State(initialValue: legalPerson.wrappedValue.phone ?? "")
         if legalPerson.wrappedValue is Union {
             let person = legalPerson.wrappedValue as! Union
-            homepage = person.url?.absoluteString ?? ""
+            _homepage = State(initialValue: person.url?.absoluteString ?? "")
         }
     }
     

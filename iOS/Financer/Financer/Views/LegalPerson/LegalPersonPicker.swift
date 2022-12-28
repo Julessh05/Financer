@@ -75,7 +75,7 @@ internal struct LegalPersonPicker: View {
             .pickerStyle(.segmented)
             list()
             NavigationLink {
-                AddLegalPerson()
+                AddLegalPerson(legalPersonType)
             } label: {
                 Label("Add Legal Person", systemImage: "plus")
             }
@@ -133,7 +133,7 @@ internal struct LegalPersonPicker: View {
             VStack {
                 Spacer()
                 Label("No Data found", systemImage: "xmark.circle")
-                NavigationLink("Add one", destination: { AddLegalPerson() })
+                NavigationLink("Add one", destination: { AddLegalPerson(legalPersonType) })
                 Spacer()
             }
         }
