@@ -78,7 +78,7 @@ internal struct PersistenceController {
     ///
     /// This is a Cloud Kit Container to mirror the changes
     /// to the User's iCloud.
-    let container: NSPersistentCloudKitContainer
+    internal let container: NSPersistentCloudKitContainer
 
     /// The Standard Init Method
     /// to create a new persistence Controller.
@@ -115,5 +115,8 @@ internal struct PersistenceController {
         })
         // Automatically merge Changes.
         container.viewContext.automaticallyMergesChangesFromParent = true
+        
+        // Idea for this merge policy: https://www.reddit.com/r/iOSProgramming/comments/egki07/which_merge_policy_should_i_use_for_cloudkitcore/
+        container.viewContext.mergePolicy = NSMergePolicy.mergeByPropertyObjectTrump
     }
 }

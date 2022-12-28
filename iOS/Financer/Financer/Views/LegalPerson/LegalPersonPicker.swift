@@ -12,6 +12,9 @@ import CoreData
 /// for a single Finance
 internal struct LegalPersonPicker: View {
     
+    /// The Action to dismiss this View
+    @Environment(\.dismiss) private var dismiss : DismissAction
+    
     // Preview Code Start
     // (Comment to build)
     //
@@ -22,6 +25,7 @@ internal struct LegalPersonPicker: View {
     /// the Core Database
     @FetchRequest(fetchRequest: legalPersonFetchRequest)
     private var legalPersons : FetchedResults<LegalPerson>
+//    private let legalPersons : [LegalPerson] = []
     
     /// This is the fetch Request to fetch all the Finances
     /// from the Core Data Persistence Storage
@@ -71,7 +75,7 @@ internal struct LegalPersonPicker: View {
             .pickerStyle(.segmented)
             list()
             NavigationLink {
-                AddLegalPerson()
+                AddLegalPerson(legalPersonType)
             } label: {
                 Label("Add Legal Person", systemImage: "plus")
             }
@@ -91,33 +95,45 @@ internal struct LegalPersonPicker: View {
                     Section("Person") {
                         ForEach(personsForType(.person)) {
                             person in
-                            LegalPersonListTile(legalPerson: person)
+                            ListTile(person: person) {
+                                p in
+                                legalPersonChosen(p)
+                            }
                         }
                     }
                     Section("Company") {
                         ForEach(personsForType(.company)) {
                             person in
-                            LegalPersonListTile(legalPerson: person)
+                            ListTile(person: person) {
+                                p in
+                                legalPersonChosen(p)
+                            }
                         }
                     }
                     Section("Organization") {
                         ForEach(personsForType(.organization)) {
                             person in
-                            LegalPersonListTile(legalPerson: person)
+                            ListTile(person: person) {
+                                p in
+                                legalPersonChosen(p)
+                            }
                         }
                     }
                 }
             } else {
                 List(persons) {
                     person in
-                    LegalPersonListTile(legalPerson: person)
+                    ListTile(person: person) {
+                        p in
+                        legalPersonChosen(p)
+                    }
                 }
             }
         } else {
             VStack {
                 Spacer()
                 Label("No Data found", systemImage: "xmark.circle")
-                NavigationLink("Add one", destination: { AddLegalPerson() })
+                NavigationLink("Add one", destination: { AddLegalPerson(legalPersonType) })
                 Spacer()
             }
         }
@@ -138,6 +154,13 @@ internal struct LegalPersonPicker: View {
             case .none:
                 return Array(legalPersons)
         }
+    }
+    
+    /// Call this function when a legal Person is  chosen
+    /// by tappin on the List Tile
+    private func legalPersonChosen(_ person : LegalPerson) -> Void {
+        legalPerson = person
+        dismiss()
     }
 }
 

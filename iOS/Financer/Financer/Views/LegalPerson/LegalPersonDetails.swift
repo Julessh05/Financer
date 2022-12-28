@@ -11,7 +11,7 @@ import SwiftUI
 /// it's details.
 internal struct LegalPersonDetails: View {
     
-    @State internal var legalPerson : LegalPerson
+    @Binding internal var legalPerson : LegalPerson
     
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
@@ -19,7 +19,11 @@ internal struct LegalPersonDetails: View {
 }
 
 internal struct LegalPersonDetails_Previews: PreviewProvider {
+    
+    /// The preview legal Person
+    @State private static var person : LegalPerson = LegalPerson.anonymous
+    
     static var previews: some View {
-        LegalPersonDetails(legalPerson: LegalPerson.anonymous)
+        LegalPersonDetails(legalPerson: $person)
     }
 }

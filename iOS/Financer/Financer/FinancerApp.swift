@@ -7,8 +7,12 @@
 
 import SwiftUI
 
+/// The main Struct in this App.
+/// This has the @main Annotation, indicating, that
+/// this is the entrance point for this App.
 @main
 struct FinancerApp: App {
+    
     /// The Persistence Controller used in this App.
     ///
     /// The Context of this Controller is injeected into the

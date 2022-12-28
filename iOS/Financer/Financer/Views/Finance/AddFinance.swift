@@ -57,10 +57,11 @@ internal struct AddFinance: View {
     /// edit a finance
     internal init(finance : Binding<Finance>) {
         edit = true
-        amount = String(finance.wrappedValue.amount)
-        legalPerson = finance.wrappedValue.legalPerson
-        date = finance.wrappedValue.date!
-        notes = finance.wrappedValue.notes ?? ""
+        _amount = State(initialValue: String(finance.wrappedValue.amount))
+        _legalPerson = State(initialValue: finance.wrappedValue.legalPerson)
+        _date = State(initialValue: finance.wrappedValue.date!)
+        _notes = State(initialValue: finance.wrappedValue.notes!)
+        _financeType = State(initialValue: finance.wrappedValue is Income ? .income : .expense)
     }
     
     var body: some View {
@@ -114,7 +115,6 @@ internal struct AddFinance: View {
                             }
                         }
                     }
-                    .animation(.easeIn, value: financeType)
                     Button(action: addFinance) {
                         Label(
                             "Save",
@@ -125,7 +125,7 @@ internal struct AddFinance: View {
                             height: metrics.size.height / 15
                         )
                         .foregroundColor(.white)
-                        .background(Color.blue)
+                        .background(btnActive ? Color.blue : Color.gray)
                         .cornerRadius(20)
                     }
                     .alert(
@@ -163,7 +163,6 @@ internal struct AddFinance: View {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Done") {
                         addFinance()
-                        dismiss()
                     }
                 }
             }
@@ -194,6 +193,7 @@ internal struct AddFinance: View {
             finance.date = date
             do {
                 try viewContext.save()
+                dismiss()
             } catch _ {
                 errSavingPresented.toggle()
             }
@@ -211,7 +211,7 @@ internal struct AddFinance: View {
         HStack {
             Text(financeType == .income ? "From" : "To")
             Spacer()
-            Text(legalPerson?.name ?? "None")
+            Text(legalPerson?.name! ?? "None")
                 .foregroundColor(.gray)
         }
     }

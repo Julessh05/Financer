@@ -56,19 +56,29 @@ internal struct ContentView: View {
     //    ) private var finances : FetchedResults<Finance>
     // Production Code End
     
+    /// Whether the Add View is presented or not.
     @State private var addPresented : Bool = false
+    
+    /// Whether the details View for a finance is presented or not.
+    @State private var detailsPresented : Bool = false
+    
+    /// The Finance for for which the details View should
+    /// be generated.
+    @State private var finance : Finance?
     
     var body: some View {
         NavigationStack {
             List(finances) {
                 finance in
-                NavigationLink(
-                    destination: {
-                        FinanceDetails(
-                            finance: finance
-                        )
-                    },
-                    label: { label(finance) })
+                Button {
+                    self.finance = finance
+                    if self.finance != nil {
+                        detailsPresented.toggle()
+                    }
+                } label: {
+                    label(finance)
+                }
+                .foregroundColor(.black)
             }
             Button {
                 addPresented.toggle()
@@ -80,6 +90,9 @@ internal struct ContentView: View {
             )
             .navigationTitle("Welcome")
             .navigationBarTitleDisplayMode(.automatic)
+            .sheet(item: $finance) {
+                FinanceDetails(finance: $0)
+            }
         }
     }
     
@@ -97,7 +110,7 @@ internal struct ContentView: View {
                     .font(.headline)
                     .foregroundColor(finance is Income ? .green : .red)
                 // Legal Person isn't an optional Parameter, but still you have to use the ? because Swift Optional and Core Data Optional aren't the same thing
-                Text(finance.legalPerson?.name ?? "Unknown")
+                Text(finance.legalPerson!.name!)
                 // Same with the Date as above with the legal Person.
                 // Only with the difference that I'm enforcing the Date here.
                 Text(finance.date!, format: .dateTime.day().month().year())
