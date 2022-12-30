@@ -16,12 +16,12 @@ internal struct LegalPersonDetails: View {
     @FetchRequest private var finances : FetchedResults<Finance>
     
     /// The Legal Parson beeing shown right here
-    private var legalPerson : LegalPerson
+    @State private var legalPerson : LegalPerson
     
     /// The Initializer with the Legal Person this Screen should be
     /// generated for.
     internal init(legalPerson: LegalPerson) {
-        self.legalPerson = legalPerson
+        self._legalPerson = State(initialValue:  legalPerson)
         _finances = FetchRequest(
             entity: Finance.entity(),
             sortDescriptors: [
@@ -66,6 +66,18 @@ internal struct LegalPersonDetails: View {
                 }
             }
             .navigationTitle("\(legalPerson.name!) Details")
+            .navigationBarTitleDisplayMode(.automatic)
+            .toolbarRole(.navigationStack)
+            .toolbar(.automatic, for: .navigationBar)
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    NavigationLink {
+                        AddLegalPerson(legalPerson: $legalPerson)
+                    } label: {
+                        Image(systemName: "pencil")
+                    }
+                }
+            }
         }
     }
     
