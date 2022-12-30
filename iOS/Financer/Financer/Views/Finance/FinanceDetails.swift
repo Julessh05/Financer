@@ -42,7 +42,7 @@ internal struct FinanceDetails: View {
                 } header: {
                     Text("General Values")
                 } footer: {
-                    Text("These are the general Values for this \(typeLabel)")
+                    Text("These are the general Values for this \(finance.typeAsString)")
                 }
                 Section {
                     Text(notes)
@@ -54,19 +54,24 @@ internal struct FinanceDetails: View {
                     Text("These Data are optional and you may have not added them.")
                 }
                 Section {
-                    HStack {
-                        DefaultListTile(
-                            name: finance is Income ? "From" : "To",
-                            data: finance.legalPerson!.name!
-                        )
+                    NavigationLink {
+                        LegalPersonDetails(legalPerson: finance.legalPerson!)
+                    } label: {
+                        HStack {
+                            DefaultListTile(
+                                name: finance.directionAsString,
+                                data: finance.legalPerson!.name!
+                            )
+                        }
                     }
+                    
                 } header: {
                     Text("Relations")
                 } footer: {
                     Text("Represents all relations this Finance has.")
                 }
             }
-            .navigationTitle("\(typeLabel) Details")
+            .navigationTitle("\(finance.typeAsString) Details")
             .navigationBarTitleDisplayMode(.automatic)
             .toolbarRole(.navigationStack)
             .toolbar(.automatic, for: .navigationBar)
@@ -92,12 +97,6 @@ internal struct FinanceDetails: View {
         } else {
             return finance.notes!
         }
-    }
-    
-    /// The Label depending on the Type
-    /// of Finance that was passed to this View
-    private var typeLabel : String {
-        return finance is Income ? "Income" : "Expense"
     }
 }
 

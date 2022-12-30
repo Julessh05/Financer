@@ -25,7 +25,7 @@ public class Finance: NSManagedObject {
     }
     
     /// The Anonymous Finance to use in Tests and Previews
-    internal static let anonymous : Finance = {
+    internal static var anonymous : Finance {
         let viewContext = PersistenceController.preview.container.viewContext
         let i = Income(context: viewContext)
         i.amount = 100
@@ -33,5 +33,18 @@ public class Finance: NSManagedObject {
         i.notes = "Test Notes"
         i.date = Date()
         return i
-    }()
+    }
+    
+    /// The Type of this Finance in the form of a String
+    /// to represent it to the User.
+    internal var typeAsString : String {
+        return self is Income ? "Income" : "Expense"
+    }
+    
+    /// The Direction of the Money flow with this
+    /// Finance represented as a String to display it
+    /// in the UI.
+    internal var directionAsString : String {
+        return self is Income ? "From" : "To"
+    }
 }

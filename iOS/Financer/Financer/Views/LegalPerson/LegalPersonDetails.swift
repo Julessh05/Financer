@@ -11,15 +11,32 @@ import SwiftUI
 /// it's details.
 internal struct LegalPersonDetails: View {
     
+    // Discussion on: https://developer.apple.com/forums/thread/663901
+    // Solution here: https://developer.apple.com/forums/thread/663901?answerId=667633022#667633022
+    @FetchRequest private var finances : FetchedResults<Finance>
+    
     /// The Legal Parson beeing shown right here
-    internal var legalPerson : LegalPerson
+    private var legalPerson : LegalPerson
+    
+    /// The Initializer with the Legal Person this Screen should be
+    /// generated for.
+    internal init(legalPerson: LegalPerson) {
+        self.legalPerson = legalPerson
+        _finances = FetchRequest(
+            entity: Finance.entity(),
+            sortDescriptors: [
+                NSSortDescriptor(keyPath: \Finance.date, ascending: true)
+            ],
+            predicate: NSPredicate(format: "legalPerson == %@", legalPerson)
+        )
+    }
     
     var body: some View {
-        VStack {
+        NavigationStack {
             List {
                 Section {
                     DefaultListTile(name: "Name", data: legalPerson.name!)
-                    DefaultListTile(name: "Type", data: typeLabel)
+                    DefaultListTile(name: "Type", data: legalPerson.typeAsString)
                 } header: {
                     Text("General Values")
                 } footer: {
@@ -36,15 +53,20 @@ internal struct LegalPersonDetails: View {
                     Text("These Data are optional and you may have not added them.")
                 }
                 Section {
-                    
+                    ForEach(finances) {
+                        finance in
+                        NavigationLink(finance.typeAsString) {
+                            FinanceDetails(finance: finance)
+                        }
+                    }
                 } header: {
                     Text("Relations")
                 } footer: {
                     Text("Represents all relations this Finance has.")
                 }
             }
+            .navigationTitle("\(legalPerson.name!) Details")
         }
-        .navigationTitle("\(legalPerson.name!) Details")
     }
     
     /// Builds and returns the View representing
@@ -77,21 +99,6 @@ internal struct LegalPersonDetails: View {
             return "No Notes"
         } else {
             return legalPerson.notes!
-        }
-    }
-    
-    /// Returns the Type of the Legal Person
-    /// as a String
-    private var typeLabel : String {
-        switch legalPerson {
-            case is Person:
-                return "Person"
-            case is Company:
-                return "Company"
-            case is Organization:
-                return "Organization"
-            default:
-                return "Unknown"
         }
     }
 }
