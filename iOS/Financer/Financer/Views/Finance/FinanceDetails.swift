@@ -22,19 +22,19 @@ internal struct FinanceDetails: View {
             List {
                 Section {
                     HStack {
-                        Text("Amount:")
+                        Text("Amount")
                         Spacer()
                         Text(String(format: "%.2f$", finance.amount))
                             .foregroundColor(.gray)
                     }
                     HStack {
-                        Text("On:")
+                        Text("On")
                         Spacer()
                         Text(finance.date!, style: .date)
                             .foregroundColor(.gray)
                     }
                     HStack {
-                        Text("At:")
+                        Text("At")
                         Spacer()
                         Text(finance.date!, style: .time)
                             .foregroundColor(.gray)
@@ -42,19 +42,7 @@ internal struct FinanceDetails: View {
                 } header: {
                     Text("General Values")
                 } footer: {
-                    Text("These are the general Values for this \(typeLabel)")
-                }
-                Section {
-                    HStack {
-                        Text(finance is Income ? "From:" : "To:")
-                        Spacer()
-                        Text(finance.legalPerson!.name!)
-                            .foregroundColor(.gray)
-                    }
-                } header: {
-                    Text("Relations")
-                } footer: {
-                    Text("Represents all relations this Finance has.")
+                    Text("These are the general Values for this \(finance.typeAsString)")
                 }
                 Section {
                     Text(notes)
@@ -65,8 +53,25 @@ internal struct FinanceDetails: View {
                 } footer: {
                     Text("These Data are optional and you may have not added them.")
                 }
+                Section {
+                    NavigationLink {
+                        LegalPersonDetails(legalPerson: finance.legalPerson!)
+                    } label: {
+                        HStack {
+                            DefaultListTile(
+                                name: finance.directionAsString,
+                                data: finance.legalPerson!.name!
+                            )
+                        }
+                    }
+                    
+                } header: {
+                    Text("Relations")
+                } footer: {
+                    Text("Represents all relations this Finance has.")
+                }
             }
-            .navigationTitle("\(typeLabel) Details")
+            .navigationTitle("\(finance.typeAsString) Details")
             .navigationBarTitleDisplayMode(.automatic)
             .toolbarRole(.navigationStack)
             .toolbar(.automatic, for: .navigationBar)
@@ -92,11 +97,6 @@ internal struct FinanceDetails: View {
         } else {
             return finance.notes!
         }
-    }
-    /// The Label depending on the Type
-    /// of Finance that was passed to this View
-    private var typeLabel : String {
-        return finance is Income ? "Income" : "Expense"
     }
 }
 

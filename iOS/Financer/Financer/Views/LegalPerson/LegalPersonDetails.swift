@@ -11,19 +11,116 @@ import SwiftUI
 /// it's details.
 internal struct LegalPersonDetails: View {
     
-    @Binding internal var legalPerson : LegalPerson
+    // Discussion on: https://developer.apple.com/forums/thread/663901
+    // Solution here: https://developer.apple.com/forums/thread/663901?answerId=667633022#667633022
+    @FetchRequest private var finances : FetchedResults<Finance>
+    
+    /// The Legal Parson beeing shown right here
+    @State private var legalPerson : LegalPerson
+    
+    /// The Initializer with the Legal Person this Screen should be
+    /// generated for.
+    internal init(legalPerson: LegalPerson) {
+        self._legalPerson = State(initialValue:  legalPerson)
+        _finances = FetchRequest(
+            entity: Finance.entity(),
+            sortDescriptors: [
+                NSSortDescriptor(keyPath: \Finance.date, ascending: true)
+            ],
+            predicate: NSPredicate(format: "legalPerson == %@", legalPerson)
+        )
+    }
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            List {
+                Section {
+                    DefaultListTile(name: "Name", data: legalPerson.name!)
+                    DefaultListTile(name: "Type", data: legalPerson.typeAsString)
+                } header: {
+                    Text("General Values")
+                } footer: {
+                    Text("These are the general Values for this \(legalPerson.name!)")
+                }
+                Section {
+                    DefaultListTile(name: "Phone", data: legalPerson.phone!)
+                    Text(notes)
+                        .lineLimit(5...10)
+                        .foregroundColor(.gray)
+                } header: {
+                    Text("Optional Data")
+                } footer: {
+                    Text("These Data are optional and you may have not added them.")
+                }
+                Section {
+                    ForEach(finances) {
+                        finance in
+                        NavigationLink(finance.typeAsString) {
+                            FinanceDetails(finance: finance)
+                        }
+                    }
+                } header: {
+                    Text("Relations")
+                } footer: {
+                    Text("Represents all relations this Finance has.")
+                }
+            }
+            .navigationTitle("\(legalPerson.name!) Details")
+            .navigationBarTitleDisplayMode(.automatic)
+            .toolbarRole(.navigationStack)
+            .toolbar(.automatic, for: .navigationBar)
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    NavigationLink {
+                        AddLegalPerson(legalPerson: $legalPerson)
+                    } label: {
+                        Image(systemName: "pencil")
+                    }
+                }
+            }
+        }
+    }
+    
+    /// Builds and returns the View representing
+    /// the Homepage Field depending on
+    /// the Type of the Legal Person
+    @ViewBuilder
+    private func homepageField() -> some View {
+        if legalPerson is Union {
+            let u : Union = legalPerson as! Union
+            HStack {
+                Text("Homepage")
+                Spacer()
+                if u.url != nil {
+                    Link(u.url!.absoluteString, destination: u.url!)
+                } else {
+                    Text("No URL given")
+                }
+            }
+        } else {
+            EmptyView()
+        }
+    }
+    
+    /// The Notes shown in this View.
+    /// If the Notes to this Legal Person are empty,
+    /// this returns an information String
+    /// stating exactly that.
+    private var notes : String {
+        if legalPerson.notes!.isEmpty {
+            return "No Notes"
+        } else {
+            return legalPerson.notes!
+        }
     }
 }
 
 internal struct LegalPersonDetails_Previews: PreviewProvider {
     
     /// The preview legal Person
-    @State private static var person : LegalPerson = LegalPerson.anonymous
+    private static var person : LegalPerson = LegalPerson.anonymous
     
     static var previews: some View {
-        LegalPersonDetails(legalPerson: $person)
+        LegalPersonDetails(legalPerson: person)
     }
 }

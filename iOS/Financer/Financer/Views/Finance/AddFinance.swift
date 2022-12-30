@@ -44,6 +44,9 @@ internal struct AddFinance: View {
     /// The Type of this Finance
     @State private var financeType : Finance.FinanceType = .income
     
+    /// The Finance to edit in this Screen
+    private var finance : Binding<Finance>?
+    
     /// Whether this View is in edit mode or not.
     private let edit : Bool
     
@@ -51,6 +54,7 @@ internal struct AddFinance: View {
     /// this View to add a new Finance
     internal init() {
         edit = false
+        self.finance = nil
     }
     
     /// The Initializer if this view is used to
@@ -62,6 +66,7 @@ internal struct AddFinance: View {
         _date = State(initialValue: finance.wrappedValue.date!)
         _notes = State(initialValue: finance.wrappedValue.notes!)
         _financeType = State(initialValue: finance.wrappedValue is Income ? .income : .expense)
+        self.finance = finance
     }
     
     var body: some View {
@@ -152,6 +157,7 @@ internal struct AddFinance: View {
             .formStyle(.grouped)
             .navigationTitle("\(edit ? "Edit" : "Add") Finance")
             .navigationBarTitleDisplayMode(.automatic)
+            .navigationBarBackButtonHidden()
             .toolbarRole(.navigationStack)
             .toolbar(.automatic, for: .navigationBar)
             .toolbar {
@@ -178,19 +184,26 @@ internal struct AddFinance: View {
     /// Creates and adds the Finance to the Core Data.
     private func addFinance() -> Void {
         if btnActive {
-            let finance : Finance
-            switch financeType {
-                case .income:
-                    finance = Income(context: viewContext)
-                    break
-                case .expense:
-                    finance = Expense(context: viewContext)
-                    break
+            if edit {
+                finance!.wrappedValue.amount = Double(validateAmount())!
+                finance!.wrappedValue.legalPerson = legalPerson
+                finance!.wrappedValue.notes = notes
+                finance!.wrappedValue.date = date
+            } else {
+                let finance : Finance
+                switch financeType {
+                    case .income:
+                        finance = Income(context: viewContext)
+                        break
+                    case .expense:
+                        finance = Expense(context: viewContext)
+                        break
+                }
+                finance.amount = Double(validateAmount())!
+                finance.legalPerson = legalPerson
+                finance.notes = notes
+                finance.date = date
             }
-            finance.amount = Double(validateAmount())!
-            finance.legalPerson = legalPerson
-            finance.notes = notes
-            finance.date = date
             do {
                 try viewContext.save()
                 dismiss()

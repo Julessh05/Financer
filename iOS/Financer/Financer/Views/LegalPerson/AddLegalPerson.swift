@@ -42,6 +42,8 @@ internal struct AddLegalPerson: View {
     /// Whether ther Error when saving is displayed or not.
     @State private var errSavingPresented : Bool = false
     
+    private var legalPerson : Binding<LegalPerson>?
+    
     /// Whether this View is in edit mode or not.
     private let edit : Bool
     
@@ -51,6 +53,7 @@ internal struct AddLegalPerson: View {
     internal init(_ legalPersonType : LegalPerson.LegalPersonType = .none) {
         edit = false
         self._legalPersonType = State(initialValue: legalPersonType)
+        legalPerson = nil
     }
     
     /// The initializer to pass a legal Person to
@@ -64,6 +67,7 @@ internal struct AddLegalPerson: View {
             let person = legalPerson.wrappedValue as! Union
             _homepage = State(initialValue: person.url?.absoluteString ?? "")
         }
+        self.legalPerson = legalPerson
     }
     
     var body: some View {
@@ -141,12 +145,18 @@ internal struct AddLegalPerson: View {
             }
             .navigationTitle("\(edit ? "Edit" : "Add" ) Legal Person")
             .navigationBarTitleDisplayMode(.automatic)
+            .navigationBarBackButtonHidden()
             .onAppear { checkBtn() }
             .textFieldStyle(.plain)
             .formStyle(.grouped)
             .toolbarRole(.navigationStack)
             .toolbar(.automatic, for: .navigationBar)
             .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Cancel", role: .cancel) {
+                        dismiss()
+                    }
+                }
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Done") {
                         addLegalPerson()
@@ -177,27 +187,38 @@ internal struct AddLegalPerson: View {
     /// If not all Data are entered, this shows an Error Message
     private func addLegalPerson() -> Void {
         if btnActive {
-            var legalPerson : LegalPerson
-            switch legalPersonType {
-                case .organization:
-                    legalPerson = Organization(context: viewContext)
-                    break
-                case .company:
-                    legalPerson = Company(context: viewContext)
-                    break
-                case .person:
-                    legalPerson = Person(context: viewContext)
-                    break
-                default:
-                    errMissingArgumentsPresented.toggle()
-                    return
-            }
-            legalPerson.name = name
-            legalPerson.notes = notes
-            legalPerson.phone = phone
-            if legalPerson is Union {
-                let person = legalPerson as! Union
-                person.url = URL(string: homepage)
+            if edit {
+                legalPerson!.wrappedValue.name = name
+                legalPerson!.wrappedValue.notes = notes
+                legalPerson!.wrappedValue.phone = phone
+                if legalPerson!.wrappedValue is Union {
+                    let person  = legalPerson!.wrappedValue as! Union
+                    person.url = URL(string: homepage)
+                    legalPerson!.wrappedValue = person
+                }
+            } else {
+                var legalPerson : LegalPerson
+                switch legalPersonType {
+                    case .organization:
+                        legalPerson = Organization(context: viewContext)
+                        break
+                    case .company:
+                        legalPerson = Company(context: viewContext)
+                        break
+                    case .person:
+                        legalPerson = Person(context: viewContext)
+                        break
+                    default:
+                        errMissingArgumentsPresented.toggle()
+                        return
+                }
+                legalPerson.name = name
+                legalPerson.notes = notes
+                legalPerson.phone = phone
+                if legalPerson is Union {
+                    let person = legalPerson as! Union
+                    person.url = URL(string: homepage)
+                }
             }
             do {
                 try viewContext.save()
