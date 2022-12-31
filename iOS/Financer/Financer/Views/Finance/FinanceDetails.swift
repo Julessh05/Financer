@@ -15,7 +15,11 @@ internal struct FinanceDetails: View {
     @Environment(\.managedObjectContext) private var viewContext
     
     /// The Finance to show the details for.
-    @State internal var finance : Finance
+    @State private var finance : Finance?
+    
+    internal init(finance : Finance) {
+        self._finance = State(initialValue: finance)
+    }
     
     var body: some View {
         NavigationStack {
@@ -24,25 +28,25 @@ internal struct FinanceDetails: View {
                     HStack {
                         Text("Amount")
                         Spacer()
-                        Text(String(format: "%.2f$", finance.amount))
+                        Text(String(format: "%.2f$", finance!.amount))
                             .foregroundColor(.gray)
                     }
                     HStack {
                         Text("On")
                         Spacer()
-                        Text(finance.date!, style: .date)
+                        Text(finance!.date!, style: .date)
                             .foregroundColor(.gray)
                     }
                     HStack {
                         Text("At")
                         Spacer()
-                        Text(finance.date!, style: .time)
+                        Text(finance!.date!, style: .time)
                             .foregroundColor(.gray)
                     }
                 } header: {
                     Text("General Values")
                 } footer: {
-                    Text("These are the general Values for this \(finance.typeAsString)")
+                    Text("These are the general Values for this \(finance!.typeAsString)")
                 }
                 Section {
                     Text(notes)
@@ -55,12 +59,12 @@ internal struct FinanceDetails: View {
                 }
                 Section {
                     NavigationLink {
-                        LegalPersonDetails(legalPerson: finance.legalPerson!)
+                        LegalPersonDetails(legalPerson: finance!.legalPerson!)
                     } label: {
                         HStack {
                             DefaultListTile(
-                                name: finance.directionAsString,
-                                data: finance.legalPerson!.name!
+                                name: finance!.directionAsString,
+                                data: finance!.legalPerson!.name!
                             )
                         }
                     }
@@ -71,7 +75,7 @@ internal struct FinanceDetails: View {
                     Text("Represents all relations this Finance has.")
                 }
             }
-            .navigationTitle("\(finance.typeAsString) Details")
+            .navigationTitle("\(finance!.typeAsString) Details")
             .navigationBarTitleDisplayMode(.automatic)
             .toolbarRole(.navigationStack)
             .toolbar(.automatic, for: .navigationBar)
@@ -92,10 +96,10 @@ internal struct FinanceDetails: View {
     /// this returns an information String
     /// stating exactly that.
     private var notes : String {
-        if finance.notes!.isEmpty {
+        if finance!.notes!.isEmpty {
             return "No Notes"
         } else {
-            return finance.notes!
+            return finance!.notes!
         }
     }
 }

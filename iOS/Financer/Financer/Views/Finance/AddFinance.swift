@@ -45,7 +45,7 @@ internal struct AddFinance: View {
     @State private var financeType : Finance.FinanceType = .income
     
     /// The Finance to edit in this Screen
-    private var finance : Binding<Finance>?
+    @Binding private var finance : Finance?
     
     /// Whether this View is in edit mode or not.
     private let edit : Bool
@@ -54,19 +54,19 @@ internal struct AddFinance: View {
     /// this View to add a new Finance
     internal init() {
         edit = false
-        self.finance = nil
+        _finance = Binding.constant(nil)
     }
     
     /// The Initializer if this view is used to
     /// edit a finance
-    internal init(finance : Binding<Finance>) {
+    internal init(finance : Binding<Finance?>) {
         edit = true
-        _amount = State(initialValue: String(finance.wrappedValue.amount))
-        _legalPerson = State(initialValue: finance.wrappedValue.legalPerson)
-        _date = State(initialValue: finance.wrappedValue.date!)
-        _notes = State(initialValue: finance.wrappedValue.notes!)
-        _financeType = State(initialValue: finance.wrappedValue is Income ? .income : .expense)
-        self.finance = finance
+        _amount = State(initialValue: String(finance.wrappedValue!.amount))
+        _legalPerson = State(initialValue: finance.wrappedValue!.legalPerson)
+        _date = State(initialValue: finance.wrappedValue!.date!)
+        _notes = State(initialValue: finance.wrappedValue!.notes!)
+        _financeType = State(initialValue: finance.wrappedValue! is Income ? .income : .expense)
+        self._finance = finance
     }
     
     var body: some View {
@@ -185,10 +185,10 @@ internal struct AddFinance: View {
     private func addFinance() -> Void {
         if btnActive {
             if edit {
-                finance!.wrappedValue.amount = Double(validateAmount())!
-                finance!.wrappedValue.legalPerson = legalPerson
-                finance!.wrappedValue.notes = notes
-                finance!.wrappedValue.date = date
+                finance!.amount = Double(validateAmount())!
+                finance!.legalPerson = legalPerson
+                finance!.notes = notes
+                finance!.date = date
             } else {
                 let finance : Finance
                 switch financeType {

@@ -16,7 +16,7 @@ internal struct LegalPersonDetails: View {
     @FetchRequest private var finances : FetchedResults<Finance>
     
     /// The Legal Parson beeing shown right here
-    @State private var legalPerson : LegalPerson
+    @State private var legalPerson : LegalPerson?
     
     /// The Initializer with the Legal Person this Screen should be
     /// generated for.
@@ -35,15 +35,15 @@ internal struct LegalPersonDetails: View {
         NavigationStack {
             List {
                 Section {
-                    DefaultListTile(name: "Name", data: legalPerson.name!)
-                    DefaultListTile(name: "Type", data: legalPerson.typeAsString)
+                    DefaultListTile(name: "Name", data: legalPerson!.name!)
+                    DefaultListTile(name: "Type", data: legalPerson!.typeAsString)
                 } header: {
                     Text("General Values")
                 } footer: {
-                    Text("These are the general Values for this \(legalPerson.name!)")
+                    Text("These are the general Values for this \(legalPerson!.name!)")
                 }
                 Section {
-                    DefaultListTile(name: "Phone", data: legalPerson.phone!)
+                    DefaultListTile(name: "Phone", data: legalPerson!.phone!)
                     Text(notes)
                         .lineLimit(5...10)
                         .foregroundColor(.gray)
@@ -65,7 +65,7 @@ internal struct LegalPersonDetails: View {
                     Text("Represents all relations this Finance has.")
                 }
             }
-            .navigationTitle("\(legalPerson.name!) Details")
+            .navigationTitle("\(legalPerson!.name!) Details")
             .navigationBarTitleDisplayMode(.automatic)
             .toolbarRole(.navigationStack)
             .toolbar(.automatic, for: .navigationBar)
@@ -107,10 +107,10 @@ internal struct LegalPersonDetails: View {
     /// this returns an information String
     /// stating exactly that.
     private var notes : String {
-        if legalPerson.notes!.isEmpty {
+        if legalPerson!.notes!.isEmpty {
             return "No Notes"
         } else {
-            return legalPerson.notes!
+            return legalPerson!.notes!
         }
     }
 }

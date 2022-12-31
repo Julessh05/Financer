@@ -42,7 +42,8 @@ internal struct AddLegalPerson: View {
     /// Whether ther Error when saving is displayed or not.
     @State private var errSavingPresented : Bool = false
     
-    private var legalPerson : Binding<LegalPerson>?
+    /// The Legal Person beeing edited
+    @Binding private var legalPerson : LegalPerson?
     
     /// Whether this View is in edit mode or not.
     private let edit : Bool
@@ -53,21 +54,24 @@ internal struct AddLegalPerson: View {
     internal init(_ legalPersonType : LegalPerson.LegalPersonType = .none) {
         edit = false
         self._legalPersonType = State(initialValue: legalPersonType)
-        legalPerson = nil
+        // Binding.constant(nil):
+        // Discussion: https://stackoverflow.com/questions/57163055/how-to-assign-an-optional-binding-parameter-in-swiftui
+        // Solution: https://stackoverflow.com/a/59642601/16376071
+        _legalPerson = Binding.constant(nil)
     }
     
     /// The initializer to pass a legal Person to
     /// open the edit Mode and edit this legal Person.
-    internal init(legalPerson : Binding<LegalPerson>) {
+    internal init(legalPerson : Binding<LegalPerson?>) {
         edit = true
-        _name = State(initialValue: legalPerson.wrappedValue.name!)
-        _notes = State(initialValue: legalPerson.wrappedValue.notes!)
-        _phone = State(initialValue: legalPerson.wrappedValue.phone!)
+        _name = State(initialValue: legalPerson.wrappedValue!.name!)
+        _notes = State(initialValue: legalPerson.wrappedValue!.notes!)
+        _phone = State(initialValue: legalPerson.wrappedValue!.phone!)
         if legalPerson.wrappedValue is Union {
             let person = legalPerson.wrappedValue as! Union
             _homepage = State(initialValue: person.url?.absoluteString ?? "")
         }
-        self.legalPerson = legalPerson
+        self._legalPerson = Binding.constant(nil)
     }
     
     var body: some View {
@@ -188,13 +192,14 @@ internal struct AddLegalPerson: View {
     private func addLegalPerson() -> Void {
         if btnActive {
             if edit {
-                legalPerson!.wrappedValue.name = name
-                legalPerson!.wrappedValue.notes = notes
-                legalPerson!.wrappedValue.phone = phone
-                if legalPerson!.wrappedValue is Union {
-                    let person  = legalPerson!.wrappedValue as! Union
+                legalPerson!.name = name
+                legalPerson!.notes = notes
+                legalPerson!.phone = phone
+                if legalPerson is Union {
+                    let person  = legalPerson! as! Union
                     person.url = URL(string: homepage)
-                    legalPerson!.wrappedValue = person
+                    legalPerson = person
+                    viewContext.delete(person)
                 }
             } else {
                 var legalPerson : LegalPerson
