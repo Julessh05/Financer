@@ -18,6 +18,10 @@ internal struct ContentView: View {
     /// be able to pass a finance between all Views.
     @StateObject private var financeWrapper : FinanceWrapper = FinanceWrapper()
     
+    /// The Legal Person Wrapper to contain the Legal Person
+    /// this Finance belongs to.
+    @StateObject private var legalPersonWrapper : LegalPersonWrapper = LegalPersonWrapper()
+    
     // Preview Code Start
     // (Comment to build)
     //
@@ -72,6 +76,7 @@ internal struct ContentView: View {
                 finance in
                 Button {
                     financeWrapper.finance = finance
+                    legalPersonWrapper.legalPerson = finance.legalPerson
                     detailsPresented.toggle()
                 } label: {
                     label(finance)
@@ -91,6 +96,7 @@ internal struct ContentView: View {
             .sheet(isPresented: $detailsPresented) {
                 FinanceDetails()
                     .environmentObject(financeWrapper)
+                    .environmentObject(legalPersonWrapper)
             }
         }
     }

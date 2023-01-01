@@ -18,6 +18,13 @@ internal struct LegalPersonDetails: View {
     /// The Legal Parson beeing shown right here
     @EnvironmentObject private var legalPersonWrapper : LegalPersonWrapper
     
+    /// The FinanceWrapper that is already in the Environment
+    @EnvironmentObject private var financeWrapper : FinanceWrapper
+    
+    /// The State Object containing the Finance the User chose to
+    /// click
+    @StateObject private var financeWrapperState : FinanceWrapper = FinanceWrapper()
+    
     /// The non optional Legal Person to show in this View
     private let legalPerson : LegalPerson
     
@@ -58,7 +65,14 @@ internal struct LegalPersonDetails: View {
                     ForEach(finances) {
                         finance in
                         NavigationLink(finance.typeAsString()) {
-                            FinanceDetails()
+                            // TODO: check exclamation mark
+                            if finance == financeWrapper.finance! {
+                                FinanceDetails()
+                            } else {
+                                FinanceDetails()
+                                    .environmentObject(financeWrapperState)
+                            }
+                            
                         }
                     }
                 } header: {
