@@ -11,9 +11,9 @@ import SwiftUI
 /// it's details.
 internal struct LegalPersonDetails: View {
     
-    // Discussion on: https://developer.apple.com/forums/thread/663901
-    // Solution here: https://developer.apple.com/forums/thread/663901?answerId=667633022#667633022
-    @FetchRequest private var finances : FetchedResults<Finance>
+    /// The Managed Object Context to coordinate
+    /// Core Data and all Operations
+    @Environment(\.managedObjectContext) private var viewContext
     
     /// The Legal Parson beeing shown right here
     @EnvironmentObject private var legalPersonWrapper : LegalPersonWrapper
@@ -25,34 +25,28 @@ internal struct LegalPersonDetails: View {
     /// click
     @StateObject private var financeWrapperState : FinanceWrapper = FinanceWrapper()
     
-    /// The non optional Legal Person to show in this View
-    private let legalPerson : LegalPerson
+    /// All the Finances that are related to this Legal
+    /// Person.
+    @State private var finances : [Finance] = []
     
     /// The Standard Initializer for this View
     internal init() {
-        legalPerson = legalPersonWrapper.legalPerson!
-        _finances = FetchRequest(
-            entity: Finance.entity(),
-            sortDescriptors: [
-                NSSortDescriptor(keyPath: \Finance.date, ascending: true)
-            ],
-            predicate: NSPredicate(format: "legalPerson == %@", legalPersonWrapper.legalPerson!)
-        )
+        
     }
     
     var body: some View {
         NavigationStack {
             List {
                 Section {
-                    DefaultListTile(name: "Name", data: legalPerson.name!)
-                    DefaultListTile(name: "Type", data: legalPerson.typeAsString())
+                    DefaultListTile(name: "Name", data: legalPersonWrapper.legalPerson!.name!)
+                    DefaultListTile(name: "Type", data: legalPersonWrapper.legalPerson!.typeAsString())
                 } header: {
                     Text("General Values")
                 } footer: {
-                    Text("These are the general Values for this \(legalPerson.name!)")
+                    Text("These are the general Values for this \(legalPersonWrapper.legalPerson!.name!)")
                 }
                 Section {
-                    DefaultListTile(name: "Phone", data: legalPerson.phone!)
+                    DefaultListTile(name: "Phone", data: legalPersonWrapper.legalPerson!.phone!)
                     Text(notes)
                         .lineLimit(5...10)
                         .foregroundColor(.gray)
@@ -81,20 +75,25 @@ internal struct LegalPersonDetails: View {
                     Text("Represents all relations this Finance has.")
                 }
             }
-            .navigationTitle("\(legalPerson.name!) Details")
-            .navigationBarTitleDisplayMode(.automatic)
-            .toolbarRole(.navigationStack)
-            .toolbar(.automatic, for: .navigationBar)
-            .toolbar {
-                ToolbarItem(placement: .primaryAction) {
-                    NavigationLink {
-                        EditLegalPerson()
-                            .environmentObject(legalPersonWrapper)
-                    } label: {
-                        Image(systemName: "pencil")
-                    }
+        }
+        .navigationTitle("\(legalPersonWrapper.legalPerson!.name!) Details")
+        .navigationBarTitleDisplayMode(.automatic)
+        .toolbarRole(.navigationStack)
+        .toolbar(.automatic, for: .navigationBar)
+        .toolbar {
+            ToolbarItem(placement: .primaryAction) {
+                NavigationLink {
+                    EditLegalPerson()
+                        .environmentObject(legalPersonWrapper)
+                } label: {
+                    Image(systemName: "pencil")
                 }
             }
+        }
+        .onAppear {
+            let request = Finance.fetchRequest()
+            request.predicate = NSPredicate(format: "legalPerson = %@", legalPersonWrapper.legalPerson!)
+            finances = try! viewContext.fetch(request)
         }
     }
     
@@ -103,8 +102,8 @@ internal struct LegalPersonDetails: View {
     /// the Type of the Legal Person
     @ViewBuilder
     private func homepageField() -> some View {
-        if legalPerson is Union {
-            let u : Union = legalPerson as! Union
+        if legalPersonWrapper.legalPerson is Union {
+            let u : Union = legalPersonWrapper.legalPerson as! Union
             HStack {
                 Text("Homepage")
                 Spacer()
@@ -124,10 +123,10 @@ internal struct LegalPersonDetails: View {
     /// this returns an information String
     /// stating exactly that.
     private var notes : String {
-        if legalPerson.notes!.isEmpty {
+        if legalPersonWrapper.legalPerson!.notes!.isEmpty {
             return "No Notes"
         } else {
-            return legalPerson.notes!
+            return legalPersonWrapper.legalPerson!.notes!
         }
     }
 }

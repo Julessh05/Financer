@@ -92,12 +92,7 @@ internal struct PersistenceController {
         let options : [String : FileProtectionType] = [
             NSPersistentStoreFileProtectionKey : FileProtectionType.complete
         ]
-        container.persistentStoreCoordinator.addPersistentStore(
-            ofType: NSSQLiteStoreType,
-            configurationName: nil,
-            at: ,
-            options: options
-        )
+        print(container.persistentStoreCoordinator.persistentStores)
         // If the inMemory Parameter is true,
         // the container is stored to /dev/null which means is disappears and
         // can't be found again.

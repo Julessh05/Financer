@@ -95,8 +95,8 @@ internal struct ContentView: View {
             .navigationBarTitleDisplayMode(.automatic)
             .sheet(isPresented: $detailsPresented) {
                 FinanceDetails()
-                    .environmentObject(financeWrapper)
                     .environmentObject(legalPersonWrapper)
+                    .environmentObject(financeWrapper)
             }
         }
     }
