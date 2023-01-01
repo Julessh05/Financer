@@ -11,6 +11,10 @@ import SwiftUI
 /// The List TIle to represent Model  in a List
 internal struct ListTile: View {
     
+    /// The Wrapper of the Legal Person the User chose to see the Details
+    /// from
+    @StateObject private var legalPersonWrapper : LegalPersonWrapper = LegalPersonWrapper()
+    
     /// The Legal Person for this View
     private var person : LegalPerson
         
@@ -21,6 +25,7 @@ internal struct ListTile: View {
     internal init(person: LegalPerson, _ callback : @escaping (LegalPerson) -> ()) {
         self.person = person
         self.callback = callback
+        legalPersonWrapper.legalPerson = person
     }
     
     /// Whether the Info View is active or not.
@@ -42,7 +47,8 @@ internal struct ListTile: View {
                 Image(systemName: "info.circle")
             }
             .sheet(isPresented: $viewActive) {
-                LegalPersonDetails(legalPerson: person)
+                LegalPersonDetails()
+                    .environmentObject(legalPersonWrapper)
             }
         }
     }

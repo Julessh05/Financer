@@ -13,226 +13,37 @@ internal struct AddLegalPerson: View {
     /// The context that manages the Core Data in this App
     @Environment(\.managedObjectContext) private var viewContext
     
-    /// The Action to dismiss this View used, because this is presented in a
-    /// sheet or popover
-    @Environment(\.dismiss) private var dismiss : DismissAction
-    
-    /// The Name of this Legal Person
-    @State private var name : String = ""
-    
-    /// The Notes to this Legal Person
-    @State private var notes : String = ""
-    
-    /// The phone Number of this Person
-    @State private var phone : String = ""
-    
-    /// The Homepage of this Legal Person
-    /// (only relevant if Legal Person is a Union).
-    @State private var homepage : String = ""
-    
-    /// The Type of this Person
-    @State private var legalPersonType : LegalPerson.LegalPersonType = .none
-    
-    /// Whether the Button is active (all Data are entered) or not.
-    @State private var btnActive : Bool = false
-    
-    /// Whether ther Error for missing Arguments is displayed or not.
-    @State private var errMissingArgumentsPresented : Bool = false
-    
     /// Whether ther Error when saving is displayed or not.
     @State private var errSavingPresented : Bool = false
     
-    /// The Legal Person beeing edited
-    @Binding private var legalPerson : LegalPerson?
-    
-    /// Whether this View is in edit mode or not.
-    private let edit : Bool
-    
-    /// The nomal initializer to
-    /// open the add legal Person
-    /// View
-    internal init(_ legalPersonType : LegalPerson.LegalPersonType = .none) {
-        edit = false
-        self._legalPersonType = State(initialValue: legalPersonType)
-        // Binding.constant(nil):
-        // Discussion: https://stackoverflow.com/questions/57163055/how-to-assign-an-optional-binding-parameter-in-swiftui
-        // Solution: https://stackoverflow.com/a/59642601/16376071
-        _legalPerson = Binding.constant(nil)
-    }
-    
-    /// The initializer to pass a legal Person to
-    /// open the edit Mode and edit this legal Person.
-    internal init(legalPerson : Binding<LegalPerson?>) {
-        edit = true
-        _name = State(initialValue: legalPerson.wrappedValue!.name!)
-        _notes = State(initialValue: legalPerson.wrappedValue!.notes!)
-        _phone = State(initialValue: legalPerson.wrappedValue!.phone!)
-        if legalPerson.wrappedValue is Union {
-            let person = legalPerson.wrappedValue as! Union
-            _homepage = State(initialValue: person.url?.absoluteString ?? "")
-        }
-        self._legalPerson = Binding.constant(nil)
-    }
+    /// The Type this View should create a Legal Person for.
+    internal var legalPersonType : LegalPerson.LegalPersonType = .none
     
     var body: some View {
-        GeometryReader {
-            metrics in
-            VStack {
-                Form {
-                    Section {
-                        TextField("Name", text: $name)
-                            .keyboardType(.asciiCapable)
-                            .textContentType(.name)
-                            .textInputAutocapitalization(.words)
-                            .lineLimit(1)
-                            .onSubmit { checkBtn() }
-                        Picker("Type", selection: $legalPersonType) {
-                            ForEach(LegalPerson.LegalPersonType.allCases) {
-                                person in
-                                Text(person.rawValue.capitalized)
-                            }
-                        }
-                        .onSubmit { checkBtn() }
-                        // TODO: decide on Style
-                        .pickerStyle(.automatic)
-                    } header: {
-                        Text("Required Information")
-                    } footer: {
-                        Text("It's required to enter these Information.")
-                    }
-                    Section {
-                        TextField("Notes", text: $notes, axis: .vertical)
-                            .keyboardType(.asciiCapable)
-                            .textInputAutocapitalization(.sentences)
-                            .lineLimit(5...10)
-                        TextField("Phone", text: $phone)
-                            .keyboardType(.phonePad)
-                            .textInputAutocapitalization(.never)
-                            .textContentType(.telephoneNumber)
-                        homepageField()
-                    } header: {
-                        Text("Optional Data")
-                    } footer: {
-                        Text("You don't have to enter these Information, they're just optional to provide more Information about the Person.")
-                    }
-                }
-                Button(action: addLegalPerson) {
-                    Label(
-                        "Save",
-                        systemImage: "square.and.arrow.down"
-                    )
-                    .frame(
-                        width: metrics.size.width / 1.2,
-                        height: metrics.size.height / 15
-                    )
-                    .foregroundColor(.white)
-                    .background(btnActive ? Color.blue : Color.gray)
-                    .cornerRadius(20)
-                }
-                .alert(
-                    "Missing Data",
-                    isPresented: $errMissingArgumentsPresented
-                ) {
-                } message: {
-                    Text("Please enter all required Data before you continue")
-                }
-                .alert(
-                    "Error",
-                    isPresented: $errSavingPresented
-                ) {
-                    
-                } message: {
-                    Text(
-                        "Error saving Data.\nPlease try again\n\nIf this Error occurs again, please contact the support."
-                    )
-                }
+        LegalPersonEditor(action: addLegalPerson, legalPersonType: legalPersonType)
+            .navigationTitle("Add Legal Person")
+            .alert(
+                "Error",
+                isPresented: $errSavingPresented
+            ) {
+                
+            } message: {
+                Text(
+                    "Error saving Data.\nPlease try again\n\nIf this Error occurs again, please contact the support."
+                )
             }
-            .navigationTitle("\(edit ? "Edit" : "Add" ) Legal Person")
-            .navigationBarTitleDisplayMode(.automatic)
-            .navigationBarBackButtonHidden()
-            .onAppear { checkBtn() }
-            .textFieldStyle(.plain)
-            .formStyle(.grouped)
-            .toolbarRole(.navigationStack)
-            .toolbar(.automatic, for: .navigationBar)
-            .toolbar {
-                ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel", role: .cancel) {
-                        dismiss()
-                    }
-                }
-                ToolbarItem(placement: .confirmationAction) {
-                    Button("Done") {
-                        addLegalPerson()
-                    }
-                }
-            }
-        }
     }
     
-    @ViewBuilder
-    private func homepageField() -> some View {
-        if legalPersonType == .company || legalPersonType == .organization {
-            TextField("Homepage", text: $homepage)
-                .textContentType(.URL)
-                .textInputAutocapitalization(.never)
-                .keyboardType(.webSearch)
-        }
-    }
     
-    /// Checks if all required Data are entered, and if so
-    /// activates the Button.
-    private func checkBtn() -> Void {
-        btnActive = !name.isEmpty && legalPersonType != .none
-    }
     
     /// If all Data are entered this creates and adds the Legal
     /// Person to the Core Data.
     /// If not all Data are entered, this shows an Error Message
-    private func addLegalPerson() -> Void {
-        if btnActive {
-            if edit {
-                legalPerson!.name = name
-                legalPerson!.notes = notes
-                legalPerson!.phone = phone
-                if legalPerson is Union {
-                    let person  = legalPerson! as! Union
-                    person.url = URL(string: homepage)
-                    legalPerson = person
-                    viewContext.delete(person)
-                }
-            } else {
-                var legalPerson : LegalPerson
-                switch legalPersonType {
-                    case .organization:
-                        legalPerson = Organization(context: viewContext)
-                        break
-                    case .company:
-                        legalPerson = Company(context: viewContext)
-                        break
-                    case .person:
-                        legalPerson = Person(context: viewContext)
-                        break
-                    default:
-                        errMissingArgumentsPresented.toggle()
-                        return
-                }
-                legalPerson.name = name
-                legalPerson.notes = notes
-                legalPerson.phone = phone
-                if legalPerson is Union {
-                    let person = legalPerson as! Union
-                    person.url = URL(string: homepage)
-                }
-            }
-            do {
-                try viewContext.save()
-                dismiss()
-            } catch _ {
-                errSavingPresented.toggle()
-            }
-        } else {
-            errMissingArgumentsPresented.toggle()
+    private func addLegalPerson(legalPerson : LegalPerson) -> Void {
+        do {
+            try viewContext.save()
+        } catch _ {
+            errSavingPresented.toggle()
         }
     }
 }

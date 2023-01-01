@@ -21,8 +21,6 @@ internal struct AddFinance: View {
         NavigationStack {
             FinanceEditor(action: addFinance)
                 .navigationTitle("Add Finance")
-                .navigationBarTitleDisplayMode(.automatic)
-                .navigationBarBackButtonHidden()
                 .alert(
                     "Error",
                     isPresented: $errSavingPresented

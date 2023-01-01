@@ -143,6 +143,8 @@ internal struct FinanceEditor: View {
         .onAppear { checkBtn() }
         .textFieldStyle(.plain)
         .formStyle(.grouped)
+        .navigationBarTitleDisplayMode(.automatic)
+        .navigationBarBackButtonHidden()
         .toolbarRole(.navigationStack)
         .toolbar(.automatic, for: .navigationBar)
         .toolbar {
@@ -197,18 +199,22 @@ internal struct FinanceEditor: View {
     /// The action executed when the Save or Done Button
     /// is clicked
     private func action() -> Void {
-        let finance : Finance
-        if financeType == .income {
-            finance = Income(context: viewContext)
+        if btnActive {
+            let finance : Finance
+            if financeType == .income {
+                finance = Income(context: viewContext)
+            } else {
+                finance = Expense(context: viewContext)
+            }
+            finance.amount = Double(validateAmount())!
+            finance.legalPerson = legalPerson
+            finance.notes = notes
+            finance.date = date
+            callback(finance)
+            dismiss()
         } else {
-            finance = Expense(context: viewContext)
+            errMissingArgumentsPresented.toggle()
         }
-        finance.amount = Double(validateAmount())!
-        finance.legalPerson = legalPerson
-        finance.notes = notes
-        finance.date = date
-        callback(finance)
-        dismiss()
     }
 }
 

@@ -17,6 +17,14 @@ internal struct FinanceDetails: View {
     /// The FInance Wrapper being injected into the Environment
     @EnvironmentObject private var financeWrapper : FinanceWrapper
     
+    /// The Legal Person Wrapper to contain the Legal Person
+    /// this Finance belongs to.
+    @StateObject private var legalPersonWrapper : LegalPersonWrapper = LegalPersonWrapper()
+    
+    internal init() {
+        legalPersonWrapper.legalPerson = financeWrapper.finance!.legalPerson
+    }
+    
     var body: some View {
         NavigationStack {
             List {
@@ -55,7 +63,8 @@ internal struct FinanceDetails: View {
                 }
                 Section {
                     NavigationLink {
-                        LegalPersonDetails(legalPerson: financeWrapper.finance!.legalPerson!)
+                        LegalPersonDetails()
+                            .environmentObject(legalPersonWrapper)
                     } label: {
                         HStack {
                             DefaultListTile(
