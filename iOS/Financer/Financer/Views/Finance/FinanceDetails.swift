@@ -14,12 +14,8 @@ internal struct FinanceDetails: View {
     /// Data Manager of this App.
     @Environment(\.managedObjectContext) private var viewContext
     
-    /// The Finance to show the details for.
-    @State private var finance : Finance?
-    
-    internal init(finance : Finance) {
-        self._finance = State(initialValue: finance)
-    }
+    /// The FInance Wrapper being injected into the Environment
+    @EnvironmentObject private var financeWrapper : FinanceWrapper
     
     var body: some View {
         NavigationStack {
@@ -28,25 +24,25 @@ internal struct FinanceDetails: View {
                     HStack {
                         Text("Amount")
                         Spacer()
-                        Text(String(format: "%.2f$", finance!.amount))
+                        Text(String(format: "%.2f$", financeWrapper.finance!.amount))
                             .foregroundColor(.gray)
                     }
                     HStack {
                         Text("On")
                         Spacer()
-                        Text(finance!.date!, style: .date)
+                        Text(financeWrapper.finance!.date!, style: .date)
                             .foregroundColor(.gray)
                     }
                     HStack {
                         Text("At")
                         Spacer()
-                        Text(finance!.date!, style: .time)
+                        Text(financeWrapper.finance!.date!, style: .time)
                             .foregroundColor(.gray)
                     }
                 } header: {
                     Text("General Values")
                 } footer: {
-                    Text("These are the general Values for this \(finance!.typeAsString)")
+                    Text("These are the general Values for this \(financeWrapper.finance!.typeAsString())")
                 }
                 Section {
                     Text(notes)
@@ -59,12 +55,12 @@ internal struct FinanceDetails: View {
                 }
                 Section {
                     NavigationLink {
-                        LegalPersonDetails(legalPerson: finance!.legalPerson!)
+                        LegalPersonDetails(legalPerson: financeWrapper.finance!.legalPerson!)
                     } label: {
                         HStack {
                             DefaultListTile(
-                                name: finance!.directionAsString,
-                                data: finance!.legalPerson!.name!
+                                name: financeWrapper.finance!.directionAsString,
+                                data: financeWrapper.finance!.legalPerson!.name!
                             )
                         }
                     }
@@ -75,14 +71,15 @@ internal struct FinanceDetails: View {
                     Text("Represents all relations this Finance has.")
                 }
             }
-            .navigationTitle("\(finance!.typeAsString) Details")
+            .navigationTitle("\(financeWrapper.finance!.typeAsString()) Details")
             .navigationBarTitleDisplayMode(.automatic)
             .toolbarRole(.navigationStack)
             .toolbar(.automatic, for: .navigationBar)
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
                     NavigationLink {
-                        AddFinance(finance: $finance)
+                       EditFinance()
+                            .environmentObject(financeWrapper)
                     } label: {
                         Image(systemName: "pencil")
                     }
@@ -96,19 +93,20 @@ internal struct FinanceDetails: View {
     /// this returns an information String
     /// stating exactly that.
     private var notes : String {
-        if finance!.notes!.isEmpty {
+        if financeWrapper.finance!.notes!.isEmpty {
             return "No Notes"
         } else {
-            return finance!.notes!
+            return financeWrapper.finance!.notes!
         }
     }
 }
 
 internal struct FinanceDetails_Previews: PreviewProvider {
-    /// The Finance used for this preview.
-    static var finance : Finance = Finance.anonymous
+    /// The State Object to use in this Preview
+    @StateObject private static var fW : FinanceWrapper = FinanceWrapper(finance: Finance.anonymous)
     
     static var previews: some View {
-        FinanceDetails(finance: finance)
+        FinanceDetails()
+            .environmentObject(fW)
     }
 }

@@ -14,6 +14,10 @@ internal struct ContentView: View {
     /// The ViewContext to use when interacting with the Core Data Framework
     @Environment(\.managedObjectContext) private var viewContext
     
+    /// The initial State Object to inject into the Environment to
+    /// be able to pass a finance between all Views.
+    @StateObject private var financeWrapper : FinanceWrapper = FinanceWrapper()
+    
     // Preview Code Start
     // (Comment to build)
     //
@@ -62,19 +66,13 @@ internal struct ContentView: View {
     /// Whether the details View for a finance is presented or not.
     @State private var detailsPresented : Bool = false
     
-    /// The Finance for for which the details View should
-    /// be generated.
-    @State private var finance : Finance?
-    
     var body: some View {
         NavigationStack {
             List(finances) {
                 finance in
                 Button {
-                    self.finance = finance
-                    if self.finance != nil {
-                        detailsPresented.toggle()
-                    }
+                    financeWrapper.finance = finance
+                    detailsPresented.toggle()
                 } label: {
                     label(finance)
                 }
@@ -90,8 +88,9 @@ internal struct ContentView: View {
             )
             .navigationTitle("Welcome")
             .navigationBarTitleDisplayMode(.automatic)
-            .sheet(item: $finance) {
-                FinanceDetails(finance: $0)
+            .sheet(isPresented: $detailsPresented) {
+                FinanceDetails()
+                    .environmentObject(financeWrapper)
             }
         }
     }

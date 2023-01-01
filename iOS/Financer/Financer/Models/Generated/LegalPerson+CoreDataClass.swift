@@ -42,16 +42,16 @@ public class LegalPerson: NSManagedObject {
     
     /// The Type of this Legal Person represented as
     /// a String to display it in the UI and show it to the User.
-    internal var typeAsString : String {
+    internal func typeAsString(capitalized : Bool = true) -> String {
         switch self {
             case is Person:
-                return "Person"
+                return capitalized ? "Person" : "person"
             case is Company:
-                return "Company"
+                return capitalized ? "Company" : "company"
             case is Organization:
-                return "Organization"
+                return capitalized ? "Organization" : "organization"
             default:
-                return "Unknown"
+                return capitalized ? "Unknown" : "unknown"
         }
     }
 }

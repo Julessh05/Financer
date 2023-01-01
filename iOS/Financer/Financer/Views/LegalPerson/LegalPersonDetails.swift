@@ -36,7 +36,7 @@ internal struct LegalPersonDetails: View {
             List {
                 Section {
                     DefaultListTile(name: "Name", data: legalPerson!.name!)
-                    DefaultListTile(name: "Type", data: legalPerson!.typeAsString)
+                    DefaultListTile(name: "Type", data: legalPerson!.typeAsString())
                 } header: {
                     Text("General Values")
                 } footer: {
@@ -55,8 +55,8 @@ internal struct LegalPersonDetails: View {
                 Section {
                     ForEach(finances) {
                         finance in
-                        NavigationLink(finance.typeAsString) {
-                            FinanceDetails(finance: finance)
+                        NavigationLink(finance.typeAsString()) {
+                            FinanceDetails()
                         }
                     }
                 } header: {
