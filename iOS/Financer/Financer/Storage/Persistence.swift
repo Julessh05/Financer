@@ -88,6 +88,16 @@ internal struct PersistenceController {
     /// uninteded behaviour.
     private init(inMemory: Bool = false) {
         container = NSPersistentCloudKitContainer(name: "Financer")
+        // Core Data Encryption from: https://cocoacasts.com/is-core-data-encrypted
+        let options : [String : FileProtectionType] = [
+            NSPersistentStoreFileProtectionKey : FileProtectionType.complete
+        ]
+        container.persistentStoreCoordinator.addPersistentStore(
+            ofType: NSSQLiteStoreType,
+            configurationName: nil,
+            at: ,
+            options: options
+        )
         // If the inMemory Parameter is true,
         // the container is stored to /dev/null which means is disappears and
         // can't be found again.
