@@ -15,6 +15,9 @@ internal struct LegalPersonPicker: View {
     /// The Action to dismiss this View
     @Environment(\.dismiss) private var dismiss : DismissAction
     
+    /// The Wrapper for the Legal Person being passed down again
+    @EnvironmentObject private var legalPersonWrapper : LegalPersonWrapper
+    
     // Preview Code Start
     // (Comment to build)
     //
@@ -25,7 +28,7 @@ internal struct LegalPersonPicker: View {
     /// the Core Database
     @FetchRequest(fetchRequest: legalPersonFetchRequest)
     private var legalPersons : FetchedResults<LegalPerson>
-//    private let legalPersons : [LegalPerson] = []
+    //    private let legalPersons : [LegalPerson] = []
     
     /// This is the fetch Request to fetch all the Finances
     /// from the Core Data Persistence Storage
@@ -93,40 +96,18 @@ internal struct LegalPersonPicker: View {
             if legalPersonType == .none {
                 List {
                     Section("Person") {
-                        ForEach(personsForType(.person)) {
-                            person in
-                            ListTile(person: person) {
-                                p in
-                                legalPersonChosen(p)
-                            }
-                        }
+                        forEachSection(.person)
                     }
                     Section("Company") {
-                        ForEach(personsForType(.company)) {
-                            person in
-                            ListTile(person: person) {
-                                p in
-                                legalPersonChosen(p)
-                            }
-                        }
+                        forEachSection(.company)
                     }
                     Section("Organization") {
-                        ForEach(personsForType(.organization)) {
-                            person in
-                            ListTile(person: person) {
-                                p in
-                                legalPersonChosen(p)
-                            }
-                        }
+                        forEachSection(.organization)
                     }
                 }
             } else {
-                List(persons) {
-                    person in
-                    ListTile(person: person) {
-                        p in
-                        legalPersonChosen(p)
-                    }
+                List {
+                    forEachSection(.none)
                 }
             }
         } else {
@@ -139,6 +120,21 @@ internal struct LegalPersonPicker: View {
         }
     }
     
+    /// Builds, renders and returns the for each section
+    /// depending on the passed Legal Person Type
+    @ViewBuilder
+    private func forEachSection(
+        _ lPT : LegalPerson.LegalPersonType
+    ) -> some View {
+        ForEach(personsForType(lPT)) {
+            person in
+            ListTile(person: person) {
+                p in
+                legalPersonChosen(p)
+            }
+            .environmentObject(legalPersonWrapper)
+        }
+    }
     /// Returns all the Legal Persons for the specified Type
     /// in an Array of Legal Persons
     private func personsForType(
@@ -152,7 +148,8 @@ internal struct LegalPersonPicker: View {
             case .organization:
                 return legalPersons.filter { $0 is Organization }
             case .none:
-                return Array(legalPersons)
+                print(legalPersons)
+                return Array(legalPersons.filter{ $0.name != nil})
         }
     }
     

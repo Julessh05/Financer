@@ -11,13 +11,12 @@ import SwiftUI
 /// The List TIle to represent Model  in a List
 internal struct ListTile: View {
     
-    /// The Wrapper of the Legal Person the User chose to see the Details
-    /// from
-    @StateObject private var legalPersonWrapper : LegalPersonWrapper = LegalPersonWrapper()
+    /// The Wrapper of the legal Person being presented
+    @EnvironmentObject private var legalPersonWrapper : LegalPersonWrapper
     
     /// The Legal Person for this View
-    private var person : LegalPerson
-        
+    private let person : LegalPerson
+    
     /// The callback to execute for Legal Persons
     private let callback : (LegalPerson) -> ()
     
@@ -29,10 +28,11 @@ internal struct ListTile: View {
     
     /// Whether the Info View is active or not.
     @State private var viewActive : Bool = false
+    
     var body: some View {
         HStack {
             HStack {
-                Text(person.name!)
+                Text(person.name ?? "Deleted Person")
                 Spacer()
             }
             // Solution from: https://stackoverflow.com/questions/57191013/swiftui-cant-tap-in-spacer-of-hstack
@@ -41,6 +41,7 @@ internal struct ListTile: View {
                 callback(person)
             }
             Button {
+                legalPersonWrapper.legalPerson = person
                 viewActive.toggle()
             } label: {
                 Image(systemName: "info.circle")
@@ -49,11 +50,6 @@ internal struct ListTile: View {
                 LegalPersonDetails()
                     .environmentObject(legalPersonWrapper)
             }
-        }
-        // Solution from: https://stackoverflow.com/questions/68930434/accessing-stateobjects-object-without-being-installed-on-a-view-this-will-crea
-        // Answer: https://stackoverflow.com/a/68930493/16376071
-        .onAppear {
-            legalPersonWrapper.legalPerson = person
         }
     }
 }

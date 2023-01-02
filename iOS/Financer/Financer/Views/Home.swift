@@ -90,7 +90,10 @@ internal struct Home: View {
                 Label("Add Finance", systemImage: "plus")
             }.sheet(
                 isPresented: $addPresented,
-                content: { AddFinance() }
+                content: {
+                    AddFinance()
+                        .environmentObject(legalPersonWrapper)
+                }
             )
             .navigationTitle("Welcome")
             .navigationBarTitleDisplayMode(.automatic)
