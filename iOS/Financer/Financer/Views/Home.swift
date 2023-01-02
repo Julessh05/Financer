@@ -88,9 +88,13 @@ internal struct Home: View {
                 addPresented.toggle()
             } label: {
                 Label("Add Finance", systemImage: "plus")
-            }.sheet(
+            }
+            .sheet(
                 isPresented: $addPresented,
-                content: { AddFinance() }
+                content: {
+                    AddFinance()
+                        .environmentObject(legalPersonWrapper)
+                }
             )
             .navigationTitle("Welcome")
             .navigationBarTitleDisplayMode(.automatic)

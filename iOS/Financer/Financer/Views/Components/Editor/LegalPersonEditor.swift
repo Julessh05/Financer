@@ -62,6 +62,7 @@ internal struct LegalPersonEditor: View {
         _name = State(initialValue: legalPerson.name!)
         _notes = State(initialValue: legalPerson.notes!)
         _phone = State(initialValue: legalPerson.phone!)
+        _legalPersonType = State(initialValue: LegalPerson.LegalPersonType(rawValue: legalPerson.typeAsString(capitalized: false))!)
         if legalPerson is Union {
             let p = legalPerson as! Union
             _homepage = State(initialValue: p.url?.absoluteString ?? "")

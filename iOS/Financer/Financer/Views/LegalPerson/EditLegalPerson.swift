@@ -37,6 +37,7 @@ internal struct EditLegalPerson: View {
     /// The action that is passed to the Legal Person
     /// Editor and edits a Legal Person
     private func editLegalPerson(legalPerson : LegalPerson) -> Void {
+        legalPerson.finances = legalPersonWrapper.legalPerson!.finances
         viewContext.delete(legalPersonWrapper.legalPerson!)
         legalPersonWrapper.legalPerson = legalPerson
         do {
