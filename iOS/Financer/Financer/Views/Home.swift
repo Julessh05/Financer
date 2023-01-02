@@ -6,8 +6,9 @@
 //  Renamed by Julian Schumacher to Home.swift on 02.01.2023
 //
 
-import SwiftUI
+import Charts
 import CoreData
+import SwiftUI
 
 /// The first View shown to the User when opening
 /// the App.
@@ -73,16 +74,26 @@ internal struct Home: View {
     
     var body: some View {
         NavigationStack {
-            List(finances) {
-                finance in
-                Button {
-                    financeWrapper.finance = finance
-                    legalPersonWrapper.legalPerson = finance.legalPerson
-                    detailsPresented.toggle()
-                } label: {
-                    label(finance)
+            List {
+                Chart(finances.filter { $0.date! < Date.now} ) {
+                    finance in
+                    LineMark(
+                        x: .value("Time", finance.date!),
+                        y: .value("Amount", finance.amount)
+                    )
                 }
-                .foregroundColor(.black)
+                .padding(.vertical, 10)
+                ForEach(finances) {
+                    finance in
+                    Button {
+                        financeWrapper.finance = finance
+                        legalPersonWrapper.legalPerson = finance.legalPerson
+                        detailsPresented.toggle()
+                    } label: {
+                        label(finance)
+                    }
+                    .foregroundColor(.black)
+                }
             }
             Button {
                 addPresented.toggle()
