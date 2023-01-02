@@ -11,39 +11,39 @@ import SwiftUI
 /// it's details.
 internal struct LegalPersonDetails: View {
     
-    // Discussion on: https://developer.apple.com/forums/thread/663901
-    // Solution here: https://developer.apple.com/forums/thread/663901?answerId=667633022#667633022
-    @FetchRequest private var finances : FetchedResults<Finance>
+    /// The Managed Object Context to coordinate
+    /// Core Data and all Operations
+    @Environment(\.managedObjectContext) private var viewContext
+    
+    @Environment(\.dismiss) private var dismiss : DismissAction
     
     /// The Legal Parson beeing shown right here
-    @State private var legalPerson : LegalPerson
+    @EnvironmentObject private var legalPersonWrapper : LegalPersonWrapper
     
-    /// The Initializer with the Legal Person this Screen should be
-    /// generated for.
-    internal init(legalPerson: LegalPerson) {
-        self._legalPerson = State(initialValue:  legalPerson)
-        _finances = FetchRequest(
-            entity: Finance.entity(),
-            sortDescriptors: [
-                NSSortDescriptor(keyPath: \Finance.date, ascending: true)
-            ],
-            predicate: NSPredicate(format: "legalPerson == %@", legalPerson)
-        )
-    }
+    /// The FinanceWrapper that is already in the Environment
+    @EnvironmentObject private var financeWrapper : FinanceWrapper
+    
+    /// The State Object containing the Finance the User chose to
+    /// click
+    @StateObject private var financeWrapperState : FinanceWrapper = FinanceWrapper()
+    
+    /// All the Finances that are related to this Legal
+    /// Person.
+    @State private var finances : [Finance] = []
     
     var body: some View {
         NavigationStack {
             List {
                 Section {
-                    DefaultListTile(name: "Name", data: legalPerson.name!)
-                    DefaultListTile(name: "Type", data: legalPerson.typeAsString)
+                    DefaultListTile(name: "Name", data: legalPersonWrapper.legalPerson!.name!)
+                    DefaultListTile(name: "Type", data: legalPersonWrapper.legalPerson!.typeAsString())
                 } header: {
                     Text("General Values")
                 } footer: {
-                    Text("These are the general Values for this \(legalPerson.name!)")
+                    Text("These are the general Values for this \(legalPersonWrapper.legalPerson!.typeAsString())")
                 }
                 Section {
-                    DefaultListTile(name: "Phone", data: legalPerson.phone!)
+                    DefaultListTile(name: "Phone", data: legalPersonWrapper.legalPerson!.phone!)
                     Text(notes)
                         .lineLimit(5...10)
                         .foregroundColor(.gray)
@@ -55,9 +55,14 @@ internal struct LegalPersonDetails: View {
                 Section {
                     ForEach(finances) {
                         finance in
-                        NavigationLink(finance.typeAsString) {
-                            FinanceDetails(finance: finance)
-                        }
+                        DefaultListTile(
+                            name: finance.typeAsString(),
+                            data: String(finance.amount),
+                            onTap: {
+                                financeWrapper.finance = finance
+                                dismiss()
+                            }
+                        )
                     }
                 } header: {
                     Text("Relations")
@@ -65,19 +70,25 @@ internal struct LegalPersonDetails: View {
                     Text("Represents all relations this Finance has.")
                 }
             }
-            .navigationTitle("\(legalPerson.name!) Details")
+            .navigationTitle("\(legalPersonWrapper.legalPerson!.name!) Details")
             .navigationBarTitleDisplayMode(.automatic)
             .toolbarRole(.navigationStack)
             .toolbar(.automatic, for: .navigationBar)
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
                     NavigationLink {
-                        AddLegalPerson(legalPerson: $legalPerson)
+                        EditLegalPerson()
+                            .environmentObject(legalPersonWrapper)
                     } label: {
                         Image(systemName: "pencil")
                     }
                 }
             }
+        }
+        .onAppear {
+            let request = Finance.fetchRequest()
+            request.predicate = NSPredicate(format: "legalPerson = %@", legalPersonWrapper.legalPerson!)
+            finances = try! viewContext.fetch(request)
         }
     }
     
@@ -86,8 +97,8 @@ internal struct LegalPersonDetails: View {
     /// the Type of the Legal Person
     @ViewBuilder
     private func homepageField() -> some View {
-        if legalPerson is Union {
-            let u : Union = legalPerson as! Union
+        if legalPersonWrapper.legalPerson is Union {
+            let u : Union = legalPersonWrapper.legalPerson as! Union
             HStack {
                 Text("Homepage")
                 Spacer()
@@ -107,10 +118,10 @@ internal struct LegalPersonDetails: View {
     /// this returns an information String
     /// stating exactly that.
     private var notes : String {
-        if legalPerson.notes!.isEmpty {
+        if legalPersonWrapper.legalPerson!.notes!.isEmpty {
             return "No Notes"
         } else {
-            return legalPerson.notes!
+            return legalPersonWrapper.legalPerson!.notes!
         }
     }
 }
@@ -118,9 +129,10 @@ internal struct LegalPersonDetails: View {
 internal struct LegalPersonDetails_Previews: PreviewProvider {
     
     /// The preview legal Person
-    private static var person : LegalPerson = LegalPerson.anonymous
+    private static var personWrapper : LegalPersonWrapper = LegalPersonWrapper(legalPerson: LegalPerson.anonymous)
     
     static var previews: some View {
-        LegalPersonDetails(legalPerson: person)
+        LegalPersonDetails()
+            .environmentObject(personWrapper)
     }
 }

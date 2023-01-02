@@ -15,12 +15,20 @@ internal struct DefaultListTile: View {
     /// The actual Data of this List Tile
     internal let data : String
     
+    /// The Action that is called when the User taps on the
+    /// List Tile
+    internal var onTap : () -> () = {}
+    
     var body: some View {
         HStack {
             Text(name)
             Spacer()
             Text(data)
                 .foregroundColor(.gray)
+        }
+        .contentShape(Rectangle())
+        .onTapGesture {
+            onTap()
         }
     }
 }
@@ -29,7 +37,10 @@ internal struct DefaultListTile_Previews: PreviewProvider {
     static var previews: some View {
         DefaultListTile(
             name: "Test",
-            data: "Value"
+            data: "Value",
+            onTap: {
+                print("On Tap pressed")
+            }
         )
     }
 }

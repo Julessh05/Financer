@@ -37,8 +37,8 @@ public class Finance: NSManagedObject {
     
     /// The Type of this Finance in the form of a String
     /// to represent it to the User.
-    internal var typeAsString : String {
-        return self is Income ? "Income" : "Expense"
+    internal func typeAsString(capitalized : Bool = true) -> String {
+        return self is Income ? (capitalized ? "Income" : "income") : (capitalized ? "Expense" : "expense")
     }
     
     /// The Direction of the Money flow with this
