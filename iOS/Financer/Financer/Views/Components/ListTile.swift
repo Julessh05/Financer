@@ -50,6 +50,8 @@ internal struct ListTile: View {
                     .environmentObject(legalPersonWrapper)
             }
         }
+        // Solution from: https://stackoverflow.com/questions/68930434/accessing-stateobjects-object-without-being-installed-on-a-view-this-will-crea
+        // Answer: https://stackoverflow.com/a/68930493/16376071
         .onAppear {
             legalPersonWrapper.legalPerson = person
         }
