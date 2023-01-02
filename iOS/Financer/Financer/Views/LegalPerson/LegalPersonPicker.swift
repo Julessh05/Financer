@@ -75,6 +75,7 @@ internal struct LegalPersonPicker: View {
                     Text(person.rawValue.capitalized)
                 }
             }
+            .padding(.horizontal, 10)
             .pickerStyle(.segmented)
             list()
             NavigationLink {
@@ -107,7 +108,7 @@ internal struct LegalPersonPicker: View {
                 }
             } else {
                 List {
-                    forEachSection(.none)
+                    forEachSection(legalPersonType)
                 }
             }
         } else {
@@ -148,8 +149,7 @@ internal struct LegalPersonPicker: View {
             case .organization:
                 return legalPersons.filter { $0 is Organization }
             case .none:
-                print(legalPersons)
-                return Array(legalPersons.filter{ $0.name != nil})
+                return Array(legalPersons)
         }
     }
     

@@ -4,7 +4,7 @@
 //
 //  Created by Julian Schumacher as LegalPersonListTile.swift on 24.12.22.
 //
-// Renamed by Julian Schumacher to ListTile.swift on 24.12.22
+//  Renamed by Julian Schumacher to ListTile.swift on 24.12.22
 
 import SwiftUI
 
