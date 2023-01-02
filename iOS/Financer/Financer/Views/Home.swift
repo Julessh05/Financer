@@ -75,24 +75,31 @@ internal struct Home: View {
     var body: some View {
         NavigationStack {
             List {
-                Chart(finances.filter { $0.date! < Date.now} ) {
-                    finance in
-                    LineMark(
-                        x: .value("Time", finance.date!),
-                        y: .value("Amount", finance.amount)
-                    )
-                }
-                .padding(.vertical, 10)
-                ForEach(finances) {
-                    finance in
-                    Button {
-                        financeWrapper.finance = finance
-                        legalPersonWrapper.legalPerson = finance.legalPerson
-                        detailsPresented.toggle()
-                    } label: {
-                        label(finance)
+                Section {
+                    // Date comparing from: https://www.hackingwithswift.com/example-code/language/how-to-compare-dates
+                    // Date calculation from: https://stackoverflow.com/questions/29465205/how-to-add-minutes-to-current-time-in-swift
+                    // Answer here: https://stackoverflow.com/a/29465300/16376071
+                    Chart(finances.filter { $0.date! < Date.now} ) {
+                        finance in
+                        LineMark(
+                            x: .value("Time", finance.date!),
+                            y: .value("Amount", finance.amount)
+                        )
                     }
-                    .foregroundColor(.black)
+                    .padding(.vertical, 10)
+                }
+                Section {
+                    ForEach(finances) {
+                        finance in
+                        Button {
+                            financeWrapper.finance = finance
+                            legalPersonWrapper.legalPerson = finance.legalPerson
+                            detailsPresented.toggle()
+                        } label: {
+                            label(finance)
+                        }
+                        .foregroundColor(.black)
+                    }
                 }
             }
             Button {
