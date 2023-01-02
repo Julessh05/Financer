@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		3FC79A182954343000808FF2 /* FinanceDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC79A172954343000808FF2 /* FinanceDetails.swift */; };
 		3FCD271B2952E3CA00ECD3C2 /* FinancerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCD271A2952E3CA00ECD3C2 /* FinancerApp.swift */; };
-		3FCD271D2952E3CA00ECD3C2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCD271C2952E3CA00ECD3C2 /* ContentView.swift */; };
+		3FCD271D2952E3CA00ECD3C2 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCD271C2952E3CA00ECD3C2 /* Home.swift */; };
 		3FCD271F2952E3CB00ECD3C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FCD271E2952E3CB00ECD3C2 /* Assets.xcassets */; };
 		3FCD27222952E3CB00ECD3C2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FCD27212952E3CB00ECD3C2 /* Preview Assets.xcassets */; };
 		3FCD27242952E3CB00ECD3C2 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCD27232952E3CB00ECD3C2 /* Persistence.swift */; };
@@ -55,7 +55,7 @@
 		3FC79A172954343000808FF2 /* FinanceDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceDetails.swift; sourceTree = "<group>"; };
 		3FCD27172952E3CA00ECD3C2 /* Financer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Financer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FCD271A2952E3CA00ECD3C2 /* FinancerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancerApp.swift; sourceTree = "<group>"; };
-		3FCD271C2952E3CA00ECD3C2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3FCD271C2952E3CA00ECD3C2 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		3FCD271E2952E3CB00ECD3C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3FCD27212952E3CB00ECD3C2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3FCD27232952E3CB00ECD3C2 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -179,7 +179,7 @@
 				845F170B2957379D009728F5 /* Components */,
 				845F16FD2956D1B6009728F5 /* LegalPerson */,
 				845F16FB2956D1A5009728F5 /* Finance */,
-				3FCD271C2952E3CA00ECD3C2 /* ContentView.swift */,
+				3FCD271C2952E3CA00ECD3C2 /* Home.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -192,6 +192,15 @@
 				3FCD27252952E3CB00ECD3C2 /* Financer.xcdatamodeld */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		843196FE2962EE270093D0A8 /* Editor */ = {
+			isa = PBXGroup;
+			children = (
+				845FFFD6296186620053E9F5 /* LegalPersonEditor.swift */,
+				845FFFD42961865D0053E9F5 /* FinanceEditor.swift */,
+			);
+			path = Editor;
 			sourceTree = "<group>";
 		};
 		845F16FB2956D1A5009728F5 /* Finance */ = {
@@ -227,8 +236,7 @@
 		845F170B2957379D009728F5 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				845FFFD3296186510053E9F5 /* Finance */,
-				845FFFD22961864D0053E9F5 /* LegalPerson */,
+				843196FE2962EE270093D0A8 /* Editor */,
 				845F170C295737A6009728F5 /* ListTile.swift */,
 				845715A9295D6EC200AAD818 /* DefaultListTile.swift */,
 			);
@@ -242,22 +250,6 @@
 				840581C4296195D900B7C53B /* LegalPersonWrapper.swift */,
 			);
 			path = Wrappers;
-			sourceTree = "<group>";
-		};
-		845FFFD22961864D0053E9F5 /* LegalPerson */ = {
-			isa = PBXGroup;
-			children = (
-				845FFFD6296186620053E9F5 /* LegalPersonEditor.swift */,
-			);
-			path = LegalPerson;
-			sourceTree = "<group>";
-		};
-		845FFFD3296186510053E9F5 /* Finance */ = {
-			isa = PBXGroup;
-			children = (
-				845FFFD42961865D0053E9F5 /* FinanceEditor.swift */,
-			);
-			path = Finance;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -399,7 +391,7 @@
 				845FFFD7296186620053E9F5 /* LegalPersonEditor.swift in Sources */,
 				845FFFD029617F4F0053E9F5 /* FinanceWrapper.swift in Sources */,
 				3FC79A182954343000808FF2 /* FinanceDetails.swift in Sources */,
-				3FCD271D2952E3CA00ECD3C2 /* ContentView.swift in Sources */,
+				3FCD271D2952E3CA00ECD3C2 /* Home.swift in Sources */,
 				845F170F2957405F009728F5 /* LegalPersonDetails.swift in Sources */,
 				845F17012956FDA3009728F5 /* AddLegalPerson.swift in Sources */,
 				3FCD271B2952E3CA00ECD3C2 /* FinancerApp.swift in Sources */,
