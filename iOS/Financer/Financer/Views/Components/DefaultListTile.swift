@@ -22,6 +22,7 @@ internal struct DefaultListTile: View {
             Text(data)
                 .foregroundColor(.gray)
         }
+        .contentShape(Rectangle())
     }
 }
 

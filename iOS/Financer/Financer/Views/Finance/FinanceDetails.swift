@@ -17,6 +17,8 @@ internal struct FinanceDetails: View {
     /// The FInance Wrapper being injected into the Environment
     @EnvironmentObject private var financeWrapper : FinanceWrapper
     
+    @State private var personDetailsPresented : Bool = false
+    
     var body: some View {
         NavigationStack {
             List {
@@ -54,17 +56,16 @@ internal struct FinanceDetails: View {
                     Text("These Data are optional and you may have not added them.")
                 }
                 Section {
-                    NavigationLink {
-                        LegalPersonDetails()
-                    } label: {
-                        HStack {
-                            DefaultListTile(
-                                name: financeWrapper.finance!.directionAsString,
-                                data: financeWrapper.finance!.legalPerson!.name!
-                            )
-                        }
+                    DefaultListTile(
+                        name: financeWrapper.finance!.directionAsString,
+                        data: financeWrapper.finance!.legalPerson!.name!
+                    )
+                    .onTapGesture {
+                        personDetailsPresented.toggle()
                     }
-                    
+                    .sheet(isPresented: $personDetailsPresented) {
+                        LegalPersonDetails()
+                    }
                 } header: {
                     Text("Relations")
                 } footer: {
@@ -78,7 +79,7 @@ internal struct FinanceDetails: View {
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
                     NavigationLink {
-                       EditFinance()
+                        EditFinance()
                             .environmentObject(financeWrapper)
                     } label: {
                         Image(systemName: "pencil")

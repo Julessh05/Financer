@@ -15,6 +15,8 @@ internal struct LegalPersonDetails: View {
     /// Core Data and all Operations
     @Environment(\.managedObjectContext) private var viewContext
     
+    @Environment(\.dismiss) private var dismiss : DismissAction
+    
     /// The Legal Parson beeing shown right here
     @EnvironmentObject private var legalPersonWrapper : LegalPersonWrapper
     
@@ -29,11 +31,6 @@ internal struct LegalPersonDetails: View {
     /// Person.
     @State private var finances : [Finance] = []
     
-    /// The Standard Initializer for this View
-    internal init() {
-        
-    }
-    
     var body: some View {
         NavigationStack {
             List {
@@ -43,7 +40,7 @@ internal struct LegalPersonDetails: View {
                 } header: {
                     Text("General Values")
                 } footer: {
-                    Text("These are the general Values for this \(legalPersonWrapper.legalPerson!.name!)")
+                    Text("These are the general Values for this \(legalPersonWrapper.legalPerson!.typeAsString())")
                 }
                 Section {
                     DefaultListTile(name: "Phone", data: legalPersonWrapper.legalPerson!.phone!)
@@ -58,15 +55,13 @@ internal struct LegalPersonDetails: View {
                 Section {
                     ForEach(finances) {
                         finance in
-                        NavigationLink(finance.typeAsString()) {
-                            // TODO: check exclamation mark
-                            if finance == financeWrapper.finance! {
-                                FinanceDetails()
-                            } else {
-                                FinanceDetails()
-                                    .environmentObject(financeWrapperState)
-                            }
-                            
+                        DefaultListTile(
+                            name: finance.typeAsString(),
+                            data: ""
+                        )
+                        .onTapGesture {
+                            financeWrapper.finance = finance
+                            dismiss()
                         }
                     }
                 } header: {
@@ -75,18 +70,18 @@ internal struct LegalPersonDetails: View {
                     Text("Represents all relations this Finance has.")
                 }
             }
-        }
-        .navigationTitle("\(legalPersonWrapper.legalPerson!.name!) Details")
-        .navigationBarTitleDisplayMode(.automatic)
-        .toolbarRole(.navigationStack)
-        .toolbar(.automatic, for: .navigationBar)
-        .toolbar {
-            ToolbarItem(placement: .primaryAction) {
-                NavigationLink {
-                    EditLegalPerson()
-                        .environmentObject(legalPersonWrapper)
-                } label: {
-                    Image(systemName: "pencil")
+            .navigationTitle("\(legalPersonWrapper.legalPerson!.name!) Details")
+            .navigationBarTitleDisplayMode(.automatic)
+            .toolbarRole(.navigationStack)
+            .toolbar(.automatic, for: .navigationBar)
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    NavigationLink {
+                        EditLegalPerson()
+                            .environmentObject(legalPersonWrapper)
+                    } label: {
+                        Image(systemName: "pencil")
+                    }
                 }
             }
         }
