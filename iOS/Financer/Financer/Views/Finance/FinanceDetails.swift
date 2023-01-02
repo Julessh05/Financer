@@ -58,11 +58,11 @@ internal struct FinanceDetails: View {
                 Section {
                     DefaultListTile(
                         name: financeWrapper.finance!.directionAsString,
-                        data: financeWrapper.finance!.legalPerson!.name!
+                        data: financeWrapper.finance!.legalPerson!.name!,
+                        onTap: {
+                            personDetailsPresented.toggle()
+                        }
                     )
-                    .onTapGesture {
-                        personDetailsPresented.toggle()
-                    }
                     .sheet(isPresented: $personDetailsPresented) {
                         LegalPersonDetails()
                     }

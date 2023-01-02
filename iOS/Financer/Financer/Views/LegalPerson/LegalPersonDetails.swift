@@ -57,12 +57,12 @@ internal struct LegalPersonDetails: View {
                         finance in
                         DefaultListTile(
                             name: finance.typeAsString(),
-                            data: ""
+                            data: String(finance.amount),
+                            onTap: {
+                                financeWrapper.finance = finance
+                                dismiss()
+                            }
                         )
-                        .onTapGesture {
-                            financeWrapper.finance = finance
-                            dismiss()
-                        }
                     }
                 } header: {
                     Text("Relations")

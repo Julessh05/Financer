@@ -25,6 +25,8 @@ internal struct ListTile: View {
     internal init(person: LegalPerson, _ callback : @escaping (LegalPerson) -> ()) {
         self.person = person
         self.callback = callback
+        // TODO: check performance Error
+        // (New Object every access)
         legalPersonWrapper.legalPerson = person
     }
     
