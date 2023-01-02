@@ -2,7 +2,8 @@
 //  ContentView.swift
 //  Financer
 //
-//  Created by Julian Schumacher on 21.12.22.
+//  Created by Julian Schumacher as ContentView.swift on 21.12.22.
+//  Renamed by Julian Schumacher to Home.swift on 02.01.2023
 //
 
 import SwiftUI
@@ -10,7 +11,7 @@ import CoreData
 
 /// The first View shown to the User when opening
 /// the App.
-internal struct ContentView: View {
+internal struct Home: View {
     /// The ViewContext to use when interacting with the Core Data Framework
     @Environment(\.managedObjectContext) private var viewContext
     
@@ -98,6 +99,13 @@ internal struct ContentView: View {
                     .environmentObject(legalPersonWrapper)
                     .environmentObject(financeWrapper)
             }
+            .toolbarRole(.navigationStack)
+            .toolbar(.automatic, for: .navigationBar)
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    
+                }
+            }
         }
     }
     
@@ -127,7 +135,7 @@ internal struct ContentView: View {
 
 internal struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        Home()
             .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }
