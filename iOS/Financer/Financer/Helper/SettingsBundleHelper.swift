@@ -36,6 +36,7 @@ internal struct SettingsBundleHelper {
         // or an Empty Dictionary if the main bundle dict is
         // not available
         dict = Bundle.main.infoDictionary ?? [ : ]
+        configure()
     }
     
     /// The User Defaults to store the Information in
@@ -47,9 +48,24 @@ internal struct SettingsBundleHelper {
     /// The Function to set all Values
     /// to the Settings App
     internal func setValues() -> Void {
-        let appVersion = dict[String(kCFBundleVersionKey)]
-        let buildNumber = dict["CFBundleShortVersionString"]
+        guard let appVersion = dict[String(kCFBundleVersionKey)] else { return }
+        guard let buildNumber = dict["CFBundleShortVersionString"] else { return }
         userDefaults.set(appVersion, forKey: SettingsBundleKeys.appVersion)
         userDefaults.set(buildNumber, forKey: SettingsBundleKeys.buildNumber)
+    }
+    
+    /// Configures the Settings Bundle for the User Dictionary
+    /// and it's default Values
+    private func configure() -> Void {
+        guard let settingsBundle = Bundle.main.url(forResource: "Settings", withExtension:"bundle") else { return }
+        guard let settings = NSDictionary(contentsOf: settingsBundle.appendingPathComponent("Root.plist")) else { return }
+        guard let preferences = settings.object(forKey: "PreferenceSpecifiers") as? [[String: AnyObject]] else { return }
+        var defaultsToRegister : [String: AnyObject] = [ : ]
+        for pref in preferences {
+            if let key = pref["Key"] as? String, let val = pref["DefaultValue"] {
+                defaultsToRegister[key] = val
+            }
+        }
+        userDefaults.register(defaults: defaultsToRegister)
     }
 }
