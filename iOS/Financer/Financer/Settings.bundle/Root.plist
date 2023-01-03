@@ -10,7 +10,21 @@
 			<key>Type</key>
 			<string>PSTitleValueSpecifier</string>
 			<key>Title</key>
-			<string>Build</string>
+			<string>App Version</string>
+			<key>Key</key>
+			<string>app_version</string>
+			<key>DefaultValue</key>
+			<string>1.0</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTitleValueSpecifier</string>
+			<key>Title</key>
+			<string>Build Number</string>
+			<key>Key</key>
+			<string>build_number</string>
+			<key>DefaultValue</key>
+			<string>1.0</string>
 		</dict>
 	</array>
 </dict>
