@@ -34,6 +34,7 @@
 		848A44AC29639713002AC782 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 848A44AB29639713002AC782 /* Settings.bundle */; };
 		848A44AF29642897002AC782 /* SettingsBundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848A44AE29642897002AC782 /* SettingsBundleHelper.swift */; };
 		849AB4352965C0C200AA8E75 /* UserWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849AB4342965C0C200AA8E75 /* UserWrapper.swift */; };
+		849AB4372965CAB100AA8E75 /* ChartDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849AB4362965CAB100AA8E75 /* ChartDetails.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		848A44AB29639713002AC782 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		848A44AE29642897002AC782 /* SettingsBundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBundleHelper.swift; sourceTree = "<group>"; };
 		849AB4342965C0C200AA8E75 /* UserWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWrapper.swift; sourceTree = "<group>"; };
+		849AB4362965CAB100AA8E75 /* ChartDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDetails.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +190,8 @@
 				845F170B2957379D009728F5 /* Components */,
 				845F16FD2956D1B6009728F5 /* LegalPerson */,
 				845F16FB2956D1A5009728F5 /* Finance */,
+				3FCD271C2952E3CA00ECD3C2 /* Home.swift */,
+				849AB4362965CAB100AA8E75 /* ChartDetails.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -403,6 +407,7 @@
 				845FFFD52961865D0053E9F5 /* FinanceEditor.swift in Sources */,
 				845715AA295D6EC200AAD818 /* DefaultListTile.swift in Sources */,
 				845F16FA29562D64009728F5 /* AddFinance.swift in Sources */,
+				849AB4372965CAB100AA8E75 /* ChartDetails.swift in Sources */,
 				845F170D295737A6009728F5 /* ListTile.swift in Sources */,
 				3FCD27242952E3CB00ECD3C2 /* Persistence.swift in Sources */,
 				845FFFD92961867A0053E9F5 /* EditLegalPerson.swift in Sources */,

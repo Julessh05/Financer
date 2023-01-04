@@ -16,6 +16,9 @@ internal struct Home: View {
     /// The ViewContext to use when interacting with the Core Data Framework
     @Environment(\.managedObjectContext) private var viewContext
     
+    /// The Wrapper of the User of this App
+    @EnvironmentObject private var userWrapper : UserWrapper
+    
     /// The initial State Object to inject into the Environment to
     /// be able to pass a finance between all Views.
     @StateObject private var financeWrapper : FinanceWrapper = FinanceWrapper()
@@ -76,17 +79,21 @@ internal struct Home: View {
         NavigationStack {
             List {
                 Section {
-                    // Date comparing from: https://www.hackingwithswift.com/example-code/language/how-to-compare-dates
-                    // Date calculation from: https://stackoverflow.com/questions/29465205/how-to-add-minutes-to-current-time-in-swift
-                    // Answer here: https://stackoverflow.com/a/29465300/16376071
-                    Chart(finances.filter { $0.date! < Date.now} ) {
-                        finance in
-                        LineMark(
-                            x: .value("Time", finance.date!),
-                            y: .value("Amount", finance.amount)
-                        )
+                    NavigationLink {
+                        ChartDetails()
+                    } label: {
+                        // Date comparing from: https://www.hackingwithswift.com/example-code/language/how-to-compare-dates
+                        // Date calculation from: https://stackoverflow.com/questions/29465205/how-to-add-minutes-to-current-time-in-swift
+                        // Answer here: https://stackoverflow.com/a/29465300/16376071
+                        Chart(finances.filter { $0.date! < Date.now} ) {
+                            finance in
+                            LineMark(
+                                x: .value("Time", finance.date!),
+                                y: .value("Balance", userWrapper.balanceOn(date: finance.date!))
+                            )
+                        }
+                        .padding(.vertical, 10)
                     }
-                    .padding(.vertical, 10)
                 }
                 Section {
                     ForEach(finances) {

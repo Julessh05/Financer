@@ -89,4 +89,9 @@ internal final class UserWrapper : ObservableObject {
             adjustBalance(direction: .down, amount: newFinance.amount)
         }
     }
+    
+    /// Returns the Balance on the specified Date.
+    internal func balanceOn(date : Date) -> Double {
+        
+    }
 }
