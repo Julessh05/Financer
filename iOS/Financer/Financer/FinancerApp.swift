@@ -24,6 +24,9 @@ struct FinancerApp: App {
         WindowGroup {
             Home()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .onAppear {
+                    SettingsBundleHelper.shared.setValues()
+                }
         }
     }
 }
