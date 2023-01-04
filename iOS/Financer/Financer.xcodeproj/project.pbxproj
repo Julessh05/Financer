@@ -33,6 +33,7 @@
 		845FFFDB2961867E0053E9F5 /* EditFinance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845FFFDA2961867E0053E9F5 /* EditFinance.swift */; };
 		848A44AC29639713002AC782 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 848A44AB29639713002AC782 /* Settings.bundle */; };
 		848A44AF29642897002AC782 /* SettingsBundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848A44AE29642897002AC782 /* SettingsBundleHelper.swift */; };
+		849AB4352965C0C200AA8E75 /* UserWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849AB4342965C0C200AA8E75 /* UserWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		845FFFDA2961867E0053E9F5 /* EditFinance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFinance.swift; sourceTree = "<group>"; };
 		848A44AB29639713002AC782 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		848A44AE29642897002AC782 /* SettingsBundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBundleHelper.swift; sourceTree = "<group>"; };
+		849AB4342965C0C200AA8E75 /* UserWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,6 +256,7 @@
 			children = (
 				845FFFCF29617F4F0053E9F5 /* FinanceWrapper.swift */,
 				840581C4296195D900B7C53B /* LegalPersonWrapper.swift */,
+				849AB4342965C0C200AA8E75 /* UserWrapper.swift */,
 			);
 			path = Wrappers;
 			sourceTree = "<group>";
@@ -406,6 +409,7 @@
 				845FFFD7296186620053E9F5 /* LegalPersonEditor.swift in Sources */,
 				845FFFD029617F4F0053E9F5 /* FinanceWrapper.swift in Sources */,
 				848A44AF29642897002AC782 /* SettingsBundleHelper.swift in Sources */,
+				849AB4352965C0C200AA8E75 /* UserWrapper.swift in Sources */,
 				3FC79A182954343000808FF2 /* FinanceDetails.swift in Sources */,
 				3FCD271D2952E3CA00ECD3C2 /* Home.swift in Sources */,
 				845F170F2957405F009728F5 /* LegalPersonDetails.swift in Sources */,

@@ -178,13 +178,10 @@ internal struct LegalPersonEditor: View {
             switch legalPersonType {
                 case .organization:
                     legalPerson = Organization(context: viewContext)
-                    break
                 case .company:
                     legalPerson = Company(context: viewContext)
-                    break
                 case .person:
                     legalPerson = Person(context: viewContext)
-                    break
                 default:
                     errMissingArgumentsPresented.toggle()
                     return
