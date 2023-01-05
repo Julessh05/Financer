@@ -89,7 +89,7 @@ internal struct Home: View {
                             finance in
                             LineMark(
                                 x: .value("Time", finance.date!),
-                                y: .value("Balance", userWrapper.balanceOn(date: finance.date!))
+                                y: .value("Balance", userWrapper.balanceOn(date: finance.date!, with: finances))
                             )
                         }
                         .padding(.vertical, 10)

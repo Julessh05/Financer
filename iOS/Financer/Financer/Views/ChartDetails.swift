@@ -5,15 +5,22 @@
 //  Created by Julian Schumacher on 04.01.23.
 //
 
+import Charts
 import SwiftUI
 
+/// The View to display a collection of different charts
+/// representing different Data
 internal struct ChartDetails: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List {
+            Chart {
+                
+            }
+        }
     }
 }
 
-struct ChartDetails_Previews: PreviewProvider {
+internal struct ChartDetails_Previews: PreviewProvider {
     static var previews: some View {
         ChartDetails()
     }

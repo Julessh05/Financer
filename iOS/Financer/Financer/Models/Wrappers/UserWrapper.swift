@@ -91,7 +91,7 @@ internal final class UserWrapper : ObservableObject {
     }
     
     /// Returns the Balance on the specified Date.
-    internal func balanceOn(date : Date) -> Double {
-        
+    internal func balanceOn(date : Date, with finances : any RandomAccessCollection<Finance>) -> Double {
+        return 100.0
     }
 }
