@@ -115,10 +115,7 @@ internal struct Home: View {
                 } header: {
                     Text("Finances")
                 } footer: {
-                    VStack(alignment: .leading) {
-                        Text("Congrats!")
-                        Text("You reached the End of the List of all Finances you ever added.")
-                    }
+                    financeFooter()
                 }
             }
             Button {
@@ -148,29 +145,7 @@ internal struct Home: View {
                 }
             }
         }
-    }
-    
-    /// Builds and returns the Label
-    /// of a specific Finance List Object
-    @ViewBuilder
-    private func label(_ finance : Finance) -> some View {
-        HStack {
-            Image(systemName: finance is Income ? "plus" : "minus")
-                .renderingMode(.original)
-                .padding(.trailing, 8)
-            VStack(alignment: .leading) {
-                let amount : String = String(format: "%.2f$", finance.amount)
-                Text(amount)
-                    .font(.headline)
-                    .foregroundColor(finance is Income ? .green : .red)
-                // Legal Person isn't an optional Parameter, but still you have to use the ? because Swift Optional and Core Data Optional aren't the same thing
-                Text(finance.legalPerson!.name!)
-                // Same with the Date as above with the legal Person.
-                // Only with the difference that I'm enforcing the Date here.
-                Text(finance.date!, format: .dateTime.day().month().year())
-                    .foregroundColor(.gray)
-            }
-        }.onAppear {
+        .onAppear {
             balances = userWrapper.balance(with: finances)
         }
     }
@@ -200,6 +175,47 @@ internal struct Home: View {
                 Text("Charts will appear when Data are entered.")
                     .foregroundColor(.black)
             }
+        }
+    }
+    
+    /// Builds and returns the Label
+    /// of a specific Finance List Object
+    @ViewBuilder
+    private func label(_ finance : Finance) -> some View {
+        HStack {
+            Image(systemName: finance is Income ? "plus" : "minus")
+                .renderingMode(.original)
+                .padding(.trailing, 8)
+            VStack(alignment: .leading) {
+                let amount : String = String(format: "%.2f$", finance.amount)
+                Text(amount)
+                    .font(.headline)
+                    .foregroundColor(finance is Income ? .green : .red)
+                // Legal Person isn't an optional Parameter, but still you have to use the ? because Swift Optional and Core Data Optional aren't the same thing
+                Text(finance.legalPerson!.name!)
+                // Same with the Date as above with the legal Person.
+                // Only with the difference that I'm enforcing the Date here.
+                Text(finance.date!, format: .dateTime.day().month().year())
+                    .foregroundColor(.gray)
+            }
+        }
+    }
+    
+    
+    
+    /// Builds, renders and returns the
+    /// Footer of the Finance Section depending
+    /// on the length of the FInance List
+    /// => small easter egg :)
+    @ViewBuilder
+    private func financeFooter() -> some View {
+        if finances.count > 50 {
+            VStack(alignment: .leading) {
+                Text("Congratulations!🎉")
+                Text("You reached the End of the List of all Finances you ever added.")
+            }
+        } else {
+            Text("Contains all the Finances you ever added to the App")
         }
     }
 }
