@@ -22,15 +22,15 @@ internal struct FinancerApp: App {
     /// environment via the .environment modifier which is available on
     /// the view struct.
     private let persistenceController : PersistenceController = PersistenceController.shared
-
+    
     var body: some Scene {
         WindowGroup {
             Home()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environmentObject(userWrapper)
                 .onAppear {
                     SettingsBundleHelper.shared.setValues()
                 }
-                .environmentObject(userWrapper)
         }
     }
 }
