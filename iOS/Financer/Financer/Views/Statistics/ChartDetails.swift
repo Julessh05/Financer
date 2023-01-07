@@ -20,18 +20,9 @@ internal struct ChartDetails: View {
     
     var body: some View {
         NavigationStack {
-            Chart(balances, id: \.date) {
-                balance in
-                LineMark(
-                    x: .value("Date", balance.date),
-                    y: .value("Amount", balance.amount)
-                )
-            }
-            Chart {
-                
-            }
-            .navigationTitle("Charts")
-            .navigationBarTitleDisplayMode(.automatic)
+            BalancesChart(balances: balances)
+                .navigationTitle("Charts")
+                .navigationBarTitleDisplayMode(.automatic)
         }
     }
 }

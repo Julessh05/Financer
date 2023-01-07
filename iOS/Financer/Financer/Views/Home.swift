@@ -38,6 +38,13 @@ internal struct Home: View {
     @FetchRequest(fetchRequest: financeFetchRequest)
     private var finances : FetchedResults<Finance>
     
+    /// The Users in this App
+    @FetchRequest(
+        sortDescriptors: [
+            SortDescriptor(\User.firstname)
+        ]
+    ) private var users : FetchedResults<User>
+    
     /// This is the fetch Request to fetch all the Finances
     /// from the Core Data Persistence Storage
     static private var financeFetchRequest : NSFetchRequest<Finance> {
@@ -126,6 +133,11 @@ internal struct Home: View {
                         .environmentObject(legalPersonWrapper)
                 }
             )
+            .onAppear {
+                if !users.isEmpty {
+                    userWrapper.user = users.first!
+                }
+            }
             .navigationTitle("Welcome")
             .navigationBarTitleDisplayMode(.automatic)
             .sheet(isPresented: $detailsPresented) {
@@ -137,25 +149,14 @@ internal struct Home: View {
             .toolbar(.automatic, for: .navigationBar)
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
-                    Button {
-                        userDetailsPresented.toggle()
+                    NavigationLink {
+                        UserDetails()
+                            .environmentObject(userWrapper)
                     } label: {
                         Image(systemName: "person.circle.fill")
                             .renderingMode(.original)
                             .foregroundColor(.black)
                     }
-                    .sheet(isPresented: $userDetailsPresented) {
-                        UserDetails()
-                            .environmentObject(userWrapper)
-                    }
-                    //                    NavigationLink {
-                    //                        UserDetails()
-                    //                            .environmentObject(userWrapper)
-                    //                    } label: {
-                    //                        Image(systemName: "person.circle.fill")
-                    //                            .renderingMode(.original)
-                    //                            .foregroundColor(.black)
-                    //                    }
                 }
             }
         }
@@ -167,20 +168,8 @@ internal struct Home: View {
     private func chart() -> some View {
         let balances = userWrapper.balance(days: 7, with: finances)
         if !balances.isEmpty {
-            Chart(balances, id: \.date) {
-                balance in
-                LineMark(
-                    x: .value(
-                        "Time",
-                        balance.date
-                    ),
-                    y: .value(
-                        "Balance",
-                        balance.amount
-                    )
-                )
-            }
-            .padding(.vertical, 10)
+            BalancesChart(balances: balances)
+                .padding(.vertical, 10)
         } else {
             Section {
                 Text("Charts will appear when Data are entered.")

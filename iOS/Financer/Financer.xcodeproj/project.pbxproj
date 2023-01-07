@@ -20,6 +20,9 @@
 		840581C5296195D900B7C53B /* LegalPersonWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840581C4296195D900B7C53B /* LegalPersonWrapper.swift */; };
 		84235820296981F00055904A /* UserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8423581F296981F00055904A /* UserDetails.swift */; };
 		84235823296987BE0055904A /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84235821296987BE0055904A /* User+CoreDataClass.swift */; };
+		84235826296991CC0055904A /* BalancesChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84235825296991CC0055904A /* BalancesChart.swift */; };
+		84235828296992920055904A /* LogInUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84235827296992920055904A /* LogInUser.swift */; };
+		8423582B296994000055904A /* UserEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8423582A296994000055904A /* UserEditor.swift */; };
 		845715AA295D6EC200AAD818 /* DefaultListTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845715A9295D6EC200AAD818 /* DefaultListTile.swift */; };
 		845F16FA29562D64009728F5 /* AddFinance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845F16F929562D64009728F5 /* AddFinance.swift */; };
 		845F16FF2956D1E2009728F5 /* LegalPersonPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845F16FE2956D1E2009728F5 /* LegalPersonPicker.swift */; };
@@ -74,6 +77,9 @@
 		840581C4296195D900B7C53B /* LegalPersonWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalPersonWrapper.swift; sourceTree = "<group>"; };
 		8423581F296981F00055904A /* UserDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetails.swift; sourceTree = "<group>"; };
 		84235821296987BE0055904A /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		84235825296991CC0055904A /* BalancesChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalancesChart.swift; sourceTree = "<group>"; };
+		84235827296992920055904A /* LogInUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInUser.swift; sourceTree = "<group>"; };
+		8423582A296994000055904A /* UserEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEditor.swift; sourceTree = "<group>"; };
 		845715A9295D6EC200AAD818 /* DefaultListTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultListTile.swift; sourceTree = "<group>"; };
 		845F16F929562D64009728F5 /* AddFinance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFinance.swift; sourceTree = "<group>"; };
 		845F16FE2956D1E2009728F5 /* LegalPersonPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalPersonPicker.swift; sourceTree = "<group>"; };
@@ -210,11 +216,20 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		84235829296993D00055904A /* Statistics */ = {
+			isa = PBXGroup;
+			children = (
+				84235825296991CC0055904A /* BalancesChart.swift */,
+			);
+			path = Statistics;
+			sourceTree = "<group>";
+		};
 		843196FE2962EE270093D0A8 /* Editor */ = {
 			isa = PBXGroup;
 			children = (
 				845FFFD6296186620053E9F5 /* LegalPersonEditor.swift */,
 				845FFFD42961865D0053E9F5 /* FinanceEditor.swift */,
+				8423582A296994000055904A /* UserEditor.swift */,
 			);
 			path = Editor;
 			sourceTree = "<group>";
@@ -223,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				8423581F296981F00055904A /* UserDetails.swift */,
+				84235827296992920055904A /* LogInUser.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -269,6 +285,7 @@
 		845F170B2957379D009728F5 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				84235829296993D00055904A /* Statistics */,
 				843196FE2962EE270093D0A8 /* Editor */,
 				845F170C295737A6009728F5 /* ListTile.swift */,
 				845715A9295D6EC200AAD818 /* DefaultListTile.swift */,
@@ -435,6 +452,7 @@
 				845FFFD7296186620053E9F5 /* LegalPersonEditor.swift in Sources */,
 				845FFFD029617F4F0053E9F5 /* FinanceWrapper.swift in Sources */,
 				848A44AF29642897002AC782 /* SettingsBundleHelper.swift in Sources */,
+				8423582B296994000055904A /* UserEditor.swift in Sources */,
 				849AB4352965C0C200AA8E75 /* UserWrapper.swift in Sources */,
 				3FC79A182954343000808FF2 /* FinanceDetails.swift in Sources */,
 				84235820296981F00055904A /* UserDetails.swift in Sources */,
@@ -445,9 +463,11 @@
 				3FCD271B2952E3CA00ECD3C2 /* FinancerApp.swift in Sources */,
 				845F1708295731E5009728F5 /* LegalPerson+CoreDataClass.swift in Sources */,
 				840581C5296195D900B7C53B /* LegalPersonWrapper.swift in Sources */,
+				84235826296991CC0055904A /* BalancesChart.swift in Sources */,
 				845FFFDB2961867E0053E9F5 /* EditFinance.swift in Sources */,
 				845F1706295731E5009728F5 /* Finance+CoreDataClass.swift in Sources */,
 				3FCD27272952E3CB00ECD3C2 /* Financer.xcdatamodeld in Sources */,
+				84235828296992920055904A /* LogInUser.swift in Sources */,
 				845F16FF2956D1E2009728F5 /* LegalPersonPicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

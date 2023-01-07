@@ -10,9 +10,6 @@ import SwiftUI
 /// The View that displays all the Detals about a User
 internal struct UserDetails: View {
     
-    /// The Action to dismiss this View
-    @Environment(\.dismiss) private var dismiss : DismissAction
-    
     /// The Context to interact with Core Data
     @Environment(\.managedObjectContext) private var viewContext
     
@@ -20,27 +17,15 @@ internal struct UserDetails: View {
     /// containing the User beeing represented
     @EnvironmentObject private var userWrapper : UserWrapper
     
+    /// Whether the log In View is presented or not.
+    @State private var logInPresented : Bool = false
+    
     var body: some View {
-        NavigationStack {
+        VStack {
             userDetails()
-                .navigationTitle("User Details")
-                .navigationBarTitleDisplayMode(.automatic)
-                .interactiveDismissDisabled()
-                .toolbarRole(.navigationStack)
-                .toolbar(.automatic, for: .navigationBar)
-                .toolbar {
-                    ToolbarItem(placement: .cancellationAction) {
-                        Button("Cancel") {
-                            dismiss()
-                        }
-                    }
-                    ToolbarItem(placement: .confirmationAction) {
-                        Button("Done") {
-                            dismiss()
-                        }
-                    }
-                }
         }
+        .navigationTitle("User Details")
+        .navigationBarTitleDisplayMode(.automatic)
     }
     
     /// Renders, build and returns the
@@ -57,7 +42,11 @@ internal struct UserDetails: View {
         } else {
             VStack {
                 Button("Sign in") {
-                    
+                    logInPresented.toggle()
+                }
+                .sheet(isPresented: $logInPresented) {
+                    LogInUser()
+                        .environmentObject(userWrapper)
                 }
             }
         }

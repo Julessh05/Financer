@@ -49,23 +49,20 @@ internal struct FinanceEditor: View {
     /// Finance.FinanceType - financeType
     private let callback : (Finance) -> Void
     
-    /// The initializer to add a new Finance
-    internal init(
-        action : @escaping (Finance) -> Void
-    ) {
-        callback = action
-    }
-    
-    /// The Initilizer to edit a Finance
+    /// The initializer to add or edit a Finance.
+    /// If you pass a finance, it will be edited, otherwise,
+    /// a new Finance is added.
     internal init(
         action : @escaping (Finance) -> Void,
-        finance : Finance
+        finance : Finance? = nil
     ) {
         callback = action
-        _amount = State(initialValue: String(finance.amount))
-        _legalPerson = State(initialValue: finance.legalPerson!)
-        _notes = State(initialValue: finance.notes!)
-        _date = State(initialValue: finance.date!)
+        if finance != nil {
+            _amount = State(initialValue: String(finance!.amount))
+            _legalPerson = State(initialValue: finance!.legalPerson!)
+            _notes = State(initialValue: finance!.notes!)
+            _date = State(initialValue: finance!.date!)
+        }
     }
     
     var body: some View {

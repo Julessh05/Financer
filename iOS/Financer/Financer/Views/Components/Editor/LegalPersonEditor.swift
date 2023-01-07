@@ -44,28 +44,26 @@ internal struct LegalPersonEditor: View {
     /// is tapped.
     private let callback : (LegalPerson) -> Void
     
-    /// The initializer to add a new Legal Person
+    /// The Initializer to add or edit a Legal Person.
+    /// If you pass a Legal Person, it will be edited, otherwise
+    /// a new Person will be added.
     internal init(
         action : @escaping (LegalPerson) -> Void,
-        legalPersonType : LegalPerson.LegalPersonType = .none
+        legalPersonType : LegalPerson.LegalPersonType = .none,
+        legalPerson : LegalPerson? = nil
     ) {
         callback = action
-        self._legalPersonType = State(initialValue: legalPersonType)
-    }
-    
-    /// The initializer to edit the passed Legal Person
-    internal init(
-        action : @escaping (LegalPerson) -> Void,
-        legalPerson : LegalPerson
-    ) {
-        callback = action
-        _name = State(initialValue: legalPerson.name!)
-        _notes = State(initialValue: legalPerson.notes!)
-        _phone = State(initialValue: legalPerson.phone!)
-        _legalPersonType = State(initialValue: LegalPerson.LegalPersonType(rawValue: legalPerson.typeAsString(capitalized: false))!)
-        if legalPerson is Union {
-            let p = legalPerson as! Union
-            _homepage = State(initialValue: p.url?.absoluteString ?? "")
+        if legalPerson != nil {
+            _name = State(initialValue: legalPerson!.name!)
+            _notes = State(initialValue: legalPerson!.notes!)
+            _phone = State(initialValue: legalPerson!.phone!)
+            _legalPersonType = State(initialValue: LegalPerson.LegalPersonType(rawValue: legalPerson!.typeAsString(capitalized: false))!)
+            if legalPerson is Union {
+                let p = legalPerson as! Union
+                _homepage = State(initialValue: p.url?.absoluteString ?? "")
+            }
+        } else {
+            self._legalPersonType = State(initialValue: legalPersonType)
         }
     }
     
