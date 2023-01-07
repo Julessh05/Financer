@@ -12,13 +12,20 @@ import SwiftUI
 /// representing different Data
 internal struct ChartDetails: View {
     
-    /// The Balances Map on the different Dates
+    /// The Balances on the different Dates
+    /// in form of an Array containing an anonymous Object
+    /// with date and amount
+    /// This should contain all balances of the App
     internal let balances : [(date : Date, amount : Double)]
     
     var body: some View {
         NavigationStack {
-            Chart {
-                
+            Chart(balances, id: \.date) {
+                balance in
+                LineMark(
+                    x: .value("Date", balance.date),
+                    y: .value("Amount", balance.amount)
+                )
             }
             Chart {
                 

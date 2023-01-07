@@ -78,12 +78,6 @@ internal struct Home: View {
     /// Whether the Chart Details View is presented or not.
     @State private var chartsPresented : Bool = false
     
-    /// The Balances with the matching Date used
-    /// to display Charts in this App
-    /// This is an Array of an anonymous Object, at least I think it
-    /// is xD
-    @State private var balances : [(date : Date, amount : Double)] = []
-    
     var body: some View {
         NavigationStack {
             List {
@@ -145,17 +139,15 @@ internal struct Home: View {
                 }
             }
         }
-        .onAppear {
-            balances = userWrapper.balance(with: finances)
-        }
     }
     
     /// Builds, renders and returns the
     /// Chart shown on the Homescreen
     @ViewBuilder
     private func chart() -> some View {
-        let index : Int = balances.count < 8 ? balances.count : 8
-        if index != 0 {
+        // TODO: make Chart only draw
+        let balances = userWrapper.balance(days: 7, with: finances)
+        if !balances.isEmpty {
             Chart(balances, id: \.date) {
                 balance in
                 LineMark(
