@@ -187,11 +187,11 @@
 			isa = PBXGroup;
 			children = (
 				3FCD271C2952E3CA00ECD3C2 /* Home.swift */,
+				8445A67B2968841400A4FC55 /* Statistics */,
+				8445A67A2968840800A4FC55 /* User */,
 				845F170B2957379D009728F5 /* Components */,
 				845F16FD2956D1B6009728F5 /* LegalPerson */,
 				845F16FB2956D1A5009728F5 /* Finance */,
-				3FCD271C2952E3CA00ECD3C2 /* Home.swift */,
-				849AB4362965CAB100AA8E75 /* ChartDetails.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -213,6 +213,21 @@
 				845FFFD42961865D0053E9F5 /* FinanceEditor.swift */,
 			);
 			path = Editor;
+			sourceTree = "<group>";
+		};
+		8445A67A2968840800A4FC55 /* User */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		8445A67B2968841400A4FC55 /* Statistics */ = {
+			isa = PBXGroup;
+			children = (
+				849AB4362965CAB100AA8E75 /* ChartDetails.swift */,
+			);
+			path = Statistics;
 			sourceTree = "<group>";
 		};
 		845F16FB2956D1A5009728F5 /* Finance */ = {

@@ -90,8 +90,44 @@ internal final class UserWrapper : ObservableObject {
         }
     }
     
-    /// Returns the Balance on the specified Date.
-    internal func balanceOn(date : Date, with finances : any RandomAccessCollection<Finance>) -> Double {
-        return 100.0
+    /// Returns a Dictionary containing the Date and the Balance on the end of that day.
+    /// The index specifies the number of days to go back
+    internal func balance(
+        days : Int? = nil,
+        with finances : any RandomAccessCollection<Finance>
+    ) -> [(date : Date, amount : Double)] {
+        var amounts : [Date : Double] = [ : ]
+        var dict : [(date : Date, amount : Double)] = []
+        let calendar : Calendar = Calendar.current
+        let today : Date = Date()
+        let intervalInSeconds : TimeInterval = Date.now.timeIntervalSince(finances.last!.date!)
+        let interval = intervalInSeconds / 86400
+        for index in 0...Int(interval) {
+            var i : Int = index
+            i.negate()
+            var date : Date = calendar.date(byAdding: .day, value: i, to: today)!
+            let dateComponents = calendar.dateComponents([.year, .month, .day], from: date)
+            date = calendar.date(from: dateComponents)!
+            let financesOnDay : [Finance] = finances.filter {
+                let dateToCheck = calendar.dateComponents([.year, .month, .day], from: $0.date!)
+                let components = dateComponents
+                return dateToCheck.year == components.year && dateToCheck.month == components.month && dateToCheck.day == components.day
+            }
+            var amount : Double = 0
+            financesOnDay.forEach {
+                finance in
+                amount += finance.amount
+            }
+            amounts[date] = amount
+            var balanceOfTheDay = self.balance
+            for previousAmounts in amounts {
+                balanceOfTheDay -= previousAmounts.value
+            }
+            dict.append((date: date, amount : balanceOfTheDay))
+            if let check = days, index >= check {
+                break
+            }
+        }
+        return dict
     }
 }

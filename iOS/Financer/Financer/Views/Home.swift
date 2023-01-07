@@ -45,7 +45,7 @@ internal struct Home: View {
         request.sortDescriptors = [
             NSSortDescriptor(
                 keyPath: \Finance.date,
-                ascending: true
+                ascending: false
             )
         ]
         return request
@@ -75,24 +75,29 @@ internal struct Home: View {
     /// Whether the details View for a finance is presented or not.
     @State private var detailsPresented : Bool = false
     
+    /// Whether the Chart Details View is presented or not.
+    @State private var chartsPresented : Bool = false
+    
+    /// The Balances with the matching Date used
+    /// to display Charts in this App
+    /// This is an Array of an anonymous Object, at least I think it
+    /// is xD
+    @State private var balances : [(date : Date, amount : Double)] = []
+    
     var body: some View {
         NavigationStack {
             List {
                 Section {
-                    NavigationLink {
-                        ChartDetails()
+                    Button {
+                        chartsPresented.toggle()
                     } label: {
                         // Date comparing from: https://www.hackingwithswift.com/example-code/language/how-to-compare-dates
                         // Date calculation from: https://stackoverflow.com/questions/29465205/how-to-add-minutes-to-current-time-in-swift
                         // Answer here: https://stackoverflow.com/a/29465300/16376071
-                        Chart(finances.filter { $0.date! < Date.now} ) {
-                            finance in
-                            LineMark(
-                                x: .value("Time", finance.date!),
-                                y: .value("Balance", userWrapper.balanceOn(date: finance.date!, with: finances))
-                            )
-                        }
-                        .padding(.vertical, 10)
+                        chart()
+                    }
+                    .sheet(isPresented: $chartsPresented) {
+                        ChartDetails(balances: userWrapper.balance(with: finances))
                     }
                 }
                 Section {
@@ -106,6 +111,13 @@ internal struct Home: View {
                             label(finance)
                         }
                         .foregroundColor(.black)
+                    }
+                } header: {
+                    Text("Finances")
+                } footer: {
+                    VStack(alignment: .leading) {
+                        Text("Congrats!")
+                        Text("You reached the End of the List of all Finances you ever added.")
                     }
                 }
             }
@@ -157,6 +169,36 @@ internal struct Home: View {
                 // Only with the difference that I'm enforcing the Date here.
                 Text(finance.date!, format: .dateTime.day().month().year())
                     .foregroundColor(.gray)
+            }
+        }.onAppear {
+            balances = userWrapper.balance(with: finances)
+        }
+    }
+    
+    /// Builds, renders and returns the
+    /// Chart shown on the Homescreen
+    @ViewBuilder
+    private func chart() -> some View {
+        let index : Int = balances.count < 8 ? balances.count : 8
+        if index != 0 {
+            Chart(balances, id: \.date) {
+                balance in
+                LineMark(
+                    x: .value(
+                        "Time",
+                        balance.date
+                    ),
+                    y: .value(
+                        "Balance",
+                        balance.amount
+                    )
+                )
+            }
+            .padding(.vertical, 10)
+        } else {
+            Section {
+                Text("Charts will appear when Data are entered.")
+                    .foregroundColor(.black)
             }
         }
     }
