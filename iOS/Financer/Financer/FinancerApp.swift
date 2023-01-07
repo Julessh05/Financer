@@ -11,14 +11,17 @@ import SwiftUI
 /// This has the @main Annotation, indicating, that
 /// this is the entrance point for this App.
 @main
-struct FinancerApp: App {
+internal struct FinancerApp: App {
+    
+    /// The User Wrapper Object used in the whole App
+    @StateObject private var userWrapper : UserWrapper = UserWrapper()
     
     /// The Persistence Controller used in this App.
     ///
     /// The Context of this Controller is injeected into the
     /// environment via the .environment modifier which is available on
     /// the view struct.
-    let persistenceController = PersistenceController.shared
+    private let persistenceController : PersistenceController = PersistenceController.shared
 
     var body: some Scene {
         WindowGroup {
@@ -27,6 +30,7 @@ struct FinancerApp: App {
                 .onAppear {
                     SettingsBundleHelper.shared.setValues()
                 }
+                .environmentObject(userWrapper)
         }
     }
 }

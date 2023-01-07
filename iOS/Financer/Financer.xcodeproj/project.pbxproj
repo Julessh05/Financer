@@ -33,6 +33,8 @@
 		845FFFDB2961867E0053E9F5 /* EditFinance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845FFFDA2961867E0053E9F5 /* EditFinance.swift */; };
 		848A44AC29639713002AC782 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 848A44AB29639713002AC782 /* Settings.bundle */; };
 		848A44AF29642897002AC782 /* SettingsBundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848A44AE29642897002AC782 /* SettingsBundleHelper.swift */; };
+		849AB4352965C0C200AA8E75 /* UserWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849AB4342965C0C200AA8E75 /* UserWrapper.swift */; };
+		849AB4372965CAB100AA8E75 /* ChartDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849AB4362965CAB100AA8E75 /* ChartDetails.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +85,8 @@
 		845FFFDA2961867E0053E9F5 /* EditFinance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFinance.swift; sourceTree = "<group>"; };
 		848A44AB29639713002AC782 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		848A44AE29642897002AC782 /* SettingsBundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBundleHelper.swift; sourceTree = "<group>"; };
+		849AB4342965C0C200AA8E75 /* UserWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWrapper.swift; sourceTree = "<group>"; };
+		849AB4362965CAB100AA8E75 /* ChartDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDetails.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +187,8 @@
 			isa = PBXGroup;
 			children = (
 				3FCD271C2952E3CA00ECD3C2 /* Home.swift */,
+				8445A67B2968841400A4FC55 /* Statistics */,
+				8445A67A2968840800A4FC55 /* User */,
 				845F170B2957379D009728F5 /* Components */,
 				845F16FD2956D1B6009728F5 /* LegalPerson */,
 				845F16FB2956D1A5009728F5 /* Finance */,
@@ -207,6 +213,21 @@
 				845FFFD42961865D0053E9F5 /* FinanceEditor.swift */,
 			);
 			path = Editor;
+			sourceTree = "<group>";
+		};
+		8445A67A2968840800A4FC55 /* User */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		8445A67B2968841400A4FC55 /* Statistics */ = {
+			isa = PBXGroup;
+			children = (
+				849AB4362965CAB100AA8E75 /* ChartDetails.swift */,
+			);
+			path = Statistics;
 			sourceTree = "<group>";
 		};
 		845F16FB2956D1A5009728F5 /* Finance */ = {
@@ -254,6 +275,7 @@
 			children = (
 				845FFFCF29617F4F0053E9F5 /* FinanceWrapper.swift */,
 				840581C4296195D900B7C53B /* LegalPersonWrapper.swift */,
+				849AB4342965C0C200AA8E75 /* UserWrapper.swift */,
 			);
 			path = Wrappers;
 			sourceTree = "<group>";
@@ -400,12 +422,14 @@
 				845FFFD52961865D0053E9F5 /* FinanceEditor.swift in Sources */,
 				845715AA295D6EC200AAD818 /* DefaultListTile.swift in Sources */,
 				845F16FA29562D64009728F5 /* AddFinance.swift in Sources */,
+				849AB4372965CAB100AA8E75 /* ChartDetails.swift in Sources */,
 				845F170D295737A6009728F5 /* ListTile.swift in Sources */,
 				3FCD27242952E3CB00ECD3C2 /* Persistence.swift in Sources */,
 				845FFFD92961867A0053E9F5 /* EditLegalPerson.swift in Sources */,
 				845FFFD7296186620053E9F5 /* LegalPersonEditor.swift in Sources */,
 				845FFFD029617F4F0053E9F5 /* FinanceWrapper.swift in Sources */,
 				848A44AF29642897002AC782 /* SettingsBundleHelper.swift in Sources */,
+				849AB4352965C0C200AA8E75 /* UserWrapper.swift in Sources */,
 				3FC79A182954343000808FF2 /* FinanceDetails.swift in Sources */,
 				3FCD271D2952E3CA00ECD3C2 /* Home.swift in Sources */,
 				845F170F2957405F009728F5 /* LegalPersonDetails.swift in Sources */,
@@ -579,6 +603,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Financer/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -608,6 +633,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Financer/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

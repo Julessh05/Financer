@@ -6,14 +6,18 @@
 //  Renamed by Julian Schumacher to Home.swift on 02.01.2023
 //
 
-import SwiftUI
+import Charts
 import CoreData
+import SwiftUI
 
 /// The first View shown to the User when opening
 /// the App.
 internal struct Home: View {
     /// The ViewContext to use when interacting with the Core Data Framework
     @Environment(\.managedObjectContext) private var viewContext
+    
+    /// The Wrapper of the User of this App
+    @EnvironmentObject private var userWrapper : UserWrapper
     
     /// The initial State Object to inject into the Environment to
     /// be able to pass a finance between all Views.
@@ -41,7 +45,7 @@ internal struct Home: View {
         request.sortDescriptors = [
             NSSortDescriptor(
                 keyPath: \Finance.date,
-                ascending: true
+                ascending: false
             )
         ]
         return request
@@ -71,18 +75,42 @@ internal struct Home: View {
     /// Whether the details View for a finance is presented or not.
     @State private var detailsPresented : Bool = false
     
+    /// Whether the Chart Details View is presented or not.
+    @State private var chartsPresented : Bool = false
+    
     var body: some View {
         NavigationStack {
-            List(finances) {
-                finance in
-                Button {
-                    financeWrapper.finance = finance
-                    legalPersonWrapper.legalPerson = finance.legalPerson
-                    detailsPresented.toggle()
-                } label: {
-                    label(finance)
+            List {
+                Section {
+                    Button {
+                        chartsPresented.toggle()
+                    } label: {
+                        // Date comparing from: https://www.hackingwithswift.com/example-code/language/how-to-compare-dates
+                        // Date calculation from: https://stackoverflow.com/questions/29465205/how-to-add-minutes-to-current-time-in-swift
+                        // Answer here: https://stackoverflow.com/a/29465300/16376071
+                        chart()
+                    }
+                    .sheet(isPresented: $chartsPresented) {
+                        ChartDetails(balances: userWrapper.balance(with: finances))
+                    }
                 }
-                .foregroundColor(.black)
+                Section {
+                    ForEach(finances) {
+                        finance in
+                        Button {
+                            financeWrapper.finance = finance
+                            legalPersonWrapper.legalPerson = finance.legalPerson
+                            detailsPresented.toggle()
+                        } label: {
+                            label(finance)
+                        }
+                        .foregroundColor(.black)
+                    }
+                } header: {
+                    Text("Finances")
+                } footer: {
+                    financeFooter()
+                }
             }
             Button {
                 addPresented.toggle()
@@ -113,6 +141,35 @@ internal struct Home: View {
         }
     }
     
+    /// Builds, renders and returns the
+    /// Chart shown on the Homescreen
+    @ViewBuilder
+    private func chart() -> some View {
+        // TODO: make Chart only draw
+        let balances = userWrapper.balance(days: 7, with: finances)
+        if !balances.isEmpty {
+            Chart(balances, id: \.date) {
+                balance in
+                LineMark(
+                    x: .value(
+                        "Time",
+                        balance.date
+                    ),
+                    y: .value(
+                        "Balance",
+                        balance.amount
+                    )
+                )
+            }
+            .padding(.vertical, 10)
+        } else {
+            Section {
+                Text("Charts will appear when Data are entered.")
+                    .foregroundColor(.black)
+            }
+        }
+    }
+    
     /// Builds and returns the Label
     /// of a specific Finance List Object
     @ViewBuilder
@@ -133,6 +190,24 @@ internal struct Home: View {
                 Text(finance.date!, format: .dateTime.day().month().year())
                     .foregroundColor(.gray)
             }
+        }
+    }
+    
+    
+    
+    /// Builds, renders and returns the
+    /// Footer of the Finance Section depending
+    /// on the length of the FInance List
+    /// => small easter egg :)
+    @ViewBuilder
+    private func financeFooter() -> some View {
+        if finances.count > 50 {
+            VStack(alignment: .leading) {
+                Text("Congratulations!🎉")
+                Text("You reached the End of the List of all Finances you ever added.")
+            }
+        } else {
+            Text("Contains all the Finances you ever added to the App")
         }
     }
 }
