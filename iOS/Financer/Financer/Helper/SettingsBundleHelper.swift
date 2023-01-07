@@ -48,8 +48,8 @@ internal struct SettingsBundleHelper {
     /// The Function to set all Values
     /// to the Settings App
     internal func setValues() -> Void {
-        guard let appVersion = dict[String(kCFBundleVersionKey)] else { return }
-        guard let buildNumber = dict["CFBundleShortVersionString"] else { return }
+        guard let appVersion = dict["CFBundleShortVersionString"] else { return }
+        guard let buildNumber = dict[String(kCFBundleVersionKey)] else { return }
         userDefaults.set(appVersion, forKey: SettingsBundleKeys.appVersion)
         userDefaults.set(buildNumber, forKey: SettingsBundleKeys.buildNumber)
     }
