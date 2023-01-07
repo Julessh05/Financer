@@ -78,6 +78,8 @@ internal struct Home: View {
     /// Whether the Chart Details View is presented or not.
     @State private var chartsPresented : Bool = false
     
+    @State private var userDetailsPresented : Bool = false
+    
     var body: some View {
         NavigationStack {
             List {
@@ -135,7 +137,25 @@ internal struct Home: View {
             .toolbar(.automatic, for: .navigationBar)
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
-                    
+                    Button {
+                        userDetailsPresented.toggle()
+                    } label: {
+                        Image(systemName: "person.circle.fill")
+                            .renderingMode(.original)
+                            .foregroundColor(.black)
+                    }
+                    .sheet(isPresented: $userDetailsPresented) {
+                        UserDetails()
+                            .environmentObject(userWrapper)
+                    }
+                    //                    NavigationLink {
+                    //                        UserDetails()
+                    //                            .environmentObject(userWrapper)
+                    //                    } label: {
+                    //                        Image(systemName: "person.circle.fill")
+                    //                            .renderingMode(.original)
+                    //                            .foregroundColor(.black)
+                    //                    }
                 }
             }
         }
@@ -145,7 +165,6 @@ internal struct Home: View {
     /// Chart shown on the Homescreen
     @ViewBuilder
     private func chart() -> some View {
-        // TODO: make Chart only draw
         let balances = userWrapper.balance(days: 7, with: finances)
         if !balances.isEmpty {
             Chart(balances, id: \.date) {
@@ -213,8 +232,14 @@ internal struct Home: View {
 }
 
 internal struct ContentView_Previews: PreviewProvider {
+    
+    /// The User Wrapper Environment Object
+    /// used in this Environment
+    @StateObject private static var userWrapperPreview : UserWrapper = UserWrapper(user: User.anonymous)
+    
     static var previews: some View {
         Home()
+            .environmentObject(userWrapperPreview)
             .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }
