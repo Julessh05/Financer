@@ -3,7 +3,7 @@
 //  Financer
 //
 //  Created by Julian Schumacher as ContentView.swift on 21.12.22.
-//  Renamed by Julian Schumacher to Home.swift on 02.01.2023
+//  Renamed by Julian Schumacher to Home.swift on 02.01.23
 //
 
 import Charts
@@ -37,6 +37,13 @@ internal struct Home: View {
     /// the Core Database
     @FetchRequest(fetchRequest: financeFetchRequest)
     private var finances : FetchedResults<Finance>
+    
+    /// The Users in this App
+    @FetchRequest(
+        sortDescriptors: [
+            SortDescriptor(\User.firstname)
+        ]
+    ) private var users : FetchedResults<User>
     
     /// This is the fetch Request to fetch all the Finances
     /// from the Core Data Persistence Storage
@@ -77,6 +84,8 @@ internal struct Home: View {
     
     /// Whether the Chart Details View is presented or not.
     @State private var chartsPresented : Bool = false
+    
+    @State private var userDetailsPresented : Bool = false
     
     var body: some View {
         NavigationStack {
@@ -122,20 +131,34 @@ internal struct Home: View {
                 content: {
                     AddFinance()
                         .environmentObject(legalPersonWrapper)
+                        .environmentObject(userWrapper)
                 }
             )
+            .onAppear {
+                if !users.isEmpty {
+                    userWrapper.user = users.first!
+                }
+            }
             .navigationTitle("Welcome")
             .navigationBarTitleDisplayMode(.automatic)
             .sheet(isPresented: $detailsPresented) {
                 FinanceDetails()
                     .environmentObject(legalPersonWrapper)
                     .environmentObject(financeWrapper)
+                    .environmentObject(userWrapper)
             }
             .toolbarRole(.navigationStack)
             .toolbar(.automatic, for: .navigationBar)
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
-                    
+                    NavigationLink {
+                        UserDetails()
+                            .environmentObject(userWrapper)
+                    } label: {
+                        Image(systemName: "person.circle.fill")
+                            .renderingMode(.original)
+                            .foregroundColor(.black)
+                    }
                 }
             }
         }
@@ -145,23 +168,10 @@ internal struct Home: View {
     /// Chart shown on the Homescreen
     @ViewBuilder
     private func chart() -> some View {
-        // TODO: make Chart only draw
         let balances = userWrapper.balance(days: 7, with: finances)
         if !balances.isEmpty {
-            Chart(balances, id: \.date) {
-                balance in
-                LineMark(
-                    x: .value(
-                        "Time",
-                        balance.date
-                    ),
-                    y: .value(
-                        "Balance",
-                        balance.amount
-                    )
-                )
-            }
-            .padding(.vertical, 10)
+            BalancesChart(balances: balances)
+                .padding(.vertical, 10)
         } else {
             Section {
                 Text("Charts will appear when Data are entered.")
@@ -213,8 +223,14 @@ internal struct Home: View {
 }
 
 internal struct ContentView_Previews: PreviewProvider {
+    
+    /// The User Wrapper Environment Object
+    /// used in this Environment
+    @StateObject private static var userWrapperPreview : UserWrapper = UserWrapper(user: User.anonymous)
+    
     static var previews: some View {
         Home()
+            .environmentObject(userWrapperPreview)
             .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

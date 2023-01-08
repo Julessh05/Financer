@@ -1,20 +1,20 @@
 //
-//  AddFinance.swift
+//  LogInUser.swift
 //  Financer
 //
-//  Created by Julian Schumacher on 23.12.22.
+//  Created by Julian Schumacher on 07.01.23.
 //
 
 import SwiftUI
 
-/// The View to add a new Finance
-internal struct AddFinance: View {
+/// This View provides the Opportunity for the
+/// User to log in
+internal struct LogInUser: View {
     
-    /// The Context used to interact with the Core Data
-    /// Manager
+    /// The context that manages the Core Data in this App
     @Environment(\.managedObjectContext) private var viewContext
     
-    /// The User Wrapper being used to upate the User Balance
+    /// The User Wrapper containing the current User
     @EnvironmentObject private var userWrapper : UserWrapper
     
     /// Whether ther Error when saving is displayed or not.
@@ -22,8 +22,8 @@ internal struct AddFinance: View {
     
     var body: some View {
         NavigationStack {
-            FinanceEditor(action: addFinance)
-                .navigationTitle("Add Finance")
+            UserEditor(action: addUser)
+                .navigationTitle("Log In")
                 .alert(
                     "Error",
                     isPresented: $errSavingPresented
@@ -37,9 +37,9 @@ internal struct AddFinance: View {
         }
     }
     
-    /// Creates and adds the Finance to the Core Data.
-    private func addFinance(finance : Finance) -> Void {
-        userWrapper.addFinance(finance)
+    /// The Function called to add  a User
+    private func addUser(user : User) -> Void {
+        userWrapper.user = user
         do {
             try viewContext.save()
         } catch _ {
@@ -48,8 +48,8 @@ internal struct AddFinance: View {
     }
 }
 
-internal struct AddFinance_Previews: PreviewProvider {
+internal struct LogInUser_Previews: PreviewProvider {
     static var previews: some View {
-        AddFinance()
+        LogInUser()
     }
 }

@@ -18,6 +18,9 @@ internal struct EditFinance: View {
     /// Finance that should be edited.
     @EnvironmentObject private var financeWrapper : FinanceWrapper
     
+    /// The User Wrapper to update the Users Balance
+    @EnvironmentObject private var userWrapper : UserWrapper
+    
     /// Whether ther Error when saving is displayed or not.
     @State private var errSavingPresented : Bool = false
     
@@ -39,6 +42,10 @@ internal struct EditFinance: View {
     /// The function to edit the Finance.
     /// This is passed to the FinanceEditor
     private func editFinance(finance : Finance) -> Void {
+        userWrapper.replaceFinance(
+            financeWrapper.finance!,
+            with: finance
+        )
         viewContext.delete(financeWrapper.finance!)
         financeWrapper.finance = finance
         do {

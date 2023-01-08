@@ -2,12 +2,14 @@
 //  ContentView.swift
 //  Financer
 //
-//  Created by Julian Schumacher on 29.10.22.
+//  Created by Julian Schumacher as ContentView.swift on 29.10.22.
+//
+//  Renamed by Julian Schumacher to Home.swift on 08.01.23
 //
 
 import SwiftUI
 
-struct ContentView: View {
+internal struct Home: View {
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -21,6 +23,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        Home()
     }
 }

@@ -5,11 +5,14 @@
 //  Created by Julian Schumacher as LegalPersonListTile.swift on 24.12.22.
 //
 //  Renamed by Julian Schumacher to ListTile.swift on 24.12.22
+//
+//  Renamed back by Julian Schumacher to LegalPersonListTile.swift on 08.01.23
+//
 
 import SwiftUI
 
 /// The List TIle to represent Model  in a List
-internal struct ListTile: View {
+internal struct LegalPersonListTile: View {
     
     /// The Wrapper of the legal Person being presented
     @EnvironmentObject private var legalPersonWrapper : LegalPersonWrapper
@@ -56,7 +59,7 @@ internal struct ListTile: View {
 
 internal struct LegalPersonListTile_Previews: PreviewProvider {
     static var previews: some View {
-        ListTile(
+        LegalPersonListTile(
             person: LegalPerson.anonymous,
             { _ in print("Callback activated") }
         )
