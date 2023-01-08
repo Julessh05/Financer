@@ -2,6 +2,12 @@
 
 An Swift Application to track your Expenses and Incomes.
 
+## About
+
+Nowadays we have a lot of contracts, subscriptions... general incomes and expenses. It's easy to loose the overview and paying things you don't even want to pay anymore. If that stacks up, that can be cruel for your money and financial stability.
+So this App helps you keep track of all that and gives you the opportunity to see what takes away a lot of your money.
+Also it's a super modern and easy to used designed App, so it actually helps you during your daily routine and does not slow it down.
+
 
 ## Features
 
@@ -37,3 +43,9 @@ An Swift Application to track your Expenses and Incomes.
 - Data are stored in Apple's Core Data Database Framework mirroring the Data into your own iCloud so you don't loose your Data when chaning the Device
 - As mentioned above, Data are encrypted with Apple's File Encryption
 - The Data are just stored in your **own** iCloud preventing others from accessing your Data and Information
+
+
+### Copyright
+
+© Julian Schumacher 2023
+All rights reserved
