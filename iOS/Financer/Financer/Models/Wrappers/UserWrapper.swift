@@ -96,6 +96,9 @@ internal final class UserWrapper : ObservableObject {
         days : Int? = nil,
         with finances : any RandomAccessCollection<Finance>
     ) -> [(date : Date, amount : Double)] {
+        guard !finances.isEmpty else {
+            return []
+        }
         var amounts : [Date : Double] = [ : ]
         var dict : [(date : Date, amount : Double)] = []
         let calendar : Calendar = Calendar.current

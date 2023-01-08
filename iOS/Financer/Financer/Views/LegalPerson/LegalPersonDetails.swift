@@ -35,15 +35,15 @@ internal struct LegalPersonDetails: View {
         NavigationStack {
             List {
                 Section {
-                    DefaultListTile(name: "Name", data: legalPersonWrapper.legalPerson!.name!)
-                    DefaultListTile(name: "Type", data: legalPersonWrapper.legalPerson!.typeAsString())
+                    ListTile(name: "Name", data: legalPersonWrapper.legalPerson!.name!)
+                    ListTile(name: "Type", data: legalPersonWrapper.legalPerson!.typeAsString())
                 } header: {
                     Text("General Values")
                 } footer: {
                     Text("These are the general Values for this \(legalPersonWrapper.legalPerson!.typeAsString())")
                 }
                 Section {
-                    DefaultListTile(name: "Phone", data: legalPersonWrapper.legalPerson!.phone!)
+                    ListTile(name: "Phone", data: legalPersonWrapper.legalPerson!.phone!)
                     Text(notes)
                         .lineLimit(5...10)
                         .foregroundColor(.gray)
@@ -55,7 +55,7 @@ internal struct LegalPersonDetails: View {
                 Section {
                     ForEach(finances) {
                         finance in
-                        DefaultListTile(
+                        ListTile(
                             name: finance.typeAsString(),
                             data: String(finance.amount),
                             onTap: {

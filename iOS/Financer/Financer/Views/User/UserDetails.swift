@@ -20,6 +20,9 @@ internal struct UserDetails: View {
     /// Whether the log In View is presented or not.
     @State private var logInPresented : Bool = false
     
+    /// Whether the Edit user View is Presented or not
+    @State private var editPresented : Bool = false
+    
     var body: some View {
         VStack {
             userDetails()
@@ -35,9 +38,37 @@ internal struct UserDetails: View {
         if userWrapper.user != nil {
             let user : User = userWrapper.user!
             List {
-                DefaultListTile(name: "First Name", data: user.firstname!)
-                DefaultListTile(name: "Last Name", data: user.lastname!)
-                DefaultListTile(name: "Current Balance", data: String(user.balance))
+                Section {
+                    ListTile(name: "First Name", data: user.firstname!)
+                    ListTile(name: "Last Name", data: user.lastname!)
+                    dateOfBirthSection()
+                } header: {
+                    Text("General")
+                } footer: {
+                    Text("General Information about the User")
+                }
+                Section {
+                    ListTile(name: "Current Balance", data: String(user.balance))
+                } header: {
+                    Text("App Related")
+                } footer: {
+                    Text("App Relation Information about the User")
+                }
+            }
+            .toolbarRole(.navigationStack)
+            .toolbar(.automatic, for: .navigationBar)
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    Button {
+                        editPresented.toggle()
+                    } label: {
+                        Image(systemName: "pencil")
+                    }
+                    .sheet(isPresented: $editPresented) {
+                        EditUser()
+                            .environmentObject(userWrapper)
+                    }
+                }
             }
         } else {
             VStack {
@@ -49,6 +80,20 @@ internal struct UserDetails: View {
                         .environmentObject(userWrapper)
                 }
             }
+        }
+    }
+    
+    @ViewBuilder
+    private func dateOfBirthSection() -> some View {
+        if userWrapper.user!.dateOfBirth != nil {
+            HStack {
+                Text("Date of Birth")
+                Spacer()
+                Text(userWrapper.user!.dateOfBirth!, style: .date)
+                    .foregroundColor(.gray)
+            }
+        } else {
+            EmptyView()
         }
     }
 }

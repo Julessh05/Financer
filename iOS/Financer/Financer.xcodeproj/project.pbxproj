@@ -23,13 +23,14 @@
 		84235826296991CC0055904A /* BalancesChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84235825296991CC0055904A /* BalancesChart.swift */; };
 		84235828296992920055904A /* LogInUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84235827296992920055904A /* LogInUser.swift */; };
 		8423582B296994000055904A /* UserEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8423582A296994000055904A /* UserEditor.swift */; };
-		845715AA295D6EC200AAD818 /* DefaultListTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845715A9295D6EC200AAD818 /* DefaultListTile.swift */; };
+		8423582E296AA0420055904A /* EditUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8423582D296AA0420055904A /* EditUser.swift */; };
+		845715AA295D6EC200AAD818 /* ListTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845715A9295D6EC200AAD818 /* ListTile.swift */; };
 		845F16FA29562D64009728F5 /* AddFinance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845F16F929562D64009728F5 /* AddFinance.swift */; };
 		845F16FF2956D1E2009728F5 /* LegalPersonPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845F16FE2956D1E2009728F5 /* LegalPersonPicker.swift */; };
 		845F17012956FDA3009728F5 /* AddLegalPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845F17002956FDA3009728F5 /* AddLegalPerson.swift */; };
 		845F1706295731E5009728F5 /* Finance+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845F1702295731E5009728F5 /* Finance+CoreDataClass.swift */; };
 		845F1708295731E5009728F5 /* LegalPerson+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845F1704295731E5009728F5 /* LegalPerson+CoreDataClass.swift */; };
-		845F170D295737A6009728F5 /* ListTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845F170C295737A6009728F5 /* ListTile.swift */; };
+		845F170D295737A6009728F5 /* LegalPersonListTileListTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845F170C295737A6009728F5 /* LegalPersonListTileListTile.swift */; };
 		845F170F2957405F009728F5 /* LegalPersonDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845F170E2957405F009728F5 /* LegalPersonDetails.swift */; };
 		845FFFD029617F4F0053E9F5 /* FinanceWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845FFFCF29617F4F0053E9F5 /* FinanceWrapper.swift */; };
 		845FFFD52961865D0053E9F5 /* FinanceEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845FFFD42961865D0053E9F5 /* FinanceEditor.swift */; };
@@ -80,13 +81,14 @@
 		84235825296991CC0055904A /* BalancesChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalancesChart.swift; sourceTree = "<group>"; };
 		84235827296992920055904A /* LogInUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInUser.swift; sourceTree = "<group>"; };
 		8423582A296994000055904A /* UserEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEditor.swift; sourceTree = "<group>"; };
-		845715A9295D6EC200AAD818 /* DefaultListTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultListTile.swift; sourceTree = "<group>"; };
+		8423582D296AA0420055904A /* EditUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUser.swift; sourceTree = "<group>"; };
+		845715A9295D6EC200AAD818 /* ListTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTile.swift; sourceTree = "<group>"; };
 		845F16F929562D64009728F5 /* AddFinance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFinance.swift; sourceTree = "<group>"; };
 		845F16FE2956D1E2009728F5 /* LegalPersonPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalPersonPicker.swift; sourceTree = "<group>"; };
 		845F17002956FDA3009728F5 /* AddLegalPerson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLegalPerson.swift; sourceTree = "<group>"; };
 		845F1702295731E5009728F5 /* Finance+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Finance+CoreDataClass.swift"; path = "Financer/Models/Generated/Finance+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		845F1704295731E5009728F5 /* LegalPerson+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "LegalPerson+CoreDataClass.swift"; path = "Financer/Models/Generated/LegalPerson+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		845F170C295737A6009728F5 /* ListTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTile.swift; sourceTree = "<group>"; };
+		845F170C295737A6009728F5 /* LegalPersonListTileListTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalPersonListTileListTile.swift; sourceTree = "<group>"; };
 		845F170E2957405F009728F5 /* LegalPersonDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalPersonDetails.swift; sourceTree = "<group>"; };
 		845FFFCF29617F4F0053E9F5 /* FinanceWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceWrapper.swift; sourceTree = "<group>"; };
 		845FFFD42961865D0053E9F5 /* FinanceEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceEditor.swift; sourceTree = "<group>"; };
@@ -224,6 +226,15 @@
 			path = Statistics;
 			sourceTree = "<group>";
 		};
+		8423582C296A9DB10055904A /* ListTiles */ = {
+			isa = PBXGroup;
+			children = (
+				845F170C295737A6009728F5 /* LegalPersonListTileListTile.swift */,
+				845715A9295D6EC200AAD818 /* ListTile.swift */,
+			);
+			path = ListTiles;
+			sourceTree = "<group>";
+		};
 		843196FE2962EE270093D0A8 /* Editor */ = {
 			isa = PBXGroup;
 			children = (
@@ -239,6 +250,7 @@
 			children = (
 				8423581F296981F00055904A /* UserDetails.swift */,
 				84235827296992920055904A /* LogInUser.swift */,
+				8423582D296AA0420055904A /* EditUser.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -285,10 +297,9 @@
 		845F170B2957379D009728F5 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				8423582C296A9DB10055904A /* ListTiles */,
 				84235829296993D00055904A /* Statistics */,
 				843196FE2962EE270093D0A8 /* Editor */,
-				845F170C295737A6009728F5 /* ListTile.swift */,
-				845715A9295D6EC200AAD818 /* DefaultListTile.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -443,10 +454,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				845FFFD52961865D0053E9F5 /* FinanceEditor.swift in Sources */,
-				845715AA295D6EC200AAD818 /* DefaultListTile.swift in Sources */,
+				845715AA295D6EC200AAD818 /* ListTile.swift in Sources */,
 				845F16FA29562D64009728F5 /* AddFinance.swift in Sources */,
 				849AB4372965CAB100AA8E75 /* ChartDetails.swift in Sources */,
-				845F170D295737A6009728F5 /* ListTile.swift in Sources */,
+				845F170D295737A6009728F5 /* LegalPersonListTileListTile.swift in Sources */,
 				3FCD27242952E3CB00ECD3C2 /* Persistence.swift in Sources */,
 				845FFFD92961867A0053E9F5 /* EditLegalPerson.swift in Sources */,
 				845FFFD7296186620053E9F5 /* LegalPersonEditor.swift in Sources */,
@@ -456,6 +467,7 @@
 				849AB4352965C0C200AA8E75 /* UserWrapper.swift in Sources */,
 				3FC79A182954343000808FF2 /* FinanceDetails.swift in Sources */,
 				84235820296981F00055904A /* UserDetails.swift in Sources */,
+				8423582E296AA0420055904A /* EditUser.swift in Sources */,
 				3FCD271D2952E3CA00ECD3C2 /* Home.swift in Sources */,
 				84235823296987BE0055904A /* User+CoreDataClass.swift in Sources */,
 				845F170F2957405F009728F5 /* LegalPersonDetails.swift in Sources */,

@@ -39,12 +39,12 @@ internal struct LogInUser: View {
     
     /// The Function called to add  a User
     private func addUser(user : User) -> Void {
+        userWrapper.user = user
         do {
             try viewContext.save()
         } catch _ {
             errSavingPresented.toggle()
         }
-        userWrapper.user = user
     }
 }
 

@@ -18,6 +18,7 @@ public class User: NSManagedObject {
         let u = User(context: viewContext)
         u.firstname = "Julian"
         u.lastname = "Schumacher"
+        u.dateOfBirth = Date()
         return u
     }
 

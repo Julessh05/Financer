@@ -14,6 +14,9 @@ internal struct AddFinance: View {
     /// Manager
     @Environment(\.managedObjectContext) private var viewContext
     
+    /// The User Wrapper being used to upate the User Balance
+    @EnvironmentObject private var userWrapper : UserWrapper
+    
     /// Whether ther Error when saving is displayed or not.
     @State private var errSavingPresented : Bool = false
     
@@ -36,6 +39,7 @@ internal struct AddFinance: View {
     
     /// Creates and adds the Finance to the Core Data.
     private func addFinance(finance : Finance) -> Void {
+        userWrapper.addFinance(finance)
         do {
             try viewContext.save()
         } catch _ {

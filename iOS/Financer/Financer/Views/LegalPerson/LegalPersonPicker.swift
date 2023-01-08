@@ -129,7 +129,7 @@ internal struct LegalPersonPicker: View {
     ) -> some View {
         ForEach(personsForType(lPT)) {
             person in
-            ListTile(person: person) {
+            LegalPersonListTile(person: person) {
                 p in
                 legalPersonChosen(p)
             }

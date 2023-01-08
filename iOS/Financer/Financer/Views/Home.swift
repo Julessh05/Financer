@@ -3,7 +3,7 @@
 //  Financer
 //
 //  Created by Julian Schumacher as ContentView.swift on 21.12.22.
-//  Renamed by Julian Schumacher to Home.swift on 02.01.2023
+//  Renamed by Julian Schumacher to Home.swift on 02.01.23
 //
 
 import Charts
@@ -131,6 +131,7 @@ internal struct Home: View {
                 content: {
                     AddFinance()
                         .environmentObject(legalPersonWrapper)
+                        .environmentObject(userWrapper)
                 }
             )
             .onAppear {
@@ -144,6 +145,7 @@ internal struct Home: View {
                 FinanceDetails()
                     .environmentObject(legalPersonWrapper)
                     .environmentObject(financeWrapper)
+                    .environmentObject(userWrapper)
             }
             .toolbarRole(.navigationStack)
             .toolbar(.automatic, for: .navigationBar)

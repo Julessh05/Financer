@@ -24,7 +24,7 @@
         <attribute name="balance" attributeType="Double" defaultValueString="0.0" allowsCloudEncryption="YES" usesScalarValueType="YES"/>
         <attribute name="dateOfBirth" optional="YES" attributeType="Date" allowsCloudEncryption="YES" usesScalarValueType="NO"/>
         <attribute name="firstname" attributeType="String" defaultValueString="" allowsCloudEncryption="YES"/>
-        <attribute name="gender" optional="YES" attributeType="String"/>
+        <attribute name="gender" attributeType="String" defaultValueString="" allowsCloudEncryption="YES"/>
         <attribute name="image" optional="YES" attributeType="Binary" allowsCloudEncryption="YES"/>
         <attribute name="lastname" attributeType="String" defaultValueString="" allowsCloudEncryption="YES"/>
     </entity>

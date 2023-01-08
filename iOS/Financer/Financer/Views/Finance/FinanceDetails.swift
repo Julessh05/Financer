@@ -56,7 +56,7 @@ internal struct FinanceDetails: View {
                     Text("These Data are optional and you may have not added them.")
                 }
                 Section {
-                    DefaultListTile(
+                    ListTile(
                         name: financeWrapper.finance!.directionAsString,
                         data: financeWrapper.finance!.legalPerson!.name!,
                         onTap: {
