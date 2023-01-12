@@ -29,6 +29,9 @@ internal struct UserEditor: View {
     /// Whether to use a date of birth or not
     @State private var useDateOfBirth : Bool = false
     
+    /// The Gender of the User
+    @State private var gender : String = ""
+    
     /// Whether the Button is active (all Data are entered) or not.
     @State private var btnActive : Bool = false
     
@@ -77,6 +80,9 @@ internal struct UserEditor: View {
                     .keyboardType(.asciiCapable)
                     Section {
                         datePicker()
+                        Picker("Gender", selection: $gender) {
+                        }
+                        .pickerStyle(.menu)
                     } header: {
                         Text("Optional")
                     } footer: {
@@ -109,6 +115,7 @@ internal struct UserEditor: View {
         .navigationBarBackButtonHidden()
         .textFieldStyle(.plain)
         .formStyle(.grouped)
+        .onAppear { checkBtn() }
         .toolbarRole(.navigationStack)
         .toolbar(.automatic, for: .navigationBar)
         .toolbar {

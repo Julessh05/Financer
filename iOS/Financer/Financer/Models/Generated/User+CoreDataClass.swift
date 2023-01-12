@@ -12,6 +12,20 @@ import CoreData
 @objc(User)
 public class User: NSManagedObject {
     
+    // TODO: implement
+    internal enum Gender : String, CaseIterable {
+        
+        case notEntered
+
+        case male
+
+        case female
+
+        case nonbinary
+        
+        case ownEntered
+    }
+    
     /// The Anonymous User to use in Tests and Previews
     internal static var anonymous : User {
         let viewContext = PersistenceController.preview.container.viewContext

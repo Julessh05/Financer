@@ -23,6 +23,9 @@ internal struct UserDetails: View {
     /// Whether the Edit user View is Presented or not
     @State private var editPresented : Bool = false
     
+    /// Whether the Error Alert Dialog when saving data is presented or not.
+    @State private var errSavingPresented : Bool = false
+    
     var body: some View {
         VStack {
             userDetails()
@@ -37,22 +40,50 @@ internal struct UserDetails: View {
     private func userDetails() -> some View {
         if userWrapper.user != nil {
             let user : User = userWrapper.user!
-            List {
-                Section {
-                    ListTile(name: "First Name", data: user.firstname!)
-                    ListTile(name: "Last Name", data: user.lastname!)
-                    dateOfBirthSection()
-                } header: {
-                    Text("General")
-                } footer: {
-                    Text("General Information about the User")
-                }
-                Section {
-                    ListTile(name: "Current Balance", data: String(user.balance))
-                } header: {
-                    Text("App Related")
-                } footer: {
-                    Text("App Relation Information about the User")
+            GeometryReader {
+                metrics in
+                VStack {
+                    List {
+                        Section {
+                            ListTile(name: "First Name", data: user.firstname!)
+                            ListTile(name: "Last Name", data: user.lastname!)
+                            dateOfBirthSection()
+                        } header: {
+                            Text("General")
+                        } footer: {
+                            Text("General Information about the User")
+                        }
+                        Section {
+                            ListTile(name: "Current Balance", data: String(user.balance))
+                        } header: {
+                            Text("App Related")
+                        } footer: {
+                            Text("App Relation Information about the User")
+                        }
+                    }
+                    Button(action: logOut) {
+                        Label(
+                            "Log Out",
+                            systemImage: "rectangle.portrait.and.arrow.forward"
+                        )
+                        .frame(
+                            width: metrics.size.width / 1.2,
+                            height: metrics.size.height / 15
+                        )
+                        .background(Color.black)
+                        .foregroundColor(.white)
+                        .cornerRadius(20)
+                    }
+                    .alert(
+                        "Error",
+                        isPresented: $errSavingPresented
+                    ) {
+                        
+                    } message: {
+                        Text(
+                            "Error saving Data.\nPlease try again\n\nIf this Error occurs again, please contact the support."
+                        )
+                    }
                 }
             }
             .toolbarRole(.navigationStack)
@@ -94,6 +125,18 @@ internal struct UserDetails: View {
             }
         } else {
             EmptyView()
+        }
+    }
+    
+    /// Logs the User out of the App and deletes the User
+    /// from the local Storage
+    private func logOut() -> Void {
+        // TODO: implement Code
+        userWrapper.user = nil
+        do {
+            try viewContext.save()
+        } catch _ {
+            
         }
     }
 }

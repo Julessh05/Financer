@@ -40,8 +40,12 @@ internal struct EditUser: View {
     }
 }
 
-struct EditUser_Previews: PreviewProvider {
+internal struct EditUser_Previews: PreviewProvider {
+    
+    @StateObject private static var userWrapperPreview : UserWrapper = UserWrapper(user: User.anonymous)
+    
     static var previews: some View {
         EditUser()
+            .environmentObject(userWrapperPreview)
     }
 }
