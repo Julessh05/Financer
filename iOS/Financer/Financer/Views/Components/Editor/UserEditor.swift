@@ -32,6 +32,10 @@ internal struct UserEditor: View {
     /// The Gender of the User
     @State private var gender : String = ""
     
+    /// The Gender of the User in it's raw representation as
+    /// an Enum
+    @State private var genderEnum : User.Gender = .none
+    
     /// Whether the Button is active (all Data are entered) or not.
     @State private var btnActive : Bool = false
     
@@ -80,8 +84,16 @@ internal struct UserEditor: View {
                     .keyboardType(.asciiCapable)
                     Section {
                         datePicker()
-                        Picker("Gender", selection: $gender) {
+                        Picker("Gender", selection: $genderEnum) {
+                            ForEach(User.Gender.allCases, id: \.stringValue) {
+                                gender in
+                                Text(gender.stringValue)
+                                    .onTapGesture {
+                                        genderEnum = gender
+                                    }
+                            }
                         }
+                        
                         .pickerStyle(.menu)
                     } header: {
                         Text("Optional")
