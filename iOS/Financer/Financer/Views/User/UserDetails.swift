@@ -48,6 +48,7 @@ internal struct UserDetails: View {
                             ListTile(name: "First Name", data: user.firstname!)
                             ListTile(name: "Last Name", data: user.lastname!)
                             dateOfBirthSection()
+                            genderSection()
                         } header: {
                             Text("General")
                         } footer: {
@@ -114,6 +115,8 @@ internal struct UserDetails: View {
         }
     }
     
+    /// Builds, renders and returns the Section showing
+    /// the Date of Birth of the User (if entered)
     @ViewBuilder
     private func dateOfBirthSection() -> some View {
         if userWrapper.user!.dateOfBirth != nil {
@@ -123,6 +126,17 @@ internal struct UserDetails: View {
                 Text(userWrapper.user!.dateOfBirth!, style: .date)
                     .foregroundColor(.gray)
             }
+        } else {
+            EmptyView()
+        }
+    }
+    
+    /// Builds, renders and returns the Section displaying the
+    /// Gender of the User (if entered)
+    @ViewBuilder
+    private func genderSection() -> some View {
+        if userWrapper.user!.gender != User.Gender.none.rawValue {
+            ListTile(name: "Gender", data: userWrapper.user!.gender!.capitalized)
         } else {
             EmptyView()
         }

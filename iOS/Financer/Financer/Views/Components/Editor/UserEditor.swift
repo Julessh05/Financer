@@ -30,11 +30,7 @@ internal struct UserEditor: View {
     @State private var useDateOfBirth : Bool = false
     
     /// The Gender of the User
-    @State private var gender : String = ""
-    
-    /// The Gender of the User in it's raw representation as
-    /// an Enum
-    @State private var genderEnum : User.Gender = .none
+    @State private var gender : User.Gender = .none
     
     /// Whether the Button is active (all Data are entered) or not.
     @State private var btnActive : Bool = false
@@ -59,7 +55,11 @@ internal struct UserEditor: View {
             _firstname = State(initialValue: user!.firstname!)
             _lastname = State(initialValue: user!.lastname!)
             if user!.dateOfBirth != nil {
+                _useDateOfBirth = State(initialValue: true)
                 _dateOfBirth = State(initialValue: user!.dateOfBirth!)
+            }
+            if user!.gender != User.Gender.none.rawValue {
+                _gender = State(initialValue: User.Gender(rawValue: user!.gender!)!)
             }
         }
     }
@@ -84,13 +84,10 @@ internal struct UserEditor: View {
                     .keyboardType(.asciiCapable)
                     Section {
                         datePicker()
-                        Picker("Gender", selection: $genderEnum) {
-                            ForEach(User.Gender.allCases, id: \.stringValue) {
+                        Picker("Gender", selection: $gender) {
+                            ForEach(User.Gender.allCases) {
                                 gender in
-                                Text(gender.stringValue)
-                                    .onTapGesture {
-                                        genderEnum = gender
-                                    }
+                                Text(gender.rawValue.capitalized)
                             }
                         }
                         
@@ -174,6 +171,7 @@ internal struct UserEditor: View {
             let user = User(context: viewContext)
             user.firstname = firstname
             user.lastname = lastname
+            user.gender = gender.rawValue
             if useDateOfBirth {
                 user.dateOfBirth = dateOfBirth
             }
