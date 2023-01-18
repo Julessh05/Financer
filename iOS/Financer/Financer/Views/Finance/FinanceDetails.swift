@@ -61,7 +61,8 @@ internal struct FinanceDetails: View {
                         data: financeWrapper.finance!.legalPerson!.name!,
                         onTap: {
                             personDetailsPresented.toggle()
-                        }
+                        },
+                        textContentType: .name
                     )
                     .sheet(isPresented: $personDetailsPresented) {
                         LegalPersonDetails()

@@ -45,8 +45,8 @@ internal struct UserDetails: View {
                 VStack {
                     List {
                         Section {
-                            ListTile(name: "First Name", data: user.firstname!)
-                            ListTile(name: "Last Name", data: user.lastname!)
+                            ListTile(name: "First Name", data: user.firstname!, textContentType: .givenName)
+                            ListTile(name: "Last Name", data: user.lastname!, textContentType: .familyName)
                             dateOfBirthSection()
                             genderSection()
                         } header: {
@@ -124,6 +124,7 @@ internal struct UserDetails: View {
                 Text("Date of Birth")
                 Spacer()
                 Text(userWrapper.user!.dateOfBirth!, style: .date)
+                    .textContentType(.dateTime)
                     .foregroundColor(.gray)
             }
         } else {
