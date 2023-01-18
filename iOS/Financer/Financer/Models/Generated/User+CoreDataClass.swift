@@ -38,6 +38,7 @@ public class User: NSManagedObject {
         u.firstname = "Julian"
         u.lastname = "Schumacher"
         u.dateOfBirth = Date()
+        u.gender = Gender.male.rawValue
         return u
     }
 
