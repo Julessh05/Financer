@@ -146,12 +146,11 @@ internal struct UserDetails: View {
     /// Logs the User out of the App and deletes the User
     /// from the local Storage
     private func logOut() -> Void {
-        // TODO: implement Code
         userWrapper.user = nil
         do {
             try viewContext.save()
         } catch _ {
-            
+            errSavingPresented.toggle()
         }
     }
 }
