@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 /// The View to edit a Users Data
 internal struct UserEditor: View {
@@ -16,6 +17,10 @@ internal struct UserEditor: View {
     /// The Context to interact with the
     /// Core Data Manager
     @Environment(\.managedObjectContext) private var viewContext
+    
+    /// The Image the User picked for his
+    /// User Account
+    @State private var image : UIImage? = nil
     
     /// The Firstname of the User
     @State private var firstname : String = ""
@@ -37,6 +42,9 @@ internal struct UserEditor: View {
     
     /// Whether ther Error for missing Arguments is displayed or not.
     @State private var errMissingArgumentsPresented : Bool = false
+    
+    /// Whether the User's Library is shown or not.
+    @State private var isLibraryShown : Bool = false
     
     /// The callback being executed when the Save or Done Button
     /// is tapped.
@@ -61,6 +69,9 @@ internal struct UserEditor: View {
             if user!.gender != User.Gender.none.rawValue {
                 _gender = State(initialValue: User.Gender(rawValue: user!.gender!)!)
             }
+            if user!.image != nil {
+                _image = State(initialValue: UIImage(data: user!.image!))
+            }
         }
     }
     
@@ -69,6 +80,16 @@ internal struct UserEditor: View {
             metrics in
             VStack {
                 List {
+                    HStack {
+                        Spacer()
+                        imageSection()
+                            .frame(
+                                width: metrics.size.width / 2.25,
+                                height: metrics.size.height / 5,
+                                alignment: .center
+                            )
+                        Spacer()
+                    }
                     Section {
                         TextField("Firstname", text: $firstname)
                             .textContentType(.givenName)
@@ -141,6 +162,37 @@ internal struct UserEditor: View {
         }
     }
     
+    /// Renders, builds and returns the Section
+    /// for the User Image, depending on whether
+    /// the User has passed an image or not
+    @ViewBuilder
+    private func imageSection() -> some View {
+        Button {
+            isLibraryShown.toggle()
+        } label: {
+            if image != nil {
+                Image(uiImage: image!)
+                    .renderingMode(.original)
+                    .resizable()
+                    .scaledToFill()
+            } else {
+                Image(systemName: "person.crop.circle.badge.plus")
+                    .renderingMode(.original)
+                    .resizable()
+                    .scaledToFit()
+            }
+        }
+        .foregroundColor(.primary)
+        .sheet(isPresented: $isLibraryShown) {
+            var conf : PHPickerConfiguration = PHPickerConfiguration(photoLibrary: .shared())
+            ImagePicker(conf: conf, pickedImage: $image, isPresented: $isLibraryShown).onAppear {
+                conf.filter = .images
+                conf.preferredAssetRepresentationMode = .automatic
+                conf.selectionLimit = 1
+            }
+        }
+    }
+    
     /// Builds, renders and returns the Date Picker
     /// for the Users Date of Birth
     @ViewBuilder
@@ -172,6 +224,7 @@ internal struct UserEditor: View {
             user.firstname = firstname
             user.lastname = lastname
             user.gender = gender.rawValue
+            user.image = image?.jpegData(compressionQuality: 0.5)
             if useDateOfBirth {
                 user.dateOfBirth = dateOfBirth
             }

@@ -44,6 +44,7 @@ internal struct UserDetails: View {
                 metrics in
                 VStack {
                     List {
+                        imageSection()
                         Section {
                             ListTile(name: "First Name", data: user.firstname!, textContentType: .givenName)
                             ListTile(name: "Last Name", data: user.lastname!, textContentType: .familyName)
@@ -112,6 +113,19 @@ internal struct UserDetails: View {
                         .environmentObject(userWrapper)
                 }
             }
+        }
+    }
+    
+    /// Renders, builds and returns the User Image, if so stored.
+    @ViewBuilder
+    private func imageSection() -> some View {
+        if userWrapper.user!.image != nil {
+            Image(uiImage: UIImage(data: userWrapper.user!.image!)!)
+                .renderingMode(.original)
+                .resizable()
+                .scaledToFit()
+        } else {
+            EmptyView()
         }
     }
     
