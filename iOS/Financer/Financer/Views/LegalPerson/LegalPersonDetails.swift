@@ -35,7 +35,7 @@ internal struct LegalPersonDetails: View {
         NavigationStack {
             List {
                 Section {
-                    ListTile(name: "Name", data: legalPersonWrapper.legalPerson!.name!)
+                    ListTile(name: "Name", data: legalPersonWrapper.legalPerson!.name!, textContentType: .name)
                     ListTile(name: "Type", data: legalPersonWrapper.legalPerson!.typeAsString())
                 } header: {
                     Text("General Values")
@@ -43,7 +43,7 @@ internal struct LegalPersonDetails: View {
                     Text("These are the general Values for this \(legalPersonWrapper.legalPerson!.typeAsString())")
                 }
                 Section {
-                    ListTile(name: "Phone", data: legalPersonWrapper.legalPerson!.phone!)
+                    ListTile(name: "Phone", data: legalPersonWrapper.legalPerson!.phone!, textContentType: .telephoneNumber)
                     Text(notes)
                         .lineLimit(5...10)
                         .foregroundColor(.gray)

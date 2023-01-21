@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 /// The View to edit a Users Data
 internal struct UserEditor: View {
@@ -16,6 +17,10 @@ internal struct UserEditor: View {
     /// The Context to interact with the
     /// Core Data Manager
     @Environment(\.managedObjectContext) private var viewContext
+    
+    /// The Image the User picked for his
+    /// User Account
+    @State private var image : UIImage? = nil
     
     /// The Firstname of the User
     @State private var firstname : String = ""
@@ -29,11 +34,17 @@ internal struct UserEditor: View {
     /// Whether to use a date of birth or not
     @State private var useDateOfBirth : Bool = false
     
+    /// The Gender of the User
+    @State private var gender : User.Gender = .none
+    
     /// Whether the Button is active (all Data are entered) or not.
     @State private var btnActive : Bool = false
     
     /// Whether ther Error for missing Arguments is displayed or not.
     @State private var errMissingArgumentsPresented : Bool = false
+    
+    /// Whether the User's Library is shown or not.
+    @State private var isLibraryShown : Bool = false
     
     /// The callback being executed when the Save or Done Button
     /// is tapped.
@@ -52,7 +63,14 @@ internal struct UserEditor: View {
             _firstname = State(initialValue: user!.firstname!)
             _lastname = State(initialValue: user!.lastname!)
             if user!.dateOfBirth != nil {
+                _useDateOfBirth = State(initialValue: true)
                 _dateOfBirth = State(initialValue: user!.dateOfBirth!)
+            }
+            if user!.gender != User.Gender.none.rawValue {
+                _gender = State(initialValue: User.Gender(rawValue: user!.gender!)!)
+            }
+            if user!.image != nil {
+                _image = State(initialValue: UIImage(data: user!.image!))
             }
         }
     }
@@ -62,6 +80,16 @@ internal struct UserEditor: View {
             metrics in
             VStack {
                 List {
+                    HStack {
+                        Spacer()
+                        imageSection()
+                            .frame(
+                                width: metrics.size.width / 2.25,
+                                height: metrics.size.height / 5,
+                                alignment: .center
+                            )
+                        Spacer()
+                    }
                     Section {
                         TextField("Firstname", text: $firstname)
                             .textContentType(.givenName)
@@ -77,6 +105,14 @@ internal struct UserEditor: View {
                     .keyboardType(.asciiCapable)
                     Section {
                         datePicker()
+                        Picker("Gender", selection: $gender) {
+                            ForEach(User.Gender.allCases) {
+                                gender in
+                                Text(gender.rawValue.capitalized)
+                            }
+                        }
+                        
+                        .pickerStyle(.menu)
                     } header: {
                         Text("Optional")
                     } footer: {
@@ -109,6 +145,7 @@ internal struct UserEditor: View {
         .navigationBarBackButtonHidden()
         .textFieldStyle(.plain)
         .formStyle(.grouped)
+        .onAppear { checkBtn() }
         .toolbarRole(.navigationStack)
         .toolbar(.automatic, for: .navigationBar)
         .toolbar {
@@ -121,6 +158,37 @@ internal struct UserEditor: View {
                 Button("Done") {
                     action()
                 }
+            }
+        }
+    }
+    
+    /// Renders, builds and returns the Section
+    /// for the User Image, depending on whether
+    /// the User has passed an image or not
+    @ViewBuilder
+    private func imageSection() -> some View {
+        Button {
+            isLibraryShown.toggle()
+        } label: {
+            if image != nil {
+                Image(uiImage: image!)
+                    .renderingMode(.original)
+                    .resizable()
+                    .scaledToFill()
+            } else {
+                Image(systemName: "person.crop.circle.badge.plus")
+                    .renderingMode(.original)
+                    .resizable()
+                    .scaledToFit()
+            }
+        }
+        .foregroundColor(.primary)
+        .sheet(isPresented: $isLibraryShown) {
+            var conf : PHPickerConfiguration = PHPickerConfiguration(photoLibrary: .shared())
+            ImagePicker(conf: conf, pickedImage: $image, isPresented: $isLibraryShown).onAppear {
+                conf.filter = .images
+                conf.preferredAssetRepresentationMode = .automatic
+                conf.selectionLimit = 1
             }
         }
     }
@@ -155,6 +223,8 @@ internal struct UserEditor: View {
             let user = User(context: viewContext)
             user.firstname = firstname
             user.lastname = lastname
+            user.gender = gender.rawValue
+            user.image = image?.jpegData(compressionQuality: 0.5)
             if useDateOfBirth {
                 user.dateOfBirth = dateOfBirth
             }

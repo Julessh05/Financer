@@ -10,6 +10,9 @@ import SwiftUI
 /// The view to edit the user
 internal struct EditUser: View {
     
+    /// The Context to interact with the Core Data Manager
+    @Environment(\.managedObjectContext) private var viewContext
+    
     /// The User Wrapper in the Environment containing the current User
     @EnvironmentObject private var userWrapper : UserWrapper
     
@@ -36,12 +39,22 @@ internal struct EditUser: View {
     
     /// The Function to edit the User being passed to the User Editor
     private func editUser(user : User) -> Void {
-        
+        viewContext.delete(userWrapper.user!)
+        userWrapper.user = user
+        do {
+            try viewContext.save()
+        } catch _ {
+            errSavingPresented.toggle()
+        }
     }
 }
 
-struct EditUser_Previews: PreviewProvider {
+internal struct EditUser_Previews: PreviewProvider {
+    
+    @StateObject private static var userWrapperPreview : UserWrapper = UserWrapper(user: User.anonymous)
+    
     static var previews: some View {
         EditUser()
+            .environmentObject(userWrapperPreview)
     }
 }

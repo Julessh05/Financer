@@ -23,12 +23,16 @@ internal struct ListTile: View {
     /// List Tile
     internal var onTap : () -> () = {}
     
+    /// The Text Content Type of the Data Part
+    internal var textContentType : UITextContentType? = nil
+    
     var body: some View {
         HStack {
             Text(name)
             Spacer()
             Text(data)
                 .foregroundColor(.gray)
+                .textContentType(textContentType)
         }
         .contentShape(Rectangle())
         .onTapGesture {
