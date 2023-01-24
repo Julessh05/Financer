@@ -197,7 +197,7 @@ internal struct UserEditor: View {
     /// for the Users Date of Birth
     @ViewBuilder
     private func datePicker() -> some View {
-        Toggle("Use Date of Birth", isOn: $useDateOfBirth)
+        Toggle("Use Date of Birth", isOn: $useDateOfBirth.animation())
         if useDateOfBirth {
             DatePicker(
                 "Date",
@@ -205,8 +205,6 @@ internal struct UserEditor: View {
                 displayedComponents: [.date]
             )
             .datePickerStyle(.graphical)
-        } else {
-            EmptyView()
         }
     }
     

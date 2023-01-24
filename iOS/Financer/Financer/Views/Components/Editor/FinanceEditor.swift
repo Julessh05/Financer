@@ -40,6 +40,9 @@ internal struct FinanceEditor: View {
     /// The Type of this Finance
     @State private var financeType : Finance.FinanceType = .income
     
+    /// Whether this Finance is a periodical payment or not
+    @State private var isPeriodicalPayment : Bool = false
+    
     /// The callback to execute when the Editor is done.
     /// The Arguments are in this order:
     /// Double - amount
@@ -106,6 +109,7 @@ internal struct FinanceEditor: View {
                             displayedComponents: [.date, .hourAndMinute]
                         )
                         .datePickerStyle(.graphical)
+                        periodicalPaymentSection()
                     } header: {
                         Text("Optional Data")
                     } footer: {
@@ -169,6 +173,16 @@ internal struct FinanceEditor: View {
             Spacer()
             Text(legalPerson?.name! ?? "None")
                 .foregroundColor(.gray)
+        }
+    }
+    
+    /// Renders, builds and returns the section
+    /// to enter the periodical payment info, if this Finance is so.
+    @ViewBuilder
+    private func periodicalPaymentSection() -> some View {
+        Toggle("Periodical Payment", isOn: $isPeriodicalPayment.animation())
+        if isPeriodicalPayment {
+            
         }
     }
     
