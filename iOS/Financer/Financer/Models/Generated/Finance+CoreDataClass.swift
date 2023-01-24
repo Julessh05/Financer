@@ -24,6 +24,38 @@ public class Finance: NSManagedObject {
         case expense
     }
     
+    internal enum PaymentDuration : String, CaseIterable, Identifiable {
+        // ID to conform to Identifiable
+        var id: Self { self }
+        
+        /// The Payment is due every day
+        case daily
+        
+        /// The payment is due every week
+        case weekly
+        
+        /// The payment is due every month
+        case monthly
+        
+        /// The payment is due every year
+        case yearly
+        
+        /// Returns the days depending on the
+        /// chosen Enum
+        var days : Int {
+            switch self {
+            case .daily:
+                return 1
+            case .weekly:
+                return 7
+            case .monthly:
+                return 31
+            case .yearly:
+                return 365
+            }
+        }
+    }
+    
     /// The Anonymous Finance to use in Tests and Previews
     internal static var anonymous : Finance {
         let viewContext = PersistenceController.preview.container.viewContext

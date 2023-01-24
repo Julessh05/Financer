@@ -43,6 +43,9 @@ internal struct FinanceEditor: View {
     /// Whether this Finance is a periodical payment or not
     @State private var isPeriodicalPayment : Bool = false
     
+    /// The Duration of the periodical payment
+    @State private var paymentDuration : Finance.PaymentDuration = .monthly
+    
     /// The callback to execute when the Editor is done.
     /// The Arguments are in this order:
     /// Double - amount
@@ -182,7 +185,13 @@ internal struct FinanceEditor: View {
     private func periodicalPaymentSection() -> some View {
         Toggle("Periodical Payment", isOn: $isPeriodicalPayment.animation())
         if isPeriodicalPayment {
-            
+            Picker("Payment Period", selection: $paymentDuration) {
+                ForEach(Finance.PaymentDuration.allCases) {
+                    duration in
+                    Text(duration.rawValue.capitalized)
+                }
+            }
+            .pickerStyle(.wheel)
         }
     }
     
@@ -221,6 +230,9 @@ internal struct FinanceEditor: View {
             finance.legalPerson = legalPerson
             finance.notes = notes
             finance.date = date
+            if isPeriodicalPayment {
+                finance.periodDuration = Int16(paymentDuration.days)
+            }
             callback(finance)
             dismiss()
         } else {
