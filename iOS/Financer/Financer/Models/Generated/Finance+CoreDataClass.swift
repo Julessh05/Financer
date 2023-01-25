@@ -28,6 +28,21 @@ public class Finance: NSManagedObject {
         // ID to conform to Identifiable
         var id: Self { self }
         
+        internal init(days : Int) {
+            switch days {
+            case 1:
+                self = .daily
+            case 7:
+                self = .weekly
+            case 31:
+                self = .monthly
+            case 365:
+                self = .yearly
+            default:
+                self = .monthly
+            }
+        }
+        
         /// The Payment is due every day
         case daily
         

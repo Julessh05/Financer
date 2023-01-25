@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// The Editor to 
+/// The Editor to edit Finances
 internal struct FinanceEditor: View {
     
     /// The dismiss Action to dismiss this View.
@@ -68,6 +68,10 @@ internal struct FinanceEditor: View {
             _legalPerson = State(initialValue: finance!.legalPerson!)
             _notes = State(initialValue: finance!.notes!)
             _date = State(initialValue: finance!.date!)
+            if finance!.periodDuration != 0 {
+                _isPeriodicalPayment = State(initialValue: true)
+                _periodDuration = State(initialValue: Finance.PaymentDuration(days: Int(finance!.periodDuration)))
+            }
         }
     }
     
