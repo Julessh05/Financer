@@ -44,7 +44,7 @@ internal struct FinanceEditor: View {
     @State private var isPeriodicalPayment : Bool = false
     
     /// The Duration of the periodical payment
-    @State private var paymentDuration : Finance.PaymentDuration = .monthly
+    @State private var periodDuration : Finance.PaymentDuration = .monthly
     
     /// The callback to execute when the Editor is done.
     /// The Arguments are in this order:
@@ -102,17 +102,12 @@ internal struct FinanceEditor: View {
                         Text("It's required to enter these Information.")
                     }
                     Section {
+                        periodicalPaymentSection()
+                        datePickerSection()
                         TextField("Notes", text: $notes, axis: .vertical)
                             .lineLimit(5...10)
                             .keyboardType(.asciiCapable)
                             .textInputAutocapitalization(.sentences)
-                        DatePicker(
-                            "Date",
-                            selection: $date,
-                            displayedComponents: [.date, .hourAndMinute]
-                        )
-                        .datePickerStyle(.graphical)
-                        periodicalPaymentSection()
                     } header: {
                         Text("Optional Data")
                     } footer: {
@@ -165,6 +160,23 @@ internal struct FinanceEditor: View {
         }
     }
     
+    /// Builds, renders and returns the Section for the
+    /// Date Picker
+    private func datePickerSection() -> some View {
+        let displayComponents : DatePickerComponents
+        if isPeriodicalPayment {
+            displayComponents = [.date]
+        } else {
+            displayComponents = [.date, .hourAndMinute]
+        }
+         return DatePicker(
+            "Date",
+            selection: $date,
+            displayedComponents: displayComponents
+        )
+        .datePickerStyle(.graphical)
+    }
+    
     /// Builds and returns the label
     /// connected to the navigation Link which
     /// points to the Legal Person Picker
@@ -179,13 +191,15 @@ internal struct FinanceEditor: View {
         }
     }
     
+    
+    
     /// Renders, builds and returns the section
     /// to enter the periodical payment info, if this Finance is so.
     @ViewBuilder
     private func periodicalPaymentSection() -> some View {
         Toggle("Periodical Payment", isOn: $isPeriodicalPayment.animation())
         if isPeriodicalPayment {
-            Picker("Payment Period", selection: $paymentDuration) {
+            Picker("Payment Period", selection: $periodDuration) {
                 ForEach(Finance.PaymentDuration.allCases) {
                     duration in
                     Text(duration.rawValue.capitalized)
@@ -231,7 +245,7 @@ internal struct FinanceEditor: View {
             finance.notes = notes
             finance.date = date
             if isPeriodicalPayment {
-                finance.periodDuration = Int16(paymentDuration.days)
+                finance.periodDuration = Int16(periodDuration.days)
             }
             callback(finance)
             dismiss()
