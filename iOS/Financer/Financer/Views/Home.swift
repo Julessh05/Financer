@@ -27,6 +27,9 @@ internal struct Home: View {
     /// this Finance belongs to.
     @StateObject private var legalPersonWrapper : LegalPersonWrapper = LegalPersonWrapper()
     
+    /// Whether the Error Alert Dialog when saving data is presented or not.
+    @State private var errSavingPresented : Bool = false
+    
     // Preview Code Start
     // (Comment to build)
     //
@@ -85,6 +88,7 @@ internal struct Home: View {
     /// Whether the Chart Details View is presented or not.
     @State private var chartsPresented : Bool = false
     
+    /// Whether the User Details are presented or not
     @State private var userDetailsPresented : Bool = false
     
     var body: some View {
@@ -138,6 +142,7 @@ internal struct Home: View {
                 if !users.isEmpty {
                     userWrapper.user = users.first!
                 }
+                setPeriodicalFinances()
             }
             .navigationTitle("Welcome")
             .navigationBarTitleDisplayMode(.automatic)
@@ -160,6 +165,16 @@ internal struct Home: View {
                             .foregroundColor(.black)
                     }
                 }
+            }
+            .alert(
+                "Error",
+                isPresented: $errSavingPresented
+            ) {
+                
+            } message: {
+                Text(
+                    "Error processing Data\nPlease restard the App\n\nIf this Error occurs again, please contact the support."
+                )
             }
         }
     }
@@ -218,6 +233,38 @@ internal struct Home: View {
             }
         } else {
             Text("Contains all the Finances you ever added to the App")
+        }
+    }
+    
+    /// Scans all the Finances and adds Finances which have periodical payments to it, if
+    /// so nessecary
+    private func setPeriodicalFinances() -> Void {
+        let periodicalFinances : [Finance] = finances.filter { $0.periodDuration != 0 }
+        guard !periodicalFinances.isEmpty else { return }
+        for finance in periodicalFinances {
+            let currentPeriodicalFinances : [Finance] = periodicalFinances.filter { $0.financeID == finance.financeID }
+            let timeIntervalDays : Int = Int( Date.now.timeIntervalSince(   currentPeriodicalFinances.last!.date!) / 86400)
+            for _ in 1...timeIntervalDays {
+                let newFinance : Finance
+                if finance is Income {
+                    newFinance = Income(context: viewContext)
+                } else {
+                    newFinance = Expense(context: viewContext)
+                }
+                newFinance.financeID = finance.financeID
+                newFinance.periodDuration = finance.periodDuration
+                newFinance.amount = finance.amount
+                newFinance.legalPerson = finance.legalPerson
+                var dateComponents : DateComponents = DateComponents()
+                dateComponents.day = 1
+                newFinance.date = Calendar.current.date(byAdding: dateComponents, to: finance.date!)
+                newFinance.notes = finance.notes
+            }
+        }
+        do {
+            try viewContext.save()
+        } catch _ {
+            errSavingPresented.toggle()
         }
     }
 }

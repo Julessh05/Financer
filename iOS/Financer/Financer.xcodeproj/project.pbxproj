@@ -299,10 +299,10 @@
 		845F170B2957379D009728F5 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				84899C52298258F6004129FD /* User */,
 				8423582C296A9DB10055904A /* ListTiles */,
 				84235829296993D00055904A /* Statistics */,
 				843196FE2962EE270093D0A8 /* Editor */,
-				84ED450D297BF58000706993 /* ImagePicker.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -315,6 +315,14 @@
 				849AB4342965C0C200AA8E75 /* UserWrapper.swift */,
 			);
 			path = Wrappers;
+			sourceTree = "<group>";
+		};
+		84899C52298258F6004129FD /* User */ = {
+			isa = PBXGroup;
+			children = (
+				84ED450D297BF58000706993 /* ImagePicker.swift */,
+			);
+			path = User;
 			sourceTree = "<group>";
 		};
 		848A44AD29642886002AC782 /* Helper */ = {

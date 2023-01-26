@@ -42,6 +42,7 @@ internal struct EditFinance: View {
     /// The function to edit the Finance.
     /// This is passed to the FinanceEditor
     private func editFinance(finance : Finance) -> Void {
+        finance.financeID = financeWrapper.finance!.financeID
         userWrapper.replaceFinance(
             financeWrapper.finance!,
             with: finance
