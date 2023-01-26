@@ -6,9 +6,11 @@
         <attribute name="amount" attributeType="Double" minValueString="0" defaultValueString="0.0" allowsCloudEncryption="YES" usesScalarValueType="YES"/>
         <attribute name="date" attributeType="Date" defaultDateTimeInterval="667177200" allowsCloudEncryption="YES" usesScalarValueType="NO"/>
         <attribute name="financeID" optional="YES" attributeType="UUID" allowsCloudEncryption="YES" usesScalarValueType="YES"/>
+        <attribute name="lastEditedOn" attributeType="Date" defaultDateTimeInterval="667177200" allowsCloudEncryption="YES" usesScalarValueType="NO"/>
         <attribute name="notes" attributeType="String" defaultValueString="" allowsCloudEncryption="YES"/>
         <attribute name="periodDuration" attributeType="Integer 16" minValueString="0" maxValueString="365" defaultValueString="0" allowsCloudEncryption="YES" usesScalarValueType="YES"/>
         <relationship name="legalPerson" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LegalPerson" inverseName="finances" inverseEntity="LegalPerson"/>
+        <relationship name="periodicallyConnectedFinances" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Finance" inverseName="periodicallyConnectedFinances" inverseEntity="Finance"/>
     </entity>
     <entity name="Income" representedClassName="Income" parentEntity="Finance" syncable="YES" codeGenerationType="class"/>
     <entity name="LegalPerson" representedClassName="LegalPerson" isAbstract="YES" syncable="YES" codeGenerationType="category">

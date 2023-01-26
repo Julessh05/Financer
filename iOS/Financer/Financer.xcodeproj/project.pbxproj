@@ -37,6 +37,7 @@
 		845FFFD7296186620053E9F5 /* LegalPersonEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845FFFD6296186620053E9F5 /* LegalPersonEditor.swift */; };
 		845FFFD92961867A0053E9F5 /* EditLegalPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845FFFD82961867A0053E9F5 /* EditLegalPerson.swift */; };
 		845FFFDB2961867E0053E9F5 /* EditFinance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845FFFDA2961867E0053E9F5 /* EditFinance.swift */; };
+		84899C552982D7C2004129FD /* FinanceSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84899C542982D7C2004129FD /* FinanceSort.swift */; };
 		848A44AC29639713002AC782 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 848A44AB29639713002AC782 /* Settings.bundle */; };
 		848A44AF29642897002AC782 /* SettingsBundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848A44AE29642897002AC782 /* SettingsBundleHelper.swift */; };
 		849AB4352965C0C200AA8E75 /* UserWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849AB4342965C0C200AA8E75 /* UserWrapper.swift */; };
@@ -96,6 +97,7 @@
 		845FFFD6296186620053E9F5 /* LegalPersonEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalPersonEditor.swift; sourceTree = "<group>"; };
 		845FFFD82961867A0053E9F5 /* EditLegalPerson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditLegalPerson.swift; sourceTree = "<group>"; };
 		845FFFDA2961867E0053E9F5 /* EditFinance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFinance.swift; sourceTree = "<group>"; };
+		84899C542982D7C2004129FD /* FinanceSort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceSort.swift; sourceTree = "<group>"; };
 		848A44AB29639713002AC782 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		848A44AE29642897002AC782 /* SettingsBundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBundleHelper.swift; sourceTree = "<group>"; };
 		849AB4342965C0C200AA8E75 /* UserWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWrapper.swift; sourceTree = "<group>"; };
@@ -325,9 +327,18 @@
 			path = User;
 			sourceTree = "<group>";
 		};
+		84899C532982D7A6004129FD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				84899C542982D7C2004129FD /* FinanceSort.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		848A44AD29642886002AC782 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				84899C532982D7A6004129FD /* Extensions */,
 				848A44AE29642897002AC782 /* SettingsBundleHelper.swift */,
 			);
 			path = Helper;
@@ -480,6 +491,7 @@
 				84235820296981F00055904A /* UserDetails.swift in Sources */,
 				8423582E296AA0420055904A /* EditUser.swift in Sources */,
 				3FCD271D2952E3CA00ECD3C2 /* Home.swift in Sources */,
+				84899C552982D7C2004129FD /* FinanceSort.swift in Sources */,
 				84235823296987BE0055904A /* User+CoreDataClass.swift in Sources */,
 				84ED450E297BF58000706993 /* ImagePicker.swift in Sources */,
 				845F170F2957405F009728F5 /* LegalPersonDetails.swift in Sources */,

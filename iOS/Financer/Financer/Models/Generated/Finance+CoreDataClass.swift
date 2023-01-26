@@ -94,4 +94,10 @@ public class Finance: NSManagedObject {
     internal var directionAsString : String {
         return self is Income ? "From" : "To"
     }
+    
+    /// Returns a Boolean indicating if this
+    /// Finance is a periodical Finance or not.
+    internal var isPeriodical : Bool {
+        return periodDuration != 0
+    }
 }

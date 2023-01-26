@@ -239,12 +239,15 @@ internal struct Home: View {
     /// Scans all the Finances and adds Finances which have periodical payments to it, if
     /// so nessecary
     private func setPeriodicalFinances() -> Void {
-        let periodicalFinances : [Finance] = finances.filter { $0.periodDuration != 0 }
+        let periodicalFinances : [Finance] = finances.filter { $0.isPeriodical }
+        
         guard !periodicalFinances.isEmpty else { return }
+        
         for finance in periodicalFinances {
             let currentPeriodicalFinances : [Finance] = periodicalFinances.filter { $0.financeID == finance.financeID }
-            let timeIntervalDays : Int = Int( Date.now.timeIntervalSince(   currentPeriodicalFinances.last!.date!) / 86400)
-            for _ in 1...timeIntervalDays {
+            let timeIntervalDays : Int = Int( Date.now.timeIntervalSince(   currentPeriodicalFinances.latest()!.date!) / 86400)
+            
+            for _ in 0..<timeIntervalDays {
                 let newFinance : Finance
                 if finance is Income {
                     newFinance = Income(context: viewContext)
@@ -259,6 +262,7 @@ internal struct Home: View {
                 dateComponents.day = 1
                 newFinance.date = Calendar.current.date(byAdding: dateComponents, to: finance.date!)
                 newFinance.notes = finance.notes
+                finance.addToPeriodicallyConnectedFinances(newFinance)
             }
         }
         do {

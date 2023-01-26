@@ -68,7 +68,7 @@ internal struct FinanceEditor: View {
             _legalPerson = State(initialValue: finance!.legalPerson!)
             _notes = State(initialValue: finance!.notes!)
             _date = State(initialValue: finance!.date!)
-            if finance!.periodDuration != 0 {
+            if finance!.isPeriodical {
                 _isPeriodicalPayment = State(initialValue: true)
                 _periodDuration = State(initialValue: Finance.PaymentDuration(days: Int(finance!.periodDuration)))
             }
@@ -248,9 +248,11 @@ internal struct FinanceEditor: View {
             finance.legalPerson = legalPerson
             finance.notes = notes
             finance.financeID = UUID()
+            finance.lastEditedOn = Date()
             if isPeriodicalPayment {
+                let calendar : Calendar = Calendar.current
                 finance.periodDuration = Int16(periodDuration.days)
-                let odc : DateComponents = Calendar.current.dateComponents([.year, .month, .day], from: date)
+                let odc : DateComponents = calendar.dateComponents([.year, .month, .day], from: date)
                 let ndc : DateComponents = DateComponents(
                     year: odc.year,
                     month: odc.month,
@@ -259,7 +261,7 @@ internal struct FinanceEditor: View {
                     minute: 0,
                     second: 0
                     )
-                finance.date = ndc.date
+                finance.date = calendar.date(from: ndc)
             } else {
                 finance.date = date
             }
