@@ -247,8 +247,6 @@ internal struct FinanceEditor: View {
             finance.amount = Double(validateAmount())!
             finance.legalPerson = legalPerson
             finance.notes = notes
-            finance.financeID = UUID()
-            finance.lastEditedOn = Date()
             if isPeriodicalPayment {
                 let calendar : Calendar = Calendar.current
                 finance.periodDuration = Int16(periodDuration.days)

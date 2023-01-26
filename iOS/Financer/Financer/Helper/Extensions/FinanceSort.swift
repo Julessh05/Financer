@@ -30,7 +30,7 @@ extension Array where Element : Finance {
             }
             // Date Comparison from: https://stackoverflow.com/questions/52337853/date-from-calendar-datecomponents-returning-nil-in-swift
             // Answer here: https://stackoverflow.com/a/52338229/16376071
-            if finance.lastEditedOn! > latest!.lastEditedOn! {
+            if finance.date! > latest!.date! {
                 latest = finance
             }
         }

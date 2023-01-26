@@ -42,16 +42,7 @@ internal struct EditFinance: View {
     /// The function to edit the Finance.
     /// This is passed to the FinanceEditor
     private func editFinance(finance : Finance) -> Void {
-        finance.financeID = financeWrapper.finance!.financeID
-        if finance.isPeriodical {
-            var array : [Finance] = []
-            for f in finance.periodicallyConnectedFinances! {
-                let innerFinance : Finance = f as! Finance
-                innerFinance.periodDuration = finance.periodDuration
-                array.append(innerFinance)
-            }
-            finance.periodicallyConnectedFinances = NSSet(array: array)
-        }
+        finance.periodicallyConnectedFinances = financeWrapper.finance!.periodicallyConnectedFinances
         userWrapper.replaceFinance(
             financeWrapper.finance!,
             with: finance

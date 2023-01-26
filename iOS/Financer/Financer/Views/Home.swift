@@ -254,7 +254,6 @@ internal struct Home: View {
                 } else {
                     newFinance = Expense(context: viewContext)
                 }
-                newFinance.financeID = finance.financeID
                 newFinance.periodDuration = finance.periodDuration
                 newFinance.amount = finance.amount
                 newFinance.legalPerson = finance.legalPerson
