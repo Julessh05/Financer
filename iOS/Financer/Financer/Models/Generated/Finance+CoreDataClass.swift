@@ -24,6 +24,53 @@ public class Finance: NSManagedObject {
         case expense
     }
     
+    internal enum PaymentDuration : String, CaseIterable, Identifiable {
+        // ID to conform to Identifiable
+        var id: Self { self }
+        
+        internal init(days : Int) {
+            switch days {
+            case 1:
+                self = .daily
+            case 7:
+                self = .weekly
+            case 31:
+                self = .monthly
+            case 365:
+                self = .yearly
+            default:
+                self = .monthly
+            }
+        }
+        
+        /// The Payment is due every day
+        case daily
+        
+        /// The payment is due every week
+        case weekly
+        
+        /// The payment is due every month
+        case monthly
+        
+        /// The payment is due every year
+        case yearly
+        
+        /// Returns the days depending on the
+        /// chosen Enum
+        var days : Int {
+            switch self {
+            case .daily:
+                return 1
+            case .weekly:
+                return 7
+            case .monthly:
+                return 31
+            case .yearly:
+                return 365
+            }
+        }
+    }
+    
     /// The Anonymous Finance to use in Tests and Previews
     internal static var anonymous : Finance {
         let viewContext = PersistenceController.preview.container.viewContext
@@ -46,5 +93,11 @@ public class Finance: NSManagedObject {
     /// in the UI.
     internal var directionAsString : String {
         return self is Income ? "From" : "To"
+    }
+    
+    /// Returns a Boolean indicating if this
+    /// Finance is a periodical Finance or not.
+    internal var isPeriodical : Bool {
+        return periodDuration != 0
     }
 }

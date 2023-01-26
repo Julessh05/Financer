@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21513" systemVersion="22C65" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21513" systemVersion="22D49" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
     <entity name="Company" representedClassName="Company" parentEntity="Union" syncable="YES" codeGenerationType="class"/>
     <entity name="Expense" representedClassName="Expense" parentEntity="Finance" syncable="YES" codeGenerationType="class"/>
     <entity name="Finance" representedClassName="Finance" isAbstract="YES" syncable="YES" codeGenerationType="category">
         <attribute name="amount" attributeType="Double" minValueString="0" defaultValueString="0.0" allowsCloudEncryption="YES" usesScalarValueType="YES"/>
         <attribute name="date" attributeType="Date" defaultDateTimeInterval="667177200" allowsCloudEncryption="YES" usesScalarValueType="NO"/>
         <attribute name="notes" attributeType="String" defaultValueString="" allowsCloudEncryption="YES"/>
+        <attribute name="periodDuration" attributeType="Integer 16" minValueString="0" maxValueString="365" defaultValueString="0" allowsCloudEncryption="YES" usesScalarValueType="YES"/>
         <relationship name="legalPerson" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LegalPerson" inverseName="finances" inverseEntity="LegalPerson"/>
+        <relationship name="periodicallyConnectedFinances" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Finance" inverseName="periodicallyConnectedFinances" inverseEntity="Finance"/>
     </entity>
     <entity name="Income" representedClassName="Income" parentEntity="Finance" syncable="YES" codeGenerationType="class"/>
     <entity name="LegalPerson" representedClassName="LegalPerson" isAbstract="YES" syncable="YES" codeGenerationType="category">

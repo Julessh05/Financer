@@ -108,8 +108,6 @@ internal struct LegalPersonDetails: View {
                     Text("No URL given")
                 }
             }
-        } else {
-            EmptyView()
         }
     }
     

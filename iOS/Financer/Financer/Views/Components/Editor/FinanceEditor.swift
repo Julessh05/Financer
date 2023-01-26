@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// The Editor to 
+/// The Editor to edit Finances
 internal struct FinanceEditor: View {
     
     /// The dismiss Action to dismiss this View.
@@ -40,6 +40,12 @@ internal struct FinanceEditor: View {
     /// The Type of this Finance
     @State private var financeType : Finance.FinanceType = .income
     
+    /// Whether this Finance is a periodical payment or not
+    @State private var isPeriodicalPayment : Bool = false
+    
+    /// The Duration of the periodical payment
+    @State private var periodDuration : Finance.PaymentDuration = .monthly
+    
     /// The callback to execute when the Editor is done.
     /// The Arguments are in this order:
     /// Double - amount
@@ -62,6 +68,10 @@ internal struct FinanceEditor: View {
             _legalPerson = State(initialValue: finance!.legalPerson!)
             _notes = State(initialValue: finance!.notes!)
             _date = State(initialValue: finance!.date!)
+            if finance!.isPeriodical {
+                _isPeriodicalPayment = State(initialValue: true)
+                _periodDuration = State(initialValue: Finance.PaymentDuration(days: Int(finance!.periodDuration)))
+            }
         }
     }
     
@@ -96,16 +106,12 @@ internal struct FinanceEditor: View {
                         Text("It's required to enter these Information.")
                     }
                     Section {
+                        periodicalPaymentSection()
+                        datePickerSection()
                         TextField("Notes", text: $notes, axis: .vertical)
                             .lineLimit(5...10)
                             .keyboardType(.asciiCapable)
                             .textInputAutocapitalization(.sentences)
-                        DatePicker(
-                            "Date",
-                            selection: $date,
-                            displayedComponents: [.date, .hourAndMinute]
-                        )
-                        .datePickerStyle(.graphical)
                     } header: {
                         Text("Optional Data")
                     } footer: {
@@ -158,6 +164,23 @@ internal struct FinanceEditor: View {
         }
     }
     
+    /// Builds, renders and returns the Section for the
+    /// Date Picker
+    private func datePickerSection() -> some View {
+        let displayComponents : DatePickerComponents
+        if isPeriodicalPayment {
+            displayComponents = [.date]
+        } else {
+            displayComponents = [.date, .hourAndMinute]
+        }
+         return DatePicker(
+            "Date",
+            selection: $date,
+            displayedComponents: displayComponents
+        )
+        .datePickerStyle(.graphical)
+    }
+    
     /// Builds and returns the label
     /// connected to the navigation Link which
     /// points to the Legal Person Picker
@@ -169,6 +192,24 @@ internal struct FinanceEditor: View {
             Spacer()
             Text(legalPerson?.name! ?? "None")
                 .foregroundColor(.gray)
+        }
+    }
+    
+    
+    
+    /// Renders, builds and returns the section
+    /// to enter the periodical payment info, if this Finance is so.
+    @ViewBuilder
+    private func periodicalPaymentSection() -> some View {
+        Toggle("Periodical Payment", isOn: $isPeriodicalPayment.animation())
+        if isPeriodicalPayment {
+            Picker("Payment Period", selection: $periodDuration) {
+                ForEach(Finance.PaymentDuration.allCases) {
+                    duration in
+                    Text(duration.rawValue.capitalized)
+                }
+            }
+            .pickerStyle(.wheel)
         }
     }
     
@@ -206,7 +247,22 @@ internal struct FinanceEditor: View {
             finance.amount = Double(validateAmount())!
             finance.legalPerson = legalPerson
             finance.notes = notes
-            finance.date = date
+            if isPeriodicalPayment {
+                let calendar : Calendar = Calendar.current
+                finance.periodDuration = Int16(periodDuration.days)
+                let odc : DateComponents = calendar.dateComponents([.year, .month, .day], from: date)
+                let ndc : DateComponents = DateComponents(
+                    year: odc.year,
+                    month: odc.month,
+                    day: odc.day,
+                    hour: 0,
+                    minute: 0,
+                    second: 0
+                    )
+                finance.date = calendar.date(from: ndc)
+            } else {
+                finance.date = date
+            }
             callback(finance)
             dismiss()
         } else {

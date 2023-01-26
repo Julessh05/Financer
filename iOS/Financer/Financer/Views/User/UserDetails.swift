@@ -124,8 +124,6 @@ internal struct UserDetails: View {
                 .renderingMode(.original)
                 .resizable()
                 .scaledToFit()
-        } else {
-            EmptyView()
         }
     }
     
@@ -141,8 +139,6 @@ internal struct UserDetails: View {
                     .textContentType(.dateTime)
                     .foregroundColor(.gray)
             }
-        } else {
-            EmptyView()
         }
     }
     
@@ -152,8 +148,6 @@ internal struct UserDetails: View {
     private func genderSection() -> some View {
         if userWrapper.user!.gender != User.Gender.none.rawValue {
             ListTile(name: "Gender", data: userWrapper.user!.gender!.capitalized)
-        } else {
-            EmptyView()
         }
     }
     
