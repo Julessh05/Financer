@@ -244,8 +244,12 @@ internal struct Home: View {
         guard !periodicalFinances.isEmpty else { return }
         
         for finance in periodicalFinances {
-            let timeIntervalDays : Int = Int( Date.now.timeIntervalSince(   (finance.periodicallyConnectedFinances!.allObjects as! [Finance]).latest()!.date!) / 86400)
-            
+            let timeIntervalDays : Int
+            if let setOfFinances =  finance.periodicallyConnectedFinances, setOfFinances.count != 0 {
+                timeIntervalDays = Int( Date.now.timeIntervalSince(   (finance.periodicallyConnectedFinances!.allObjects as! [Finance]).latest()!.date!) / 86400)
+            } else {
+                timeIntervalDays = Int(Date.now.timeIntervalSince(finance.date!))
+            }
             for _ in 0..<timeIntervalDays {
                 let newFinance : Finance
                 if finance is Income {
