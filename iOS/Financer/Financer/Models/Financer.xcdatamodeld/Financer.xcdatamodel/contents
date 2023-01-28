@@ -31,5 +31,6 @@
         <attribute name="gender" attributeType="String" defaultValueString="none" allowsCloudEncryption="YES"/>
         <attribute name="image" optional="YES" attributeType="Binary" allowsCloudEncryption="YES"/>
         <attribute name="lastname" attributeType="String" defaultValueString="" allowsCloudEncryption="YES"/>
+        <attribute name="userCreated" attributeType="Boolean" defaultValueString="YES" allowsCloudEncryption="YES" usesScalarValueType="YES"/>
     </entity>
 </model>
