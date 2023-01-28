@@ -13,9 +13,6 @@ import SwiftUI
 @main
 internal struct FinancerApp: App {
     
-    /// The View Context to interact with the Core Data Manager
-    @Environment(\.managedObjectContext) private var viewContext
-    
     /// The User Wrapper Object used in the whole App
     @StateObject private var userWrapper : UserWrapper = UserWrapper()
     
@@ -34,7 +31,7 @@ internal struct FinancerApp: App {
     
     var body: some Scene {
         WindowGroup {
-            Home()
+            HomeInit()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
                 .environmentObject(userWrapper)
         }

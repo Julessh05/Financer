@@ -38,8 +38,7 @@ internal struct UserDetails: View {
     /// Body of the User Details View
     @ViewBuilder
     private func userDetails() -> some View {
-        if userWrapper.user != nil {
-            let user : User = userWrapper.user!
+        if let user = userWrapper.user, user.userCreated {
             GeometryReader {
                 metrics in
                 VStack {

@@ -41,13 +41,6 @@ internal struct Home: View {
     @FetchRequest(fetchRequest: financeFetchRequest)
     private var finances : FetchedResults<Finance>
     
-    /// The Users in this App
-    @FetchRequest(
-        sortDescriptors: [
-            SortDescriptor(\User.firstname)
-        ]
-    ) private var users : FetchedResults<User>
-    
     /// This is the fetch Request to fetch all the Finances
     /// from the Core Data Persistence Storage
     static private var financeFetchRequest : NSFetchRequest<Finance> {
@@ -139,11 +132,6 @@ internal struct Home: View {
                 }
             )
             .onAppear {
-                if !users.isEmpty {
-                    userWrapper.user = users.first!
-                } else {
-                    initUser()
-                }
                 setPeriodicalFinances()
             }
             .navigationTitle("Welcome")
@@ -277,25 +265,6 @@ internal struct Home: View {
         } catch _ {
             errSavingPresented.toggle()
         }
-    }
-    
-    /// initializes the anonym User of this App
-    /// This is called only once in the Initializer of this View.
-    /// If the User is already set, it will not be set again
-    private func initUser() -> Void {
-        guard userWrapper.user != nil else { return }
-        let anonymUser : User = User(context: viewContext)
-        anonymUser.firstname = "Julian"
-        anonymUser.lastname = "Schumacher"
-        let calendar : Calendar = Calendar.current
-        var dateComponents : DateComponents = DateComponents()
-        dateComponents.year = 2005
-        dateComponents.month = 2
-        dateComponents.day = 22
-        anonymUser.dateOfBirth = calendar.date(from: dateComponents)!
-        anonymUser.gender = User.Gender.male.rawValue
-        anonymUser.userCreated = false
-        userWrapper.user = anonymUser
     }
 }
 
