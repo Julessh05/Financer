@@ -267,6 +267,7 @@ internal struct Home: View {
                 newFinance.notes = finance.notes
                 newFinance.automaticGenerated = true
                 finance.addToPeriodicallyConnectedFinances(newFinance)
+                userWrapper.addFinance(newFinance)
             }
         }
         do {
