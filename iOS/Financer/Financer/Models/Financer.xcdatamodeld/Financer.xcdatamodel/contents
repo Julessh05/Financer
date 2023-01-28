@@ -5,6 +5,7 @@
     <entity name="Finance" representedClassName="Finance" isAbstract="YES" syncable="YES" codeGenerationType="category">
         <attribute name="amount" attributeType="Double" minValueString="0" defaultValueString="0.0" allowsCloudEncryption="YES" usesScalarValueType="YES"/>
         <attribute name="date" attributeType="Date" defaultDateTimeInterval="667177200" allowsCloudEncryption="YES" usesScalarValueType="NO"/>
+        <attribute name="folder" attributeType="String" minValueString="0" defaultValueString="" allowsCloudEncryption="YES"/>
         <attribute name="notes" attributeType="String" defaultValueString="" allowsCloudEncryption="YES"/>
         <attribute name="periodDuration" attributeType="Integer 16" minValueString="0" maxValueString="365" defaultValueString="0" allowsCloudEncryption="YES" usesScalarValueType="YES"/>
         <relationship name="legalPerson" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LegalPerson" inverseName="finances" inverseEntity="LegalPerson"/>
