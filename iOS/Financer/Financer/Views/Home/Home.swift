@@ -84,6 +84,12 @@ internal struct Home: View {
     /// Whether the User Details are presented or not
     @State private var userDetailsPresented : Bool = false
     
+    /// Whether the Dialog to confirm a delete is shown or not
+    @State private var deletePeriodicalFinancePresented : Bool = false
+    
+    /// Whether the User currently wants to delete the periodical finances or not
+    @State private var periodicalFinanceToDeleteAfterConfirmation : Finance? = nil
+    
     var body: some View {
         NavigationStack {
             List {
@@ -111,6 +117,14 @@ internal struct Home: View {
                             label(finance)
                         }
                         .foregroundColor(.black)
+                        // Solution: https://peterfriese.dev/posts/swiftui-listview-part4/
+                        .swipeActions {
+                            Button(action: { deleteFinance(finance) }) {
+                                Image(systemName: "trash")
+                                    .renderingMode(.original)
+                            }
+                            .tint(.red)
+                        }
                     }
                 } header: {
                     Text("Finances")
@@ -165,6 +179,13 @@ internal struct Home: View {
                 Text(
                     "Error processing Data\nPlease restard the App\n\nIf this Error occurs again, please contact the support."
                 )
+            }
+            .alert("Are you sure?", isPresented: $deletePeriodicalFinancePresented) {
+                Button("Delete", role: .destructive) {
+                    deletePeriodicalFinances(for: periodicalFinanceToDeleteAfterConfirmation)
+                }
+            } message: {
+                Text("This is a periodical Finance. \nDeleting it will also delete all connected periodical Finances")
             }
         }
     }
@@ -266,6 +287,44 @@ internal struct Home: View {
                 periodicalFinance.addToPeriodicallyConnectedFinances(periodicalFinancesToAdd)
             }
         }
+        do {
+            try viewContext.save()
+        } catch _ {
+            errSavingPresented.toggle()
+        }
+    }
+    
+    /// Deletes the specified Finance from the System.
+    /// This does also show a message if the finance is periodical
+    /// to warn to user, that deleting this Finance will also delete all
+    /// the connected finances
+    private func deleteFinance(_ finance : Finance) -> Void {
+        if finance.isPeriodical {
+            periodicalFinanceToDeleteAfterConfirmation = finance
+            deletePeriodicalFinancePresented.toggle()
+        }
+        deleteAndUpdate(for: finance)
+    }
+    
+    /// Deletes the specified Finance and all to that finance
+    /// periodically connected finances
+    private func deletePeriodicalFinances(for finance : Finance?) -> Void {
+        guard finance != nil else { return }
+        for financeToDelete in finance!.periodicallyConnectedFinances?.allObjects as! [Finance] {
+            viewContext.delete(financeToDelete)
+        }
+       deleteAndUpdate(for: finance!)
+    }
+    
+    /// Deletes the actual Finance and updates the User Balance.
+    private func deleteAndUpdate(for finance : Finance) -> Void {
+        viewContext.delete(finance)
+        if finance.isPeriodical {
+            for periodicalFinance in finance.periodicallyConnectedFinances?.allObjects as! [Finance] {
+                userWrapper.removeFinance(periodicalFinance)
+            }
+        }
+        userWrapper.removeFinance(finance)
         do {
             try viewContext.save()
         } catch _ {
