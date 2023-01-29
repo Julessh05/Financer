@@ -104,7 +104,7 @@ internal final class UserWrapper : ObservableObject {
         let today : Date = Date()
         let intervalInSeconds : TimeInterval = Date.now.timeIntervalSince(finances.last!.date!)
         let interval = intervalInSeconds / 86400
-        for index in 0...Int(interval) {
+        for index in 0..<Int(interval) {
             var i : Int = index
             i.negate()
             var date : Date = calendar.date(byAdding: .day, value: i, to: today)!
@@ -115,8 +115,7 @@ internal final class UserWrapper : ObservableObject {
             date = calendar.date(from: dateComponents)!
             let financesOnDay : [Finance] = finances.filter {
                 let dateToCheck = calendar.dateComponents([.year, .month, .day], from: $0.date!)
-                let components = dateComponents
-                return dateToCheck.year == components.year && dateToCheck.month == components.month && dateToCheck.day == components.day
+                return dateToCheck.year == dateComponents.year && dateToCheck.month == dateComponents.month && dateToCheck.day == dateComponents.day
             }
             var amount : Double = 0
             financesOnDay.forEach {

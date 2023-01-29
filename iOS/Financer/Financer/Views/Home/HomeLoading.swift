@@ -1,5 +1,5 @@
 //
-//  HomeInit.swift
+//  HomeLoading.swift
 //  Financer
 //
 //  Created by Julian Schumacher as HomeInit.swift on 28.01.23.
@@ -42,6 +42,8 @@ internal struct HomeInit: View {
             Home()
                 .environmentObject(userWrapper)
         } else {
+            // Discussion here: https://stackoverflow.com/questions/56496638/activity-indicator-in-swiftui
+            // Answer here: https://stackoverflow.com/a/56496896/16376071
             ProgressView()
                 .onAppear {
                     initUser()

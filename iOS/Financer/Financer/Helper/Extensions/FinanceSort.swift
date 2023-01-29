@@ -10,11 +10,11 @@ import Foundation
 // Explanation for where: https://stackoverflow.com/questions/30746190/swift-where-array-extensions
 // Answer here: https://stackoverflow.com/a/30746254/16376071
 
-/// Extension on an Array of Finances.
+/// Extension on an Random Access Collection of Finances.
 ///
 /// This Extension manages the Sort and Getter Functions
 /// for this Type
-extension Array where Element : Finance {
+extension RandomAccessCollection where Element : Finance {
     
     /// Returns the Latest Edited Object in the Array.
     /// If the Array is empty, returns nil.
