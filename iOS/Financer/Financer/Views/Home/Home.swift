@@ -259,6 +259,12 @@ internal struct Home: View {
                 finance.addToPeriodicallyConnectedFinances(newFinance)
                 userWrapper.addFinance(newFinance)
             }
+            for periodicalFinance in finance.periodicallyConnectedFinances?.allObjects as! [Finance] {
+                // Solution from: https://www.hackingwithswift.com/forums/swiftui/adding-an-array-of-objects-to-an-nsset-relationship/10081
+                // Answer: https://www.hackingwithswift.com/forums/swiftui/adding-an-array-of-objects-to-an-nsset-relationship/10081/10084
+                let periodicalFinancesToAdd : NSSet = NSSet(array: (finance.periodicallyConnectedFinances!.allObjects as! [Finance]).filter { $0 != periodicalFinance && $0 != finance })
+                periodicalFinance.addToPeriodicallyConnectedFinances(periodicalFinancesToAdd)
+            }
         }
         do {
             try viewContext.save()
