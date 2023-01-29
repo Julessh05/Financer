@@ -4,6 +4,7 @@
     <entity name="Expense" representedClassName="Expense" parentEntity="Finance" syncable="YES" codeGenerationType="class"/>
     <entity name="Finance" representedClassName="Finance" isAbstract="YES" syncable="YES" codeGenerationType="category">
         <attribute name="amount" attributeType="Double" minValueString="0" defaultValueString="0.0" allowsCloudEncryption="YES" usesScalarValueType="YES"/>
+        <attribute name="automaticGenerated" attributeType="Boolean" defaultValueString="NO" allowsCloudEncryption="YES" usesScalarValueType="YES"/>
         <attribute name="date" attributeType="Date" defaultDateTimeInterval="667177200" allowsCloudEncryption="YES" usesScalarValueType="NO"/>
         <attribute name="folder" attributeType="String" minValueString="0" defaultValueString="" allowsCloudEncryption="YES"/>
         <attribute name="notes" attributeType="String" defaultValueString="" allowsCloudEncryption="YES"/>
@@ -30,5 +31,6 @@
         <attribute name="gender" attributeType="String" defaultValueString="none" allowsCloudEncryption="YES"/>
         <attribute name="image" optional="YES" attributeType="Binary" allowsCloudEncryption="YES"/>
         <attribute name="lastname" attributeType="String" defaultValueString="" allowsCloudEncryption="YES"/>
+        <attribute name="userCreated" attributeType="Boolean" defaultValueString="YES" allowsCloudEncryption="YES" usesScalarValueType="YES"/>
     </entity>
 </model>

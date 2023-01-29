@@ -41,13 +41,6 @@ internal struct Home: View {
     @FetchRequest(fetchRequest: financeFetchRequest)
     private var finances : FetchedResults<Finance>
     
-    /// The Users in this App
-    @FetchRequest(
-        sortDescriptors: [
-            SortDescriptor(\User.firstname)
-        ]
-    ) private var users : FetchedResults<User>
-    
     /// This is the fetch Request to fetch all the Finances
     /// from the Core Data Persistence Storage
     static private var financeFetchRequest : NSFetchRequest<Finance> {
@@ -139,9 +132,6 @@ internal struct Home: View {
                 }
             )
             .onAppear {
-                if !users.isEmpty {
-                    userWrapper.user = users.first!
-                }
                 setPeriodicalFinances()
             }
             .navigationTitle("Welcome")
@@ -239,14 +229,19 @@ internal struct Home: View {
     /// Scans all the Finances and adds Finances which have periodical payments to it, if
     /// so nessecary
     private func setPeriodicalFinances() -> Void {
-        let periodicalFinances : [Finance] = finances.filter { $0.isPeriodical }
-        
+        let periodicalFinances : [Finance] = finances.filter { $0.isPeriodical && !$0.automaticGenerated }
         guard !periodicalFinances.isEmpty else { return }
         
         for finance in periodicalFinances {
-            let timeIntervalDays : Int = Int( Date.now.timeIntervalSince(   (finance.periodicallyConnectedFinances!.allObjects as! [Finance]).latest()!.date!) / 86400)
-            
-            for _ in 0..<timeIntervalDays {
+            let timeIntervalDays : Int
+            if let setOfFinances =  finance.periodicallyConnectedFinances, setOfFinances.count != 0 {
+                timeIntervalDays = Int( Date.now.timeIntervalSince(   (finance.periodicallyConnectedFinances!.allObjects as! [Finance]).latest()!.date!) / 86400)
+            } else {
+                timeIntervalDays = Int(Date.now.timeIntervalSince(finance.date!) / 86000)
+            }
+            let timeInterval : Int = timeIntervalDays / Int(finance.periodDuration)
+            guard timeInterval > 0 else { continue }
+            for index in 0..<timeInterval {
                 let newFinance : Finance
                 if finance is Income {
                     newFinance = Income(context: viewContext)
@@ -257,10 +252,12 @@ internal struct Home: View {
                 newFinance.amount = finance.amount
                 newFinance.legalPerson = finance.legalPerson
                 var dateComponents : DateComponents = DateComponents()
-                dateComponents.day = 1
+                dateComponents.day = (index + 1) * Int(finance.periodDuration)
                 newFinance.date = Calendar.current.date(byAdding: dateComponents, to: finance.date!)
                 newFinance.notes = finance.notes
+                newFinance.automaticGenerated = true
                 finance.addToPeriodicallyConnectedFinances(newFinance)
+                userWrapper.addFinance(newFinance)
             }
         }
         do {

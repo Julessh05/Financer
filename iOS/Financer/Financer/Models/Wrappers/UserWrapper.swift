@@ -16,10 +16,6 @@ internal final class UserWrapper : ObservableObject {
     /// The actual User Object for this App
     @Published internal final var user : User?
     
-    /// The bank balance for an anonymous User, which means the User
-    /// of the App has not been signed in yet.
-    @Published internal final var anonymousBalance : Double = 0.00
-    
     /// The initializer to create a Wrapper Object with a User
     /// passed down the initializer.
     /// Mostly used for testing and previews.
@@ -44,9 +40,9 @@ internal final class UserWrapper : ObservableObject {
     /// Computed variable returning and setting
     /// the anonymous or user balance depending
     /// on the current State of the User
-    private var balance : Double {
-        get { user != nil ? user!.balance : anonymousBalance }
-        set { user != nil ? (user!.balance = newValue) : (anonymousBalance = newValue) }
+    internal private(set) var balance : Double {
+        get { user!.balance }
+        set { user!.balance = newValue }
     }
     
     /// Adjusts the balance depending on direction
@@ -74,20 +70,23 @@ internal final class UserWrapper : ObservableObject {
         }
     }
     
+    /// Function that should be called when a
+    /// Finance is removed from the App and the User's
+    /// balance should be updated
+    internal func removeFinance(_ finance : Finance) -> Void {
+        if finance is Income {
+            adjustBalance(direction: .down, amount: finance.amount)
+        } else {
+            adjustBalance(direction: .up, amount: finance.amount)
+        }
+    }
+    
     /// Function called when a Finance is repalced.
     /// This removes the old Finances Data and updates it with
     /// the new Value calculated in.
     internal func replaceFinance(_ oldFinance : Finance, with newFinance: Finance) -> Void {
-        if oldFinance is Income {
-            adjustBalance(direction: .down, amount: oldFinance.amount)
-        } else {
-            adjustBalance(direction: .up, amount: oldFinance.amount)
-        }
-        if newFinance is Income {
-            adjustBalance(direction: .up, amount: newFinance.amount)
-        } else {
-            adjustBalance(direction: .down, amount: newFinance.amount)
-        }
+        removeFinance(oldFinance)
+        addFinance(newFinance)
     }
     
     /// Returns a Dictionary containing the Date and the Balance on the end of that day.
@@ -105,7 +104,7 @@ internal final class UserWrapper : ObservableObject {
         let today : Date = Date()
         let intervalInSeconds : TimeInterval = Date.now.timeIntervalSince(finances.last!.date!)
         let interval = intervalInSeconds / 86400
-        for index in 0...Int(interval) {
+        for index in 0..<Int(interval) {
             var i : Int = index
             i.negate()
             var date : Date = calendar.date(byAdding: .day, value: i, to: today)!
@@ -116,8 +115,7 @@ internal final class UserWrapper : ObservableObject {
             date = calendar.date(from: dateComponents)!
             let financesOnDay : [Finance] = finances.filter {
                 let dateToCheck = calendar.dateComponents([.year, .month, .day], from: $0.date!)
-                let components = dateComponents
-                return dateToCheck.year == components.year && dateToCheck.month == components.month && dateToCheck.day == components.day
+                return dateToCheck.year == dateComponents.year && dateToCheck.month == dateComponents.month && dateToCheck.day == dateComponents.day
             }
             var amount : Double = 0
             financesOnDay.forEach {

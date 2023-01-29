@@ -23,14 +23,26 @@ internal struct FinancerApp: App {
     /// the view struct.
     private let persistenceController : PersistenceController = PersistenceController.shared
     
+    /// The Standard Initializer for this App.
+    internal init() {
+        initApp()
+        initSettings()
+    }
+    
     var body: some Scene {
         WindowGroup {
-            Home()
+            HomeInit()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
                 .environmentObject(userWrapper)
-                .onAppear {
-                    SettingsBundleHelper.shared.setValues()
-                }
         }
+    }
+    
+    /// Function to initialize this App.
+    /// Does all the important stuff on App launch
+    private func initApp() -> Void {}
+    
+    /// Initializes and prepares the Settings of this App
+    private func initSettings() {
+        SettingsBundleHelper.shared.setValues()
     }
 }

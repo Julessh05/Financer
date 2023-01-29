@@ -38,8 +38,7 @@ internal struct UserDetails: View {
     /// Body of the User Details View
     @ViewBuilder
     private func userDetails() -> some View {
-        if userWrapper.user != nil {
-            let user : User = userWrapper.user!
+        if let user = userWrapper.user, user.userCreated {
             GeometryReader {
                 metrics in
                 VStack {
@@ -66,7 +65,7 @@ internal struct UserDetails: View {
                     Button(action: logOut) {
                         Label(
                             "Log Out",
-                            systemImage: "rectangle.portrait.and.arrow.forward"
+                            systemImage: "arrow.backward.square"
                         )
                         .frame(
                             width: metrics.size.width / 1.2,
@@ -104,9 +103,29 @@ internal struct UserDetails: View {
                 }
             }
         } else {
-            VStack {
-                Button("Sign in") {
-                    logInPresented.toggle()
+            GeometryReader {
+                metrics in
+                VStack {
+                    List {
+                        ListTile(name: "Current Balance",
+                                 // TODO: add currency
+                                 data: "\(userWrapper.balance)")
+                    }
+                    Button {
+                        logInPresented.toggle()
+                    } label: {
+                        Label(
+                            "Log In",
+                            systemImage: "arrow.forward.square"
+                        )
+                        .frame(
+                            width: metrics.size.width / 1.2,
+                            height: metrics.size.height / 15
+                        )
+                        .background(Color.black)
+                        .foregroundColor(.white)
+                        .cornerRadius(20)
+                    }
                 }
                 .sheet(isPresented: $logInPresented) {
                     LogInUser()
