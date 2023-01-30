@@ -43,6 +43,7 @@
 		848A44AF29642897002AC782 /* SettingsBundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848A44AE29642897002AC782 /* SettingsBundleHelper.swift */; };
 		849AB4352965C0C200AA8E75 /* UserWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849AB4342965C0C200AA8E75 /* UserWrapper.swift */; };
 		849AB4372965CAB100AA8E75 /* ChartDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849AB4362965CAB100AA8E75 /* ChartDetails.swift */; };
+		84D911BC29868E090043CCA7 /* DeleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D911BB29868E090043CCA7 /* DeleteButton.swift */; };
 		84ED450E297BF58000706993 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED450D297BF58000706993 /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
@@ -104,6 +105,7 @@
 		848A44AE29642897002AC782 /* SettingsBundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBundleHelper.swift; sourceTree = "<group>"; };
 		849AB4342965C0C200AA8E75 /* UserWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWrapper.swift; sourceTree = "<group>"; };
 		849AB4362965CAB100AA8E75 /* ChartDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDetails.swift; sourceTree = "<group>"; };
+		84D911BB29868E090043CCA7 /* DeleteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteButton.swift; sourceTree = "<group>"; };
 		84ED450D297BF58000706993 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -303,6 +305,7 @@
 		845F170B2957379D009728F5 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				84D911BA29868DF70043CCA7 /* Buttons */,
 				84899C52298258F6004129FD /* User */,
 				8423582C296A9DB10055904A /* ListTiles */,
 				84235829296993D00055904A /* Statistics */,
@@ -353,6 +356,14 @@
 				848A44AE29642897002AC782 /* SettingsBundleHelper.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		84D911BA29868DF70043CCA7 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				84D911BB29868E090043CCA7 /* DeleteButton.swift */,
+			);
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -514,6 +525,7 @@
 				84235826296991CC0055904A /* BalancesChart.swift in Sources */,
 				845FFFDB2961867E0053E9F5 /* EditFinance.swift in Sources */,
 				845F1706295731E5009728F5 /* Finance+CoreDataClass.swift in Sources */,
+				84D911BC29868E090043CCA7 /* DeleteButton.swift in Sources */,
 				3FCD27272952E3CB00ECD3C2 /* Financer.xcdatamodeld in Sources */,
 				84235828296992920055904A /* LogInUser.swift in Sources */,
 				845F16FF2956D1E2009728F5 /* LegalPersonPicker.swift in Sources */,

@@ -90,6 +90,9 @@ internal struct Home: View {
     /// Whether the User currently wants to delete the periodical finances or not
     @State private var periodicalFinanceToDeleteAfterConfirmation : Finance? = nil
     
+    /// Whether to delete the Finance from the Details View or not
+    @State private var deleteFinanceFromDetails : Bool = false
+    
     var body: some View {
         NavigationStack {
             List {
@@ -119,11 +122,9 @@ internal struct Home: View {
                         .foregroundColor(.black)
                         // Solution: https://peterfriese.dev/posts/swiftui-listview-part4/
                         .swipeActions {
-                            Button(action: { deleteFinance(finance) }) {
-                                Image(systemName: "trash")
-                                    .renderingMode(.original)
+                            DeleteButton {
+                                deleteFinance(finance)
                             }
-                            .tint(.red)
                         }
                     }
                 } header: {
@@ -151,6 +152,10 @@ internal struct Home: View {
             .navigationTitle("Welcome")
             .navigationBarTitleDisplayMode(.automatic)
             .sheet(isPresented: $detailsPresented) {
+                if deleteFinanceFromDetails {
+                    deleteFinance(financeWrapper.finance!)
+                }
+            } content: {
                 FinanceDetails()
                     .environmentObject(legalPersonWrapper)
                     .environmentObject(financeWrapper)
@@ -183,6 +188,10 @@ internal struct Home: View {
             .alert("Are you sure?", isPresented: $deletePeriodicalFinancePresented) {
                 Button("Delete", role: .destructive) {
                     deletePeriodicalFinances(for: periodicalFinanceToDeleteAfterConfirmation)
+                }
+                // From: https://developer.apple.com/documentation/swiftui/view/alert(_:ispresented:actions:message:)-8dvt8
+                Button("Cancel", role: .cancel) {
+                    periodicalFinanceToDeleteAfterConfirmation = nil
                 }
             } message: {
                 Text("This is a periodical Finance. \nDeleting it will also delete all connected periodical Finances")
@@ -313,7 +322,7 @@ internal struct Home: View {
         for financeToDelete in finance!.periodicallyConnectedFinances?.allObjects as! [Finance] {
             viewContext.delete(financeToDelete)
         }
-       deleteAndUpdate(for: finance!)
+        deleteAndUpdate(for: finance!)
     }
     
     /// Deletes the actual Finance and updates the User Balance.
@@ -325,6 +334,9 @@ internal struct Home: View {
             }
         }
         userWrapper.removeFinance(finance)
+        if financeWrapper.finance == finance {
+            financeWrapper.finance = nil
+        }
         do {
             try viewContext.save()
         } catch _ {
