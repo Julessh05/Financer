@@ -44,6 +44,12 @@ internal struct PersistenceController {
             e.legalPerson = legalPerson
             i.notes = notes
             e.notes = notes
+            i.automaticGenerated = false
+            e.automaticGenerated = false
+            i.periodDuration = 0
+            e.periodDuration = 31
+            i.date = Date()
+            e.date = Date()
             
             // Add Legal Persons
             let p = Person(context: viewContext)
@@ -123,5 +129,13 @@ internal struct PersistenceController {
         
         // Idea for this merge policy: https://www.reddit.com/r/iOSProgramming/comments/egki07/which_merge_policy_should_i_use_for_cloudkitcore/
         container.viewContext.mergePolicy = NSMergePolicy.mergeByPropertyObjectTrump
+    }
+    
+    /// Erases all Content stored in the Core Data
+    internal func eraseAllContent() -> Void {
+    }
+    
+    internal func deleteFinance(_ finance : Finance, with context : ) -> Void {
+        
     }
 }

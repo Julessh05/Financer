@@ -311,8 +311,9 @@ internal struct Home: View {
         if finance.isPeriodical {
             periodicalFinanceToDeleteAfterConfirmation = finance
             deletePeriodicalFinancePresented.toggle()
+        } else {
+            deleteAndUpdate(for: finance)
         }
-        deleteAndUpdate(for: finance)
     }
     
     /// Deletes the specified Finance and all to that finance
