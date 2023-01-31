@@ -39,7 +39,7 @@ internal struct FinancerApp: App {
     
     /// Function to initialize this App.
     /// Does all the important stuff on App launch
-    private func initApp() -> Void {}
+    private mutating func initApp() -> Void {}
     
     /// Initializes and prepares the Settings of this App
     private func initSettings() {

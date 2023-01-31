@@ -62,7 +62,7 @@ internal struct HomeInit: View {
         if !users.isEmpty {
             userWrapper.user = users.first!
         } else {
-            userWrapper.user = userWrapper.createAnonymousUser(viewContext: viewContext)
+            userWrapper.initUserWrapper(viewContext: viewContext)
         }
         isLoading = false
     }

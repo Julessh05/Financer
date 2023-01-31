@@ -165,6 +165,11 @@ internal struct PersistenceController {
     /// Core Data.
     private func deleteAndSave(object: NSManagedObject) throws -> Void {
         container.viewContext.delete(object)
+        try save()
+    }
+    
+    /// Saves the Data in this App
+    internal func save() throws -> Void {
         try container.viewContext.save()
     }
 }

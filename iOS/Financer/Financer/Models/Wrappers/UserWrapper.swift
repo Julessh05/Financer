@@ -23,15 +23,14 @@ internal final class UserWrapper : ObservableObject {
     /// The initializer to create a Wrapper Object with a User
     /// passed down the initializer.
     /// Mostly used for testing and previews.
-//    internal init(user : User? = nil) {
-//        self.user = user
-//        anonymousUser = createAnonymousUser(viewContext: PersistenceController.preview.container.viewContext)
-//    }
+    internal init(user : User? = nil) {
+        self.user = user
+    }
     
-    /// The initializer to use in the App.
-    ///
-    internal init(viewContext : NSManagedObjectContext) {
-        self.user = nil
+    /// Initilizes this User Wrapper.
+    /// Do only call this once! Otherwise the Data will be lost
+    internal func initUserWrapper(viewContext : NSManagedObjectContext) -> Void {
+        guard anonymousUser == nil else { return }
         anonymousUser = createAnonymousUser(viewContext: viewContext)
     }
     
@@ -148,7 +147,7 @@ internal final class UserWrapper : ObservableObject {
     }
     
     /// Creates and returns an anonymous User for this App.
-    private func createAnonymousUser(viewContext : NSManagedObjectContext, with user : User? = nil) -> User {
+    private func createAnonymousUser(viewContext : NSManagedObjectContext) -> User {
         let anonymUser : User = User(context: viewContext)
         anonymUser.firstname = "Julian"
         anonymUser.lastname = "Schumacher"
@@ -159,17 +158,21 @@ internal final class UserWrapper : ObservableObject {
         dateComponents.day = 22
         anonymUser.dateOfBirth = calendar.date(from: dateComponents)!
         anonymUser.gender = User.Gender.male.rawValue
-        anonymUser.balance = user?.balance ?? 0
+        anonymUser.balance = 0
         anonymUser.userCreated = false
         return anonymUser
     }
     
+    /// Function to call when the User logs into this App.
+    /// The specified newUser is the User created.
     internal func logIn(newUser : User) throws -> Void {
         user = newUser
         user!.balance = anonymousUser!.balance
-        try PersistenceController.shared.container.viewContext.save()
+        try PersistenceController.shared.save()
     }
     
+    /// Function to call when the User logs out of this App.
+    /// This handles all the stuff with the anonymous User.
     internal func logOut() throws -> Void {
         anonymousUser!.balance = user!.balance
         user = anonymousUser
