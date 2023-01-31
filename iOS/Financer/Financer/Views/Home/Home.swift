@@ -185,7 +185,7 @@ internal struct Home: View {
                         // Solution: https://peterfriese.dev/posts/swiftui-listview-part4/
                         .swipeActions {
                             DeleteButton {
-                                deleteFinance(finance)
+                                deleteFinance(for: finance)
                             }
                         }
                     }
@@ -196,7 +196,7 @@ internal struct Home: View {
                 }
                 .alert("Are you sure?", isPresented: $deletePeriodicalFinancePresented) {
                     Button("Delete", role: .destructive) {
-                        deletePeriodicalFinances(for: periodicalFinanceToDeleteAfterConfirmation!)
+                        deleteFinance(for: periodicalFinanceToDeleteAfterConfirmation!)
                     }
                     // From: https://developer.apple.com/documentation/swiftui/view/alert(_:ispresented:actions:message:)-8dvt8
                     Button("Cancel", role: .cancel) {
@@ -208,7 +208,7 @@ internal struct Home: View {
                 .sheet(isPresented: $detailsPresented) {
                     // On dismiss
                     if deleteFinanceFromDetails {
-                        deleteFinance(financeWrapper.finance!)
+                        deleteFinance(for: financeWrapper.finance!)
                     }
                 } content: {
                     FinanceDetails()
@@ -328,30 +328,16 @@ internal struct Home: View {
     /// This does also show a message if the finance is periodical
     /// to warn to user, that deleting this Finance will also delete all
     /// the connected finances
-    private func deleteFinance(_ finance : Finance) -> Void {
-        if finance.isPeriodical {
-            periodicalFinanceToDeleteAfterConfirmation = finance
-            deletePeriodicalFinancePresented.toggle()
-        } else {
-            deleteAndUpdate(for: finance)
-        }
-    }
-    
-    /// Deletes the specified Finance and all to that finance
-    /// periodically connected finances
-    private func deletePeriodicalFinances(for finance : Finance) -> Void {
-        deleteAndUpdate(for: finance)
-    }
-    
-    /// Deletes the actual Finance and updates the User Balance.
-    private func deleteAndUpdate(for finance : Finance) -> Void {
+    private func deleteFinance(for finance : Finance) -> Void {
         if financeWrapper.finance == finance {
             financeWrapper.finance = nil
         }
         do {
             try PersistenceController.shared.deleteFinance(
                 finance,
-                userWrapper: _userWrapper
+                userWrapper: _userWrapper,
+                financeToDeleteAfterConfirmation: $periodicalFinanceToDeleteAfterConfirmation,
+                alertPresented: $deletePeriodicalFinancePresented
             )
         } catch _ {
             errSavingPresented.toggle()

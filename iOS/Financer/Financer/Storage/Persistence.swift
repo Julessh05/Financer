@@ -139,7 +139,17 @@ internal struct PersistenceController {
     
     /// Deletes the specified Finance, if necessary all connected Finances
     /// and saves it to the System.
-    internal func deleteFinance(_ finance : Finance, userWrapper : EnvironmentObject<UserWrapper>) throws -> Void {
+    internal func deleteFinance(
+        _ finance : Finance,
+        userWrapper : EnvironmentObject<UserWrapper>,
+        financeToDeleteAfterConfirmation : Binding<Finance?>,
+        alertPresented : Binding<Bool>
+    ) throws -> Void {
+        guard financeToDeleteAfterConfirmation.wrappedValue == finance else {
+            financeToDeleteAfterConfirmation.wrappedValue = finance
+            alertPresented.wrappedValue.toggle()
+            return
+        }
         if finance.isPeriodical {
             for financeToDelete in finance.periodicallyConnectedFinances?.allObjects as! [Finance] {
                 container.viewContext.delete(financeToDelete)
@@ -147,6 +157,7 @@ internal struct PersistenceController {
             }
         }
         userWrapper.wrappedValue.removeFinance(finance)
+        financeToDeleteAfterConfirmation.wrappedValue = nil
         try deleteAndSave(object: finance)
     }
     
