@@ -6,6 +6,7 @@
 //
 
 import CoreData
+import SwiftUI
 
 /// This struct represents the Controller to manage
 /// the Code Data Objects and Storage
@@ -132,10 +133,38 @@ internal struct PersistenceController {
     }
     
     /// Erases all Content stored in the Core Data
-    internal func eraseAllContent() -> Void {
+    internal func eraseAllContent() throws -> Void {
+        try container.viewContext.save()
     }
     
-    internal func deleteFinance(_ finance : Finance, with context : ) -> Void {
-        
+    /// Deletes the specified Finance, if necessary all connected Finances
+    /// and saves it to the System.
+    internal func deleteFinance(_ finance : Finance, userWrapper : EnvironmentObject<UserWrapper>) throws -> Void {
+        if finance.isPeriodical {
+            for financeToDelete in finance.periodicallyConnectedFinances?.allObjects as! [Finance] {
+                container.viewContext.delete(financeToDelete)
+                userWrapper.wrappedValue.removeFinance(financeToDelete)
+            }
+        }
+        userWrapper.wrappedValue.removeFinance(finance)
+        try deleteAndSave(object: finance)
+    }
+    
+    /// Deletes the specified Legal Person and all connected Finances
+    /// and saves it to the System.
+    internal func deleteLegalPerson(_ legalPerson : LegalPerson) throws -> Void {
+        try deleteAndSave(object: legalPerson)
+    }
+    
+    /// Deletes the specified User from the System.
+    internal func deleteUser(_ user : User) throws -> Void {
+        try deleteAndSave(object: user)
+    }
+    
+    /// Actually deletes the specified Object and updates
+    /// Core Data.
+    private func deleteAndSave(object: NSManagedObject) throws -> Void {
+        container.viewContext.delete(object)
+        try container.viewContext.save()
     }
 }

@@ -95,6 +95,68 @@ internal struct Home: View {
     
     var body: some View {
         NavigationStack {
+            homeBuilder()
+            
+            Button {
+                addPresented.toggle()
+            } label: {
+                Label("Add Finance", systemImage: "plus")
+            }
+            .sheet(
+                isPresented: $addPresented,
+                content: {
+                    AddFinance()
+                        .environmentObject(legalPersonWrapper)
+                        .environmentObject(userWrapper)
+                }
+            )
+            .onAppear {
+                setPeriodicalFinances()
+            }
+            .navigationTitle("Welcome")
+            .navigationBarTitleDisplayMode(.automatic)
+            .toolbarRole(.navigationStack)
+            .toolbar(.automatic, for: .navigationBar)
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    NavigationLink {
+                        UserDetails()
+                            .environmentObject(userWrapper)
+                    } label: {
+                        Image(systemName: "person.circle.fill")
+                            .renderingMode(.original)
+                            .foregroundColor(.black)
+                    }
+                }
+            }
+            .alert(
+                "Error",
+                isPresented: $errSavingPresented
+            ) {
+                
+            } message: {
+                Text(
+                    "Error processing Data\nPlease restard the App\n\nIf this Error occurs again, please contact the support."
+                )
+            }
+        }
+    }
+    
+    /// Builds, renders and returns the Home
+    /// depending on the List of Finances
+    @ViewBuilder
+    private func homeBuilder() -> some View {
+        if finances.isEmpty {
+            // TODO: work on
+            VStack {
+                Text("No Finances added yet.")
+                NavigationLink("Add one") {
+                    AddFinance()
+                        .environmentObject(legalPersonWrapper)
+                        .environmentObject(userWrapper)
+                }
+            }
+        } else {
             List {
                 Section {
                     Button {
@@ -132,69 +194,28 @@ internal struct Home: View {
                 } footer: {
                     financeFooter()
                 }
-            }
-            Button {
-                addPresented.toggle()
-            } label: {
-                Label("Add Finance", systemImage: "plus")
-            }
-            .sheet(
-                isPresented: $addPresented,
-                content: {
-                    AddFinance()
+                .alert("Are you sure?", isPresented: $deletePeriodicalFinancePresented) {
+                    Button("Delete", role: .destructive) {
+                        deletePeriodicalFinances(for: periodicalFinanceToDeleteAfterConfirmation!)
+                    }
+                    // From: https://developer.apple.com/documentation/swiftui/view/alert(_:ispresented:actions:message:)-8dvt8
+                    Button("Cancel", role: .cancel) {
+                        periodicalFinanceToDeleteAfterConfirmation = nil
+                    }
+                } message: {
+                    Text("This is a periodical Finance. \nDeleting it will also delete all connected periodical Finances")
+                }
+                .sheet(isPresented: $detailsPresented) {
+                    // On dismiss
+                    if deleteFinanceFromDetails {
+                        deleteFinance(financeWrapper.finance!)
+                    }
+                } content: {
+                    FinanceDetails()
                         .environmentObject(legalPersonWrapper)
+                        .environmentObject(financeWrapper)
                         .environmentObject(userWrapper)
                 }
-            )
-            .onAppear {
-                setPeriodicalFinances()
-            }
-            .navigationTitle("Welcome")
-            .navigationBarTitleDisplayMode(.automatic)
-            .sheet(isPresented: $detailsPresented) {
-                if deleteFinanceFromDetails {
-                    deleteFinance(financeWrapper.finance!)
-                }
-            } content: {
-                FinanceDetails()
-                    .environmentObject(legalPersonWrapper)
-                    .environmentObject(financeWrapper)
-                    .environmentObject(userWrapper)
-            }
-            .toolbarRole(.navigationStack)
-            .toolbar(.automatic, for: .navigationBar)
-            .toolbar {
-                ToolbarItem(placement: .primaryAction) {
-                    NavigationLink {
-                        UserDetails()
-                            .environmentObject(userWrapper)
-                    } label: {
-                        Image(systemName: "person.circle.fill")
-                            .renderingMode(.original)
-                            .foregroundColor(.black)
-                    }
-                }
-            }
-            .alert(
-                "Error",
-                isPresented: $errSavingPresented
-            ) {
-                
-            } message: {
-                Text(
-                    "Error processing Data\nPlease restard the App\n\nIf this Error occurs again, please contact the support."
-                )
-            }
-            .alert("Are you sure?", isPresented: $deletePeriodicalFinancePresented) {
-                Button("Delete", role: .destructive) {
-                    deletePeriodicalFinances(for: periodicalFinanceToDeleteAfterConfirmation)
-                }
-                // From: https://developer.apple.com/documentation/swiftui/view/alert(_:ispresented:actions:message:)-8dvt8
-                Button("Cancel", role: .cancel) {
-                    periodicalFinanceToDeleteAfterConfirmation = nil
-                }
-            } message: {
-                Text("This is a periodical Finance. \nDeleting it will also delete all connected periodical Finances")
             }
         }
     }
@@ -318,28 +339,20 @@ internal struct Home: View {
     
     /// Deletes the specified Finance and all to that finance
     /// periodically connected finances
-    private func deletePeriodicalFinances(for finance : Finance?) -> Void {
-        guard finance != nil else { return }
-        for financeToDelete in finance!.periodicallyConnectedFinances?.allObjects as! [Finance] {
-            viewContext.delete(financeToDelete)
-        }
-        deleteAndUpdate(for: finance!)
+    private func deletePeriodicalFinances(for finance : Finance) -> Void {
+        deleteAndUpdate(for: finance)
     }
     
     /// Deletes the actual Finance and updates the User Balance.
     private func deleteAndUpdate(for finance : Finance) -> Void {
-        viewContext.delete(finance)
-        if finance.isPeriodical {
-            for periodicalFinance in finance.periodicallyConnectedFinances?.allObjects as! [Finance] {
-                userWrapper.removeFinance(periodicalFinance)
-            }
-        }
-        userWrapper.removeFinance(finance)
         if financeWrapper.finance == finance {
             financeWrapper.finance = nil
         }
         do {
-            try viewContext.save()
+            try PersistenceController.shared.deleteFinance(
+                finance,
+                userWrapper: _userWrapper
+            )
         } catch _ {
             errSavingPresented.toggle()
         }

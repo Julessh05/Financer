@@ -62,18 +62,7 @@ internal struct HomeInit: View {
         if !users.isEmpty {
             userWrapper.user = users.first!
         } else {
-            let anonymUser : User = User(context: viewContext)
-            anonymUser.firstname = "Julian"
-            anonymUser.lastname = "Schumacher"
-            let calendar : Calendar = Calendar.current
-            var dateComponents : DateComponents = DateComponents()
-            dateComponents.year = 2005
-            dateComponents.month = 2
-            dateComponents.day = 22
-            anonymUser.dateOfBirth = calendar.date(from: dateComponents)!
-            anonymUser.gender = User.Gender.male.rawValue
-            anonymUser.userCreated = false
-            userWrapper.user = anonymUser
+            userWrapper.user = userWrapper.createAnonymousUser(viewContext: viewContext)
         }
         isLoading = false
     }

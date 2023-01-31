@@ -86,7 +86,6 @@ internal struct LegalPersonEditor: View {
                             }
                         }
                         .onSubmit { checkBtn() }
-                        // TODO: decide on Style
                         .pickerStyle(.automatic)
                     } header: {
                         Text("Required Information")

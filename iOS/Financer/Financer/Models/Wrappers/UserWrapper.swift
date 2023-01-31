@@ -5,6 +5,7 @@
 //  Created by Julian Schumacher on 04.01.23.
 //
 
+import CoreData
 import Foundation
 
 /// The Wrapper for a User Object used in this App.
@@ -16,11 +17,22 @@ internal final class UserWrapper : ObservableObject {
     /// The actual User Object for this App
     @Published internal final var user : User?
     
+    /// The anonymous User for this App
+    @Published private final var anonymousUser : User?
+    
     /// The initializer to create a Wrapper Object with a User
     /// passed down the initializer.
     /// Mostly used for testing and previews.
-    internal init(user : User? = nil) {
-        self.user = user
+//    internal init(user : User? = nil) {
+//        self.user = user
+//        anonymousUser = createAnonymousUser(viewContext: PersistenceController.preview.container.viewContext)
+//    }
+    
+    /// The initializer to use in the App.
+    ///
+    internal init(viewContext : NSManagedObjectContext) {
+        self.user = nil
+        anonymousUser = createAnonymousUser(viewContext: viewContext)
     }
     
     /// The enum that determines in
@@ -133,5 +145,34 @@ internal final class UserWrapper : ObservableObject {
             }
         }
         return dict
+    }
+    
+    /// Creates and returns an anonymous User for this App.
+    private func createAnonymousUser(viewContext : NSManagedObjectContext, with user : User? = nil) -> User {
+        let anonymUser : User = User(context: viewContext)
+        anonymUser.firstname = "Julian"
+        anonymUser.lastname = "Schumacher"
+        let calendar : Calendar = Calendar.current
+        var dateComponents : DateComponents = DateComponents()
+        dateComponents.year = 2005
+        dateComponents.month = 2
+        dateComponents.day = 22
+        anonymUser.dateOfBirth = calendar.date(from: dateComponents)!
+        anonymUser.gender = User.Gender.male.rawValue
+        anonymUser.balance = user?.balance ?? 0
+        anonymUser.userCreated = false
+        return anonymUser
+    }
+    
+    internal func logIn(newUser : User) throws -> Void {
+        user = newUser
+        user!.balance = anonymousUser!.balance
+        try PersistenceController.shared.container.viewContext.save()
+    }
+    
+    internal func logOut() throws -> Void {
+        anonymousUser!.balance = user!.balance
+        user = anonymousUser
+        try PersistenceController.shared.deleteUser(user!)
     }
 }

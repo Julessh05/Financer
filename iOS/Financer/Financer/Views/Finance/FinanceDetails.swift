@@ -110,6 +110,9 @@ internal struct FinanceDetails: View {
                 },
                 textContentType: .name
             )
+            .swipeActions {
+//                DeleteButton(action: )
+            }
             .sheet(isPresented: $personDetailsPresented) {
                 LegalPersonDetails()
             }

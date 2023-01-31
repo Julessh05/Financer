@@ -76,6 +76,9 @@ internal struct LegalPersonPicker: View {
     /// Whether to show the Confirmation Alert to delete a legal Person or not.
     @State private var deleteLegalPersonPresented : Bool = false
     
+    /// Whether the Error Alert Dialog when saving data is presented or not.
+    @State private var errSavingPresented : Bool = false
+    
     var body: some View {
         VStack {
             Picker("Type", selection: $legalPersonType) {
@@ -87,6 +90,16 @@ internal struct LegalPersonPicker: View {
             .padding(.horizontal, 10)
             .pickerStyle(.segmented)
             list()
+                .alert(
+                    "Error",
+                    isPresented: $errSavingPresented
+                ) {
+                    
+                } message: {
+                    Text(
+                        "Error processing Data\nPlease restard the App\n\nIf this Error occurs again, please contact the support."
+                    )
+                }
                 .alert("Are you sure?", isPresented: $deleteLegalPersonPresented) {
                     Button("Delete", role: .destructive) {
                         deleteLegalPerson(legalPersonToDeleteAfterConfirmation!)
@@ -134,7 +147,7 @@ internal struct LegalPersonPicker: View {
         } else {
             VStack {
                 Spacer()
-                Label("No Data found", systemImage: "xmark.circle")
+                Label("No \(legalPersonType != .none ? legalPersonType.rawValue : "Data") found", systemImage: "xmark.circle")
                 NavigationLink("Add one", destination: { AddLegalPerson(legalPersonType: legalPersonType) })
                 Spacer()
             }
@@ -192,11 +205,10 @@ internal struct LegalPersonPicker: View {
             deleteLegalPersonPresented.toggle()
             return
         }
-        viewContext.delete(person)
         do {
-            try viewContext.save()
+            try PersistenceController.shared.deleteLegalPerson(person)
         } catch _ {
-            // TODO: implement Error Message
+            errSavingPresented.toggle()
         }
     }
 }
