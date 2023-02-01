@@ -329,13 +329,11 @@ internal struct Home: View {
     /// to warn to user, that deleting this Finance will also delete all
     /// the connected finances
     private func deleteFinance(for finance : Finance) -> Void {
-        if financeWrapper.finance == finance {
-            financeWrapper.finance = nil
-        }
         do {
             try PersistenceController.shared.deleteFinance(
                 finance,
                 userWrapper: _userWrapper,
+                financeWrapper: _financeWrapper,
                 financeToDeleteAfterConfirmation: $periodicalFinanceToDeleteAfterConfirmation,
                 alertPresented: $deletePeriodicalFinancePresented
             )

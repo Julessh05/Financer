@@ -142,6 +142,7 @@ internal struct PersistenceController {
     internal func deleteFinance(
         _ finance : Finance,
         userWrapper : EnvironmentObject<UserWrapper>,
+        financeWrapper : EnvironmentObject<FinanceWrapper>,
         financeToDeleteAfterConfirmation : Binding<Finance?>,
         alertPresented : Binding<Bool>
     ) throws -> Void {
@@ -149,6 +150,9 @@ internal struct PersistenceController {
             financeToDeleteAfterConfirmation.wrappedValue = finance
             alertPresented.wrappedValue.toggle()
             return
+        }
+        if financeWrapper.wrappedValue.finance == finance {
+            financeWrapper.wrappedValue.finance = nil
         }
         if finance.isPeriodical {
             for financeToDelete in finance.periodicallyConnectedFinances?.allObjects as! [Finance] {
