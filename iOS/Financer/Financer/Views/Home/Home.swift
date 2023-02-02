@@ -19,9 +19,8 @@ internal struct Home: View {
     /// The Wrapper of the User of this App
     @EnvironmentObject private var userWrapper : UserWrapper
     
-    /// The initial State Object to inject into the Environment to
-    /// be able to pass a finance between all Views.
-    @StateObject private var financeWrapper : FinanceWrapper = FinanceWrapper()
+    /// The Environment Object which contains the current Finance
+    @EnvironmentObject private var financeWrapper : FinanceWrapper
     
     /// The Legal Person Wrapper to contain the Legal Person
     /// this Finance belongs to.
@@ -211,7 +210,7 @@ internal struct Home: View {
                         deleteFinance(for: financeWrapper.finance!)
                     }
                 } content: {
-                    FinanceDetails()
+                    FinanceDetails(deleteFinanceFromDetails: $deleteFinanceFromDetails)
                         .environmentObject(legalPersonWrapper)
                         .environmentObject(financeWrapper)
                         .environmentObject(userWrapper)

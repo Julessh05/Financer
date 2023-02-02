@@ -149,7 +149,7 @@ internal struct PersistenceController {
         guard financeToDeleteAfterConfirmation.wrappedValue == finance else {
             financeToDeleteAfterConfirmation.wrappedValue = finance
             alertPresented.wrappedValue.toggle()
-            return
+           return
         }
         if financeWrapper.wrappedValue.finance == finance {
             financeWrapper.wrappedValue.finance = nil
