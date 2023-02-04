@@ -137,20 +137,21 @@ internal struct PersistenceController {
         try container.viewContext.save()
     }
     
+    internal func checkFinanceDeletion(finance : Finance) -> Void {
+        if finance.isPeriodical {
+            
+        } else {
+            
+        }
+    }
+    
     /// Deletes the specified Finance, if necessary all connected Finances
     /// and saves it to the System.
     internal func deleteFinance(
         _ finance : Finance,
         userWrapper : EnvironmentObject<UserWrapper>,
-        financeWrapper : EnvironmentObject<FinanceWrapper>,
-        financeToDeleteAfterConfirmation : Binding<Finance?>,
-        alertPresented : Binding<Bool>
+        financeWrapper : EnvironmentObject<FinanceWrapper>
     ) throws -> Void {
-        guard financeToDeleteAfterConfirmation.wrappedValue == finance else {
-            financeToDeleteAfterConfirmation.wrappedValue = finance
-            alertPresented.wrappedValue.toggle()
-           return
-        }
         if financeWrapper.wrappedValue.finance == finance {
             financeWrapper.wrappedValue.finance = nil
         }
@@ -161,7 +162,6 @@ internal struct PersistenceController {
             }
         }
         userWrapper.wrappedValue.removeFinance(finance)
-        financeToDeleteAfterConfirmation.wrappedValue = nil
         try deleteAndSave(object: finance)
     }
     

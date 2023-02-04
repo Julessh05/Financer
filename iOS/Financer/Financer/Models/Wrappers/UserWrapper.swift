@@ -52,8 +52,8 @@ internal final class UserWrapper : ObservableObject {
     /// the anonymous or user balance depending
     /// on the current State of the User
     internal private(set) var balance : Double {
-        get { user!.balance }
-        set { user!.balance = newValue }
+        get { user?.balance ?? anonymousUser!.balance }
+        set { user != nil ? (user!.balance = newValue) : (anonymousUser!.balance = newValue) }
     }
     
     /// Adjusts the balance depending on direction

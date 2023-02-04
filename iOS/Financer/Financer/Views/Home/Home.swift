@@ -26,9 +26,6 @@ internal struct Home: View {
     /// this Finance belongs to.
     @StateObject private var legalPersonWrapper : LegalPersonWrapper = LegalPersonWrapper()
     
-    /// Whether the Error Alert Dialog when saving data is presented or not.
-    @State private var errSavingPresented : Bool = false
-    
     // Preview Code Start
     // (Comment to build)
     //
@@ -92,6 +89,12 @@ internal struct Home: View {
     /// Whether to delete the Finance from the Details View or not
     @State private var deleteFinanceFromDetails : Bool = false
     
+    /// Whether the Error Alert Dialog when saving data is presented or not.
+    @State private var errSavingPresented : Bool = false
+    
+    /// The Boolean value indicating to delete the Finance
+    @State private var delete : Bool = false
+    
     var body: some View {
         NavigationStack {
             homeBuilder()
@@ -146,15 +149,14 @@ internal struct Home: View {
     @ViewBuilder
     private func homeBuilder() -> some View {
         if finances.isEmpty {
-            // TODO: work on
+            Spacer()
             VStack {
                 Text("No Finances added yet.")
-                NavigationLink("Add one") {
-                    AddFinance()
-                        .environmentObject(legalPersonWrapper)
-                        .environmentObject(userWrapper)
+                Button("Add one") {
+                    addPresented.toggle()
                 }
             }
+            Spacer()
         } else {
             List {
                 Section {
@@ -195,10 +197,12 @@ internal struct Home: View {
                 }
                 .alert("Are you sure?", isPresented: $deletePeriodicalFinancePresented) {
                     Button("Delete", role: .destructive) {
+                        delete = true
                         deleteFinance(for: periodicalFinanceToDeleteAfterConfirmation!)
                     }
                     // From: https://developer.apple.com/documentation/swiftui/view/alert(_:ispresented:actions:message:)-8dvt8
                     Button("Cancel", role: .cancel) {
+                        delete = false
                         periodicalFinanceToDeleteAfterConfirmation = nil
                     }
                 } message: {
@@ -328,13 +332,21 @@ internal struct Home: View {
     /// to warn to user, that deleting this Finance will also delete all
     /// the connected finances
     private func deleteFinance(for finance : Finance) -> Void {
+        if finance.isPeriodical {
+            guard periodicalFinanceToDeleteAfterConfirmation == finance else {
+                periodicalFinanceToDeleteAfterConfirmation = finance
+                deletePeriodicalFinancePresented.toggle()
+                return
+            }
+            guard delete else {
+                return
+            }
+        }
         do {
             try PersistenceController.shared.deleteFinance(
                 finance,
                 userWrapper: _userWrapper,
-                financeWrapper: _financeWrapper,
-                financeToDeleteAfterConfirmation: $periodicalFinanceToDeleteAfterConfirmation,
-                alertPresented: $deletePeriodicalFinancePresented
+                financeWrapper: _financeWrapper
             )
         } catch _ {
             errSavingPresented.toggle()
