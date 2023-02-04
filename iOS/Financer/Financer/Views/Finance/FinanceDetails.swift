@@ -14,11 +14,23 @@ internal struct FinanceDetails: View {
     /// Data Manager of this App.
     @Environment(\.managedObjectContext) private var viewContext
     
+    /// The Action to dismiss  this View programmatically
+    @Environment(\.dismiss) private var dismiss : DismissAction
+    
     /// The FInance Wrapper being injected into the Environment
     @EnvironmentObject private var financeWrapper : FinanceWrapper
     
+    /// The User Wrapper in this App to interact with the User
+    @EnvironmentObject private var userWrapper : UserWrapper
+    
     /// Whether the Details of a Person are shown or not
     @State private var personDetailsPresented : Bool = false
+    
+    /// Whether the Error when saving is presented or not.
+    @State private var errSavingPresented : Bool = false
+    
+    /// Whether to delete this Finance after closing this Screen or not
+    @Binding internal var deleteFinanceFromDetails : Bool
     
     var body: some View {
         NavigationStack {
@@ -36,8 +48,19 @@ internal struct FinanceDetails: View {
                     NavigationLink {
                         EditFinance()
                             .environmentObject(financeWrapper)
+                            .environmentObject(userWrapper)
                     } label: {
                         Image(systemName: "pencil")
+                    }
+                }
+                ToolbarItem(placement: .destructiveAction) {
+                    Button {
+                        deleteFinanceFromDetails.toggle()
+                        dismiss()
+                    } label: {
+                        Image(systemName: "trash")
+                            .renderingMode(.original)
+                            .foregroundColor(.red)
                     }
                 }
             }
@@ -110,6 +133,9 @@ internal struct FinanceDetails: View {
                 },
                 textContentType: .name
             )
+            .swipeActions {
+                //                DeleteButton(action: )
+            }
             .sheet(isPresented: $personDetailsPresented) {
                 LegalPersonDetails()
             }
@@ -149,8 +175,11 @@ internal struct FinanceDetails_Previews: PreviewProvider {
     /// The State Object to use in this Preview
     @StateObject private static var fW : FinanceWrapper = FinanceWrapper(finance: Finance.anonymous)
     
+    /// The State Boolean to delete a Finance from details used in this Preview
+    @State private static var deleteFinanceFromDetails : Bool = false
+    
     static var previews: some View {
-        FinanceDetails()
+        FinanceDetails(deleteFinanceFromDetails: $deleteFinanceFromDetails)
             .environmentObject(fW)
     }
 }

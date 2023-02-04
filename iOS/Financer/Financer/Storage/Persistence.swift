@@ -6,6 +6,7 @@
 //
 
 import CoreData
+import SwiftUI
 
 /// This struct represents the Controller to manage
 /// the Code Data Objects and Storage
@@ -44,6 +45,12 @@ internal struct PersistenceController {
             e.legalPerson = legalPerson
             i.notes = notes
             e.notes = notes
+            i.automaticGenerated = false
+            e.automaticGenerated = false
+            i.periodDuration = 0
+            e.periodDuration = 31
+            i.date = Date()
+            e.date = Date()
             
             // Add Legal Persons
             let p = Person(context: viewContext)
@@ -123,5 +130,61 @@ internal struct PersistenceController {
         
         // Idea for this merge policy: https://www.reddit.com/r/iOSProgramming/comments/egki07/which_merge_policy_should_i_use_for_cloudkitcore/
         container.viewContext.mergePolicy = NSMergePolicy.mergeByPropertyObjectTrump
+    }
+    
+    /// Erases all Content stored in the Core Data
+    internal func eraseAllContent() throws -> Void {
+        try container.viewContext.save()
+    }
+    
+    internal func checkFinanceDeletion(finance : Finance) -> Void {
+        if finance.isPeriodical {
+            
+        } else {
+            
+        }
+    }
+    
+    /// Deletes the specified Finance, if necessary all connected Finances
+    /// and saves it to the System.
+    internal func deleteFinance(
+        _ finance : Finance,
+        userWrapper : EnvironmentObject<UserWrapper>,
+        financeWrapper : EnvironmentObject<FinanceWrapper>
+    ) throws -> Void {
+        if financeWrapper.wrappedValue.finance == finance {
+            financeWrapper.wrappedValue.finance = nil
+        }
+        if finance.isPeriodical {
+            for financeToDelete in finance.periodicallyConnectedFinances?.allObjects as! [Finance] {
+                container.viewContext.delete(financeToDelete)
+                userWrapper.wrappedValue.removeFinance(financeToDelete)
+            }
+        }
+        userWrapper.wrappedValue.removeFinance(finance)
+        try deleteAndSave(object: finance)
+    }
+    
+    /// Deletes the specified Legal Person and all connected Finances
+    /// and saves it to the System.
+    internal func deleteLegalPerson(_ legalPerson : LegalPerson) throws -> Void {
+        try deleteAndSave(object: legalPerson)
+    }
+    
+    /// Deletes the specified User from the System.
+    internal func deleteUser(_ user : User) throws -> Void {
+        try deleteAndSave(object: user)
+    }
+    
+    /// Actually deletes the specified Object and updates
+    /// Core Data.
+    private func deleteAndSave(object: NSManagedObject) throws -> Void {
+        container.viewContext.delete(object)
+        try save()
+    }
+    
+    /// Saves the Data in this App
+    internal func save() throws -> Void {
+        try container.viewContext.save()
     }
 }

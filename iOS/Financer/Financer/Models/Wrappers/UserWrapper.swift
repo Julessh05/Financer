@@ -5,6 +5,7 @@
 //  Created by Julian Schumacher on 04.01.23.
 //
 
+import CoreData
 import Foundation
 
 /// The Wrapper for a User Object used in this App.
@@ -16,11 +17,21 @@ internal final class UserWrapper : ObservableObject {
     /// The actual User Object for this App
     @Published internal final var user : User?
     
+    /// The anonymous User for this App
+    @Published private final var anonymousUser : User?
+    
     /// The initializer to create a Wrapper Object with a User
     /// passed down the initializer.
     /// Mostly used for testing and previews.
     internal init(user : User? = nil) {
         self.user = user
+    }
+    
+    /// Initilizes this User Wrapper.
+    /// Do only call this once! Otherwise the Data will be lost
+    internal func initUserWrapper(viewContext : NSManagedObjectContext) -> Void {
+        guard anonymousUser == nil else { return }
+        anonymousUser = createAnonymousUser(viewContext: viewContext)
     }
     
     /// The enum that determines in
@@ -41,8 +52,8 @@ internal final class UserWrapper : ObservableObject {
     /// the anonymous or user balance depending
     /// on the current State of the User
     internal private(set) var balance : Double {
-        get { user!.balance }
-        set { user!.balance = newValue }
+        get { user?.balance ?? anonymousUser!.balance }
+        set { user != nil ? (user!.balance = newValue) : (anonymousUser!.balance = newValue) }
     }
     
     /// Adjusts the balance depending on direction
@@ -133,5 +144,38 @@ internal final class UserWrapper : ObservableObject {
             }
         }
         return dict
+    }
+    
+    /// Creates and returns an anonymous User for this App.
+    private func createAnonymousUser(viewContext : NSManagedObjectContext) -> User {
+        let anonymUser : User = User(context: viewContext)
+        anonymUser.firstname = "Julian"
+        anonymUser.lastname = "Schumacher"
+        let calendar : Calendar = Calendar.current
+        var dateComponents : DateComponents = DateComponents()
+        dateComponents.year = 2005
+        dateComponents.month = 2
+        dateComponents.day = 22
+        anonymUser.dateOfBirth = calendar.date(from: dateComponents)!
+        anonymUser.gender = User.Gender.male.rawValue
+        anonymUser.balance = 0
+        anonymUser.userCreated = false
+        return anonymUser
+    }
+    
+    /// Function to call when the User logs into this App.
+    /// The specified newUser is the User created.
+    internal func logIn(newUser : User) throws -> Void {
+        user = newUser
+        user!.balance = anonymousUser!.balance
+        try PersistenceController.shared.save()
+    }
+    
+    /// Function to call when the User logs out of this App.
+    /// This handles all the stuff with the anonymous User.
+    internal func logOut() throws -> Void {
+        anonymousUser!.balance = user!.balance
+        user = anonymousUser
+        try PersistenceController.shared.deleteUser(user!)
     }
 }

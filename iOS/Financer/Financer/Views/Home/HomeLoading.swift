@@ -20,6 +20,10 @@ internal struct HomeInit: View {
     /// The User Wrapper for the User of this App
     @EnvironmentObject private var userWrapper : UserWrapper
     
+    /// The initial State Object to inject into the Environment to
+    /// be able to pass a finance between all Views.
+    @StateObject private var financeWrapper : FinanceWrapper = FinanceWrapper()
+    
     /// The Users in this App
     @FetchRequest(
         sortDescriptors: [
@@ -41,6 +45,7 @@ internal struct HomeInit: View {
         if !isLoading {
             Home()
                 .environmentObject(userWrapper)
+                .environmentObject(financeWrapper)
         } else {
             // Discussion here: https://stackoverflow.com/questions/56496638/activity-indicator-in-swiftui
             // Answer here: https://stackoverflow.com/a/56496896/16376071
@@ -62,18 +67,7 @@ internal struct HomeInit: View {
         if !users.isEmpty {
             userWrapper.user = users.first!
         } else {
-            let anonymUser : User = User(context: viewContext)
-            anonymUser.firstname = "Julian"
-            anonymUser.lastname = "Schumacher"
-            let calendar : Calendar = Calendar.current
-            var dateComponents : DateComponents = DateComponents()
-            dateComponents.year = 2005
-            dateComponents.month = 2
-            dateComponents.day = 22
-            anonymUser.dateOfBirth = calendar.date(from: dateComponents)!
-            anonymUser.gender = User.Gender.male.rawValue
-            anonymUser.userCreated = false
-            userWrapper.user = anonymUser
+            userWrapper.initUserWrapper(viewContext: viewContext)
         }
         isLoading = false
     }

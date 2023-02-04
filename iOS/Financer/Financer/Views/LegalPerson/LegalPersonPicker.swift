@@ -12,6 +12,9 @@ import CoreData
 /// for a single Finance
 internal struct LegalPersonPicker: View {
     
+    /// The View Context to manage Core Data
+    @Environment(\.managedObjectContext) private var viewContext
+    
     /// The Action to dismiss this View
     @Environment(\.dismiss) private var dismiss : DismissAction
     
@@ -67,6 +70,15 @@ internal struct LegalPersonPicker: View {
     /// The Legal Person beeing chosen
     @Binding internal var legalPerson : LegalPerson?
     
+    /// The Legal Person that should be deleted after the User confirmed it.
+    @State private var legalPersonToDeleteAfterConfirmation : LegalPerson? = nil
+    
+    /// Whether to show the Confirmation Alert to delete a legal Person or not.
+    @State private var deleteLegalPersonPresented : Bool = false
+    
+    /// Whether the Error Alert Dialog when saving data is presented or not.
+    @State private var errSavingPresented : Bool = false
+    
     var body: some View {
         VStack {
             Picker("Type", selection: $legalPersonType) {
@@ -78,13 +90,34 @@ internal struct LegalPersonPicker: View {
             .padding(.horizontal, 10)
             .pickerStyle(.segmented)
             list()
+                .alert(
+                    "Error",
+                    isPresented: $errSavingPresented
+                ) {
+                    
+                } message: {
+                    Text(
+                        "Error processing Data\nPlease restard the App\n\nIf this Error occurs again, please contact the support."
+                    )
+                }
+                .alert("Are you sure?", isPresented: $deleteLegalPersonPresented) {
+                    Button("Delete", role: .destructive) {
+                        deleteLegalPerson(legalPersonToDeleteAfterConfirmation!)
+                    }
+                    // Cancel from here: https://developer.apple.com/documentation/swiftui/view/alert(_:ispresented:actions:message:)-8dvt8
+                    Button("Cancel", role: .cancel) {
+                        legalPersonToDeleteAfterConfirmation = nil
+                    }
+                } message: {
+                    Text("Deleting this Legal Person will also delete all the connected Finances")
+                }
             NavigationLink {
                 AddLegalPerson(legalPersonType: legalPersonType)
             } label: {
                 Label("Add \(legalPersonType == .none ? "Legal Person" : legalPersonType.rawValue.capitalized)", systemImage: "plus")
             }
         }
-        .navigationTitle("Legal Person Picker")
+        .navigationTitle("Picker")
     }
     
     /// Builds and returns the List of Legal Person
@@ -114,7 +147,7 @@ internal struct LegalPersonPicker: View {
         } else {
             VStack {
                 Spacer()
-                Label("No Data found", systemImage: "xmark.circle")
+                Label("No \(legalPersonType != .none ? legalPersonType.rawValue : "Data") found", systemImage: "xmark.circle")
                 NavigationLink("Add one", destination: { AddLegalPerson(legalPersonType: legalPersonType) })
                 Spacer()
             }
@@ -134,6 +167,11 @@ internal struct LegalPersonPicker: View {
                 legalPersonChosen(p)
             }
             .environmentObject(legalPersonWrapper)
+            .swipeActions {
+                DeleteButton {
+                    deleteLegalPerson(person)
+                }
+            }
         }
     }
     /// Returns all the Legal Persons for the specified Type
@@ -158,6 +196,20 @@ internal struct LegalPersonPicker: View {
     private func legalPersonChosen(_ person : LegalPerson) -> Void {
         legalPerson = person
         dismiss()
+    }
+    
+    /// Deletes a Legal Person and all connected Finances
+    private func deleteLegalPerson(_ person : LegalPerson) -> Void {
+        guard legalPersonToDeleteAfterConfirmation != nil else {
+            legalPersonToDeleteAfterConfirmation = person
+            deleteLegalPersonPresented.toggle()
+            return
+        }
+        do {
+            try PersistenceController.shared.deleteLegalPerson(person)
+        } catch _ {
+            errSavingPresented.toggle()
+        }
     }
 }
 

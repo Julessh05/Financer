@@ -19,16 +19,12 @@ internal struct Home: View {
     /// The Wrapper of the User of this App
     @EnvironmentObject private var userWrapper : UserWrapper
     
-    /// The initial State Object to inject into the Environment to
-    /// be able to pass a finance between all Views.
-    @StateObject private var financeWrapper : FinanceWrapper = FinanceWrapper()
+    /// The Environment Object which contains the current Finance
+    @EnvironmentObject private var financeWrapper : FinanceWrapper
     
     /// The Legal Person Wrapper to contain the Legal Person
     /// this Finance belongs to.
     @StateObject private var legalPersonWrapper : LegalPersonWrapper = LegalPersonWrapper()
-    
-    /// Whether the Error Alert Dialog when saving data is presented or not.
-    @State private var errSavingPresented : Bool = false
     
     // Preview Code Start
     // (Comment to build)
@@ -84,8 +80,84 @@ internal struct Home: View {
     /// Whether the User Details are presented or not
     @State private var userDetailsPresented : Bool = false
     
+    /// Whether the Dialog to confirm a delete is shown or not
+    @State private var deletePeriodicalFinancePresented : Bool = false
+    
+    /// Whether the User currently wants to delete the periodical finances or not
+    @State private var periodicalFinanceToDeleteAfterConfirmation : Finance? = nil
+    
+    /// Whether to delete the Finance from the Details View or not
+    @State private var deleteFinanceFromDetails : Bool = false
+    
+    /// Whether the Error Alert Dialog when saving data is presented or not.
+    @State private var errSavingPresented : Bool = false
+    
+    /// The Boolean value indicating to delete the Finance
+    @State private var delete : Bool = false
+    
     var body: some View {
         NavigationStack {
+            homeBuilder()
+            
+            Button {
+                addPresented.toggle()
+            } label: {
+                Label("Add Finance", systemImage: "plus")
+            }
+            .sheet(
+                isPresented: $addPresented,
+                content: {
+                    AddFinance()
+                        .environmentObject(legalPersonWrapper)
+                        .environmentObject(userWrapper)
+                }
+            )
+            .onAppear {
+                setPeriodicalFinances()
+            }
+            .navigationTitle("Welcome")
+            .navigationBarTitleDisplayMode(.automatic)
+            .toolbarRole(.navigationStack)
+            .toolbar(.automatic, for: .navigationBar)
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    NavigationLink {
+                        UserDetails()
+                            .environmentObject(userWrapper)
+                    } label: {
+                        Image(systemName: "person.circle.fill")
+                            .renderingMode(.original)
+                            .foregroundColor(.black)
+                    }
+                }
+            }
+            .alert(
+                "Error",
+                isPresented: $errSavingPresented
+            ) {
+                
+            } message: {
+                Text(
+                    "Error processing Data\nPlease restard the App\n\nIf this Error occurs again, please contact the support."
+                )
+            }
+        }
+    }
+    
+    /// Builds, renders and returns the Home
+    /// depending on the List of Finances
+    @ViewBuilder
+    private func homeBuilder() -> some View {
+        if finances.isEmpty {
+            Spacer()
+            VStack {
+                Text("No Finances added yet.")
+                Button("Add one") {
+                    addPresented.toggle()
+                }
+            }
+            Spacer()
+        } else {
             List {
                 Section {
                     Button {
@@ -111,60 +183,42 @@ internal struct Home: View {
                             label(finance)
                         }
                         .foregroundColor(.black)
+                        // Solution: https://peterfriese.dev/posts/swiftui-listview-part4/
+                        .swipeActions {
+                            DeleteButton {
+                                deleteFinance(for: finance)
+                            }
+                        }
                     }
                 } header: {
                     Text("Finances")
                 } footer: {
                     financeFooter()
                 }
-            }
-            Button {
-                addPresented.toggle()
-            } label: {
-                Label("Add Finance", systemImage: "plus")
-            }
-            .sheet(
-                isPresented: $addPresented,
-                content: {
-                    AddFinance()
+                .alert("Are you sure?", isPresented: $deletePeriodicalFinancePresented) {
+                    Button("Delete", role: .destructive) {
+                        delete = true
+                        deleteFinance(for: periodicalFinanceToDeleteAfterConfirmation!)
+                    }
+                    // From: https://developer.apple.com/documentation/swiftui/view/alert(_:ispresented:actions:message:)-8dvt8
+                    Button("Cancel", role: .cancel) {
+                        delete = false
+                        periodicalFinanceToDeleteAfterConfirmation = nil
+                    }
+                } message: {
+                    Text("This is a periodical Finance. \nDeleting it will also delete all connected periodical Finances")
+                }
+                .sheet(isPresented: $detailsPresented) {
+                    // On dismiss
+                    if deleteFinanceFromDetails {
+                        deleteFinance(for: financeWrapper.finance!)
+                    }
+                } content: {
+                    FinanceDetails(deleteFinanceFromDetails: $deleteFinanceFromDetails)
                         .environmentObject(legalPersonWrapper)
+                        .environmentObject(financeWrapper)
                         .environmentObject(userWrapper)
                 }
-            )
-            .onAppear {
-                setPeriodicalFinances()
-            }
-            .navigationTitle("Welcome")
-            .navigationBarTitleDisplayMode(.automatic)
-            .sheet(isPresented: $detailsPresented) {
-                FinanceDetails()
-                    .environmentObject(legalPersonWrapper)
-                    .environmentObject(financeWrapper)
-                    .environmentObject(userWrapper)
-            }
-            .toolbarRole(.navigationStack)
-            .toolbar(.automatic, for: .navigationBar)
-            .toolbar {
-                ToolbarItem(placement: .primaryAction) {
-                    NavigationLink {
-                        UserDetails()
-                            .environmentObject(userWrapper)
-                    } label: {
-                        Image(systemName: "person.circle.fill")
-                            .renderingMode(.original)
-                            .foregroundColor(.black)
-                    }
-                }
-            }
-            .alert(
-                "Error",
-                isPresented: $errSavingPresented
-            ) {
-                
-            } message: {
-                Text(
-                    "Error processing Data\nPlease restard the App\n\nIf this Error occurs again, please contact the support."
-                )
             }
         }
     }
@@ -268,6 +322,32 @@ internal struct Home: View {
         }
         do {
             try viewContext.save()
+        } catch _ {
+            errSavingPresented.toggle()
+        }
+    }
+    
+    /// Deletes the specified Finance from the System.
+    /// This does also show a message if the finance is periodical
+    /// to warn to user, that deleting this Finance will also delete all
+    /// the connected finances
+    private func deleteFinance(for finance : Finance) -> Void {
+        if finance.isPeriodical {
+            guard periodicalFinanceToDeleteAfterConfirmation == finance else {
+                periodicalFinanceToDeleteAfterConfirmation = finance
+                deletePeriodicalFinancePresented.toggle()
+                return
+            }
+            guard delete else {
+                return
+            }
+        }
+        do {
+            try PersistenceController.shared.deleteFinance(
+                finance,
+                userWrapper: _userWrapper,
+                financeWrapper: _financeWrapper
+            )
         } catch _ {
             errSavingPresented.toggle()
         }
