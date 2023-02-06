@@ -147,8 +147,8 @@ internal struct LegalPersonPicker: View {
         } else {
             VStack {
                 Spacer()
-                Label("No \(legalPersonType != .none ? legalPersonType.rawValue : "Data") found", systemImage: "xmark.circle")
-                NavigationLink("Add one", destination: { AddLegalPerson(legalPersonType: legalPersonType) })
+                Label("No \(legalPersonType != .none ? legalPersonType.rawValue.capitalized : "Data") found", systemImage: "xmark.circle")
+                NavigationLink("Add \(legalPersonType != .none ? "a \(legalPersonType.rawValue.capitalized)" : "some")", destination: { AddLegalPerson(legalPersonType: legalPersonType) })
                 Spacer()
             }
         }
@@ -174,6 +174,7 @@ internal struct LegalPersonPicker: View {
             }
         }
     }
+    
     /// Returns all the Legal Persons for the specified Type
     /// in an Array of Legal Persons
     private func personsForType(
