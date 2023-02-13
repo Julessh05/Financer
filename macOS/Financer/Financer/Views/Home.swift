@@ -9,19 +9,21 @@
 
 import SwiftUI
 
+/// The Home View of this App, that is shown
+/// when opening the App.
 internal struct Home: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationSplitView {
+            
+        } content: {
+            
+        } detail: {
+            
         }
-        .padding()
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+internal struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Home()
     }

@@ -95,8 +95,8 @@
 		3F40FB41290D93C100BA2F83 /* Financer */ = {
 			isa = PBXGroup;
 			children = (
+				84A114A6299A72340077C1E8 /* Views */,
 				3F40FB42290D93C100BA2F83 /* FinancerApp.swift */,
-				3F40FB44290D93C100BA2F83 /* Home.swift */,
 				3F40FB46290D93C200BA2F83 /* Assets.xcassets */,
 				3F40FB4B290D93C200BA2F83 /* Financer.entitlements */,
 				3F40FB48290D93C200BA2F83 /* Preview Content */,
@@ -127,6 +127,14 @@
 				3F40FB60290D93C200BA2F83 /* FinancerUITestsLaunchTests.swift */,
 			);
 			path = FinancerUITests;
+			sourceTree = "<group>";
+		};
+		84A114A6299A72340077C1E8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3F40FB44290D93C100BA2F83 /* Home.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
