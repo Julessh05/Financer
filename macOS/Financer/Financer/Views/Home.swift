@@ -14,7 +14,12 @@ import SwiftUI
 internal struct Home: View {
     var body: some View {
         NavigationSplitView {
-            
+            List {
+                HStack {
+                Image(systemName: "")
+                }
+                
+            }
         } content: {
             
         } detail: {
