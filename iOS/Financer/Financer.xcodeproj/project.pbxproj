@@ -12,14 +12,10 @@
 		3FCD271D2952E3CA00ECD3C2 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCD271C2952E3CA00ECD3C2 /* Home.swift */; };
 		3FCD271F2952E3CB00ECD3C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FCD271E2952E3CB00ECD3C2 /* Assets.xcassets */; };
 		3FCD27222952E3CB00ECD3C2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FCD27212952E3CB00ECD3C2 /* Preview Assets.xcassets */; };
-		3FCD27242952E3CB00ECD3C2 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCD27232952E3CB00ECD3C2 /* Persistence.swift */; };
-		3FCD27272952E3CB00ECD3C2 /* Financer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3FCD27252952E3CB00ECD3C2 /* Financer.xcdatamodeld */; };
 		3FCD27322952E3CB00ECD3C2 /* FinancerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCD27312952E3CB00ECD3C2 /* FinancerTests.swift */; };
 		3FCD273C2952E3CB00ECD3C2 /* FinancerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCD273B2952E3CB00ECD3C2 /* FinancerUITests.swift */; };
 		3FCD273E2952E3CB00ECD3C2 /* FinancerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCD273D2952E3CB00ECD3C2 /* FinancerUITestsLaunchTests.swift */; };
-		840581C5296195D900B7C53B /* LegalPersonWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840581C4296195D900B7C53B /* LegalPersonWrapper.swift */; };
 		84235820296981F00055904A /* UserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8423581F296981F00055904A /* UserDetails.swift */; };
-		84235823296987BE0055904A /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84235821296987BE0055904A /* User+CoreDataClass.swift */; };
 		84235826296991CC0055904A /* BalancesChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84235825296991CC0055904A /* BalancesChart.swift */; };
 		84235828296992920055904A /* LogInUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84235827296992920055904A /* LogInUser.swift */; };
 		8423582B296994000055904A /* UserEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8423582A296994000055904A /* UserEditor.swift */; };
@@ -28,11 +24,8 @@
 		845F16FA29562D64009728F5 /* AddFinance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845F16F929562D64009728F5 /* AddFinance.swift */; };
 		845F16FF2956D1E2009728F5 /* LegalPersonPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845F16FE2956D1E2009728F5 /* LegalPersonPicker.swift */; };
 		845F17012956FDA3009728F5 /* AddLegalPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845F17002956FDA3009728F5 /* AddLegalPerson.swift */; };
-		845F1706295731E5009728F5 /* Finance+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845F1702295731E5009728F5 /* Finance+CoreDataClass.swift */; };
-		845F1708295731E5009728F5 /* LegalPerson+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845F1704295731E5009728F5 /* LegalPerson+CoreDataClass.swift */; };
 		845F170D295737A6009728F5 /* LegalPersonListTileListTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845F170C295737A6009728F5 /* LegalPersonListTileListTile.swift */; };
 		845F170F2957405F009728F5 /* LegalPersonDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845F170E2957405F009728F5 /* LegalPersonDetails.swift */; };
-		845FFFD029617F4F0053E9F5 /* FinanceWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845FFFCF29617F4F0053E9F5 /* FinanceWrapper.swift */; };
 		845FFFD52961865D0053E9F5 /* FinanceEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845FFFD42961865D0053E9F5 /* FinanceEditor.swift */; };
 		845FFFD7296186620053E9F5 /* LegalPersonEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845FFFD6296186620053E9F5 /* LegalPersonEditor.swift */; };
 		845FFFD92961867A0053E9F5 /* EditLegalPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845FFFD82961867A0053E9F5 /* EditLegalPerson.swift */; };
@@ -41,7 +34,6 @@
 		84899C552982D7C2004129FD /* FinanceSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84899C542982D7C2004129FD /* FinanceSort.swift */; };
 		848A44AC29639713002AC782 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 848A44AB29639713002AC782 /* Settings.bundle */; };
 		848A44AF29642897002AC782 /* SettingsBundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848A44AE29642897002AC782 /* SettingsBundleHelper.swift */; };
-		849AB4352965C0C200AA8E75 /* UserWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849AB4342965C0C200AA8E75 /* UserWrapper.swift */; };
 		849AB4372965CAB100AA8E75 /* ChartDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849AB4362965CAB100AA8E75 /* ChartDetails.swift */; };
 		84D911BC29868E090043CCA7 /* DeleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D911BB29868E090043CCA7 /* DeleteButton.swift */; };
 		84ED450E297BF58000706993 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED450D297BF58000706993 /* ImagePicker.swift */; };
@@ -72,16 +64,12 @@
 		3FCD271C2952E3CA00ECD3C2 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		3FCD271E2952E3CB00ECD3C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3FCD27212952E3CB00ECD3C2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		3FCD27232952E3CB00ECD3C2 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		3FCD27262952E3CB00ECD3C2 /* Financer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Financer.xcdatamodel; sourceTree = "<group>"; };
 		3FCD272D2952E3CB00ECD3C2 /* FinancerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinancerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FCD27312952E3CB00ECD3C2 /* FinancerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancerTests.swift; sourceTree = "<group>"; };
 		3FCD27372952E3CB00ECD3C2 /* FinancerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinancerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FCD273B2952E3CB00ECD3C2 /* FinancerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancerUITests.swift; sourceTree = "<group>"; };
 		3FCD273D2952E3CB00ECD3C2 /* FinancerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancerUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		840581C4296195D900B7C53B /* LegalPersonWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalPersonWrapper.swift; sourceTree = "<group>"; };
 		8423581F296981F00055904A /* UserDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetails.swift; sourceTree = "<group>"; };
-		84235821296987BE0055904A /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
 		84235825296991CC0055904A /* BalancesChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalancesChart.swift; sourceTree = "<group>"; };
 		84235827296992920055904A /* LogInUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInUser.swift; sourceTree = "<group>"; };
 		8423582A296994000055904A /* UserEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEditor.swift; sourceTree = "<group>"; };
@@ -90,11 +78,8 @@
 		845F16F929562D64009728F5 /* AddFinance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFinance.swift; sourceTree = "<group>"; };
 		845F16FE2956D1E2009728F5 /* LegalPersonPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalPersonPicker.swift; sourceTree = "<group>"; };
 		845F17002956FDA3009728F5 /* AddLegalPerson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLegalPerson.swift; sourceTree = "<group>"; };
-		845F1702295731E5009728F5 /* Finance+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Finance+CoreDataClass.swift"; path = "Financer/Models/Generated/Finance+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		845F1704295731E5009728F5 /* LegalPerson+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "LegalPerson+CoreDataClass.swift"; path = "Financer/Models/Generated/LegalPerson+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		845F170C295737A6009728F5 /* LegalPersonListTileListTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalPersonListTileListTile.swift; sourceTree = "<group>"; };
 		845F170E2957405F009728F5 /* LegalPersonDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalPersonDetails.swift; sourceTree = "<group>"; };
-		845FFFCF29617F4F0053E9F5 /* FinanceWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceWrapper.swift; sourceTree = "<group>"; };
 		845FFFD42961865D0053E9F5 /* FinanceEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceEditor.swift; sourceTree = "<group>"; };
 		845FFFD6296186620053E9F5 /* LegalPersonEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalPersonEditor.swift; sourceTree = "<group>"; };
 		845FFFD82961867A0053E9F5 /* EditLegalPerson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditLegalPerson.swift; sourceTree = "<group>"; };
@@ -103,7 +88,6 @@
 		84899C542982D7C2004129FD /* FinanceSort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceSort.swift; sourceTree = "<group>"; };
 		848A44AB29639713002AC782 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		848A44AE29642897002AC782 /* SettingsBundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBundleHelper.swift; sourceTree = "<group>"; };
-		849AB4342965C0C200AA8E75 /* UserWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWrapper.swift; sourceTree = "<group>"; };
 		849AB4362965CAB100AA8E75 /* ChartDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDetails.swift; sourceTree = "<group>"; };
 		84D911BB29868E090043CCA7 /* DeleteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteButton.swift; sourceTree = "<group>"; };
 		84ED450D297BF58000706993 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
@@ -134,14 +118,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3FA8F3D229546AD600210F31 /* Storage */ = {
-			isa = PBXGroup;
-			children = (
-				3FCD27232952E3CB00ECD3C2 /* Persistence.swift */,
-			);
-			path = Storage;
-			sourceTree = "<group>";
-		};
 		3FCD270E2952E3CA00ECD3C2 = {
 			isa = PBXGroup;
 			children = (
@@ -167,9 +143,7 @@
 			children = (
 				3FCD271A2952E3CA00ECD3C2 /* FinancerApp.swift */,
 				848A44AD29642886002AC782 /* Helper */,
-				3FCD274B2952EC4A00ECD3C2 /* Models */,
 				3FCD274A2952EC4200ECD3C2 /* Views */,
-				3FA8F3D229546AD600210F31 /* Storage */,
 				3FA8F3D12954690000210F31 /* Info.plist */,
 				3FCD271E2952E3CB00ECD3C2 /* Assets.xcassets */,
 				3FCD27202952E3CB00ECD3C2 /* Preview Content */,
@@ -214,16 +188,6 @@
 				845F16FB2956D1A5009728F5 /* Finance */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		3FCD274B2952EC4A00ECD3C2 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				845FFFCE29617F430053E9F5 /* Wrappers */,
-				845F170A2957331F009728F5 /* Generated */,
-				3FCD27252952E3CB00ECD3C2 /* Financer.xcdatamodeld */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		84235829296993D00055904A /* Statistics */ = {
@@ -292,16 +256,6 @@
 			path = LegalPerson;
 			sourceTree = "<group>";
 		};
-		845F170A2957331F009728F5 /* Generated */ = {
-			isa = PBXGroup;
-			children = (
-				84235821296987BE0055904A /* User+CoreDataClass.swift */,
-				845F1702295731E5009728F5 /* Finance+CoreDataClass.swift */,
-				845F1704295731E5009728F5 /* LegalPerson+CoreDataClass.swift */,
-			);
-			path = Generated;
-			sourceTree = "<group>";
-		};
 		845F170B2957379D009728F5 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -312,16 +266,6 @@
 				843196FE2962EE270093D0A8 /* Editor */,
 			);
 			path = Components;
-			sourceTree = "<group>";
-		};
-		845FFFCE29617F430053E9F5 /* Wrappers */ = {
-			isa = PBXGroup;
-			children = (
-				845FFFCF29617F4F0053E9F5 /* FinanceWrapper.swift */,
-				840581C4296195D900B7C53B /* LegalPersonWrapper.swift */,
-				849AB4342965C0C200AA8E75 /* UserWrapper.swift */,
-			);
-			path = Wrappers;
 			sourceTree = "<group>";
 		};
 		8469D3A52985889800221E44 /* Home */ = {
@@ -503,30 +447,22 @@
 				849AB4372965CAB100AA8E75 /* ChartDetails.swift in Sources */,
 				845F170D295737A6009728F5 /* LegalPersonListTileListTile.swift in Sources */,
 				8469D3A7298588AB00221E44 /* HomeLoading.swift in Sources */,
-				3FCD27242952E3CB00ECD3C2 /* Persistence.swift in Sources */,
 				845FFFD92961867A0053E9F5 /* EditLegalPerson.swift in Sources */,
 				845FFFD7296186620053E9F5 /* LegalPersonEditor.swift in Sources */,
-				845FFFD029617F4F0053E9F5 /* FinanceWrapper.swift in Sources */,
 				848A44AF29642897002AC782 /* SettingsBundleHelper.swift in Sources */,
 				8423582B296994000055904A /* UserEditor.swift in Sources */,
-				849AB4352965C0C200AA8E75 /* UserWrapper.swift in Sources */,
 				3FC79A182954343000808FF2 /* FinanceDetails.swift in Sources */,
 				84235820296981F00055904A /* UserDetails.swift in Sources */,
 				8423582E296AA0420055904A /* EditUser.swift in Sources */,
 				3FCD271D2952E3CA00ECD3C2 /* Home.swift in Sources */,
 				84899C552982D7C2004129FD /* FinanceSort.swift in Sources */,
-				84235823296987BE0055904A /* User+CoreDataClass.swift in Sources */,
 				84ED450E297BF58000706993 /* ImagePicker.swift in Sources */,
 				845F170F2957405F009728F5 /* LegalPersonDetails.swift in Sources */,
 				845F17012956FDA3009728F5 /* AddLegalPerson.swift in Sources */,
 				3FCD271B2952E3CA00ECD3C2 /* FinancerApp.swift in Sources */,
-				845F1708295731E5009728F5 /* LegalPerson+CoreDataClass.swift in Sources */,
-				840581C5296195D900B7C53B /* LegalPersonWrapper.swift in Sources */,
 				84235826296991CC0055904A /* BalancesChart.swift in Sources */,
 				845FFFDB2961867E0053E9F5 /* EditFinance.swift in Sources */,
-				845F1706295731E5009728F5 /* Finance+CoreDataClass.swift in Sources */,
 				84D911BC29868E090043CCA7 /* DeleteButton.swift in Sources */,
-				3FCD27272952E3CB00ECD3C2 /* Financer.xcdatamodeld in Sources */,
 				84235828296992920055904A /* LogInUser.swift in Sources */,
 				845F16FF2956D1E2009728F5 /* LegalPersonPicker.swift in Sources */,
 			);
@@ -861,19 +797,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		3FCD27252952E3CB00ECD3C2 /* Financer.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				3FCD27262952E3CB00ECD3C2 /* Financer.xcdatamodel */,
-			);
-			currentVersion = 3FCD27262952E3CB00ECD3C2 /* Financer.xcdatamodel */;
-			path = Financer.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 3FCD270F2952E3CA00ECD3C2 /* Project object */;
 }
