@@ -14,16 +14,16 @@
 		3F40FB55290D93C200BA2F83 /* FinancerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F40FB54290D93C200BA2F83 /* FinancerTests.swift */; };
 		3F40FB5F290D93C200BA2F83 /* FinancerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F40FB5E290D93C200BA2F83 /* FinancerUITests.swift */; };
 		3F40FB61290D93C200BA2F83 /* FinancerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F40FB60290D93C200BA2F83 /* FinancerUITestsLaunchTests.swift */; };
-		84E669CE299E97C300EA7559 /* Finance+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E669C5299E97C300EA7559 /* Finance+CoreDataClass.swift */; };
-		84E669CF299E97C300EA7559 /* LegalPerson+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E669C6299E97C300EA7559 /* LegalPerson+CoreDataClass.swift */; };
-		84E669D0299E97C300EA7559 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E669C7299E97C300EA7559 /* User+CoreDataClass.swift */; };
-		84E669D1299E97C300EA7559 /* UserWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E669C9299E97C300EA7559 /* UserWrapper.swift */; };
-		84E669D2299E97C300EA7559 /* LegalPersonWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E669CA299E97C300EA7559 /* LegalPersonWrapper.swift */; };
-		84E669D3299E97C300EA7559 /* FinanceWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E669CB299E97C300EA7559 /* FinanceWrapper.swift */; };
-		84E669D4299E97C300EA7559 /* Financer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84E669CC299E97C300EA7559 /* Financer.xcdatamodeld */; };
-		84E669D8299E97CF00EA7559 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E669D7299E97CF00EA7559 /* Persistence.swift */; };
 		84E669DA299F4F7000EA7559 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E669D9299F4F7000EA7559 /* SettingsView.swift */; };
 		84E669DC299F8DA300EA7559 /* FinanceDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E669DB299F8DA300EA7559 /* FinanceDetails.swift */; };
+		84E669EC29A247ED00EA7559 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E669E029A247ED00EA7559 /* Persistence.swift */; };
+		84E669ED29A247ED00EA7559 /* Finance+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E669E329A247ED00EA7559 /* Finance+CoreDataClass.swift */; };
+		84E669EE29A247ED00EA7559 /* LegalPerson+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E669E429A247ED00EA7559 /* LegalPerson+CoreDataClass.swift */; };
+		84E669EF29A247ED00EA7559 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E669E529A247ED00EA7559 /* User+CoreDataClass.swift */; };
+		84E669F029A247ED00EA7559 /* UserWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E669E729A247ED00EA7559 /* UserWrapper.swift */; };
+		84E669F129A247ED00EA7559 /* LegalPersonWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E669E829A247ED00EA7559 /* LegalPersonWrapper.swift */; };
+		84E669F229A247ED00EA7559 /* FinanceWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E669E929A247ED00EA7559 /* FinanceWrapper.swift */; };
+		84E669F329A247ED00EA7559 /* Financer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84E669EA29A247ED00EA7559 /* Financer.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,16 +55,16 @@
 		3F40FB5A290D93C200BA2F83 /* FinancerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinancerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F40FB5E290D93C200BA2F83 /* FinancerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancerUITests.swift; sourceTree = "<group>"; };
 		3F40FB60290D93C200BA2F83 /* FinancerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancerUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		84E669C5299E97C300EA7559 /* Finance+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Finance+CoreDataClass.swift"; sourceTree = "<group>"; };
-		84E669C6299E97C300EA7559 /* LegalPerson+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LegalPerson+CoreDataClass.swift"; sourceTree = "<group>"; };
-		84E669C7299E97C300EA7559 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
-		84E669C9299E97C300EA7559 /* UserWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserWrapper.swift; sourceTree = "<group>"; };
-		84E669CA299E97C300EA7559 /* LegalPersonWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegalPersonWrapper.swift; sourceTree = "<group>"; };
-		84E669CB299E97C300EA7559 /* FinanceWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinanceWrapper.swift; sourceTree = "<group>"; };
-		84E669CD299E97C300EA7559 /* Financer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Financer.xcdatamodel; sourceTree = "<group>"; };
-		84E669D7299E97CF00EA7559 /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		84E669D9299F4F7000EA7559 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		84E669DB299F8DA300EA7559 /* FinanceDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceDetails.swift; sourceTree = "<group>"; };
+		84E669E029A247ED00EA7559 /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		84E669E329A247ED00EA7559 /* Finance+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Finance+CoreDataClass.swift"; sourceTree = "<group>"; };
+		84E669E429A247ED00EA7559 /* LegalPerson+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LegalPerson+CoreDataClass.swift"; sourceTree = "<group>"; };
+		84E669E529A247ED00EA7559 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		84E669E729A247ED00EA7559 /* UserWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserWrapper.swift; sourceTree = "<group>"; };
+		84E669E829A247ED00EA7559 /* LegalPersonWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegalPersonWrapper.swift; sourceTree = "<group>"; };
+		84E669E929A247ED00EA7559 /* FinanceWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinanceWrapper.swift; sourceTree = "<group>"; };
+		84E669EB29A247ED00EA7559 /* Financer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Financer.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,8 +115,7 @@
 		3F40FB41290D93C100BA2F83 /* Financer */ = {
 			isa = PBXGroup;
 			children = (
-				84E669D6299E97CF00EA7559 /* Storage */,
-				84E669C3299E97C300EA7559 /* Models */,
+				84E669DE29A247D100EA7559 /* Shared */,
 				84A114A6299A72340077C1E8 /* Views */,
 				3F40FB42290D93C100BA2F83 /* FinancerApp.swift */,
 				3F40FB46290D93C200BA2F83 /* Assets.xcassets */,
@@ -161,44 +160,53 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		84E669C3299E97C300EA7559 /* Models */ = {
+		84E669DE29A247D100EA7559 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				84E669C4299E97C300EA7559 /* Generated */,
-				84E669C8299E97C300EA7559 /* Wrappers */,
-				84E669CC299E97C300EA7559 /* Financer.xcdatamodeld */,
+				84E669E129A247ED00EA7559 /* Models */,
+				84E669DF29A247ED00EA7559 /* Storage */,
+			);
+			name = Shared;
+			sourceTree = "<group>";
+		};
+		84E669DF29A247ED00EA7559 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				84E669E029A247ED00EA7559 /* Persistence.swift */,
+			);
+			name = Storage;
+			path = ../../../shared/Storage;
+			sourceTree = "<group>";
+		};
+		84E669E129A247ED00EA7559 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				84E669E229A247ED00EA7559 /* Generated */,
+				84E669E629A247ED00EA7559 /* Wrappers */,
+				84E669EA29A247ED00EA7559 /* Financer.xcdatamodeld */,
 			);
 			name = Models;
 			path = ../../../shared/Models;
 			sourceTree = "<group>";
 		};
-		84E669C4299E97C300EA7559 /* Generated */ = {
+		84E669E229A247ED00EA7559 /* Generated */ = {
 			isa = PBXGroup;
 			children = (
-				84E669C5299E97C300EA7559 /* Finance+CoreDataClass.swift */,
-				84E669C6299E97C300EA7559 /* LegalPerson+CoreDataClass.swift */,
-				84E669C7299E97C300EA7559 /* User+CoreDataClass.swift */,
+				84E669E329A247ED00EA7559 /* Finance+CoreDataClass.swift */,
+				84E669E429A247ED00EA7559 /* LegalPerson+CoreDataClass.swift */,
+				84E669E529A247ED00EA7559 /* User+CoreDataClass.swift */,
 			);
 			path = Generated;
 			sourceTree = "<group>";
 		};
-		84E669C8299E97C300EA7559 /* Wrappers */ = {
+		84E669E629A247ED00EA7559 /* Wrappers */ = {
 			isa = PBXGroup;
 			children = (
-				84E669C9299E97C300EA7559 /* UserWrapper.swift */,
-				84E669CA299E97C300EA7559 /* LegalPersonWrapper.swift */,
-				84E669CB299E97C300EA7559 /* FinanceWrapper.swift */,
+				84E669E729A247ED00EA7559 /* UserWrapper.swift */,
+				84E669E829A247ED00EA7559 /* LegalPersonWrapper.swift */,
+				84E669E929A247ED00EA7559 /* FinanceWrapper.swift */,
 			);
 			path = Wrappers;
-			sourceTree = "<group>";
-		};
-		84E669D6299E97CF00EA7559 /* Storage */ = {
-			isa = PBXGroup;
-			children = (
-				84E669D7299E97CF00EA7559 /* Persistence.swift */,
-			);
-			name = Storage;
-			path = ../../../shared/Storage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -331,18 +339,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84E669CE299E97C300EA7559 /* Finance+CoreDataClass.swift in Sources */,
+				84E669F129A247ED00EA7559 /* LegalPersonWrapper.swift in Sources */,
+				84E669ED29A247ED00EA7559 /* Finance+CoreDataClass.swift in Sources */,
+				84E669F029A247ED00EA7559 /* UserWrapper.swift in Sources */,
+				84E669F229A247ED00EA7559 /* FinanceWrapper.swift in Sources */,
 				3F40FB45290D93C100BA2F83 /* Home.swift in Sources */,
-				84E669CF299E97C300EA7559 /* LegalPerson+CoreDataClass.swift in Sources */,
 				3F40FB43290D93C100BA2F83 /* FinancerApp.swift in Sources */,
-				84E669D3299E97C300EA7559 /* FinanceWrapper.swift in Sources */,
 				84E669DC299F8DA300EA7559 /* FinanceDetails.swift in Sources */,
-				84E669D1299E97C300EA7559 /* UserWrapper.swift in Sources */,
-				84E669D2299E97C300EA7559 /* LegalPersonWrapper.swift in Sources */,
-				84E669D4299E97C300EA7559 /* Financer.xcdatamodeld in Sources */,
-				84E669D0299E97C300EA7559 /* User+CoreDataClass.swift in Sources */,
-				84E669D8299E97CF00EA7559 /* Persistence.swift in Sources */,
+				84E669F329A247ED00EA7559 /* Financer.xcdatamodeld in Sources */,
 				84E669DA299F4F7000EA7559 /* SettingsView.swift in Sources */,
+				84E669EC29A247ED00EA7559 /* Persistence.swift in Sources */,
+				84E669EF29A247ED00EA7559 /* User+CoreDataClass.swift in Sources */,
+				84E669EE29A247ED00EA7559 /* LegalPerson+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -676,12 +684,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		84E669CC299E97C300EA7559 /* Financer.xcdatamodeld */ = {
+		84E669EA29A247ED00EA7559 /* Financer.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				84E669CD299E97C300EA7559 /* Financer.xcdatamodel */,
+				84E669EB29A247ED00EA7559 /* Financer.xcdatamodel */,
 			);
-			currentVersion = 84E669CD299E97C300EA7559 /* Financer.xcdatamodel */;
+			currentVersion = 84E669EB29A247ED00EA7559 /* Financer.xcdatamodel */;
 			path = Financer.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
