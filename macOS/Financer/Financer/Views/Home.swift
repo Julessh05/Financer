@@ -102,6 +102,17 @@ internal struct Home: View {
                 FinanceDetails(finance: selectedFinance!)
             }
         }
+        // TODO: change placement
+        .toolbarRole(.automatic)
+        .toolbar(.automatic, for: .windowToolbar)
+        .toolbar {
+            Spacer()
+            NavigationLink {
+                AddFinance()
+            } label: {
+                Image(systemName: "plus")
+            }
+        }
     }
     
     /// Builds, renders and returns the Label

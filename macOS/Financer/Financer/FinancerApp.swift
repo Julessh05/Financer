@@ -22,6 +22,7 @@ internal struct FinancerApp: App {
             Home()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
+        .windowStyle(.hiddenTitleBar)
         // Settings Struct from here: https://developer.apple.com/documentation/swiftui/settings
         Settings {
             SettingsView()
