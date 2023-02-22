@@ -71,6 +71,7 @@ internal struct Home: View {
                         Text("Home")
                         Spacer()
                     }
+                    .padding(5)
                     .background(homeSelected ? Color.blue.opacity(0.5) : Color.clear)
                     .contentShape(Rectangle())
                     .cornerRadius(100)
@@ -88,7 +89,15 @@ internal struct Home: View {
             }
         } detail: {
             if homeSelected {
-                
+                List {
+                    ForEach(finances) {
+                        finance in
+                        ListTile(
+                            name: String(finance.amount),
+                            data: finance.legalPerson!.name!
+                        )
+                    }
+                }
             } else {
                 FinanceDetails(finance: selectedFinance!)
             }
@@ -105,6 +114,7 @@ internal struct Home: View {
             Text(String(finance.amount))
             Spacer()
         }
+        .padding(5)
         .background(finance == selectedFinance ? Color.blue : Color.clear)
         .cornerRadius(100)
         .clipShape(Rectangle())
