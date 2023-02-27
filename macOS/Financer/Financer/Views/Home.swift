@@ -108,6 +108,13 @@ internal struct Home: View {
         .toolbar {
             Spacer()
             NavigationLink {
+                UserDetails()
+            } label: {
+                Image(systemName: "person.circle.fill")
+                    .renderingMode(.original)
+                    .foregroundColor(.black)
+            }
+            NavigationLink {
                 AddFinance()
             } label: {
                 Image(systemName: "plus")

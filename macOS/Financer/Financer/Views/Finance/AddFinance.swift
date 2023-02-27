@@ -7,9 +7,17 @@
 
 import SwiftUI
 
+/// This is the View to add a new Finance.
 internal struct AddFinance: View {
+    
+    /// The Amount entered in the corresponding Textfield
+    @State private var amount : String = ""
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            TextField("amount", text: $amount)
+                .textFieldStyle(.squareBorder)
+        }
     }
 }
 
