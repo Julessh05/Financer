@@ -8,10 +8,24 @@
 import SwiftUI
 
 @main
-struct FinancerApp: App {
+internal struct FinancerApp: App {
+    
+    /// The Persistence Controller used in this App.
+    ///
+    /// The Context of this Controller is injeected into the
+    /// environment via the .environment modifier which is available on
+    /// the view struct.
+    private let persistenceController : PersistenceController = PersistenceController.shared
+    
     var body: some Scene {
         WindowGroup {
             Home()
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+        }
+        .windowStyle(.hiddenTitleBar)
+        // Settings Struct from here: https://developer.apple.com/documentation/swiftui/settings
+        Settings {
+            SettingsView()
         }
     }
 }

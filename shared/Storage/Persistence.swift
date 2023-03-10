@@ -11,14 +11,14 @@ import SwiftUI
 /// This struct represents the Controller to manage
 /// the Code Data Objects and Storage
 internal struct PersistenceController {
-
+    
     /// The shared singleton Object which is used across
     /// this App.
     ///
     /// Because the initializer is private, this is the only
     /// persistence controller used in this App.
     static let shared = PersistenceController()
-
+    
     /// This is just a Persistence Controller for the previews
     /// used while developing the App.
     ///
@@ -79,14 +79,14 @@ internal struct PersistenceController {
         }
         return result
     }()
-
+    
     /// The Container that holds all the Information
     /// and represents the Storage itself.
     ///
     /// This is a Cloud Kit Container to mirror the changes
     /// to the User's iCloud.
     internal let container: NSPersistentCloudKitContainer
-
+    
     /// The Standard Init Method
     /// to create a new persistence Controller.
     ///
@@ -103,17 +103,22 @@ internal struct PersistenceController {
         if inMemory {
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
         }
+        // NSPersistentStoreFileProtectionKey is not available
+        // in macOS, so this is only compiled and added, if the OS
+        // is not macOS
+#if !os(macOS)
         // Core Data Encryption Idea from: https://cocoacasts.com/is-core-data-encrypted
         container.persistentStoreDescriptions.first!.setOption(
             FileProtectionType.complete as NSObject,
             forKey: NSPersistentStoreFileProtectionKey
         )
+#endif
         // Load Data
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-
+                
                 /*
                  Typical reasons for an error here include:
                  * The parent directory does not exist, cannot be created, or disallows writing.
