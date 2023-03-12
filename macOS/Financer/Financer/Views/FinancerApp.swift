@@ -19,7 +19,7 @@ internal struct FinancerApp: App {
     
     var body: some Scene {
         WindowGroup {
-            Home()
+            HomeInit()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
         .windowStyle(.hiddenTitleBar)
