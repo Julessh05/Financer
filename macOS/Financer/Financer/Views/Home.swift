@@ -103,23 +103,6 @@ internal struct Home: View {
             }
         }
         // TODO: change placement
-        .toolbarRole(.automatic)
-        .toolbar(.automatic, for: .windowToolbar)
-        .toolbar {
-            Spacer()
-            NavigationLink {
-                UserDetails()
-            } label: {
-                Image(systemName: "person.circle.fill")
-                    .renderingMode(.original)
-                    .foregroundColor(.black)
-            }
-            NavigationLink {
-                AddFinance()
-            } label: {
-                Image(systemName: "plus")
-            }
-        }
     }
     
     /// Builds, renders and returns the Label
