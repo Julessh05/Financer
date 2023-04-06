@@ -37,6 +37,10 @@ internal struct FinanceEditor: View {
     /// Whether ther Error for missing Arguments is displayed or not.
     @State private var errMissingArgumentsPresented : Bool = false
     
+    /// If this is true, the Error Message stating that the Input into the
+    /// amount field has the wrong type
+    @State private var errWrongInputType : Bool = false
+    
     /// The Type of this Finance
     @State private var financeType : Finance.FinanceType = .income
     
@@ -141,6 +145,13 @@ internal struct FinanceEditor: View {
                 } message: {
                     Text("Please enter all required Data before you continue")
                 }
+                .alert(
+                    "False Data",
+                    isPresented: $errWrongInputType
+                ) {
+                } message: {
+                    Text("Please do only enter numbers into the amount field")
+                }
             }
         }
         .onAppear { checkBtn() }
@@ -237,36 +248,40 @@ internal struct FinanceEditor: View {
     /// The action executed when the Save or Done Button
     /// is clicked
     private func action() -> Void {
-        if btnActive {
-            let finance : Finance
-            if financeType == .income {
-                finance = Income(context: viewContext)
-            } else {
-                finance = Expense(context: viewContext)
-            }
-            finance.amount = Double(validateAmount())!
-            finance.legalPerson = legalPerson
-            finance.notes = notes
-            if isPeriodicalPayment {
-                let calendar : Calendar = Calendar.current
-                finance.periodDuration = Int16(periodDuration.days)
-                let odc : DateComponents = calendar.dateComponents([.year, .month, .day], from: date)
-                let ndc : DateComponents = DateComponents(
-                    year: odc.year,
-                    month: odc.month,
-                    day: odc.day,
-                    hour: 0,
-                    minute: 0,
-                    second: 0
+        if let a = Double(validateAmount()) {
+            if btnActive {
+                let finance : Finance
+                if financeType == .income {
+                    finance = Income(context: viewContext)
+                } else {
+                    finance = Expense(context: viewContext)
+                }
+                finance.amount = a
+                finance.legalPerson = legalPerson
+                finance.notes = notes
+                if isPeriodicalPayment {
+                    let calendar : Calendar = Calendar.current
+                    finance.periodDuration = Int16(periodDuration.days)
+                    let odc : DateComponents = calendar.dateComponents([.year, .month, .day], from: date)
+                    let ndc : DateComponents = DateComponents(
+                        year: odc.year,
+                        month: odc.month,
+                        day: odc.day,
+                        hour: 0,
+                        minute: 0,
+                        second: 0
                     )
-                finance.date = calendar.date(from: ndc)
+                    finance.date = calendar.date(from: ndc)
+                } else {
+                    finance.date = date
+                }
+                callback(finance)
+                dismiss()
             } else {
-                finance.date = date
+                errMissingArgumentsPresented.toggle()
             }
-            callback(finance)
-            dismiss()
         } else {
-            errMissingArgumentsPresented.toggle()
+            errWrongInputType.toggle()
         }
     }
 }
