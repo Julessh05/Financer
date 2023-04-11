@@ -12,9 +12,6 @@
 		3FCD271D2952E3CA00ECD3C2 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCD271C2952E3CA00ECD3C2 /* Home.swift */; };
 		3FCD271F2952E3CB00ECD3C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FCD271E2952E3CB00ECD3C2 /* Assets.xcassets */; };
 		3FCD27222952E3CB00ECD3C2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FCD27212952E3CB00ECD3C2 /* Preview Assets.xcassets */; };
-		3FCD27322952E3CB00ECD3C2 /* FinancerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCD27312952E3CB00ECD3C2 /* FinancerTests.swift */; };
-		3FCD273C2952E3CB00ECD3C2 /* FinancerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCD273B2952E3CB00ECD3C2 /* FinancerUITests.swift */; };
-		3FCD273E2952E3CB00ECD3C2 /* FinancerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCD273D2952E3CB00ECD3C2 /* FinancerUITestsLaunchTests.swift */; };
 		84235820296981F00055904A /* UserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8423581F296981F00055904A /* UserDetails.swift */; };
 		84235826296991CC0055904A /* BalancesChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84235825296991CC0055904A /* BalancesChart.swift */; };
 		84235828296992920055904A /* LogInUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84235827296992920055904A /* LogInUser.swift */; };
@@ -47,23 +44,6 @@
 		84ED450E297BF58000706993 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED450D297BF58000706993 /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		3FCD272E2952E3CB00ECD3C2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3FCD270F2952E3CA00ECD3C2 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3FCD27162952E3CA00ECD3C2;
-			remoteInfo = Financer;
-		};
-		3FCD27382952E3CB00ECD3C2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3FCD270F2952E3CA00ECD3C2 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3FCD27162952E3CA00ECD3C2;
-			remoteInfo = Financer;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		840D3AF229BB1941007C8B0A /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -85,13 +65,6 @@
 		3FCD271C2952E3CA00ECD3C2 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		3FCD271E2952E3CB00ECD3C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3FCD27212952E3CB00ECD3C2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		3FCD272D2952E3CB00ECD3C2 /* FinancerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinancerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3FCD27312952E3CB00ECD3C2 /* FinancerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancerTests.swift; sourceTree = "<group>"; };
-		3FCD27372952E3CB00ECD3C2 /* FinancerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinancerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3FCD273B2952E3CB00ECD3C2 /* FinancerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancerUITests.swift; sourceTree = "<group>"; };
-		3FCD273D2952E3CB00ECD3C2 /* FinancerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancerUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		840D3AE029BB1940007C8B0A /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
-		840D3AE229BB1940007C8B0A /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		8423581F296981F00055904A /* UserDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetails.swift; sourceTree = "<group>"; };
 		84235825296991CC0055904A /* BalancesChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalancesChart.swift; sourceTree = "<group>"; };
 		84235827296992920055904A /* LogInUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInUser.swift; sourceTree = "<group>"; };
@@ -132,20 +105,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3FCD272A2952E3CB00ECD3C2 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3FCD27342952E3CB00ECD3C2 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -153,9 +112,6 @@
 			isa = PBXGroup;
 			children = (
 				3FCD27192952E3CA00ECD3C2 /* Financer */,
-				3FCD27302952E3CB00ECD3C2 /* FinancerTests */,
-				3FCD273A2952E3CB00ECD3C2 /* FinancerUITests */,
-				840D3ADF29BB1940007C8B0A /* Frameworks */,
 				3FCD27182952E3CA00ECD3C2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -164,8 +120,6 @@
 			isa = PBXGroup;
 			children = (
 				3FCD27172952E3CA00ECD3C2 /* Financer.app */,
-				3FCD272D2952E3CB00ECD3C2 /* FinancerTests.xctest */,
-				3FCD27372952E3CB00ECD3C2 /* FinancerUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -193,23 +147,6 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		3FCD27302952E3CB00ECD3C2 /* FinancerTests */ = {
-			isa = PBXGroup;
-			children = (
-				3FCD27312952E3CB00ECD3C2 /* FinancerTests.swift */,
-			);
-			path = FinancerTests;
-			sourceTree = "<group>";
-		};
-		3FCD273A2952E3CB00ECD3C2 /* FinancerUITests */ = {
-			isa = PBXGroup;
-			children = (
-				3FCD273B2952E3CB00ECD3C2 /* FinancerUITests.swift */,
-				3FCD273D2952E3CB00ECD3C2 /* FinancerUITestsLaunchTests.swift */,
-			);
-			path = FinancerUITests;
-			sourceTree = "<group>";
-		};
 		3FCD274A2952EC4200ECD3C2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -221,15 +158,6 @@
 				845F16FB2956D1A5009728F5 /* Finance */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		840D3ADF29BB1940007C8B0A /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				840D3AE029BB1940007C8B0A /* WidgetKit.framework */,
-				840D3AE229BB1940007C8B0A /* SwiftUI.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		84235829296993D00055904A /* Statistics */ = {
@@ -439,42 +367,6 @@
 			productReference = 3FCD27172952E3CA00ECD3C2 /* Financer.app */;
 			productType = "com.apple.product-type.application";
 		};
-		3FCD272C2952E3CB00ECD3C2 /* FinancerTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3FCD27442952E3CB00ECD3C2 /* Build configuration list for PBXNativeTarget "FinancerTests" */;
-			buildPhases = (
-				3FCD27292952E3CB00ECD3C2 /* Sources */,
-				3FCD272A2952E3CB00ECD3C2 /* Frameworks */,
-				3FCD272B2952E3CB00ECD3C2 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				3FCD272F2952E3CB00ECD3C2 /* PBXTargetDependency */,
-			);
-			name = FinancerTests;
-			productName = FinancerTests;
-			productReference = 3FCD272D2952E3CB00ECD3C2 /* FinancerTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		3FCD27362952E3CB00ECD3C2 /* FinancerUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3FCD27472952E3CB00ECD3C2 /* Build configuration list for PBXNativeTarget "FinancerUITests" */;
-			buildPhases = (
-				3FCD27332952E3CB00ECD3C2 /* Sources */,
-				3FCD27342952E3CB00ECD3C2 /* Frameworks */,
-				3FCD27352952E3CB00ECD3C2 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				3FCD27392952E3CB00ECD3C2 /* PBXTargetDependency */,
-			);
-			name = FinancerUITests;
-			productName = FinancerUITests;
-			productReference = 3FCD27372952E3CB00ECD3C2 /* FinancerUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -487,14 +379,6 @@
 				TargetAttributes = {
 					3FCD27162952E3CA00ECD3C2 = {
 						CreatedOnToolsVersion = 14.2;
-					};
-					3FCD272C2952E3CB00ECD3C2 = {
-						CreatedOnToolsVersion = 14.2;
-						TestTargetID = 3FCD27162952E3CA00ECD3C2;
-					};
-					3FCD27362952E3CB00ECD3C2 = {
-						CreatedOnToolsVersion = 14.2;
-						TestTargetID = 3FCD27162952E3CA00ECD3C2;
 					};
 				};
 			};
@@ -512,8 +396,6 @@
 			projectRoot = "";
 			targets = (
 				3FCD27162952E3CA00ECD3C2 /* Financer */,
-				3FCD272C2952E3CB00ECD3C2 /* FinancerTests */,
-				3FCD27362952E3CB00ECD3C2 /* FinancerUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -526,20 +408,6 @@
 				3FCD27222952E3CB00ECD3C2 /* Preview Assets.xcassets in Resources */,
 				848A44AC29639713002AC782 /* Settings.bundle in Resources */,
 				3FCD271F2952E3CB00ECD3C2 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3FCD272B2952E3CB00ECD3C2 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3FCD27352952E3CB00ECD3C2 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -585,37 +453,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3FCD27292952E3CB00ECD3C2 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3FCD27322952E3CB00ECD3C2 /* FinancerTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3FCD27332952E3CB00ECD3C2 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3FCD273E2952E3CB00ECD3C2 /* FinancerUITestsLaunchTests.swift in Sources */,
-				3FCD273C2952E3CB00ECD3C2 /* FinancerUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		3FCD272F2952E3CB00ECD3C2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3FCD27162952E3CA00ECD3C2 /* Financer */;
-			targetProxy = 3FCD272E2952E3CB00ECD3C2 /* PBXContainerItemProxy */;
-		};
-		3FCD27392952E3CB00ECD3C2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3FCD27162952E3CA00ECD3C2 /* Financer */;
-			targetProxy = 3FCD27382952E3CB00ECD3C2 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		3FCD273F2952E3CB00ECD3C2 /* Debug */ = {
@@ -802,84 +640,6 @@
 			};
 			name = Release;
 		};
-		3FCD27452952E3CB00ECD3C2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Q87UDX5898;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jules.FinancerTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Financer.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Financer";
-			};
-			name = Debug;
-		};
-		3FCD27462952E3CB00ECD3C2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Q87UDX5898;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jules.FinancerTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Financer.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Financer";
-			};
-			name = Release;
-		};
-		3FCD27482952E3CB00ECD3C2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Q87UDX5898;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jules.FinancerUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Financer;
-			};
-			name = Debug;
-		};
-		3FCD27492952E3CB00ECD3C2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Q87UDX5898;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jules.FinancerUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Financer;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -897,24 +657,6 @@
 			buildConfigurations = (
 				3FCD27422952E3CB00ECD3C2 /* Debug */,
 				3FCD27432952E3CB00ECD3C2 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3FCD27442952E3CB00ECD3C2 /* Build configuration list for PBXNativeTarget "FinancerTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3FCD27452952E3CB00ECD3C2 /* Debug */,
-				3FCD27462952E3CB00ECD3C2 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3FCD27472952E3CB00ECD3C2 /* Build configuration list for PBXNativeTarget "FinancerUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3FCD27482952E3CB00ECD3C2 /* Debug */,
-				3FCD27492952E3CB00ECD3C2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

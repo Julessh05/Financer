@@ -93,14 +93,22 @@ internal struct UserEditor: View {
                     Section {
                         TextField("Firstname", text: $firstname)
                             .textContentType(.givenName)
+                            .onChange(of: firstname) {
+                                _ in
+                                checkBtn()
+                            }
+                            
                         TextField("Lastname", text: $lastname)
                             .textContentType(.familyName)
+                            .onChange(of: lastname) {
+                                _ in
+                                checkBtn()
+                            }
                     } header: {
                         Text("Required")
                     } footer: {
                         Text("These Data are required to log in")
                     }
-                    .onSubmit { checkBtn() }
                     .textInputAutocapitalization(.words)
                     .keyboardType(.asciiCapable)
                 }
