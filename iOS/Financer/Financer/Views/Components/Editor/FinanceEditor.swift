@@ -96,6 +96,10 @@ internal struct FinanceEditor: View {
                         TextField("Amount", text: $amount)
                             .keyboardType(.decimalPad)
                             .textInputAutocapitalization(.never)
+                            .onChange(of: amount) {
+                                _ in
+                                checkBtn()
+                            }
                             .onSubmit { checkBtn() }
                         NavigationLink {
                             LegalPersonPicker(

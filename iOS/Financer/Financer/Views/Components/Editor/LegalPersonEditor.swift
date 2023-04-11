@@ -85,6 +85,10 @@ internal struct LegalPersonEditor: View {
                                 Text(person.rawValue.capitalized)
                             }
                         }
+                        .onChange(of: name) {
+                            _ in
+                            checkBtn()
+                        }
                         .onSubmit { checkBtn() }
                         .pickerStyle(.automatic)
                     } header: {
