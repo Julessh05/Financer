@@ -266,7 +266,7 @@ internal struct Home: View {
     
     /// Builds, renders and returns the
     /// Footer of the Finance Section depending
-    /// on the length of the FInance List
+    /// on the length of the Finance List
     /// => small easter egg :)
     @ViewBuilder
     private func financeFooter() -> some View {

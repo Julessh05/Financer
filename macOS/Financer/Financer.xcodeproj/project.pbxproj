@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3F40FB43290D93C100BA2F83 /* FinancerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F40FB42290D93C100BA2F83 /* FinancerApp.swift */; };
-		3F40FB45290D93C100BA2F83 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F40FB44290D93C100BA2F83 /* Home.swift */; };
+		3F40FB45290D93C100BA2F83 /* HomeInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F40FB44290D93C100BA2F83 /* HomeInit.swift */; };
 		3F40FB47290D93C200BA2F83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F40FB46290D93C200BA2F83 /* Assets.xcassets */; };
 		3F40FB4A290D93C200BA2F83 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F40FB49290D93C200BA2F83 /* Preview Assets.xcassets */; };
 		3F40FB55290D93C200BA2F83 /* FinancerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F40FB54290D93C200BA2F83 /* FinancerTests.swift */; };
@@ -16,6 +16,8 @@
 		3F40FB61290D93C200BA2F83 /* FinancerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F40FB60290D93C200BA2F83 /* FinancerUITestsLaunchTests.swift */; };
 		842F803F29A623D7002E8BAB /* ListTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842F803E29A623D7002E8BAB /* ListTile.swift */; };
 		842F804629A625C1002E8BAB /* AddFinance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842F804529A625C1002E8BAB /* AddFinance.swift */; };
+		8430C41929BDC967004E683A /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8430C41829BDC967004E683A /* ErrorView.swift */; };
+		8430C41D29BDCDD7004E683A /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8430C41C29BDCDD7004E683A /* Home.swift */; };
 		845A593329BC838B0063B681 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 845A593229BC838B0063B681 /* WidgetKit.framework */; };
 		845A593529BC838B0063B681 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 845A593429BC838B0063B681 /* SwiftUI.framework */; };
 		845A593829BC838B0063B681 /* Financer_Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845A593729BC838B0063B681 /* Financer_Widget.swift */; };
@@ -77,7 +79,7 @@
 /* Begin PBXFileReference section */
 		3F40FB3F290D93C100BA2F83 /* Financer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Financer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F40FB42290D93C100BA2F83 /* FinancerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancerApp.swift; sourceTree = "<group>"; };
-		3F40FB44290D93C100BA2F83 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		3F40FB44290D93C100BA2F83 /* HomeInit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInit.swift; sourceTree = "<group>"; };
 		3F40FB46290D93C200BA2F83 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F40FB49290D93C200BA2F83 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3F40FB4B290D93C200BA2F83 /* Financer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Financer.entitlements; sourceTree = "<group>"; };
@@ -88,6 +90,8 @@
 		3F40FB60290D93C200BA2F83 /* FinancerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		842F803E29A623D7002E8BAB /* ListTile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTile.swift; sourceTree = "<group>"; };
 		842F804529A625C1002E8BAB /* AddFinance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFinance.swift; sourceTree = "<group>"; };
+		8430C41829BDC967004E683A /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		8430C41C29BDCDD7004E683A /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		845A593029BC838B0063B681 /* Financer WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Financer WidgetExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		845A593229BC838B0063B681 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		845A593429BC838B0063B681 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -171,9 +175,8 @@
 			children = (
 				84E669DE29A247D100EA7559 /* Shared */,
 				84A114A6299A72340077C1E8 /* Views */,
-				3F40FB42290D93C100BA2F83 /* FinancerApp.swift */,
-				3F40FB46290D93C200BA2F83 /* Assets.xcassets */,
 				3F40FB4B290D93C200BA2F83 /* Financer.entitlements */,
+				3F40FB46290D93C200BA2F83 /* Assets.xcassets */,
 				3F40FB48290D93C200BA2F83 /* Preview Content */,
 			);
 			path = Financer;
@@ -224,9 +227,19 @@
 		842F804429A625B5002E8BAB /* Finance */ = {
 			isa = PBXGroup;
 			children = (
+				84E669DB299F8DA300EA7559 /* FinanceDetails.swift */,
 				842F804529A625C1002E8BAB /* AddFinance.swift */,
 			);
 			path = Finance;
+			sourceTree = "<group>";
+		};
+		8430C41B29BDCDCA004E683A /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				3F40FB44290D93C100BA2F83 /* HomeInit.swift */,
+				8430C41C29BDCDD7004E683A /* Home.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		845A593129BC838B0063B681 /* Frameworks */ = {
@@ -261,11 +274,12 @@
 		84A114A6299A72340077C1E8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8430C41B29BDCDCA004E683A /* Home */,
+				3F40FB42290D93C100BA2F83 /* FinancerApp.swift */,
 				84953FC929ACBF88008D19D2 /* User */,
 				842F804429A625B5002E8BAB /* Finance */,
-				3F40FB44290D93C100BA2F83 /* Home.swift */,
 				84E669D9299F4F7000EA7559 /* SettingsView.swift */,
-				84E669DB299F8DA300EA7559 /* FinanceDetails.swift */,
+				8430C41829BDC967004E683A /* ErrorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -485,8 +499,10 @@
 				84E669ED29A247ED00EA7559 /* Finance+CoreDataClass.swift in Sources */,
 				84E669F029A247ED00EA7559 /* UserWrapper.swift in Sources */,
 				84E669F229A247ED00EA7559 /* FinanceWrapper.swift in Sources */,
+				8430C41D29BDCDD7004E683A /* Home.swift in Sources */,
+				8430C41929BDC967004E683A /* ErrorView.swift in Sources */,
 				845A593F29BC838C0063B681 /* Financer_Widget.intentdefinition in Sources */,
-				3F40FB45290D93C100BA2F83 /* Home.swift in Sources */,
+				3F40FB45290D93C100BA2F83 /* HomeInit.swift in Sources */,
 				3F40FB43290D93C100BA2F83 /* FinancerApp.swift in Sources */,
 				84E669DC299F8DA300EA7559 /* FinanceDetails.swift in Sources */,
 				84E669F329A247ED00EA7559 /* Financer.xcdatamodeld in Sources */,
