@@ -103,21 +103,6 @@ internal struct UserEditor: View {
                     .onSubmit { checkBtn() }
                     .textInputAutocapitalization(.words)
                     .keyboardType(.asciiCapable)
-                    Section {
-                        datePicker()
-                        Picker("Gender", selection: $gender) {
-                            ForEach(User.Gender.allCases) {
-                                gender in
-                                Text(gender.rawValue.capitalized)
-                            }
-                        }
-                        
-                        .pickerStyle(.menu)
-                    } header: {
-                        Text("Optional")
-                    } footer: {
-                        Text("You don't have to enter these Data, they're optional")
-                    }
                 }
                 Button(action: action) {
                     Label(
