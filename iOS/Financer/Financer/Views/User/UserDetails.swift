@@ -26,6 +26,9 @@ internal struct UserDetails: View {
     /// Whether the Error Alert Dialog when saving data is presented or not.
     @State private var errSavingPresented : Bool = false
     
+    /// Whether the information sheet is presented or not
+    @State private var informationPresented : Bool = false
+    
     var body: some View {
         VStack {
             userDetails()
@@ -132,6 +135,12 @@ internal struct UserDetails: View {
                         .environmentObject(userWrapper)
                 }
             }
+        }
+        Button("More Information") {
+            informationPresented.toggle()
+        }
+        .sheet(isPresented: $informationPresented) {
+            UserInformation()
         }
     }
     
