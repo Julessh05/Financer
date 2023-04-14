@@ -97,7 +97,7 @@ internal struct UserEditor: View {
                                 _ in
                                 checkBtn()
                             }
-                            
+                        
                         TextField("Lastname", text: $lastname)
                             .textContentType(.familyName)
                             .onChange(of: lastname) {
@@ -111,6 +111,21 @@ internal struct UserEditor: View {
                     }
                     .textInputAutocapitalization(.words)
                     .keyboardType(.asciiCapable)
+                    Section {
+                        datePicker()
+                        Picker("Gender", selection: $gender) {
+                            ForEach(User.Gender.allCases) {
+                                gender in
+                                Text(gender.rawValue.capitalized)
+                            }
+                        }
+                        
+                        .pickerStyle(.menu)
+                    } header: {
+                        Text("Optional")
+                    } footer: {
+                        Text("You don't have to enter these Data, they're optional")
+                    }
                 }
                 Button(action: action) {
                     Label(
