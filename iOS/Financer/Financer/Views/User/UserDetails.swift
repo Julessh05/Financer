@@ -67,14 +67,14 @@ internal struct UserDetails: View {
                     }
                     Button(action: logOut) {
                         Label(
-                            "Log Out",
-                            systemImage: "arrow.backward.square"
+                            "Delete Account",
+                            systemImage: "trash"
                         )
                         .frame(
                             width: metrics.size.width / 1.2,
                             height: metrics.size.height / 15
                         )
-                        .background(Color.black)
+                        .background(Color.red)
                         .foregroundColor(.white)
                         .cornerRadius(20)
                     }
@@ -118,8 +118,8 @@ internal struct UserDetails: View {
                         logInPresented.toggle()
                     } label: {
                         Label(
-                            "Log In",
-                            systemImage: "arrow.forward.square"
+                            "Create Account",
+                            systemImage: "plus"
                         )
                         .frame(
                             width: metrics.size.width / 1.2,
