@@ -26,6 +26,9 @@ internal struct UserDetails: View {
     /// Whether the Error Alert Dialog when saving data is presented or not.
     @State private var errSavingPresented : Bool = false
     
+    /// Whether the information sheet is presented or not
+    @State private var informationPresented : Bool = false
+    
     var body: some View {
         VStack {
             userDetails()
@@ -64,14 +67,14 @@ internal struct UserDetails: View {
                     }
                     Button(action: logOut) {
                         Label(
-                            "Log Out",
-                            systemImage: "arrow.backward.square"
+                            "Delete Account",
+                            systemImage: "trash"
                         )
                         .frame(
                             width: metrics.size.width / 1.2,
                             height: metrics.size.height / 15
                         )
-                        .background(Color.black)
+                        .background(Color.red)
                         .foregroundColor(.white)
                         .cornerRadius(20)
                     }
@@ -115,8 +118,8 @@ internal struct UserDetails: View {
                         logInPresented.toggle()
                     } label: {
                         Label(
-                            "Log In",
-                            systemImage: "arrow.forward.square"
+                            "Create Account",
+                            systemImage: "plus"
                         )
                         .frame(
                             width: metrics.size.width / 1.2,
@@ -132,6 +135,12 @@ internal struct UserDetails: View {
                         .environmentObject(userWrapper)
                 }
             }
+        }
+        Button("More Information") {
+            informationPresented.toggle()
+        }
+        .sheet(isPresented: $informationPresented) {
+            UserInformation()
         }
     }
     

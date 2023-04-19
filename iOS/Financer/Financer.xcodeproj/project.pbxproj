@@ -32,6 +32,7 @@
 		848A44AC29639713002AC782 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 848A44AB29639713002AC782 /* Settings.bundle */; };
 		848A44AF29642897002AC782 /* SettingsBundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848A44AE29642897002AC782 /* SettingsBundleHelper.swift */; };
 		849AB4372965CAB100AA8E75 /* ChartDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849AB4362965CAB100AA8E75 /* ChartDetails.swift */; };
+		84BF3C8129E9442B006BE657 /* UserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BF3C8029E9442B006BE657 /* UserInformation.swift */; };
 		84D911BC29868E090043CCA7 /* DeleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D911BB29868E090043CCA7 /* DeleteButton.swift */; };
 		84E66A0229A2483000EA7559 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E669F629A2483000EA7559 /* Persistence.swift */; };
 		84E66A0329A2483000EA7559 /* Finance+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E669F929A2483000EA7559 /* Finance+CoreDataClass.swift */; };
@@ -85,6 +86,7 @@
 		848A44AB29639713002AC782 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		848A44AE29642897002AC782 /* SettingsBundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBundleHelper.swift; sourceTree = "<group>"; };
 		849AB4362965CAB100AA8E75 /* ChartDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDetails.swift; sourceTree = "<group>"; };
+		84BF3C8029E9442B006BE657 /* UserInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformation.swift; sourceTree = "<group>"; };
 		84D911BB29868E090043CCA7 /* DeleteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteButton.swift; sourceTree = "<group>"; };
 		84E669F629A2483000EA7559 /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		84E669F929A2483000EA7559 /* Finance+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Finance+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -127,8 +129,8 @@
 		3FCD27192952E3CA00ECD3C2 /* Financer */ = {
 			isa = PBXGroup;
 			children = (
-				84E669F429A2481800EA7559 /* Shared */,
 				3FCD271A2952E3CA00ECD3C2 /* FinancerApp.swift */,
+				84E669F429A2481800EA7559 /* Shared */,
 				848A44AD29642886002AC782 /* Helper */,
 				3FCD274A2952EC4200ECD3C2 /* Views */,
 				3FA8F3D12954690000210F31 /* Info.plist */,
@@ -209,6 +211,7 @@
 				8423581F296981F00055904A /* UserDetails.swift */,
 				84235827296992920055904A /* LogInUser.swift */,
 				8423582D296AA0420055904A /* EditUser.swift */,
+				84BF3C8029E9442B006BE657 /* UserInformation.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -434,6 +437,7 @@
 				845FFFD7296186620053E9F5 /* LegalPersonEditor.swift in Sources */,
 				848A44AF29642897002AC782 /* SettingsBundleHelper.swift in Sources */,
 				8423582B296994000055904A /* UserEditor.swift in Sources */,
+				84BF3C8129E9442B006BE657 /* UserInformation.swift in Sources */,
 				3FC79A182954343000808FF2 /* FinanceDetails.swift in Sources */,
 				84235820296981F00055904A /* UserDetails.swift in Sources */,
 				8423582E296AA0420055904A /* EditUser.swift in Sources */,
@@ -506,7 +510,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -560,7 +564,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -577,7 +581,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Financer/Preview Content\"";
 				DEVELOPMENT_TEAM = Q87UDX5898;
 				ENABLE_PREVIEWS = YES;
@@ -596,7 +600,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jules.Financer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -612,7 +616,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Financer/Preview Content\"";
 				DEVELOPMENT_TEAM = Q87UDX5898;
 				ENABLE_PREVIEWS = YES;
@@ -631,7 +635,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jules.Financer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
