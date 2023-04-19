@@ -233,14 +233,17 @@ internal struct FinanceEditor: View {
     /// This returns the formatted amount
     private func validateAmount() -> String {
         var result : String = amount
-        while result.components(separatedBy: ".")[0].count > 2 {
+        result = result.replacingOccurrences(of: ",", with: ".")
+        while result.components(separatedBy: ".").count > 2 {
             result.removeLast()
         }
-        if amount.starts(with: ".") || amount.starts(with: ",") {
-            return "0\(amount)"
-        } else {
-            return amount
+        while result.components(separatedBy: ".")[1].count > 2 {
+            result.removeLast()
         }
+        if result.starts(with: ".") {
+            result = "0.\(result)"
+        }
+        return result
     }
     
     /// Checks if the required Values are entered, and if so

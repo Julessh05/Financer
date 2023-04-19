@@ -175,11 +175,15 @@ internal struct FinanceDetails_Previews: PreviewProvider {
     /// The State Object to use in this Preview
     @StateObject private static var fW : FinanceWrapper = FinanceWrapper(finance: Finance.anonymous)
     
+    /// The State Object to use in this Preview
+    @StateObject private static var uW : UserWrapper = UserWrapper(user: User.anonymous)
+    
     /// The State Boolean to delete a Finance from details used in this Preview
     @State private static var deleteFinanceFromDetails : Bool = false
     
     static var previews: some View {
         FinanceDetails(deleteFinanceFromDetails: $deleteFinanceFromDetails)
             .environmentObject(fW)
+            .environmentObject(uW)
     }
 }
