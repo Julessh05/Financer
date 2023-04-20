@@ -182,7 +182,7 @@ internal struct Home: View {
                         } label: {
                             label(finance)
                         }
-                        .foregroundColor(.black)
+                        .foregroundColor(.primary)
                         // Solution: https://peterfriese.dev/posts/swiftui-listview-part4/
                         .swipeActions {
                             DeleteButton {
@@ -234,7 +234,7 @@ internal struct Home: View {
         } else {
             Section {
                 Text("Charts will appear when Data are entered.")
-                    .foregroundColor(.black)
+                    .foregroundColor(.primary)
             }
         }
     }

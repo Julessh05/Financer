@@ -129,8 +129,12 @@ internal struct LegalPersonDetails_Previews: PreviewProvider {
     /// The preview legal Person
     private static var personWrapper : LegalPersonWrapper = LegalPersonWrapper(legalPerson: LegalPerson.anonymous)
     
+    /// The preview Finance
+    private static var financeWrapper : FinanceWrapper = FinanceWrapper(finance: Finance.anonymous)
+    
     static var previews: some View {
         LegalPersonDetails()
             .environmentObject(personWrapper)
+            .environmentObject(financeWrapper)
     }
 }
