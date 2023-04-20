@@ -234,6 +234,9 @@ internal struct FinanceEditor: View {
     private func validateAmount() -> String {
         var result : String = amount
         result = result.replacingOccurrences(of: ",", with: ".")
+        guard result.contains(".") else {
+            return result
+        }
         while result.components(separatedBy: ".").count > 2 {
             result.removeLast()
         }

@@ -78,18 +78,20 @@ internal struct LegalPersonEditor: View {
                             .textContentType(.name)
                             .textInputAutocapitalization(.words)
                             .lineLimit(1)
-                            .onSubmit { checkBtn() }
+                            .onChange(of: name) {
+                                _ in
+                                checkBtn()
+                            }
                         Picker("Type", selection: $legalPersonType) {
                             ForEach(LegalPerson.LegalPersonType.allCases) {
                                 person in
                                 Text(person.rawValue.capitalized)
                             }
                         }
-                        .onChange(of: name) {
+                        .onChange(of: legalPersonType) {
                             _ in
                             checkBtn()
                         }
-                        .onSubmit { checkBtn() }
                         .pickerStyle(.automatic)
                     } header: {
                         Text("Required Information")
@@ -177,15 +179,15 @@ internal struct LegalPersonEditor: View {
         if btnActive {
             let legalPerson : LegalPerson
             switch legalPersonType {
-                case .organization:
-                    legalPerson = Organization(context: viewContext)
-                case .company:
-                    legalPerson = Company(context: viewContext)
-                case .person:
-                    legalPerson = Person(context: viewContext)
-                default:
-                    errMissingArgumentsPresented.toggle()
-                    return
+            case .organization:
+                legalPerson = Organization(context: viewContext)
+            case .company:
+                legalPerson = Company(context: viewContext)
+            case .person:
+                legalPerson = Person(context: viewContext)
+            default:
+                errMissingArgumentsPresented.toggle()
+                return
             }
             legalPerson.name = name
             legalPerson.notes = notes
