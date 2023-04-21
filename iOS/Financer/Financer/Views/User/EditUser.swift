@@ -39,10 +39,9 @@ internal struct EditUser: View {
     
     /// The Function to edit the User being passed to the User Editor
     private func editUser(user : User) -> Void {
-        viewContext.delete(userWrapper.user!)
-        userWrapper.user = user
         do {
-            try viewContext.save()
+            try userWrapper.logOut()
+            try userWrapper.logIn(newUser: user)
         } catch _ {
             errSavingPresented.toggle()
         }
