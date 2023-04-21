@@ -79,7 +79,7 @@ internal struct UserEditor: View {
         GeometryReader {
             metrics in
             VStack {
-                List {
+                Form {
                     HStack {
                         Spacer()
                         imageSection()
@@ -97,7 +97,6 @@ internal struct UserEditor: View {
                                 _ in
                                 checkBtn()
                             }
-                        
                         TextField("Lastname", text: $lastname)
                             .textContentType(.familyName)
                             .onChange(of: lastname) {

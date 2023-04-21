@@ -34,6 +34,9 @@ internal struct HomeInit: View {
     /// Whether this View is in Loading Mode or not
     @State private var isLoading : Bool = true
     
+    /// Whether the Error Dialog when initializing is shown or not
+    @State private var errPresented : Bool = false
+    
     var body: some View {
         homeBuilder()
     }
@@ -53,6 +56,11 @@ internal struct HomeInit: View {
                 .onAppear {
                     initUser()
                 }
+                .alert("Error initializing", isPresented: $errPresented) {
+                    // TODO: add action
+                } message: {
+                    Text("There was an Error when initializing this App")
+                }
         }
     }
     
@@ -65,9 +73,20 @@ internal struct HomeInit: View {
             return
         }
         if !users.isEmpty {
-            userWrapper.user = users.first!
-        } else {
-            userWrapper.initUserWrapper(viewContext: viewContext)
+            userWrapper.user = users.first(
+                where: { $0.userCreated }
+            )
+        }
+        do {
+            try userWrapper.initUserWrapper(
+                viewContext: viewContext,
+                anonymousUser: users.first(
+                    where: { !$0.userCreated }
+                )
+            )
+        } catch {
+            errPresented.toggle()
+            return
         }
         isLoading = false
     }

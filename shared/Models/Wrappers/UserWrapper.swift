@@ -29,9 +29,9 @@ internal final class UserWrapper : ObservableObject {
     
     /// Initilizes this User Wrapper.
     /// Do only call this once! Otherwise the Data will be lost
-    internal func initUserWrapper(viewContext : NSManagedObjectContext) -> Void {
-        guard anonymousUser == nil else { return }
-        anonymousUser = createAnonymousUser(viewContext: viewContext)
+    internal func initUserWrapper(viewContext : NSManagedObjectContext, anonymousUser : User?) throws -> Void {
+        guard self.anonymousUser == nil else { return }
+        self.anonymousUser = try anonymousUser ?? createAnonymousUser(viewContext: viewContext)
     }
     
     /// The enum that determines in
@@ -110,11 +110,12 @@ internal final class UserWrapper : ObservableObject {
             return []
         }
         var amounts : [Date : Double] = [ : ]
-        var dict : [(date : Date, amount : Double)] = []
+        var balanceOnDay : [(date : Date, amount : Double)] = []
         let calendar : Calendar = Calendar.current
         let today : Date = Date()
+        // TODO: maybe sort finances?
         let intervalInSeconds : TimeInterval = Date.now.timeIntervalSince(finances.last!.date!)
-        let interval = intervalInSeconds / 86400
+        let interval : Double = intervalInSeconds / 86400
         for index in 0..<Int(interval) {
             var i : Int = index
             i.negate()
@@ -128,26 +129,26 @@ internal final class UserWrapper : ObservableObject {
                 let dateToCheck = calendar.dateComponents([.year, .month, .day], from: $0.date!)
                 return dateToCheck.year == dateComponents.year && dateToCheck.month == dateComponents.month && dateToCheck.day == dateComponents.day
             }
-            var amount : Double = 0
+            var amountOnDay : Double = 0
             financesOnDay.forEach {
                 finance in
-                amount += finance.amount
+                amountOnDay += finance.amount
             }
-            amounts[date] = amount
+            amounts[date] = amountOnDay
             var balanceOfTheDay = self.balance
             for previousAmounts in amounts {
                 balanceOfTheDay -= previousAmounts.value
             }
-            dict.append((date: date, amount : balanceOfTheDay))
+            balanceOnDay.append((date: date, amount : balanceOfTheDay))
             if let check = days, index >= check {
                 break
             }
         }
-        return dict
+        return balanceOnDay
     }
     
     /// Creates and returns an anonymous User for this App.
-    private func createAnonymousUser(viewContext : NSManagedObjectContext) -> User {
+    private func createAnonymousUser(viewContext : NSManagedObjectContext) throws -> User {
         let anonymUser : User = User(context: viewContext)
         anonymUser.firstname = "Julian"
         anonymUser.lastname = "Schumacher"
@@ -160,6 +161,7 @@ internal final class UserWrapper : ObservableObject {
         anonymUser.gender = User.Gender.male.rawValue
         anonymUser.balance = 0
         anonymUser.userCreated = false
+        try viewContext.save()
         return anonymUser
     }
     
