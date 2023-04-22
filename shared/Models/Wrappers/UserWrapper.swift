@@ -109,7 +109,6 @@ internal final class UserWrapper : ObservableObject {
         guard !finances.isEmpty else {
             return []
         }
-        //var amounts : [Date : Double] = [ : ]
         var balanceOnDay : [(date : Date, amount : Double)] = []
         let calendar : Calendar = Calendar.current
         let today : Date = Date()
@@ -133,11 +132,7 @@ internal final class UserWrapper : ObservableObject {
             financesOnDay.forEach {
                 amountOnDay += $0.amountAsSigned()
             }
-            //amounts[date] = amountOnDay
             let balanceOfCurrentDay = balanceOfLastDay - amountOnDay
-            //            for previousAmounts in amounts {
-            //                balanceOfCurrentDay -= previousAmounts.value
-            //            }
             balanceOnDay.append((date: date, amount : balanceOfCurrentDay))
             balanceOfLastDay = balanceOfCurrentDay
             if let check = days, index >= check {
