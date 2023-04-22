@@ -88,6 +88,12 @@ public class Finance: NSManagedObject {
         return self is Income ? (capitalized ? "Income" : "income") : (capitalized ? "Expense" : "expense")
     }
     
+    /// Returns the amount of this Finance as a signed
+    /// Double Value. Expenses are negative
+    internal func amountAsSigned() -> Double {
+        return self is Income ? amount : -amount
+    }
+    
     /// The Direction of the Money flow with this
     /// Finance represented as a String to display it
     /// in the UI.
