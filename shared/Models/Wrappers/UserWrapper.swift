@@ -63,10 +63,10 @@ internal final class UserWrapper : ObservableObject {
     /// the Users currently logged in state
     private func adjustBalance(direction : Direction, amount : Double) -> Void {
         switch direction {
-            case .up:
-                balance += amount
-            case .down:
-                balance -= amount
+        case .up:
+            balance += amount
+        case .down:
+            balance -= amount
         }
     }
     
@@ -109,13 +109,13 @@ internal final class UserWrapper : ObservableObject {
         guard !finances.isEmpty else {
             return []
         }
-        var amounts : [Date : Double] = [ : ]
+        //var amounts : [Date : Double] = [ : ]
         var balanceOnDay : [(date : Date, amount : Double)] = []
         let calendar : Calendar = Calendar.current
         let today : Date = Date()
-        // TODO: maybe sort finances?
         let intervalInSeconds : TimeInterval = Date.now.timeIntervalSince(finances.last!.date!)
         let interval : Double = intervalInSeconds / 86400
+        var balanceOfLastDay : Double = balance
         for index in 0..<Int(interval) {
             var i : Int = index
             i.negate()
@@ -131,15 +131,15 @@ internal final class UserWrapper : ObservableObject {
             }
             var amountOnDay : Double = 0
             financesOnDay.forEach {
-                finance in
-                amountOnDay += finance.amountAsSigned()
+                amountOnDay += $0.amountAsSigned()
             }
-            amounts[date] = amountOnDay
-            var balanceOfToday = self.balance
-            for previousAmounts in amounts {
-                balanceOfToday -= previousAmounts.value
-            }
-            balanceOnDay.append((date: date, amount : balanceOfToday))
+            //amounts[date] = amountOnDay
+            let balanceOfCurrentDay = balanceOfLastDay - amountOnDay
+            //            for previousAmounts in amounts {
+            //                balanceOfCurrentDay -= previousAmounts.value
+            //            }
+            balanceOnDay.append((date: date, amount : balanceOfCurrentDay))
+            balanceOfLastDay = balanceOfCurrentDay
             if let check = days, index >= check {
                 break
             }
