@@ -132,14 +132,14 @@ internal final class UserWrapper : ObservableObject {
             var amountOnDay : Double = 0
             financesOnDay.forEach {
                 finance in
-                amountOnDay += finance.amount
+                amountOnDay += finance.amountAsSigned()
             }
             amounts[date] = amountOnDay
-            var balanceOfTheDay = self.balance
+            var balanceOfToday = self.balance
             for previousAmounts in amounts {
-                balanceOfTheDay -= previousAmounts.value
+                balanceOfToday -= previousAmounts.value
             }
-            balanceOnDay.append((date: date, amount : balanceOfTheDay))
+            balanceOnDay.append((date: date, amount : balanceOfToday))
             if let check = days, index >= check {
                 break
             }
