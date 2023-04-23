@@ -7,6 +7,19 @@
 	<key>PreferenceSpecifiers</key>
 	<array>
 		<dict>
+			<key>Title</key>
+			<string>Currency</string>
+			<key>Key</key>
+			<string>currency</string>
+			<key>Values</key>
+			<array>
+				<string>$</string>
+				<string>€</string>
+			</array>
+			<key>DefaultValue</key>
+			<string>$</string>
+		</dict>
+		<dict>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 			<key>Title</key>
