@@ -172,7 +172,7 @@ internal final class UserWrapper : ObservableObject {
     /// This handles all the stuff with the anonymous User.
     internal func logOut() throws -> Void {
         anonymousUser!.balance = user!.balance
-        user = anonymousUser
         try PersistenceController.shared.deleteUser(user!)
+        user = anonymousUser
     }
 }
