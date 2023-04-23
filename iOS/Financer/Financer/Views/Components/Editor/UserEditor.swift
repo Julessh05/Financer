@@ -233,6 +233,7 @@ internal struct UserEditor: View {
             if useDateOfBirth {
                 user.dateOfBirth = dateOfBirth
             }
+            user.userCreated = true
             callback(user)
             dismiss()
         } else {
