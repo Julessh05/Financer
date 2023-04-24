@@ -46,6 +46,10 @@ internal struct UserEditor: View {
     /// Whether the User's Library is shown or not.
     @State private var isLibraryShown : Bool = false
     
+    @FocusState private var firstnameFocused : Bool
+    
+    @FocusState private var lastnameFocused : Bool
+    
     /// The callback being executed when the Save or Done Button
     /// is tapped.
     private let callback : (User) -> Void
@@ -73,6 +77,7 @@ internal struct UserEditor: View {
                 _image = State(initialValue: UIImage(data: user!.image!))
             }
         }
+        firstnameFocused = true
     }
     
     var body: some View {
@@ -92,12 +97,18 @@ internal struct UserEditor: View {
                     }
                     Section {
                         TextField("Firstname", text: $firstname)
+                            .focused($firstnameFocused, equals: true)
                             .textContentType(.givenName)
                             .onChange(of: firstname) {
                                 _ in
                                 checkBtn()
                             }
+                            .onSubmit {
+                                firstnameFocused.toggle()
+                                lastnameFocused.toggle()
+                            }
                         TextField("Lastname", text: $lastname)
+                            .focused($lastnameFocused, equals: true)
                             .textContentType(.familyName)
                             .onChange(of: lastname) {
                                 _ in
