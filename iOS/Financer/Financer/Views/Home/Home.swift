@@ -248,7 +248,7 @@ internal struct Home: View {
                 .renderingMode(.original)
                 .padding(.trailing, 8)
             VStack(alignment: .leading) {
-                let amount : String = String(format: "%.2f\(Locale.current.currencySymbol!)", finance.amount)
+                let amount : String = String(format: "%.2f\(Locale.current.currencySymbol!)", finance.amount!)
                 Text(amount)
                     .font(.headline)
                     .foregroundColor(finance is Income ? .green : .red)

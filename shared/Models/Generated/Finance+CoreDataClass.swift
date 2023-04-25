@@ -90,8 +90,8 @@ public class Finance: NSManagedObject {
     
     /// Returns the amount of this Finance as a signed
     /// Double Value. Expenses are negative
-    internal func amountAsSigned() -> Double {
-        return self is Income ? amount : -amount
+    internal func amountAsSigned() -> NSDecimalNumber {
+        return self is Income ? amount! : amount!.multiplying(by: -1)
     }
     
     /// The Direction of the Money flow with this

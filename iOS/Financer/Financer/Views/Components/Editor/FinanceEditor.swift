@@ -68,7 +68,7 @@ internal struct FinanceEditor: View {
     ) {
         callback = action
         if finance != nil {
-            _amount = State(initialValue: String(finance!.amount))
+            _amount = State(initialValue: String(Double(truncating: finance!.amount!)))
             _legalPerson = State(initialValue: finance!.legalPerson!)
             _notes = State(initialValue: finance!.notes!)
             _date = State(initialValue: finance!.date!)
@@ -266,7 +266,7 @@ internal struct FinanceEditor: View {
                 } else {
                     finance = Expense(context: viewContext)
                 }
-                finance.amount = a
+                finance.amount = NSDecimalNumber(floatLiteral: a)
                 finance.legalPerson = legalPerson
                 finance.notes = notes
                 if isPeriodicalPayment {

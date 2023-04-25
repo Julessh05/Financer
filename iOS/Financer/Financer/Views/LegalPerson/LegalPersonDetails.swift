@@ -57,7 +57,7 @@ internal struct LegalPersonDetails: View {
                         finance in
                         ListTile(
                             name: finance.typeAsString(),
-                            data: String(finance.amount),
+                            data: String(Double(truncating: finance.amount!)),
                             onTap: {
                                 financeWrapper.finance = finance
                                 dismiss()

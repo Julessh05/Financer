@@ -58,7 +58,7 @@ internal struct UserDetails: View {
                             Text("General Information about the User")
                         }
                         Section {
-                            ListTile(name: "Current Balance", data: String(user.balance))
+                            ListTile(name: "Current Balance", data: String(Double(truncating: user.balance!)))
                         } header: {
                             Text("App Related")
                         } footer: {
