@@ -76,7 +76,7 @@ internal struct FinanceDetails: View {
             HStack {
                 Text("Amount")
                 Spacer()
-                Text(String(format: "%.2f$", financeWrapper.finance!.amount))
+                Text(String(format: "%.2f\(Locale.current.currencySymbol!)", financeWrapper.finance!.amount))
                     .foregroundColor(.gray)
             }
             HStack {
