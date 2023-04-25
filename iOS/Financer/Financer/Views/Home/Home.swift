@@ -114,6 +114,8 @@ internal struct Home: View {
             )
             .onAppear {
                 setPeriodicalFinances()
+                // TODO-v2: Remove
+                checkBalance()
             }
             .navigationTitle("Welcome")
             .navigationBarTitleDisplayMode(.automatic)
@@ -220,6 +222,26 @@ internal struct Home: View {
                         .environmentObject(userWrapper)
                 }
             }
+        }
+    }
+    
+    /// Checks the Balance of the User when starting the App
+    ///
+    /// BACKGROUND:
+    /// implemented and added, because the balance could be corrupted by
+    /// the change from Double to NSDecimalNumber for the Finance Data
+    ///
+    /// AVAILABILITY:
+    /// Implemented in v1.5.1
+    /// Will be removed in v2.0
+    private func checkBalance() -> Void {
+        if userWrapper.user != nil {
+            userWrapper.user!.balance = 0
+        } else {
+            userWrapper.anonymousUser!.balance = 0
+        }
+        for finance in finances {
+            userWrapper.addFinance(finance)
         }
     }
     

@@ -18,7 +18,10 @@ internal final class UserWrapper : ObservableObject {
     @Published internal final var user : User?
     
     /// The anonymous User for this App
-    @Published private final var anonymousUser : User?
+    ///
+    /// TODO:
+    /// Make private in v2.0
+    @Published internal final var anonymousUser : User?
     
     /// The initializer to create a Wrapper Object with a User
     /// passed down the initializer.
@@ -29,7 +32,7 @@ internal final class UserWrapper : ObservableObject {
     
     /// Initilizes this User Wrapper.
     /// Do only call this once! Otherwise the Data will be lost
-    internal func initUserWrapper(viewContext : NSManagedObjectContext, anonymousUser : User?) throws -> Void {
+    internal func initUserWrapper(viewContext : NSManagedObjectContext, anonymousUser : User? = nil) throws -> Void {
         guard self.anonymousUser == nil else { return }
         self.anonymousUser = try anonymousUser ?? createAnonymousUser(viewContext: viewContext)
     }
@@ -64,9 +67,9 @@ internal final class UserWrapper : ObservableObject {
     private func adjustBalance(direction : Direction, amount : NSDecimalNumber) -> Void {
         switch direction {
         case .up:
-            balance.adding(amount)
+            balance = balance.adding(amount)
         case .down:
-            balance.subtracting(amount)
+            balance = balance.subtracting(amount)
         }
     }
     
@@ -128,9 +131,9 @@ internal final class UserWrapper : ObservableObject {
                 let dateToCheck = calendar.dateComponents([.year, .month, .day], from: $0.date!)
                 return dateToCheck.year == dateComponents.year && dateToCheck.month == dateComponents.month && dateToCheck.day == dateComponents.day
             }
-            let amountOnDay : NSDecimalNumber = 0
+            var amountOnDay : NSDecimalNumber = 0
             financesOnDay.forEach {
-                amountOnDay.adding($0.singnedAmount)
+                amountOnDay = amountOnDay.adding($0.singnedAmount)
             }
             let balanceOfCurrentDay : NSDecimalNumber = balanceOfLastDay.subtracting(amountOnDay)
             balanceOnDay.append((date: date, amount : Double(truncating: balanceOfCurrentDay)))
