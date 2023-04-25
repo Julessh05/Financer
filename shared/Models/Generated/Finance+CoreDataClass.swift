@@ -90,20 +90,29 @@ public class Finance: NSManagedObject {
     
     /// Returns the amount of this Finance as a signed
     /// Double Value. Expenses are negative
-    internal func amountAsSigned() -> Double {
-        return self is Income ? amount : -amount
+    internal var singnedAmount : NSDecimalNumber {
+        self is Income ? amount! : amount!.multiplying(by: -1)
+    }
+    
+    /// Returns the Amount as a displayable Double Value
+    internal var displayableAmount : Double {
+        amount!.doubleValue
+    }
+    
+    internal var fullAmount : String {
+        String(format: "%.2f\(Locale.current.currencySymbol!)", displayableAmount)
     }
     
     /// The Direction of the Money flow with this
     /// Finance represented as a String to display it
     /// in the UI.
     internal var directionAsString : String {
-        return self is Income ? "From" : "To"
+        self is Income ? "From" : "To"
     }
     
     /// Returns a Boolean indicating if this
     /// Finance is a periodical Finance or not.
     internal var isPeriodical : Bool {
-        return periodDuration != 0
+        periodDuration != 0
     }
 }

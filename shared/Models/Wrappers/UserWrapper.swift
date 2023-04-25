@@ -51,8 +51,8 @@ internal final class UserWrapper : ObservableObject {
     /// Computed variable returning and setting
     /// the anonymous or user balance depending
     /// on the current State of the User
-    internal private(set) var balance : Double {
-        get { user?.balance ?? anonymousUser!.balance }
+    internal private(set) var balance : NSDecimalNumber {
+        get { user?.balance ?? anonymousUser!.balance! }
         set { user != nil ? (user!.balance = newValue) : (anonymousUser!.balance = newValue) }
     }
     
@@ -61,12 +61,12 @@ internal final class UserWrapper : ObservableObject {
     ///
     /// This Function handles the User and anonymous Balance, depending on
     /// the Users currently logged in state
-    private func adjustBalance(direction : Direction, amount : Double) -> Void {
+    private func adjustBalance(direction : Direction, amount : NSDecimalNumber) -> Void {
         switch direction {
         case .up:
-            balance += amount
+            balance.adding(amount)
         case .down:
-            balance -= amount
+            balance.subtracting(amount)
         }
     }
     
@@ -75,9 +75,9 @@ internal final class UserWrapper : ObservableObject {
     /// balance should be updated
     internal func addFinance(_ finance : Finance) -> Void {
         if finance is Income {
-            adjustBalance(direction: .up, amount: finance.amount)
+            adjustBalance(direction: .up, amount: finance.amount!)
         } else {
-            adjustBalance(direction: .down, amount: finance.amount)
+            adjustBalance(direction: .down, amount: finance.amount!)
         }
     }
     
@@ -86,9 +86,9 @@ internal final class UserWrapper : ObservableObject {
     /// balance should be updated
     internal func removeFinance(_ finance : Finance) -> Void {
         if finance is Income {
-            adjustBalance(direction: .down, amount: finance.amount)
+            adjustBalance(direction: .down, amount: finance.amount!)
         } else {
-            adjustBalance(direction: .up, amount: finance.amount)
+            adjustBalance(direction: .up, amount: finance.amount!)
         }
     }
     
@@ -114,7 +114,7 @@ internal final class UserWrapper : ObservableObject {
         let today : Date = Date()
         let intervalInSeconds : TimeInterval = Date.now.timeIntervalSince(finances.last!.date!)
         let interval : Double = intervalInSeconds / 86400
-        var balanceOfLastDay : Double = balance
+        var balanceOfLastDay : NSDecimalNumber = balance
         for index in 0..<Int(interval) {
             var i : Int = index
             i.negate()
@@ -128,12 +128,12 @@ internal final class UserWrapper : ObservableObject {
                 let dateToCheck = calendar.dateComponents([.year, .month, .day], from: $0.date!)
                 return dateToCheck.year == dateComponents.year && dateToCheck.month == dateComponents.month && dateToCheck.day == dateComponents.day
             }
-            var amountOnDay : Double = 0
+            let amountOnDay : NSDecimalNumber = 0
             financesOnDay.forEach {
-                amountOnDay += $0.amountAsSigned()
+                amountOnDay.adding($0.singnedAmount)
             }
-            let balanceOfCurrentDay = balanceOfLastDay - amountOnDay
-            balanceOnDay.append((date: date, amount : balanceOfCurrentDay))
+            let balanceOfCurrentDay : NSDecimalNumber = balanceOfLastDay.subtracting(amountOnDay)
+            balanceOnDay.append((date: date, amount : Double(truncating: balanceOfCurrentDay)))
             balanceOfLastDay = balanceOfCurrentDay
             if let check = days, index >= check {
                 break

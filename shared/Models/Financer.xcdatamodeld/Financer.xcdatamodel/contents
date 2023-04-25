@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21513" systemVersion="22D49" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22E261" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
     <entity name="Company" representedClassName="Company" parentEntity="Union" syncable="YES" codeGenerationType="class"/>
     <entity name="Expense" representedClassName="Expense" parentEntity="Finance" syncable="YES" codeGenerationType="class"/>
     <entity name="Finance" representedClassName="Finance" isAbstract="YES" syncable="YES" codeGenerationType="category">
-        <attribute name="amount" attributeType="Double" minValueString="0" defaultValueString="0.0" allowsCloudEncryption="YES" usesScalarValueType="YES"/>
+        <attribute name="amount" attributeType="Decimal" minValueString="0" defaultValueString="0.0" allowsCloudEncryption="YES"/>
         <attribute name="automaticGenerated" attributeType="Boolean" defaultValueString="NO" allowsCloudEncryption="YES" usesScalarValueType="YES"/>
         <attribute name="date" attributeType="Date" defaultDateTimeInterval="667177200" allowsCloudEncryption="YES" usesScalarValueType="NO"/>
         <attribute name="folder" attributeType="String" minValueString="0" defaultValueString="" allowsCloudEncryption="YES"/>
@@ -25,7 +25,7 @@
         <attribute name="url" optional="YES" attributeType="URI" allowsCloudEncryption="YES"/>
     </entity>
     <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="category">
-        <attribute name="balance" attributeType="Double" defaultValueString="0.0" allowsCloudEncryption="YES" usesScalarValueType="YES"/>
+        <attribute name="balance" attributeType="Decimal" defaultValueString="0.0" allowsCloudEncryption="YES"/>
         <attribute name="dateOfBirth" optional="YES" attributeType="Date" allowsCloudEncryption="YES" usesScalarValueType="NO"/>
         <attribute name="firstname" attributeType="String" defaultValueString="" allowsCloudEncryption="YES"/>
         <attribute name="gender" attributeType="String" defaultValueString="none" allowsCloudEncryption="YES"/>
