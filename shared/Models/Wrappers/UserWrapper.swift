@@ -32,7 +32,7 @@ internal final class UserWrapper : ObservableObject {
     
     /// Initilizes this User Wrapper.
     /// Do only call this once! Otherwise the Data will be lost
-    internal func initUserWrapper(viewContext : NSManagedObjectContext, anonymousUser : User?) throws -> Void {
+    internal func initUserWrapper(viewContext : NSManagedObjectContext, anonymousUser : User? = nil) throws -> Void {
         guard self.anonymousUser == nil else { return }
         self.anonymousUser = try anonymousUser ?? createAnonymousUser(viewContext: viewContext)
     }
