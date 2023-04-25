@@ -10,7 +10,13 @@ import SwiftUI
 import Intents
 
 private struct Provider : IntentTimelineProvider {
+    typealias Entry = <#type#>
     
+    typealias Intent = <#type#>
+    
+    func getTimeline(for configuration: Intent, in context: Context, completion: @escaping (Timeline<Entry>) -> Void) {
+        <#code#>
+    }
 }
 
 internal struct Chart_Overview: Widget {
