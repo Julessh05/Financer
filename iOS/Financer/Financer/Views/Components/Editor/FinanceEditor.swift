@@ -52,11 +52,6 @@ internal struct FinanceEditor: View {
     
     /// The callback to execute when the Editor is done.
     /// The Arguments are in this order:
-    /// Double - amount
-    /// LegalPerson - legalPerson
-    /// String - notes
-    /// Date - date
-    /// Finance.FinanceType - financeType
     private let callback : (Finance) -> Void
     
     /// The initializer to add or edit a Finance.
@@ -68,8 +63,8 @@ internal struct FinanceEditor: View {
     ) {
         callback = action
         if finance != nil {
+            _financeType = State(initialValue: Finance.FinanceType(rawValue: finance!.typeAsString(capitalized: false))!)
             _amount = State(initialValue: finance!.amount!.stringValue)
-            _amount = State(initialValue: String(Double(truncating: finance!.amount!)))
             _legalPerson = State(initialValue: finance!.legalPerson!)
             _notes = State(initialValue: finance!.notes!)
             _date = State(initialValue: finance!.date!)

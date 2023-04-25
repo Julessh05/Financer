@@ -85,7 +85,11 @@ public class Finance: NSManagedObject {
     /// The Type of this Finance in the form of a String
     /// to represent it to the User.
     internal func typeAsString(capitalized : Bool = true) -> String {
-        return self is Income ? (capitalized ? "Income" : "income") : (capitalized ? "Expense" : "expense")
+        self is Income ? (
+            capitalized ? FinanceType.income.rawValue.capitalized : FinanceType.income.rawValue
+        ) : (
+            capitalized ? FinanceType.expense.rawValue.capitalized: FinanceType.expense.rawValue
+        )
     }
     
     /// Returns the amount of this Finance as a signed

@@ -34,6 +34,7 @@
 		849AB4372965CAB100AA8E75 /* ChartDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849AB4362965CAB100AA8E75 /* ChartDetails.swift */; };
 		84BF3C8129E9442B006BE657 /* UserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BF3C8029E9442B006BE657 /* UserInformation.swift */; };
 		84D911BC29868E090043CCA7 /* DeleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D911BB29868E090043CCA7 /* DeleteButton.swift */; };
+		84E2EF6C29F849DB00F74E16 /* FinancerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E2EF6B29F849DB00F74E16 /* FinancerTests.swift */; };
 		84E66A0229A2483000EA7559 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E669F629A2483000EA7559 /* Persistence.swift */; };
 		84E66A0329A2483000EA7559 /* Finance+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E669F929A2483000EA7559 /* Finance+CoreDataClass.swift */; };
 		84E66A0429A2483000EA7559 /* LegalPerson+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E669FA29A2483000EA7559 /* LegalPerson+CoreDataClass.swift */; };
@@ -44,6 +45,16 @@
 		84E66A0929A2483000EA7559 /* Financer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84E66A0029A2483000EA7559 /* Financer.xcdatamodeld */; };
 		84ED450E297BF58000706993 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED450D297BF58000706993 /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		84E2EF6D29F849DB00F74E16 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3FCD270F2952E3CA00ECD3C2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3FCD27162952E3CA00ECD3C2;
+			remoteInfo = Financer;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		840D3AF229BB1941007C8B0A /* Embed Foundation Extensions */ = {
@@ -88,6 +99,8 @@
 		849AB4362965CAB100AA8E75 /* ChartDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDetails.swift; sourceTree = "<group>"; };
 		84BF3C8029E9442B006BE657 /* UserInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformation.swift; sourceTree = "<group>"; };
 		84D911BB29868E090043CCA7 /* DeleteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteButton.swift; sourceTree = "<group>"; };
+		84E2EF6929F849DB00F74E16 /* FinancerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinancerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		84E2EF6B29F849DB00F74E16 /* FinancerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancerTests.swift; sourceTree = "<group>"; };
 		84E669F629A2483000EA7559 /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		84E669F929A2483000EA7559 /* Finance+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Finance+CoreDataClass.swift"; sourceTree = "<group>"; };
 		84E669FA29A2483000EA7559 /* LegalPerson+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LegalPerson+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -107,6 +120,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		84E2EF6629F849DB00F74E16 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -114,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				3FCD27192952E3CA00ECD3C2 /* Financer */,
+				84E2EF6A29F849DB00F74E16 /* FinancerTests */,
 				3FCD27182952E3CA00ECD3C2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -122,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				3FCD27172952E3CA00ECD3C2 /* Financer.app */,
+				84E2EF6929F849DB00F74E16 /* FinancerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -299,6 +321,14 @@
 			path = Buttons;
 			sourceTree = "<group>";
 		};
+		84E2EF6A29F849DB00F74E16 /* FinancerTests */ = {
+			isa = PBXGroup;
+			children = (
+				84E2EF6B29F849DB00F74E16 /* FinancerTests.swift */,
+			);
+			path = FinancerTests;
+			sourceTree = "<group>";
+		};
 		84E669F429A2481800EA7559 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
@@ -370,6 +400,24 @@
 			productReference = 3FCD27172952E3CA00ECD3C2 /* Financer.app */;
 			productType = "com.apple.product-type.application";
 		};
+		84E2EF6829F849DB00F74E16 /* FinancerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84E2EF7129F849DB00F74E16 /* Build configuration list for PBXNativeTarget "FinancerTests" */;
+			buildPhases = (
+				84E2EF6529F849DB00F74E16 /* Sources */,
+				84E2EF6629F849DB00F74E16 /* Frameworks */,
+				84E2EF6729F849DB00F74E16 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				84E2EF6E29F849DB00F74E16 /* PBXTargetDependency */,
+			);
+			name = FinancerTests;
+			productName = FinancerTests;
+			productReference = 84E2EF6929F849DB00F74E16 /* FinancerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -377,11 +425,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1420;
+				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
 					3FCD27162952E3CA00ECD3C2 = {
 						CreatedOnToolsVersion = 14.2;
+					};
+					84E2EF6829F849DB00F74E16 = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = 3FCD27162952E3CA00ECD3C2;
 					};
 				};
 			};
@@ -399,6 +451,7 @@
 			projectRoot = "";
 			targets = (
 				3FCD27162952E3CA00ECD3C2 /* Financer */,
+				84E2EF6829F849DB00F74E16 /* FinancerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -411,6 +464,13 @@
 				3FCD27222952E3CB00ECD3C2 /* Preview Assets.xcassets in Resources */,
 				848A44AC29639713002AC782 /* Settings.bundle in Resources */,
 				3FCD271F2952E3CB00ECD3C2 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84E2EF6729F849DB00F74E16 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,7 +517,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		84E2EF6529F849DB00F74E16 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84E2EF6C29F849DB00F74E16 /* FinancerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		84E2EF6E29F849DB00F74E16 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3FCD27162952E3CA00ECD3C2 /* Financer */;
+			targetProxy = 84E2EF6D29F849DB00F74E16 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		3FCD273F2952E3CB00ECD3C2 /* Debug */ = {
@@ -644,6 +720,42 @@
 			};
 			name = Release;
 		};
+		84E2EF6F29F849DB00F74E16 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Q87UDX5898;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.jules.Financer.FinancerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Financer.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Financer";
+			};
+			name = Debug;
+		};
+		84E2EF7029F849DB00F74E16 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Q87UDX5898;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.jules.Financer.FinancerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Financer.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Financer";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -661,6 +773,15 @@
 			buildConfigurations = (
 				3FCD27422952E3CB00ECD3C2 /* Debug */,
 				3FCD27432952E3CB00ECD3C2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84E2EF7129F849DB00F74E16 /* Build configuration list for PBXNativeTarget "FinancerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84E2EF6F29F849DB00F74E16 /* Debug */,
+				84E2EF7029F849DB00F74E16 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

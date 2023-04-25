@@ -18,7 +18,10 @@ internal final class UserWrapper : ObservableObject {
     @Published internal final var user : User?
     
     /// The anonymous User for this App
-    @Published private final var anonymousUser : User?
+    ///
+    /// TODO:
+    /// Make private in v2.0
+    @Published internal final var anonymousUser : User?
     
     /// The initializer to create a Wrapper Object with a User
     /// passed down the initializer.
