@@ -130,7 +130,7 @@ internal final class UserWrapper : ObservableObject {
             }
             let amountOnDay : NSDecimalNumber = 0
             financesOnDay.forEach {
-                amountOnDay.adding($0.amountAsSigned())
+                amountOnDay.adding($0.singnedAmount)
             }
             let balanceOfCurrentDay : NSDecimalNumber = balanceOfLastDay.subtracting(amountOnDay)
             balanceOnDay.append((date: date, amount : Double(truncating: balanceOfCurrentDay)))

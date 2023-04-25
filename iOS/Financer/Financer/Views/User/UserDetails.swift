@@ -58,7 +58,7 @@ internal struct UserDetails: View {
                             Text("General Information about the User")
                         }
                         Section {
-                            ListTile(name: "Current Balance", data: String(Double(truncating: user.balance!)))
+                            ListTile(name: "Current Balance", data: "\(user.balance!.stringValue)\(Locale.current.currencySymbol!)")
                         } header: {
                             Text("App Related")
                         } footer: {
@@ -112,7 +112,7 @@ internal struct UserDetails: View {
                     List {
                         ListTile(name: "Current Balance",
                                  // TODO: add currency
-                                 data: "\(userWrapper.balance)")
+                                 data: "\(userWrapper.balance.stringValue)\(Locale.current.currencySymbol!)")
                     }
                     Button {
                         logInPresented.toggle()

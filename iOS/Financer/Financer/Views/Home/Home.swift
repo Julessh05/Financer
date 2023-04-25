@@ -248,8 +248,7 @@ internal struct Home: View {
                 .renderingMode(.original)
                 .padding(.trailing, 8)
             VStack(alignment: .leading) {
-                let amount : String = String(format: "%.2f\(Locale.current.currencySymbol!)", finance.amount!)
-                Text(amount)
+                Text(finance.fullAmount)
                     .font(.headline)
                     .foregroundColor(finance is Income ? .green : .red)
                 // Legal Person isn't an optional Parameter, but still you have to use the ? because Swift Optional and Core Data Optional aren't the same thing

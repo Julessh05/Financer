@@ -68,6 +68,7 @@ internal struct FinanceEditor: View {
     ) {
         callback = action
         if finance != nil {
+            _amount = State(initialValue: finance!.amount!.stringValue)
             _amount = State(initialValue: String(Double(truncating: finance!.amount!)))
             _legalPerson = State(initialValue: finance!.legalPerson!)
             _notes = State(initialValue: finance!.notes!)
@@ -173,7 +174,7 @@ internal struct FinanceEditor: View {
             }
             ToolbarItem(placement: .confirmationAction) {
                 Button("Done") {
-                   action()
+                    action()
                 }
             }
         }
@@ -188,7 +189,7 @@ internal struct FinanceEditor: View {
         } else {
             displayComponents = [.date, .hourAndMinute]
         }
-         return DatePicker(
+        return DatePicker(
             "Date",
             selection: $date,
             displayedComponents: displayComponents
@@ -258,40 +259,36 @@ internal struct FinanceEditor: View {
     /// The action executed when the Save or Done Button
     /// is clicked
     private func action() -> Void {
-        if let a = Double(validateAmount()) {
-            if btnActive {
-                let finance : Finance
-                if financeType == .income {
-                    finance = Income(context: viewContext)
-                } else {
-                    finance = Expense(context: viewContext)
-                }
-                finance.amount = NSDecimalNumber(floatLiteral: a)
-                finance.legalPerson = legalPerson
-                finance.notes = notes
-                if isPeriodicalPayment {
-                    let calendar : Calendar = Calendar.current
-                    finance.periodDuration = Int16(periodDuration.days)
-                    let odc : DateComponents = calendar.dateComponents([.year, .month, .day], from: date)
-                    let ndc : DateComponents = DateComponents(
-                        year: odc.year,
-                        month: odc.month,
-                        day: odc.day,
-                        hour: 0,
-                        minute: 0,
-                        second: 0
-                    )
-                    finance.date = calendar.date(from: ndc)
-                } else {
-                    finance.date = date
-                }
-                callback(finance)
-                dismiss()
+        if btnActive {
+            let finance : Finance
+            if financeType == .income {
+                finance = Income(context: viewContext)
             } else {
-                errMissingArgumentsPresented.toggle()
+                finance = Expense(context: viewContext)
             }
+            finance.amount = NSDecimalNumber(string: validateAmount())
+            finance.legalPerson = legalPerson
+            finance.notes = notes
+            if isPeriodicalPayment {
+                let calendar : Calendar = Calendar.current
+                finance.periodDuration = Int16(periodDuration.days)
+                let odc : DateComponents = calendar.dateComponents([.year, .month, .day], from: date)
+                let ndc : DateComponents = DateComponents(
+                    year: odc.year,
+                    month: odc.month,
+                    day: odc.day,
+                    hour: 0,
+                    minute: 0,
+                    second: 0
+                )
+                finance.date = calendar.date(from: ndc)
+            } else {
+                finance.date = date
+            }
+            callback(finance)
+            dismiss()
         } else {
-            errWrongInputType.toggle()
+            errMissingArgumentsPresented.toggle()
         }
     }
 }
