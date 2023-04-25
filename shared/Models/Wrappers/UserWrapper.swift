@@ -64,9 +64,9 @@ internal final class UserWrapper : ObservableObject {
     private func adjustBalance(direction : Direction, amount : NSDecimalNumber) -> Void {
         switch direction {
         case .up:
-            balance.adding(amount)
+            balance = balance.adding(amount)
         case .down:
-            balance.subtracting(amount)
+            balance = balance.subtracting(amount)
         }
     }
     
@@ -128,9 +128,9 @@ internal final class UserWrapper : ObservableObject {
                 let dateToCheck = calendar.dateComponents([.year, .month, .day], from: $0.date!)
                 return dateToCheck.year == dateComponents.year && dateToCheck.month == dateComponents.month && dateToCheck.day == dateComponents.day
             }
-            let amountOnDay : NSDecimalNumber = 0
+            var amountOnDay : NSDecimalNumber = 0
             financesOnDay.forEach {
-                amountOnDay.adding($0.singnedAmount)
+                amountOnDay = amountOnDay.adding($0.singnedAmount)
             }
             let balanceOfCurrentDay : NSDecimalNumber = balanceOfLastDay.subtracting(amountOnDay)
             balanceOnDay.append((date: date, amount : Double(truncating: balanceOfCurrentDay)))
