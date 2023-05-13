@@ -123,10 +123,10 @@ internal final class UserWrapper : ObservableObject {
             i.negate()
             var date : Date = calendar.date(byAdding: .day, value: i, to: today)!
             var dateComponents = calendar.dateComponents([.year, .month, .day], from: date)
-            dateComponents.hour = 24
-            dateComponents.minute = 0
-            dateComponents.second = 0
-            date = calendar.date(from: dateComponents)!
+//            dateComponents.hour = 0
+//            dateComponents.minute = 0
+//            dateComponents.second = 0
+//            date = calendar.date(from: dateComponents)!
             let financesOnDay : [Finance] = finances.filter {
                 let dateToCheck = calendar.dateComponents([.year, .month, .day], from: $0.date!)
                 return dateToCheck.year == dateComponents.year && dateToCheck.month == dateComponents.month && dateToCheck.day == dateComponents.day

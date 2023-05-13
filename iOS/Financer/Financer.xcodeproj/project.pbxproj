@@ -44,10 +44,20 @@
 		84E66A0829A2483000EA7559 /* FinanceWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E669FF29A2483000EA7559 /* FinanceWrapper.swift */; };
 		84E66A0929A2483000EA7559 /* Financer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84E66A0029A2483000EA7559 /* Financer.xcdatamodeld */; };
 		84ED450E297BF58000706993 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED450D297BF58000706993 /* ImagePicker.swift */; };
+		84FA2DA22A0FB7D8005CE251 /* FinancerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FA2DA12A0FB7D8005CE251 /* FinancerUITests.swift */; };
+		84FA2DA42A0FB7D8005CE251 /* FinancerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FA2DA32A0FB7D8005CE251 /* FinancerUITestsLaunchTests.swift */; };
+		84FA2DAB2A0FBB2F005CE251 /* UserWrapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FA2DAA2A0FBB2F005CE251 /* UserWrapperTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		84E2EF6D29F849DB00F74E16 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3FCD270F2952E3CA00ECD3C2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3FCD27162952E3CA00ECD3C2;
+			remoteInfo = Financer;
+		};
+		84FA2DA52A0FB7D8005CE251 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3FCD270F2952E3CA00ECD3C2 /* Project object */;
 			proxyType = 1;
@@ -110,6 +120,10 @@
 		84E669FF29A2483000EA7559 /* FinanceWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinanceWrapper.swift; sourceTree = "<group>"; };
 		84E66A0129A2483000EA7559 /* Financer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Financer.xcdatamodel; sourceTree = "<group>"; };
 		84ED450D297BF58000706993 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		84FA2D9F2A0FB7D8005CE251 /* FinancerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinancerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		84FA2DA12A0FB7D8005CE251 /* FinancerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancerUITests.swift; sourceTree = "<group>"; };
+		84FA2DA32A0FB7D8005CE251 /* FinancerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		84FA2DAA2A0FBB2F005CE251 /* UserWrapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWrapperTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +141,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		84FA2D9C2A0FB7D8005CE251 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -135,6 +156,7 @@
 			children = (
 				3FCD27192952E3CA00ECD3C2 /* Financer */,
 				84E2EF6A29F849DB00F74E16 /* FinancerTests */,
+				84FA2DA02A0FB7D8005CE251 /* FinancerUITests */,
 				3FCD27182952E3CA00ECD3C2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -144,6 +166,7 @@
 			children = (
 				3FCD27172952E3CA00ECD3C2 /* Financer.app */,
 				84E2EF6929F849DB00F74E16 /* FinancerTests.xctest */,
+				84FA2D9F2A0FB7D8005CE251 /* FinancerUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -325,6 +348,7 @@
 			isa = PBXGroup;
 			children = (
 				84E2EF6B29F849DB00F74E16 /* FinancerTests.swift */,
+				84FA2DAA2A0FBB2F005CE251 /* UserWrapperTests.swift */,
 			);
 			path = FinancerTests;
 			sourceTree = "<group>";
@@ -379,6 +403,15 @@
 			path = Wrappers;
 			sourceTree = "<group>";
 		};
+		84FA2DA02A0FB7D8005CE251 /* FinancerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				84FA2DA12A0FB7D8005CE251 /* FinancerUITests.swift */,
+				84FA2DA32A0FB7D8005CE251 /* FinancerUITestsLaunchTests.swift */,
+			);
+			path = FinancerUITests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -418,6 +451,24 @@
 			productReference = 84E2EF6929F849DB00F74E16 /* FinancerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		84FA2D9E2A0FB7D8005CE251 /* FinancerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84FA2DA92A0FB7D8005CE251 /* Build configuration list for PBXNativeTarget "FinancerUITests" */;
+			buildPhases = (
+				84FA2D9B2A0FB7D8005CE251 /* Sources */,
+				84FA2D9C2A0FB7D8005CE251 /* Frameworks */,
+				84FA2D9D2A0FB7D8005CE251 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				84FA2DA62A0FB7D8005CE251 /* PBXTargetDependency */,
+			);
+			name = FinancerUITests;
+			productName = FinancerUITests;
+			productReference = 84FA2D9F2A0FB7D8005CE251 /* FinancerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -432,6 +483,10 @@
 						CreatedOnToolsVersion = 14.2;
 					};
 					84E2EF6829F849DB00F74E16 = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = 3FCD27162952E3CA00ECD3C2;
+					};
+					84FA2D9E2A0FB7D8005CE251 = {
 						CreatedOnToolsVersion = 14.3;
 						TestTargetID = 3FCD27162952E3CA00ECD3C2;
 					};
@@ -452,6 +507,7 @@
 			targets = (
 				3FCD27162952E3CA00ECD3C2 /* Financer */,
 				84E2EF6829F849DB00F74E16 /* FinancerTests */,
+				84FA2D9E2A0FB7D8005CE251 /* FinancerUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -468,6 +524,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		84E2EF6729F849DB00F74E16 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84FA2D9D2A0FB7D8005CE251 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -521,7 +584,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84FA2DAB2A0FBB2F005CE251 /* UserWrapperTests.swift in Sources */,
 				84E2EF6C29F849DB00F74E16 /* FinancerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84FA2D9B2A0FB7D8005CE251 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84FA2DA42A0FB7D8005CE251 /* FinancerUITestsLaunchTests.swift in Sources */,
+				84FA2DA22A0FB7D8005CE251 /* FinancerUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,6 +605,11 @@
 			isa = PBXTargetDependency;
 			target = 3FCD27162952E3CA00ECD3C2 /* Financer */;
 			targetProxy = 84E2EF6D29F849DB00F74E16 /* PBXContainerItemProxy */;
+		};
+		84FA2DA62A0FB7D8005CE251 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3FCD27162952E3CA00ECD3C2 /* Financer */;
+			targetProxy = 84FA2DA52A0FB7D8005CE251 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -756,6 +834,40 @@
 			};
 			name = Release;
 		};
+		84FA2DA72A0FB7D8005CE251 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Q87UDX5898;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.jules.Financer.FinancerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Financer;
+			};
+			name = Debug;
+		};
+		84FA2DA82A0FB7D8005CE251 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Q87UDX5898;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.jules.Financer.FinancerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Financer;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -782,6 +894,15 @@
 			buildConfigurations = (
 				84E2EF6F29F849DB00F74E16 /* Debug */,
 				84E2EF7029F849DB00F74E16 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84FA2DA92A0FB7D8005CE251 /* Build configuration list for PBXNativeTarget "FinancerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84FA2DA72A0FB7D8005CE251 /* Debug */,
+				84FA2DA82A0FB7D8005CE251 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
