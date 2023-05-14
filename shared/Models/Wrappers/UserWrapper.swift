@@ -112,23 +112,26 @@ internal final class UserWrapper : ObservableObject {
         guard !finances.isEmpty else {
             return []
         }
+        let sortedFinances = finances.sorted { $0.date! > $1.date! }
         var balanceOnDay : [(date : Date, amount : Double)] = []
-        let calendar : Calendar = Calendar.current
+        var calendar : Calendar = Calendar.current
+        calendar.timeZone = TimeZone.current
         let today : Date = Date()
-        let intervalInSeconds : TimeInterval = Date.now.timeIntervalSince(finances.last!.date!)
+        let intervalInSeconds : TimeInterval = Date.now.timeIntervalSince(sortedFinances.last!.date!)
         let interval : Double = intervalInSeconds / 86400
         var balanceOfLastDay : NSDecimalNumber = balance
-        for index in 0..<Int(interval) {
+        balanceOnDay.append((date: today, amount: balance.doubleValue))
+        for index in 0..<Int(interval - 1) {
             var i : Int = index
             i.negate()
             var date : Date = calendar.date(byAdding: .day, value: i, to: today)!
-            var dateComponents = calendar.dateComponents([.year, .month, .day], from: date)
-//            dateComponents.hour = 0
-//            dateComponents.minute = 0
-//            dateComponents.second = 0
-//            date = calendar.date(from: dateComponents)!
-            let financesOnDay : [Finance] = finances.filter {
-                let dateToCheck = calendar.dateComponents([.year, .month, .day], from: $0.date!)
+            var dateComponents = calendar.dateComponents(in: TimeZone.current, from: date)
+            dateComponents.hour = 0
+            dateComponents.minute = 0
+            dateComponents.second = 0
+            date = calendar.date(from: dateComponents)!
+            let financesOnDay : [Finance] = sortedFinances.filter {
+                let dateToCheck = calendar.dateComponents(in: TimeZone.current, from: $0.date!)
                 return dateToCheck.year == dateComponents.year && dateToCheck.month == dateComponents.month && dateToCheck.day == dateComponents.day
             }
             var amountOnDay : NSDecimalNumber = 0
