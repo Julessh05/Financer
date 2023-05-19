@@ -125,19 +125,6 @@ internal struct FinanceEditor: View {
                         }
                     }
                 }
-                Button(action: action) {
-                    Label(
-                        "Save",
-                        systemImage: "square.and.arrow.down"
-                    )
-                    .frame(
-                        width: metrics.size.width / 1.2,
-                        height: metrics.size.height / 15
-                    )
-                    .foregroundColor(.white)
-                    .background(btnActive ? Color.blue : Color.gray)
-                    .cornerRadius(20)
-                }
                 .alert(
                     "Missing Data",
                     isPresented: $errMissingArgumentsPresented
