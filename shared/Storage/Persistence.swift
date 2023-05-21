@@ -34,7 +34,7 @@ internal struct PersistenceController {
         legalPerson.name = "Test Person"
         let phone : String = "+123456789"
         let notes : String = "Test Notes"
-        let url : URL? = URL(string: "https://github.com/TheIntuitiveCompany/Financer")
+        let url : URL? = URL(string: "https://github.com/Julessh05/Financer")
         for _ in 0 ..< 5 {
             // Add Finances
             let i = Income(context: viewContext)
