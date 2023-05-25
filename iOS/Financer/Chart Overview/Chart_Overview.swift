@@ -5,6 +5,7 @@
 //  Created by Julian Schumacher on 25.05.23.
 //
 
+import CoreData
 import WidgetKit
 import SwiftUI
 
@@ -51,6 +52,8 @@ internal struct Provider: TimelineProvider {
         completion(timeline)
     }
     
+    private var cdContainer : NSPersistentCloudKitContainer = NSPersistentCloudKitContainer(name: "Financer")
+                                                                                    
     private func getMap() -> [(date : Date, amount : Double)] {
         return Provider.mockData
     }
