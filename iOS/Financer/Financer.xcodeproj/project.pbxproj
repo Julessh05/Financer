@@ -43,13 +43,6 @@
 		84E66A0829A2483000EA7559 /* FinanceWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E669FF29A2483000EA7559 /* FinanceWrapper.swift */; };
 		84E66A0929A2483000EA7559 /* Financer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84E66A0029A2483000EA7559 /* Financer.xcdatamodeld */; };
 		84ED450E297BF58000706993 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED450D297BF58000706993 /* ImagePicker.swift */; };
-		84FD18F829F6C97C00724DAE /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84FD18F729F6C97C00724DAE /* WidgetKit.framework */; };
-		84FD18FA29F6C97C00724DAE /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84FD18F929F6C97C00724DAE /* SwiftUI.framework */; };
-		84FD18FD29F6C97C00724DAE /* Chart_OverviewBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FD18FC29F6C97C00724DAE /* Chart_OverviewBundle.swift */; };
-		84FD18FF29F6C97C00724DAE /* Chart_Overview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FD18FE29F6C97C00724DAE /* Chart_Overview.swift */; };
-		84FD190229F6C97D00724DAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84FD190129F6C97D00724DAE /* Assets.xcassets */; };
-		84FD190429F6C97D00724DAE /* Chart_Overview.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 84FD190029F6C97C00724DAE /* Chart_Overview.intentdefinition */; };
-		84FD190529F6C97D00724DAE /* Chart_Overview.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 84FD190029F6C97C00724DAE /* Chart_Overview.intentdefinition */; };
 		84FD190829F6C97D00724DAE /* Chart OverviewExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 84FD18F529F6C97C00724DAE /* Chart OverviewExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
@@ -117,13 +110,6 @@
 		84E66A0129A2483000EA7559 /* Financer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Financer.xcdatamodel; sourceTree = "<group>"; };
 		84ED450D297BF58000706993 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		84FD18F529F6C97C00724DAE /* Chart OverviewExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Chart OverviewExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		84FD18F729F6C97C00724DAE /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
-		84FD18F929F6C97C00724DAE /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		84FD18FC29F6C97C00724DAE /* Chart_OverviewBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chart_OverviewBundle.swift; sourceTree = "<group>"; };
-		84FD18FE29F6C97C00724DAE /* Chart_Overview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chart_Overview.swift; sourceTree = "<group>"; };
-		84FD190029F6C97C00724DAE /* Chart_Overview.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Chart_Overview.intentdefinition; sourceTree = "<group>"; };
-		84FD190129F6C97D00724DAE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		84FD190329F6C97D00724DAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,8 +124,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84FD18FA29F6C97C00724DAE /* SwiftUI.framework in Frameworks */,
-				84FD18F829F6C97C00724DAE /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,8 +134,6 @@
 			isa = PBXGroup;
 			children = (
 				3FCD27192952E3CA00ECD3C2 /* Financer */,
-				84FD18FB29F6C97C00724DAE /* Chart Overview */,
-				84FD18F629F6C97C00724DAE /* Frameworks */,
 				3FCD27182952E3CA00ECD3C2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -388,27 +370,6 @@
 			path = Wrappers;
 			sourceTree = "<group>";
 		};
-		84FD18F629F6C97C00724DAE /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				84FD18F729F6C97C00724DAE /* WidgetKit.framework */,
-				84FD18F929F6C97C00724DAE /* SwiftUI.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		84FD18FB29F6C97C00724DAE /* Chart Overview */ = {
-			isa = PBXGroup;
-			children = (
-				84FD18FC29F6C97C00724DAE /* Chart_OverviewBundle.swift */,
-				84FD18FE29F6C97C00724DAE /* Chart_Overview.swift */,
-				84FD190029F6C97C00724DAE /* Chart_Overview.intentdefinition */,
-				84FD190129F6C97D00724DAE /* Assets.xcassets */,
-				84FD190329F6C97D00724DAE /* Info.plist */,
-			);
-			path = "Chart Overview";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -500,7 +461,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84FD190229F6C97D00724DAE /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -527,7 +487,6 @@
 				845FFFD7296186620053E9F5 /* LegalPersonEditor.swift in Sources */,
 				848A44AF29642897002AC782 /* SettingsBundleHelper.swift in Sources */,
 				8423582B296994000055904A /* UserEditor.swift in Sources */,
-				84FD190529F6C97D00724DAE /* Chart_Overview.intentdefinition in Sources */,
 				84BF3C8129E9442B006BE657 /* UserInformation.swift in Sources */,
 				3FC79A182954343000808FF2 /* FinanceDetails.swift in Sources */,
 				84235820296981F00055904A /* UserDetails.swift in Sources */,
@@ -552,9 +511,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84FD190429F6C97D00724DAE /* Chart_Overview.intentdefinition in Sources */,
-				84FD18FD29F6C97C00724DAE /* Chart_OverviewBundle.swift in Sources */,
-				84FD18FF29F6C97C00724DAE /* Chart_Overview.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -686,7 +642,6 @@
 		3FCD27422952E3CB00ECD3C2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = MainAppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
@@ -722,7 +677,6 @@
 		3FCD27432952E3CB00ECD3C2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = MainAppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
