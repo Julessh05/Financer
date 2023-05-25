@@ -43,18 +43,7 @@
 		84E66A0829A2483000EA7559 /* FinanceWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E669FF29A2483000EA7559 /* FinanceWrapper.swift */; };
 		84E66A0929A2483000EA7559 /* Financer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84E66A0029A2483000EA7559 /* Financer.xcdatamodeld */; };
 		84ED450E297BF58000706993 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED450D297BF58000706993 /* ImagePicker.swift */; };
-		84FD190829F6C97D00724DAE /* Chart OverviewExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 84FD18F529F6C97C00724DAE /* Chart OverviewExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		84FD190629F6C97D00724DAE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3FCD270F2952E3CA00ECD3C2 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 84FD18F429F6C97C00724DAE;
-			remoteInfo = "Chart OverviewExtension";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		840D3AF229BB1941007C8B0A /* Embed Foundation Extensions */ = {
@@ -63,7 +52,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				84FD190829F6C97D00724DAE /* Chart OverviewExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -109,18 +97,10 @@
 		84E669FF29A2483000EA7559 /* FinanceWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinanceWrapper.swift; sourceTree = "<group>"; };
 		84E66A0129A2483000EA7559 /* Financer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Financer.xcdatamodel; sourceTree = "<group>"; };
 		84ED450D297BF58000706993 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
-		84FD18F529F6C97C00724DAE /* Chart OverviewExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Chart OverviewExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		3FCD27142952E3CA00ECD3C2 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		84FD18F229F6C97C00724DAE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -142,7 +122,6 @@
 			isa = PBXGroup;
 			children = (
 				3FCD27172952E3CA00ECD3C2 /* Financer.app */,
-				84FD18F529F6C97C00724DAE /* Chart OverviewExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -385,29 +364,11 @@
 			buildRules = (
 			);
 			dependencies = (
-				84FD190729F6C97D00724DAE /* PBXTargetDependency */,
 			);
 			name = Financer;
 			productName = Financer;
 			productReference = 3FCD27172952E3CA00ECD3C2 /* Financer.app */;
 			productType = "com.apple.product-type.application";
-		};
-		84FD18F429F6C97C00724DAE /* Chart OverviewExtension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 84FD190B29F6C97D00724DAE /* Build configuration list for PBXNativeTarget "Chart OverviewExtension" */;
-			buildPhases = (
-				84FD18F129F6C97C00724DAE /* Sources */,
-				84FD18F229F6C97C00724DAE /* Frameworks */,
-				84FD18F329F6C97C00724DAE /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Chart OverviewExtension";
-			productName = "Chart OverviewExtension";
-			productReference = 84FD18F529F6C97C00724DAE /* Chart OverviewExtension.appex */;
-			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -421,9 +382,6 @@
 				TargetAttributes = {
 					3FCD27162952E3CA00ECD3C2 = {
 						CreatedOnToolsVersion = 14.2;
-					};
-					84FD18F429F6C97C00724DAE = {
-						CreatedOnToolsVersion = 14.3;
 					};
 				};
 			};
@@ -441,7 +399,6 @@
 			projectRoot = "";
 			targets = (
 				3FCD27162952E3CA00ECD3C2 /* Financer */,
-				84FD18F429F6C97C00724DAE /* Chart OverviewExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -454,13 +411,6 @@
 				3FCD27222952E3CB00ECD3C2 /* Preview Assets.xcassets in Resources */,
 				848A44AC29639713002AC782 /* Settings.bundle in Resources */,
 				3FCD271F2952E3CB00ECD3C2 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		84FD18F329F6C97C00724DAE /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,22 +457,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		84FD18F129F6C97C00724DAE /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		84FD190729F6C97D00724DAE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 84FD18F429F6C97C00724DAE /* Chart OverviewExtension */;
-			targetProxy = 84FD190629F6C97D00724DAE /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		3FCD273F2952E3CB00ECD3C2 /* Debug */ = {
@@ -709,60 +644,6 @@
 			};
 			name = Release;
 		};
-		84FD190929F6C97D00724DAE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Q87UDX5898;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Chart Overview/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Chart Overview";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.4;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jules.Financer.Chart-Overview";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		84FD190A29F6C97D00724DAE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Q87UDX5898;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Chart Overview/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Chart Overview";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.4;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jules.Financer.Chart-Overview";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -780,15 +661,6 @@
 			buildConfigurations = (
 				3FCD27422952E3CB00ECD3C2 /* Debug */,
 				3FCD27432952E3CB00ECD3C2 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		84FD190B29F6C97D00724DAE /* Build configuration list for PBXNativeTarget "Chart OverviewExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				84FD190929F6C97D00724DAE /* Debug */,
-				84FD190A29F6C97D00724DAE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
