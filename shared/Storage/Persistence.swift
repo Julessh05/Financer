@@ -142,14 +142,6 @@ internal struct PersistenceController {
         try container.viewContext.save()
     }
     
-    internal func checkFinanceDeletion(finance : Finance) -> Void {
-        if finance.isPeriodical {
-            
-        } else {
-            
-        }
-    }
-    
     /// Deletes the specified Finance, if necessary all connected Finances
     /// and saves it to the System.
     internal func deleteFinance(
