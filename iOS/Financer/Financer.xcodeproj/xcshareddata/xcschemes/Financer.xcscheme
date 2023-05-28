@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1420"
+   LastUpgradeVersion = "1430"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -28,7 +28,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3FCD272C2952E3CB00ECD3C2"
+               BlueprintIdentifier = "84E2EF6829F849DB00F74E16"
                BuildableName = "FinancerTests.xctest"
                BlueprintName = "FinancerTests"
                ReferencedContainer = "container:Financer.xcodeproj">
@@ -42,7 +42,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3FCD27362952E3CB00ECD3C2"
+               BlueprintIdentifier = "84FA2D9E2A0FB7D8005CE251"
                BuildableName = "FinancerUITests.xctest"
                BlueprintName = "FinancerUITests"
                ReferencedContainer = "container:Financer.xcodeproj">

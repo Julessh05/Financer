@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
+  <file original="Financer/en.lproj/InfoPlist.strings" source-language="en" target-language="en" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="14.3" build-num="14E222b"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleDisplayName" xml:space="preserve">
+        <source>Financer</source>
+        <target>Financer</target>
+        <note>Bundle display name</note>
+      </trans-unit>
+      <trans-unit id="CFBundleName" xml:space="preserve">
+        <source>Financer</source>
+        <target>Financer</target>
+        <note>Bundle name</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="Financer/en.lproj/Localizable.strings" source-language="en" target-language="en" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="14.3" build-num="14E222b"/>
+    </header>
+    <body>
+      <trans-unit id="%@ Details" xml:space="preserve">
+        <source>%@ Details</source>
+        <target>%@ Details</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Add %@" xml:space="preserve">
+        <source>Add %@</source>
+        <target>Add %@</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Add Finance" xml:space="preserve">
+        <source>Add Finance</source>
+        <target>Add Finance</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Add Legal Person" xml:space="preserve">
+        <source>Add Legal Person</source>
+        <target>Add Legal Person</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Add one" xml:space="preserve">
+        <source>Add one</source>
+        <target>Add one</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Amount" xml:space="preserve">
+        <source>Amount</source>
+        <target>Amount</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="App Related" xml:space="preserve">
+        <source>App Related</source>
+        <target>App Related</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="App Relation Information about the User" xml:space="preserve">
+        <source>App Relation Information about the User</source>
+        <target>App Relation Information about the User</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Are you sure?" xml:space="preserve">
+        <source>Are you sure?</source>
+        <target>Are you sure?</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="At" xml:space="preserve">
+        <source>At</source>
+        <target>At</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Balance" xml:space="preserve">
+        <source>Balance</source>
+        <target>Balance</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Cancel" xml:space="preserve">
+        <source>Cancel</source>
+        <target>Cancel</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Charts" xml:space="preserve">
+        <source>Charts</source>
+        <target>Charts</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Charts will appear when Data are entered." xml:space="preserve">
+        <source>Charts will appear when Data are entered.</source>
+        <target>Charts will appear when Data are entered.</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Company" xml:space="preserve">
+        <source>Company</source>
+        <target>Company</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Congratulations!🎉" xml:space="preserve">
+        <source>Congratulations!🎉</source>
+        <target>Congratulations!🎉</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Contains all the Finances you ever added to the App" xml:space="preserve">
+        <source>Contains all the Finances you ever added to the App</source>
+        <target>Contains all the Finances you ever added to the App</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Create Account" xml:space="preserve">
+        <source>Create Account</source>
+        <target>Create Account</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Data Storage" xml:space="preserve">
+        <source>Data Storage</source>
+        <target>Data Storage</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Data deletion" xml:space="preserve">
+        <source>Data deletion</source>
+        <target>Data deletion</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Date" xml:space="preserve">
+        <source>Date</source>
+        <target>Date</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Date of Birth" xml:space="preserve">
+        <source>Date of Birth</source>
+        <target>Date of Birth</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Delete" xml:space="preserve">
+        <source>Delete</source>
+        <target>Delete</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Delete Account" xml:space="preserve">
+        <source>Delete Account</source>
+        <target>Delete Account</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Deleting this Legal Person will also delete all the connected Finances" xml:space="preserve">
+        <source>Deleting this Legal Person will also delete all the connected Finances</source>
+        <target>Deleting this Legal Person will also delete all the connected Finances</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Done" xml:space="preserve">
+        <source>Done</source>
+        <target>Done</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Edit %@" xml:space="preserve">
+        <source>Edit %@</source>
+        <target>Edit %@</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Edit User" xml:space="preserve">
+        <source>Edit User</source>
+        <target>Edit User</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Error" xml:space="preserve">
+        <source>Error</source>
+        <target>Error</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Error initializing" xml:space="preserve">
+        <source>Error initializing</source>
+        <target>Error initializing</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Error processing Data&#10;Please restard the App&#10;&#10;If this Error occurs again, please contact the support." xml:space="preserve">
+        <source>Error processing Data
+Please restard the App
+
+If this Error occurs again, please contact the support.</source>
+        <target>Error processing Data
+Please restard the App
+
+If this Error occurs again, please contact the support.</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Error saving Data.&#10;Please try again&#10;&#10;If this Error occurs again, please contact the support." xml:space="preserve">
+        <source>Error saving Data.
+Please try again
+
+If this Error occurs again, please contact the support.</source>
+        <target>Error saving Data.
+Please try again
+
+If this Error occurs again, please contact the support.</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="False Data" xml:space="preserve">
+        <source>False Data</source>
+        <target>False Data</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Finances" xml:space="preserve">
+        <source>Finances</source>
+        <target>Finances</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Firstname" xml:space="preserve">
+        <source>Firstname</source>
+        <target>Firstname</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="From" xml:space="preserve">
+        <source>From</source>
+        <target>From</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Gender" xml:space="preserve">
+        <source>Gender</source>
+        <target>Gender</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="General" xml:space="preserve">
+        <source>General</source>
+        <target>General</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="General Information about the User" xml:space="preserve">
+        <source>General Information about the User</source>
+        <target>General Information about the User</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="General Values" xml:space="preserve">
+        <source>General Values</source>
+        <target>General Values</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Homepage" xml:space="preserve">
+        <source>Homepage</source>
+        <target>Homepage</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="If you enables iCloud Sync, it will be synced to your iCloud securely" xml:space="preserve">
+        <source>If you enables iCloud Sync, it will be synced to your iCloud securely</source>
+        <target>If you enables iCloud Sync, it will be synced to your iCloud securely</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="If you log out of your user account, the data will automatically be deleted, because it's not really a user account, but rather a represent for a user" xml:space="preserve">
+        <source>If you log out of your user account, the data will automatically be deleted, because it's not really a user account, but rather a represent for a user</source>
+        <target>If you log out of your user account, the data will automatically be deleted, because it's not really a user account, but rather a represent for a user</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="If you want to customize these Data, you can do so here." xml:space="preserve">
+        <source>If you want to customize these Data, you can do so here.</source>
+        <target>If you want to customize these Data, you can do so here.</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Information" xml:space="preserve">
+        <source>Information</source>
+        <target>Information</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="It's required to enter these Information." xml:space="preserve">
+        <source>It's required to enter these Information.</source>
+        <target>It's required to enter these Information.</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Lastname" xml:space="preserve">
+        <source>Lastname</source>
+        <target>Lastname</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Log In" xml:space="preserve">
+        <source>Log In</source>
+        <target>Log In</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Missing Data" xml:space="preserve">
+        <source>Missing Data</source>
+        <target>Missing Data</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="More Information" xml:space="preserve">
+        <source>More Information</source>
+        <target>More Information</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Name" xml:space="preserve">
+        <source>Name</source>
+        <target>Name</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="No %@ found" xml:space="preserve">
+        <source>No %@ found</source>
+        <target>No %@ found</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="No Finances added yet." xml:space="preserve">
+        <source>No Finances added yet.</source>
+        <target>No Finances added yet.</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="No URL given" xml:space="preserve">
+        <source>No URL given</source>
+        <target>No URL given</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Notes" xml:space="preserve">
+        <source>Notes</source>
+        <target>Notes</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="On" xml:space="preserve">
+        <source>On</source>
+        <target>On</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Optional" xml:space="preserve">
+        <source>Optional</source>
+        <target>Optional</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Optional Data" xml:space="preserve">
+        <source>Optional Data</source>
+        <target>Optional Data</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Organization" xml:space="preserve">
+        <source>Organization</source>
+        <target>Organization</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Otherwise these Data will be inserted automatically." xml:space="preserve">
+        <source>Otherwise these Data will be inserted automatically.</source>
+        <target>Otherwise these Data will be inserted automatically.</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Payment Period" xml:space="preserve">
+        <source>Payment Period</source>
+        <target>Payment Period</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Periodical Payment" xml:space="preserve">
+        <source>Periodical Payment</source>
+        <target>Periodical Payment</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Person" xml:space="preserve">
+        <source>Person</source>
+        <target>Person</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Phone" xml:space="preserve">
+        <source>Phone</source>
+        <target>Phone</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Picker" xml:space="preserve">
+        <source>Picker</source>
+        <target>Picker</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Please do only enter numbers into the amount field" xml:space="preserve">
+        <source>Please do only enter numbers into the amount field</source>
+        <target>Please do only enter numbers into the amount field</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Please enter all required Data before you continue" xml:space="preserve">
+        <source>Please enter all required Data before you continue</source>
+        <target>Please enter all required Data before you continue</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Relations" xml:space="preserve">
+        <source>Relations</source>
+        <target>Relations</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Represents all relations this Finance has." xml:space="preserve">
+        <source>Represents all relations this Finance has.</source>
+        <target>Represents all relations this Finance has.</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Required" xml:space="preserve">
+        <source>Required</source>
+        <target>Required</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Required Information" xml:space="preserve">
+        <source>Required Information</source>
+        <target>Required Information</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Save" xml:space="preserve">
+        <source>Save</source>
+        <target>Save</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="The Data of your User account are stored locally" xml:space="preserve">
+        <source>The Data of your User account are stored locally</source>
+        <target>The Data of your User account are stored locally</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="There was an Error when initializing this App" xml:space="preserve">
+        <source>There was an Error when initializing this App</source>
+        <target>There was an Error when initializing this App</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="These Data are optional and you may have not added them." xml:space="preserve">
+        <source>These Data are optional and you may have not added them.</source>
+        <target>These Data are optional and you may have not added them.</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="These Data are required to log in" xml:space="preserve">
+        <source>These Data are required to log in</source>
+        <target>These Data are required to log in</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="These are the general Values for this %@" xml:space="preserve">
+        <source>These are the general Values for this %@</source>
+        <target>These are the general Values for this %@</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="This is a periodical Finance. &#10;Deleting it will also delete all connected periodical Finances" xml:space="preserve">
+        <source>This is a periodical Finance. 
+Deleting it will also delete all connected periodical Finances</source>
+        <target>This is a periodical Finance. 
+Deleting it will also delete all connected periodical Finances</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="To" xml:space="preserve">
+        <source>To</source>
+        <target>To</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Type" xml:space="preserve">
+        <source>Type</source>
+        <target>Type</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Use Date of Birth" xml:space="preserve">
+        <source>Use Date of Birth</source>
+        <target>Use Date of Birth</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="User Details" xml:space="preserve">
+        <source>User Details</source>
+        <target>User Details</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Welcome" xml:space="preserve">
+        <source>Welcome</source>
+        <target>Welcome</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="You don't have to enter these Data, they're optional" xml:space="preserve">
+        <source>You don't have to enter these Data, they're optional</source>
+        <target>You don't have to enter these Data, they're optional</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="You don't have to enter these Information, they're just optional to provide more Information about the Person." xml:space="preserve">
+        <source>You don't have to enter these Information, they're just optional to provide more Information about the Person.</source>
+        <target>You don't have to enter these Information, they're just optional to provide more Information about the Person.</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="You reached the End of the List of all Finances you ever added." xml:space="preserve">
+        <source>You reached the End of the List of all Finances you ever added.</source>
+        <target>You reached the End of the List of all Finances you ever added.</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="Financer/Settings.bundle/en.lproj/Root.strings" source-language="en" target-language="en" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="14.3" build-num="14E222b"/>
+    </header>
+    <body>
+      <trans-unit id="Enabled" xml:space="preserve">
+        <source>Enabled</source>
+        <target>Enabled</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Group" xml:space="preserve">
+        <source>Group</source>
+        <target>Group</target>
+        <note>A single strings file, whose title is specified in your preferences schema. The strings files provide the localized content to display to the user for each of your preferences.</note>
+      </trans-unit>
+      <trans-unit id="Name" xml:space="preserve">
+        <source>Name</source>
+        <target>Name</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="meta footer" xml:space="preserve">
+        <source>Build with 🖤 by Julian Schumacher
+© 2023 Julian Schumacher</source>
+        <target>Build with 🖤 by Julian Schumacher
+© 2023 Julian Schumacher</target>
+        <note>TODO: work on that</note>
+      </trans-unit>
+      <trans-unit id="none given" xml:space="preserve">
+        <source>none given</source>
+        <target>none given</target>
+        <note/>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
