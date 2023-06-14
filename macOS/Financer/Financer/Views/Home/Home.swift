@@ -58,7 +58,7 @@ internal struct Home: View {
             ForEach(finances) {
                 finance in
                 HStack {
-                    Text(String(finance.amount))
+                    Text(String(finance.fullAmount))
                     Text(finance.legalPerson!.name!)
                 }
             }
