@@ -26,6 +26,7 @@
       </trans-unit>
       <trans-unit id="Add %@" xml:space="preserve">
         <source>Add %@</source>
+        <target>Füge %@ hinzu</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Add Finance" xml:space="preserve">
@@ -50,11 +51,12 @@
       </trans-unit>
       <trans-unit id="App Related" xml:space="preserve">
         <source>App Related</source>
-        <target/>
+        <target>App bezogen</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="App Relation Information about the User" xml:space="preserve">
         <source>App Relation Information about the User</source>
+        <target>Auf die App bezogenen Information über den Nutzer</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Are you sure?" xml:space="preserve">
@@ -284,6 +286,7 @@ Wenn dieser Fehler weiterhin auftritt, kontaktiere bitten den Support.</target>
       </trans-unit>
       <trans-unit id="No %@ found" xml:space="preserve">
         <source>No %@ found</source>
+        <target>Kein %@ gefunden</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="No Finances added yet." xml:space="preserve">
@@ -397,10 +400,12 @@ Wenn dieser Fehler weiterhin auftritt, kontaktiere bitten den Support.</target>
       </trans-unit>
       <trans-unit id="These Data are optional and you may have not added them." xml:space="preserve">
         <source>These Data are optional and you may have not added them.</source>
+        <target>Diese Daten sind optional, du hast sie eventuell nicht hinzugefügt</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="These Data are required to log in" xml:space="preserve">
         <source>These Data are required to log in</source>
+        <target>Diese Daten sind notwendig um dich anzumelden</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="These are the general Values for this %@" xml:space="preserve">
@@ -411,6 +416,8 @@ Wenn dieser Fehler weiterhin auftritt, kontaktiere bitten den Support.</target>
       <trans-unit id="This is a periodical Finance. &#10;Deleting it will also delete all connected periodical Finances" xml:space="preserve">
         <source>This is a periodical Finance. 
 Deleting it will also delete all connected periodical Finances</source>
+        <target>Das ist eine periodisch wiederkehrende Finanz.
+Sie zu löschen wird auch alle verbundenen periodischen Finanzen löschen.</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="To" xml:space="preserve">
@@ -445,10 +452,12 @@ Deleting it will also delete all connected periodical Finances</source>
       </trans-unit>
       <trans-unit id="You don't have to enter these Information, they're just optional to provide more Information about the Person." xml:space="preserve">
         <source>You don't have to enter these Information, they're just optional to provide more Information about the Person.</source>
+        <target>Du musst diese Informationen nicht eingeben, sie sind optional und geben mehr Informationen über die Person</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="You reached the End of the List of all Finances you ever added." xml:space="preserve">
         <source>You reached the End of the List of all Finances you ever added.</source>
+        <target>Du hast die Liste aller Finanzen, die du in die App hinzugefügt hast, erreicht.</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
     </body>
@@ -460,6 +469,7 @@ Deleting it will also delete all connected periodical Finances</source>
     <body>
       <trans-unit id="Enabled" xml:space="preserve">
         <source>Enabled</source>
+        <target>Aktiviert</target>
         <note/>
       </trans-unit>
       <trans-unit id="Group" xml:space="preserve">
@@ -473,10 +483,13 @@ Deleting it will also delete all connected periodical Finances</source>
       <trans-unit id="meta footer" xml:space="preserve">
         <source>Build with 🖤 by Julian Schumacher
 © 2023 Julian Schumacher</source>
+        <target>Entwickelt mit 🖤 von Julian Schumacher
+@ 2023 Julian Schumacher</target>
         <note>TODO: work on that</note>
       </trans-unit>
       <trans-unit id="none given" xml:space="preserve">
         <source>none given</source>
+        <target>nicht gesetzt</target>
         <note/>
       </trans-unit>
     </body>

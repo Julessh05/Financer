@@ -48,8 +48,8 @@ internal struct HomeInit: View {
                         selectedFinance = nil
                     }
                 }
-    
             }
+            .listStyle(.sidebar)
         } detail: {
             Home()
                 .toolbarRole(.automatic)
