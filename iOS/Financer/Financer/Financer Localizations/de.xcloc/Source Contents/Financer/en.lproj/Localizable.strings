@@ -1,0 +1,258 @@
+/* No comment provided by engineer. */
+"%@ Details" = "%@ Details";
+
+/* No comment provided by engineer. */
+"Add %@" = "Add %@";
+
+/* No comment provided by engineer. */
+"Add Finance" = "Add Finance";
+
+/* No comment provided by engineer. */
+"Add Legal Person" = "Add Legal Person";
+
+/* No comment provided by engineer. */
+"Add one" = "Add one";
+
+/* No comment provided by engineer. */
+"Amount" = "Amount";
+
+/* No comment provided by engineer. */
+"App Related" = "App Related";
+
+/* No comment provided by engineer. */
+"App Relation Information about the User" = "App Relation Information about the User";
+
+/* No comment provided by engineer. */
+"Are you sure?" = "Are you sure?";
+
+/* No comment provided by engineer. */
+"At" = "At";
+
+/* No comment provided by engineer. */
+"Balance" = "Balance";
+
+/* No comment provided by engineer. */
+"Cancel" = "Cancel";
+
+/* No comment provided by engineer. */
+"Charts" = "Charts";
+
+/* No comment provided by engineer. */
+"Charts will appear when Data are entered." = "Charts will appear when Data are entered.";
+
+/* No comment provided by engineer. */
+"Company" = "Company";
+
+/* No comment provided by engineer. */
+"Congratulations!🎉" = "Congratulations!🎉";
+
+/* No comment provided by engineer. */
+"Contains all the Finances you ever added to the App" = "Contains all the Finances you ever added to the App";
+
+/* No comment provided by engineer. */
+"Create Account" = "Create Account";
+
+/* No comment provided by engineer. */
+"Data deletion" = "Data deletion";
+
+/* No comment provided by engineer. */
+"Data Storage" = "Data Storage";
+
+/* No comment provided by engineer. */
+"Date" = "Date";
+
+/* No comment provided by engineer. */
+"Date of Birth" = "Date of Birth";
+
+/* No comment provided by engineer. */
+"Delete" = "Delete";
+
+/* No comment provided by engineer. */
+"Delete Account" = "Delete Account";
+
+/* No comment provided by engineer. */
+"Deleting this Legal Person will also delete all the connected Finances" = "Deleting this Legal Person will also delete all the connected Finances";
+
+/* No comment provided by engineer. */
+"Done" = "Done";
+
+/* No comment provided by engineer. */
+"Edit %@" = "Edit %@";
+
+/* No comment provided by engineer. */
+"Edit User" = "Edit User";
+
+/* No comment provided by engineer. */
+"Error" = "Error";
+
+/* No comment provided by engineer. */
+"Error initializing" = "Error initializing";
+
+/* No comment provided by engineer. */
+"Error processing Data\nPlease restard the App\n\nIf this Error occurs again, please contact the support." = "Error processing Data\nPlease restard the App\n\nIf this Error occurs again, please contact the support.";
+
+/* No comment provided by engineer. */
+"Error saving Data.\nPlease try again\n\nIf this Error occurs again, please contact the support." = "Error saving Data.\nPlease try again\n\nIf this Error occurs again, please contact the support.";
+
+/* No comment provided by engineer. */
+"False Data" = "False Data";
+
+/* No comment provided by engineer. */
+"Finances" = "Finances";
+
+/* No comment provided by engineer. */
+"Firstname" = "Firstname";
+
+/* No comment provided by engineer. */
+"From" = "From";
+
+/* No comment provided by engineer. */
+"Gender" = "Gender";
+
+/* No comment provided by engineer. */
+"General" = "General";
+
+/* No comment provided by engineer. */
+"General Information about the User" = "General Information about the User";
+
+/* No comment provided by engineer. */
+"General Values" = "General Values";
+
+/* No comment provided by engineer. */
+"Homepage" = "Homepage";
+
+/* No comment provided by engineer. */
+"If you enables iCloud Sync, it will be synced to your iCloud securely" = "If you enables iCloud Sync, it will be synced to your iCloud securely";
+
+/* No comment provided by engineer. */
+"If you log out of your user account, the data will automatically be deleted, because it's not really a user account, but rather a represent for a user" = "If you log out of your user account, the data will automatically be deleted, because it's not really a user account, but rather a represent for a user";
+
+/* No comment provided by engineer. */
+"If you want to customize these Data, you can do so here." = "If you want to customize these Data, you can do so here.";
+
+/* No comment provided by engineer. */
+"Information" = "Information";
+
+/* No comment provided by engineer. */
+"It's required to enter these Information." = "It's required to enter these Information.";
+
+/* No comment provided by engineer. */
+"Lastname" = "Lastname";
+
+/* No comment provided by engineer. */
+"Log In" = "Log In";
+
+/* No comment provided by engineer. */
+"Missing Data" = "Missing Data";
+
+/* No comment provided by engineer. */
+"More Information" = "More Information";
+
+/* No comment provided by engineer. */
+"Name" = "Name";
+
+/* No comment provided by engineer. */
+"No %@ found" = "No %@ found";
+
+/* No comment provided by engineer. */
+"No Finances added yet." = "No Finances added yet.";
+
+/* No comment provided by engineer. */
+"No URL given" = "No URL given";
+
+/* No comment provided by engineer. */
+"Notes" = "Notes";
+
+/* No comment provided by engineer. */
+"On" = "On";
+
+/* No comment provided by engineer. */
+"Optional" = "Optional";
+
+/* No comment provided by engineer. */
+"Optional Data" = "Optional Data";
+
+/* No comment provided by engineer. */
+"Organization" = "Organization";
+
+/* No comment provided by engineer. */
+"Otherwise these Data will be inserted automatically." = "Otherwise these Data will be inserted automatically.";
+
+/* No comment provided by engineer. */
+"Payment Period" = "Payment Period";
+
+/* No comment provided by engineer. */
+"Periodical Payment" = "Periodical Payment";
+
+/* No comment provided by engineer. */
+"Person" = "Person";
+
+/* No comment provided by engineer. */
+"Phone" = "Phone";
+
+/* No comment provided by engineer. */
+"Picker" = "Picker";
+
+/* No comment provided by engineer. */
+"Please do only enter numbers into the amount field" = "Please do only enter numbers into the amount field";
+
+/* No comment provided by engineer. */
+"Please enter all required Data before you continue" = "Please enter all required Data before you continue";
+
+/* No comment provided by engineer. */
+"Relations" = "Relations";
+
+/* No comment provided by engineer. */
+"Represents all relations this Finance has." = "Represents all relations this Finance has.";
+
+/* No comment provided by engineer. */
+"Required" = "Required";
+
+/* No comment provided by engineer. */
+"Required Information" = "Required Information";
+
+/* No comment provided by engineer. */
+"Save" = "Save";
+
+/* No comment provided by engineer. */
+"The Data of your User account are stored locally" = "The Data of your User account are stored locally";
+
+/* No comment provided by engineer. */
+"There was an Error when initializing this App" = "There was an Error when initializing this App";
+
+/* No comment provided by engineer. */
+"These are the general Values for this %@" = "These are the general Values for this %@";
+
+/* No comment provided by engineer. */
+"These Data are optional and you may have not added them." = "These Data are optional and you may have not added them.";
+
+/* No comment provided by engineer. */
+"These Data are required to log in" = "These Data are required to log in";
+
+/* No comment provided by engineer. */
+"This is a periodical Finance. \nDeleting it will also delete all connected periodical Finances" = "This is a periodical Finance. \nDeleting it will also delete all connected periodical Finances";
+
+/* No comment provided by engineer. */
+"To" = "To";
+
+/* No comment provided by engineer. */
+"Type" = "Type";
+
+/* No comment provided by engineer. */
+"Use Date of Birth" = "Use Date of Birth";
+
+/* No comment provided by engineer. */
+"User Details" = "User Details";
+
+/* No comment provided by engineer. */
+"Welcome" = "Welcome";
+
+/* No comment provided by engineer. */
+"You don't have to enter these Data, they're optional" = "You don't have to enter these Data, they're optional";
+
+/* No comment provided by engineer. */
+"You don't have to enter these Information, they're just optional to provide more Information about the Person." = "You don't have to enter these Information, they're just optional to provide more Information about the Person.";
+
+/* No comment provided by engineer. */
+"You reached the End of the List of all Finances you ever added." = "You reached the End of the List of all Finances you ever added.";
+

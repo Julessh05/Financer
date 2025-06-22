@@ -48,8 +48,8 @@ internal struct HomeInit: View {
                         selectedFinance = nil
                     }
                 }
-    
             }
+            .listStyle(.sidebar)
         } detail: {
             Home()
                 .toolbarRole(.automatic)
@@ -89,7 +89,8 @@ internal struct HomeInit: View {
             HStack {
                 Image(systemName: finance is Income ? "plus" : "minus")
                     .renderingMode(.original)
-                Text(String(finance.amount))
+                Text(String(Double(2)))
+                Text(String(finance.fullAmount))
                 Spacer()
             }
             .padding(5)

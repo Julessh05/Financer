@@ -57,7 +57,6 @@ internal struct HomeInit: View {
                     initUser()
                 }
                 .alert("Error initializing", isPresented: $errPresented) {
-                    // TODO: add action
                 } message: {
                     Text("There was an Error when initializing this App")
                 }

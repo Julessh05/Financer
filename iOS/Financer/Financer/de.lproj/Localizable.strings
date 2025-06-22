@@ -1,0 +1,222 @@
+/* No comment provided by engineer. */
+"Add Finance" = "Finanz hinzufügen";
+
+/* No comment provided by engineer. */
+"Add Legal Person" = "Rechtliche Person hinzufügen";
+
+/* No comment provided by engineer. */
+"Add one" = "Eines hinzufügen";
+
+/* No comment provided by engineer. */
+"Amount" = "Menge";
+
+/* No comment provided by engineer. */
+"App Related" = "";
+
+/* No comment provided by engineer. */
+"Are you sure?" = "Sicher?";
+
+/* No comment provided by engineer. */
+"At" = "Um";
+
+/* No comment provided by engineer. */
+"Balance" = "Kontostand";
+
+/* No comment provided by engineer. */
+"Cancel" = "Abbrechen";
+
+/* No comment provided by engineer. */
+"Charts" = "Diagramme";
+
+/* No comment provided by engineer. */
+"Charts will appear when Data are entered." = "Diagramme werden auftauchen, wenn Daten eingeben werden";
+
+/* No comment provided by engineer. */
+"Company" = "Unternehmen";
+
+/* No comment provided by engineer. */
+"Congratulations!🎉" = "Glückwunsch🎉";
+
+/* No comment provided by engineer. */
+"Contains all the Finances you ever added to the App" = "Enthält alle Finanzen die zu der App hinzugefügt wurden";
+
+/* No comment provided by engineer. */
+"Create Account" = "Account erstellen";
+
+/* No comment provided by engineer. */
+"Data deletion" = "Datenlöschung";
+
+/* No comment provided by engineer. */
+"Data Storage" = "Datenspeicherung";
+
+/* No comment provided by engineer. */
+"Date" = "Datum";
+
+/* No comment provided by engineer. */
+"Date of Birth" = "Geburtsdatum";
+
+/* No comment provided by engineer. */
+"Delete" = "Löschen";
+
+/* No comment provided by engineer. */
+"Delete Account" = "Account löschen";
+
+/* No comment provided by engineer. */
+"Deleting this Legal Person will also delete all the connected Finances" = "Diese rechtliche Person zu löschen wird auch alle damit verbundenen Finanzen löschen";
+
+/* No comment provided by engineer. */
+"Done" = "Fertig";
+
+/* No comment provided by engineer. */
+"Edit %@" = "%@ bearbeiten";
+
+/* No comment provided by engineer. */
+"Edit User" = "Nutzer bearbeiten";
+
+/* No comment provided by engineer. */
+"Error" = "Fehler";
+
+/* No comment provided by engineer. */
+"Error initializing" = "Fehler beim Initialisieren";
+
+/* No comment provided by engineer. */
+"Error processing Data\nPlease restard the App\n\nIf this Error occurs again, please contact the support." = "Fehler bei der Datenverarbeitung\nBitte starte die App neu\n\nWenn dieser Fehler weiterhin auftritt, kontaktiere bitten den Support.";
+
+/* No comment provided by engineer. */
+"Error saving Data.\nPlease try again\n\nIf this Error occurs again, please contact the support." = "Fehler beim Speichern.\nBitte versuche es erneut.\n\nWenn dieser Fehler weiterhin auftritt, kontaktiere bitten den Support.";
+
+/* No comment provided by engineer. */
+"False Data" = "Falsche Daten";
+
+/* No comment provided by engineer. */
+"Finances" = "Finanzen";
+
+/* No comment provided by engineer. */
+"Firstname" = "Vorname";
+
+/* No comment provided by engineer. */
+"From" = "Von";
+
+/* No comment provided by engineer. */
+"Gender" = "Geschlecht";
+
+/* No comment provided by engineer. */
+"General" = "Generell";
+
+/* No comment provided by engineer. */
+"General Information about the User" = "Generelle Information über den Nutzer";
+
+/* No comment provided by engineer. */
+"General Values" = "Generelle Werte";
+
+/* No comment provided by engineer. */
+"If you enables iCloud Sync, it will be synced to your iCloud securely" = "Wenn iCloud Sync aktiviert ist, wird es sicher zu iCloud synchronisiert";
+
+/* No comment provided by engineer. */
+"If you log out of your user account, the data will automatically be deleted, because it's not really a user account, but rather a represent for a user" = "Wenn du dich aus deinem Account ausloggst, werden die Daten automatisch gelöscht, da sie nur einen Nutzer repräsentieren und es nicht wirklich ein Nutzeraccount ist";
+
+/* No comment provided by engineer. */
+"If you want to customize these Data, you can do so here." = "Falls du diese Daten anpassen möchtest, kannst du dies hier tun";
+
+/* No comment provided by engineer. */
+"Information" = "";
+
+/* No comment provided by engineer. */
+"It's required to enter these Information." = "Diese Informationen müssen eingegeben werden";
+
+/* No comment provided by engineer. */
+"Lastname" = "Nachname";
+
+/* No comment provided by engineer. */
+"Log In" = "Einloggen";
+
+/* No comment provided by engineer. */
+"Missing Data" = "Fehlende Daten";
+
+/* No comment provided by engineer. */
+"More Information" = "Mehr Informationen";
+
+/* No comment provided by engineer. */
+"No Finances added yet." = "Noch keine Finanzen hinzugefügt";
+
+/* No comment provided by engineer. */
+"No URL given" = "Keine URL angegeben";
+
+/* No comment provided by engineer. */
+"Notes" = "Notizen";
+
+/* No comment provided by engineer. */
+"On" = "Am";
+
+/* No comment provided by engineer. */
+"Optional" = "";
+
+/* No comment provided by engineer. */
+"Optional Data" = "Optionale Daten";
+
+/* No comment provided by engineer. */
+"Organization" = "Organisation";
+
+/* No comment provided by engineer. */
+"Otherwise these Data will be inserted automatically." = "Ansonsten werden diese Daten automatisch ausgefüllt.";
+
+/* No comment provided by engineer. */
+"Payment Period" = "Zahlungsperiode";
+
+/* No comment provided by engineer. */
+"Periodical Payment" = "Periodische Zahlung";
+
+/* No comment provided by engineer. */
+"Phone" = "Telefon";
+
+/* No comment provided by engineer. */
+"Picker" = "Wähler";
+
+/* No comment provided by engineer. */
+"Please do only enter numbers into the amount field" = "Bitte gib nur Zahlen in das Menge-Feld ein";
+
+/* No comment provided by engineer. */
+"Please enter all required Data before you continue" = "Bitte gib alle erforderlichen Daten ein, bevor du fortfährst";
+
+/* No comment provided by engineer. */
+"Relations" = "Beziehungen";
+
+/* No comment provided by engineer. */
+"Represents all relations this Finance has." = "Repräsentiert alle Beziehungen dieser Finanz";
+
+/* No comment provided by engineer. */
+"Required" = "Erforderlich";
+
+/* No comment provided by engineer. */
+"Required Information" = "Erforderliche Informationen";
+
+/* No comment provided by engineer. */
+"Save" = "Speichern";
+
+/* No comment provided by engineer. */
+"The Data of your User account are stored locally" = "Die Daten des Nutzer Accounts werden lokal gespeichert";
+
+/* No comment provided by engineer. */
+"There was an Error when initializing this App" = "Es gab einen Fehler beim Initialisieren der App";
+
+/* No comment provided by engineer. */
+"These are the general Values for this %@" = "Dies sind generelle Daten für diese %@";
+
+/* No comment provided by engineer. */
+"To" = "An";
+
+/* No comment provided by engineer. */
+"Type" = "Typ";
+
+/* No comment provided by engineer. */
+"Use Date of Birth" = "Geburtstag benutzen";
+
+/* No comment provided by engineer. */
+"User Details" = "Nutzer Details";
+
+/* No comment provided by engineer. */
+"Welcome" = "Willkommen";
+
+/* No comment provided by engineer. */
+"You don't have to enter these Data, they're optional" = "Du musst diese Daten nicht eingeben, sie sind optional";
+
