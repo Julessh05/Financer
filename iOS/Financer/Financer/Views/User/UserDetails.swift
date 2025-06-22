@@ -58,7 +58,7 @@ internal struct UserDetails: View {
                             Text("General Information about the User")
                         }
                         Section {
-                            ListTile(name: NSLocalizedString("Current Balance", comment: ""), data: "\(user.balance)\(Locale.current.currencySymbol!)")
+                            ListTile(name: NSLocalizedString("Current Balance", comment: ""), data: "\(user.balance!)\(Locale.current.currencySymbol!)")
                         } header: {
                             Text("App Related")
                         } footer: {
